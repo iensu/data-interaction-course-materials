@@ -35,11 +35,18 @@ Node.JS was created 12 years ago by creating a system interface to Chrome’s [[
 #+end_src
 
 ** node.js vs the Browser
+In this section we are going to write a simple little node.js application. Start by creating a directory called ~hello-node~ and move into it. Now create a file called =index.js= and write the following piece of code:
 
-Show how to run a simple hello world app and explain the following:
+#+begin_src js
+  console.log("Hello node! \(>0<)/")
+#+end_src
+
+Now you can run your program with the command ~node index.js~ and you should see =Hello node! \(>0<)/= printed to your terminal. We have now run JavaScript outside of the browser and successfully printed text.
+
+A quick aside: naming the main file JavaScript file =index.js= is a convention and has no special meaning to node.js itself apart from it being loaded by default when importing a directory. We will have a look at what this means later, for now you can think of it as being analogous to naming the main page of a website =index.html= to avoid having to specify the full file path in the URL (link).
+
 No browser environment: no document or window global variables.
 Has instead the global and process global variables.
 Has built-in modules for file access (fs), http (http and https) etc.
 Uses the CommonJS module system by default (require and module.exports) rather than EcmaScript modules (import and export).
 Uses NPM (Node Package Manager) to install public packages
-Should always “use strict”, we’ll get into why later
