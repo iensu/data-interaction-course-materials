@@ -1,0 +1,45 @@
+#+title: Data Interaction Course Materials
+#+author: Jens Östlund
+
+This course aims to give you an understanding of back-end development and in it you will learn how to build an HTTP server in node.js and integrating it with a MongoDB database. The course will focus a lot on JavaScript and give you an understanding for how the language works so you will be able to solve issues in your code more readily.
+
+* Setting up your environment
+In order to follow along with this course you will want to have the following installed:
+
+- [[https://nodejs.org/en/][node.js]] v16 or higher
+- nom
+- An editor with proper JavaScript support (VSCode, Sublime, Vim, Emacs, ...)
+- [[https://git-scm.com/book/en/v2/Getting-Started-Installing-Git][Git]]
+
+You can check that you have all necessary command line tools by running the following commands in your terminal:
+
+#+begin_src shell
+  node --version
+  npm --version
+  git --version
+#+end_src
+
+* Introduction to node.js
+In short, node.js is JavaScript for servers and is now one of the most prevalent programming languages in the world. How come it quickly got so popular?
+
+- The same language across the stack (front-end and back-end)
+- Simplify the transition to full-stack for front-end developers
+- The asynchronous nature of JavaScript makes it great for easily building high performance HTTP servers
+
+In summary: familiarity and performance
+
+Node.JS was created 12 years ago by creating a system interface to Chrome’s [[https://en.wikipedia.org/wiki/V8_(JavaScript_engine)][V8 JavaScript engine]]. That means that Node.JS is running the same version of JavaScript as Chrome and other [[https://en.wikipedia.org/wiki/Chromium_(web_browser)][Chromium]]-based browsers such as Microsoft Edge, Brave etc. Which V8 version Node uses dictates what JavaScript features it supports. You can check the V8 version of your node.js installation by running the following command in a terminal:
+
+#+begin_src shell
+  node -p process.versions.v8
+#+end_src
+
+** node.js vs the Browser
+
+Show how to run a simple hello world app and explain the following:
+No browser environment: no document or window global variables.
+Has instead the global and process global variables.
+Has built-in modules for file access (fs), http (http and https) etc.
+Uses the CommonJS module system by default (require and module.exports) rather than EcmaScript modules (import and export).
+Uses NPM (Node Package Manager) to install public packages
+Should always “use strict”, we’ll get into why later
