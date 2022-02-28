@@ -28,25 +28,64 @@ In short, node.js is JavaScript for servers and is now one of the most prevalent
 
 In summary: familiarity and performance
 
-Node.JS was created 12 years ago by creating a system interface to Chrome’s [[https://en.wikipedia.org/wiki/V8_(JavaScript_engine)][V8 JavaScript engine]]. That means that Node.JS is running the same version of JavaScript as Chrome and other [[https://en.wikipedia.org/wiki/Chromium_(web_browser)][Chromium]]-based browsers such as Microsoft Edge, Brave etc. Which V8 version Node uses dictates what JavaScript features it supports. You can check the V8 version of your node.js installation by running the following command in a terminal:
+Node.JS was created 12 years ago by creating a system interface to Chrome’s [[https://en.wikipedia.org/wiki/V8_(JavaScript_engine)][V8 JavaScript engine]]. That means that Node.JS is running the same version of JavaScript as Chrome and other [[https://en.wikipedia.org/wiki/Chromium_(web_browser)][Chromium]]-based browsers such as Microsoft Edge, Brave etc. Which V8 version Node uses dictates what JavaScript features it supports. If you are curious you can check which exact version of V8 your node.js installation is using by running the following command in a terminal:
 
 #+begin_src shell
   node -p process.versions.v8
 #+end_src
 
 ** node.js vs the Browser
-In this section we are going to write a simple little node.js application. Start by creating a directory called ~hello-node~ and move into it. Now create a file called =index.js= and write the following piece of code:
+Moving JavaScript out of the browser and onto the server results in a few important differences:
 
++ There's no browser environment, that is you do not have access to the global ~window~ and ~document~ objects.
++ You instead have a global variable ~global~ which refers to the current runtime environment.
++ You have access to built-in modules for doing things like reading and writing files and networking etc.
++ You have support for two different module systems (/CommonJS/ and /JavaScript modules/).
++ You use NPM for managing third party dependencies.
+
+** Hello Node
+We are going to play around with node.js a bit. First create a new directory called ~hello-node~ and move into it. Now create a file called =index.js= and write the following piece of code:
+
+#+name: Writing to the terminal
 #+begin_src js
   console.log("Hello node! \(>0<)/")
 #+end_src
 
-Now you can run your program with the command ~node index.js~ and you should see =Hello node! \(>0<)/= printed to your terminal. We have now run JavaScript outside of the browser and successfully printed text.
+Now you can run your program with the command ~node index.js~ and you should see =Hello node! \(>0<)/= printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 
 A quick aside: naming the main file JavaScript file =index.js= is a convention and has no special meaning to node.js itself apart from it being loaded by default when importing a directory. We will have a look at what this means later, for now you can think of it as being analogous to naming the main page of a website =index.html= to avoid having to specify the full file path in the URL (link).
 
-No browser environment: no document or window global variables.
-Has instead the global and process global variables.
-Has built-in modules for file access (fs), http (http and https) etc.
-Uses the CommonJS module system by default (require and module.exports) rather than EcmaScript modules (import and export).
-Uses NPM (Node Package Manager) to install public packages
+*** Importing modules (CommonJS vs JavaScript modules)
+We can use node.js to play around with files but for that we need to import the built-in file system module ~fs~.
+
+#+name: Writing to files
+#+begin_src js
+  const fs = require("fs");
+
+  // We write a string to the file text.txt synchronously
+  fs.writeFileSync("test.txt", "Here's some text in a file!");
+
+  // And read the contents of it (also here synchronously!)
+  const contents = fs.readFileSync("test.txt").toString();
+
+  console.log(`File contents: ${contents}`);
+#+end_src
+
+In the above example we are using the default CommonJS style imports (~require~). In the examples in this course we are mainly going to use JavaScript modules (~import~, ~export~). You are free to use whichever style you are most comfortable with. If you want to use the ~import~ syntax you need to edit =package.json= and set the ~type~ property to ~module~ as in the example below. You can generate a =package.json= file by running ~npm init~ in the terminal and just accept all of the suggested default settings.
+
+#+name Add support for JavaScript modules by editing package.json
+#+begin_src json
+  {
+    "name": "hello-node",
+    "type": "module",
+    ...
+  }
+#+end_src
+
+Now you can use the ~import~ syntax instead:
+
+#+begin_src js
+  import fs from "fs"
+#+end_src
+
+*** Creating your own module
