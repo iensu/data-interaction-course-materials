@@ -6,3 +6,6 @@ node_modules
 
 # Ignore NPM log directory
 .log
+
+# Various files we don't want
+test.txt
