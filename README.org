@@ -132,7 +132,19 @@ There is /a lot/ to unpack here...
 ** Starting our server
 Run your program by executing ~node index.js~. The first thing you will notice is that your program never quits: you see the message =Server running at http://localhost:8080= but you don't get a new prompt. This is because your program is running a *server* which is meant to serve *responses* to *requests* from *clients* and your program needs to be kept alive and running to be able to do that.
 
-A client is whatever uses, or /consumes/, the API served by your server and can be anything from a web browser, website, another server or a command-line tool etc. For now, let's use our browser as the client and access the URL printed out by the program: http://localhost:8080. You should see an error message saying something like =Cannot GET /=, it means that we tried to =GET= something at the endpoint =/=. We'll get more into what =GET= actually means later when we talk about HTTP, but for now let's try changing the endpoint and go to http://localhost:8080/hello instead. Now you should instead see the expected message =Hello there!=. So what went wrong the first time? There are four pieces of information needed to interact with a server:
+A client is whatever uses, or /consumes/, the API served by your server and can be anything from a web browser, website, another server or a command-line tool etc. For now, let's use our browser as the client and access the URL printed out by the program: http://localhost:8080. You should see an error message saying something like =Cannot GET /=.
+
+#+caption: Accessing an unregistered endpoint results in an error message
+#+name: not-found
+[[./assets/cannot-get-slash.png]]
+
+This means that we tried to =GET= something at the endpoint =/=. We'll get more into what =GET= actually means later when we talk about HTTP, but for now let's try changing the endpoint and go to http://localhost:8080/hello instead. Now you should instead see the expected message =Hello there!=.
+
+#+caption: Successful call to our /hello endpoint
+#+name: hello-there
+[[./assets/hello-express-endpoint.png]]
+
+So what went wrong the first time? There are four pieces of information needed to interact with a server:
 
 - The *protocol* the server expects (=http=)
 - The *machine* the server is running on (our machine =localhost,= or =127.0.0.1= if we use its IP address). This is also called the *host*.
