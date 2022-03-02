@@ -147,7 +147,7 @@ This means that we tried to =GET= something at the endpoint =/=. We'll get more 
 So what went wrong the first time? There are four pieces of information needed to interact with a server:
 
 - The *protocol* the server expects (=http=)
-- The *machine* the server is running on (our machine =localhost,= or =127.0.0.1= if we use its IP address). This is also called the *host*.
+- The *machine* the server is running on (our machine =localhost= or =127.0.0.1= if we use its IP address). This is also called the *host*.
 - The *port* the server is listening on (=8080=)
 - The *endpoint* we want to consume (=/hello=)
 
