@@ -3,7 +3,7 @@
 
 This course aims to give you an understanding of back-end development and in it you will learn how to build an HTTP server in node.js and integrating it with a MongoDB database. The course will focus a lot on JavaScript and give you an understanding for how the language works so you will be able to solve issues in your code more readily.
 
-* Setting up your environment
+* Setting up your Environment
 In order to follow along with this course you will want to have the following installed:
 
 - [[https://nodejs.org/en/][node.js]] v16 or higher
@@ -89,3 +89,6 @@ Now you can use the ~import~ syntax instead:
 #+end_src
 
 *** TODO Creating your own module
+* Our First API
+* Deeper into Databases
+* JavaScript Deep-Dive
