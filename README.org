@@ -173,7 +173,7 @@ The reason is that the server process is already running and changes made to the
 If you now run ~node index.js~ again you will be able to access [[http://localhost:8080/another-page]].
 
 ** Live-reload and other tooling
-A workflow like the above is not only annoying but it can also lead to long troubleshooting sessions trying to figure out why something isn't working, when in the end you just had to restart the server. Thankfully there is an NPM package which helps us automate this workflow: =nodemon=. Since we only need it for development we install it as a development dependency:
+A workflow like the above is not only annoying but it can also lead to long troubleshooting sessions trying to figure out why something isn't working, when in the end you just had to restart the server. Thankfully there is an NPM package which helps us automate this workflow: [[https://nodemon.io/][nodemon]]. Since we only need it for development we install it as a development dependency:
 
 #+begin_src shell
   npm install --save-dev nodemon
@@ -193,5 +193,8 @@ Now we add a convenience script called ~dev~ in =package.json= to make it easy t
 #+end_src
 
 By running ~npm run dev~ your server will be started up and =nodemon= will watch your files for changes and restart the server when necessary.
+
+There is another tool I highly recommend you install and that is [[https://prettier.io/][prettier]]. This tool formats your code automatically and you should be able to make your editor run it every time you save. Here is a [[https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode][VSCode plugin]] and here is one for [[https://github.com/prettier/prettier-emacs][Emacs]].
+
 * Deeper into Databases
 * JavaScript Deep-Dive
