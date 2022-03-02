@@ -7,7 +7,28 @@ app.get("/hello", (req, res) => {
 });
 
 app.get("/another-page", (req, res) => {
-  res.send("Another page!").end();
+  res
+    .send(
+      `
+<html>
+<head>
+  <style>
+  body {
+    margin: 32px;
+    background: hotpink;
+    color: darkgreen;
+    font-family: arial;
+  }
+  </style>
+</head>
+<body>
+  <h1>Our beautiful page</h1>
+  <marquee>We're serving a string which is rendered as a web page!</marquee>
+</body>
+</html>
+`
+    )
+    .end();
 });
 
 const PORT = 8080;
