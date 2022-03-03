@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "prestart-db": "mkdir -p db",
-    "start-db": "mongod --dbpath db",
+    "prestart-db": "mkdir -p db-data",
+    "start-db": "mongod --dbpath ./db-data",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
