@@ -299,5 +299,10 @@ The page should load like before but the code looks a lot nicer without the inli
 
 A website made up from files like this is called a *static website*. This is how the whole web worked through-out the 90s and the beginning of the 00s until *Single Page Applications* (SPAs) became a thing. In this course we will assume you will write your website as a SPA (in React), so we won't be serving static pages. In addition, the above code is highly inefficient and is just for illustrative purposes. First we are reading the HTML file for every request even though the contents doesn't change, this will lead to a lot of file system access which impacts performance. Second, we send the page a single string all at once which also impacts performance. If you are interested in how to serve static web pages using Express you can have a look [[https://expressjs.com/en/starter/static-files.html][at this documentation]].
 
-* Deeper into Databases
+* Intro to MongoDB
+
+- Setting up free account on Atlas is a bit complicated.
+- Must pass application/json headers to Express
+- When should we talk about environment variables and configuration?
+- https://zellwk.com/blog/async-await-express/
 * JavaScript Deep-Dive
