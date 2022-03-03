@@ -13,11 +13,19 @@
     ] (system:
       let
         name = "data-interaction-course";
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+            "mongodb"
+          ];
+        };
       in
         {
           devShell = pkgs.mkShell {
-            nativeBuildInputs = with pkgs; [ nodejs-16_x ];
+            buildInputs = with pkgs; [
+              nodejs-16_x
+              mongodb-4_2
+            ];
 
             shellHook = ''
             echo "Dev shell for ${name}"
