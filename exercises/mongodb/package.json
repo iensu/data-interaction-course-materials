@@ -1,0 +1,24 @@
+{
+  "name": "mongodb-exercises",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "scripts": {
+    "prestart-db": "mkdir -p ./db-data",
+    "start-db": "mongod --dbpath ./db-data",
+    "poststart-db": "rm -rf ./db-data",
+    "test": "mocha --bail tests.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.1",
+    "prettier": "^2.5.1"
+  },
+  "dependencies": {
+    "csv-parse": "^5.0.4",
+    "mongodb": "^4.4.1"
+  }
+}

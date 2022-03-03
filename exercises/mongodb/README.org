@@ -1,0 +1,14 @@
+* MongoDB Exercises: Find the Digimons
+
+You are going to use your mad MongoDB skillz to find the lost Digimons in
+the data set. Can you collect them all??!
+
+Make all the tests pass by solving the exercises.
+
+*Preparations*
+1. Ensure you have MongoDB running on your computer.
+2. Make a copy of =exercists-template.js= called =exercises.js= in the same directory.
+3. Run ~npm install~
+4. Run ~npm test~
+
+Running the tests should populate your database with Digimon data in a database called =mongodb-exercises=. You can verify with MongoDB Compass or by other means.
