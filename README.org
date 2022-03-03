@@ -19,6 +19,25 @@ You can check that you have all necessary command line tools by running the foll
   git --version
 #+end_src
 
+** MongoDB
+Finally you will need to have access to [[https://docs.mongodb.com/manual/installation/][MongoDB]]. The company MongoDB is pushing really hard for you to use the free-tier of their cloud service Atlas. Unfortunately it requires you to create an account and forces you to go through a lot of settings and options. It's important that you choose the free tier, otherwise you can just use the defaults. If you don't like to go through the hassle of setting up an account you can either 1) install MongoDB locally following the instructions in link or 2) use [[https://hub.docker.com/_/mongo/][the Docker image]] if you are comfortable with Docker. Personally I installed it locally.
+
+MongoDB Compass offers a graphical interface to your database and often comes bundled when installing it locally. If you don't have it installed you can follow [[https://www.mongodb.com/try/download/compass][these instructions]].
+
+*** Installing and running MongoDB on MacOS
+As long as you have [[https://brew.sh/][Homebrew]] installed it's very easy to install both MongoDB and MongoDB Compass on your computer:
+
+#+begin_src shell
+  brew install mongodb
+  brew install mongodb-compass
+#+end_src
+
+Installing the =mongodb= package should give you two commands:
+- =mongo= for interacting with a MongoDB database.
+- =mongod= for starting a MongoDB database process (the final /d/ stands for /daemon/ and means a long-running process).
+
+You can start the database by simply running ~mongod~ in a terminal. You can shut it down by either closing the terminal window or by interrupting the process (hitting Ctrl-c).
+
 * Introduction to node.js
 In short, node.js is JavaScript for servers and is now one of the most prevalent programming languages in the world. How come it quickly got so popular?
 
