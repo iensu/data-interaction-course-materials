@@ -1,0 +1,23 @@
+# Requests
+
+## GET
+### 
+GET http://localhost:8080/get-what
+
+## POST
+
+### 
+POST http://localhost:8080/malone
+content-type: application/json
+
+{
+    "title": "big"
+}
+
+### 
+POST http://localhost:8080/malone
+content-type: application/json
+
+{
+    "title": "c"
+}
