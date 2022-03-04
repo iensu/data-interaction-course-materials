@@ -39,7 +39,7 @@ export async function populateDb(url, dbName, collectionName) {
     .toArray();
 
   if (collections.length > 0) {
-    await db.collection(collectionName).drop();
+    await db.collection(collectionName).deleteMany({});
   }
 
   await db.collection(collectionName).insertMany(cleanedData);

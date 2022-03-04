@@ -35,7 +35,9 @@
 
 const COLLECTION = "digimons";
 
-// EASIER
+//// FINDING DIGIMONS
+
+// Easier
 export const find_all_digimons = async (db) => {
   const result = await db.collection(COLLECTION).find({}).toArray();
 
@@ -54,7 +56,27 @@ export const find_bakemon = async (db) => {
   throw Error("Not implemented");
 };
 
-// INTERMEDIATE
+export const add_mongomon = async (db) => {
+  const mongomon = {
+    number: 250,
+    digimon: "Mongomon",
+    stage: "Ultimate",
+    type: "Data",
+    attribute: "Electric",
+    memory: 50,
+    equipSlots: 2,
+    lv50HP: 1000,
+    lv50SP: 60,
+    lv50Atk: 70,
+    lv50Def: 80,
+    lv50Int: 90,
+    lv50Spd: 100,
+  };
+
+  throw Error("Not implemented");
+};
+
+// Intermediate
 export const find_all_fire_champions = async (db) => {
   throw Error("Not implemented");
 };
@@ -67,7 +89,11 @@ export const find_all_free_wind_rookie_digimons = async (db) => {
   throw Error("Not implemented");
 };
 
-// HARDER
+export const increase_beelzemons_hp_with_320 = async (db) => {
+  throw Error("Not implemented");
+};
+
+// Harder
 export const find_the_digimon_with_the_strongest_attack = async (db) => {
   throw Error("Not implemented");
 };
@@ -81,5 +107,13 @@ export const find_digimons_number_196_to_200 = async (db) => {
 };
 
 export const find_all_digimons_with_name_beginning_with_F = async (db) => {
+  throw Error("Not implemented");
+};
+
+export const calculate_the_total_attack = async (db) => {
+  throw Error("Not implemented");
+};
+
+export const calculate_the_total_SP_for_all_dark_digimons = async (db) => {
   throw Error("Not implemented");
 };
