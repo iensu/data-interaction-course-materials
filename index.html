@@ -20,60 +20,54 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfc2a531">1. Setting up your Environment</a>
+<li><a href="#orgcc59074">1. Setting up your Environment</a>
 <ul>
-<li><a href="#org663a036">1.1. MongoDB</a>
+<li><a href="#org4a00ab8">1.1. MongoDB</a>
 <ul>
-<li><a href="#org9667cdf">1.1.1. Installing and running MongoDB on MacOS</a></li>
+<li><a href="#orga6aba7e">1.1.1. Installing and running MongoDB on MacOS</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgd77ce4f">2. Introduction to node.js</a>
+<li><a href="#org5cf8135">2. Introduction to node.js</a>
 <ul>
-<li><a href="#org1321a26">2.1. node.js vs the Browser</a></li>
-<li><a href="#org00b16d0">2.2. Hello Node</a>
+<li><a href="#orgf8483f2">2.1. node.js vs the Browser</a></li>
+<li><a href="#orgd29a07c">2.2. Hello Node</a>
 <ul>
-<li><a href="#orgd8607a5">2.2.1. Importing modules (CommonJS vs JavaScript modules)</a></li>
-<li><a href="#org387a4a1">2.2.2. <span class="todo TODO">TODO</span> Creating your own module</a></li>
+<li><a href="#org97de866">2.2.1. Importing modules (CommonJS vs JavaScript modules)</a></li>
+<li><a href="#orge7bcfa5">2.2.2. <span class="todo TODO">TODO</span> Creating your own module</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org72027ff">3. Our First API</a>
+<li><a href="#org9ddfe15">3. Our First API</a>
 <ul>
-<li><a href="#orgaef4de3">3.1. What is an API?</a></li>
-<li><a href="#orge509f80">3.2. Creating our API</a></li>
-<li><a href="#org64b6397">3.3. Starting our server</a></li>
-<li><a href="#org88affa2">3.4. Adding another endpoint</a>
+<li><a href="#org5f7bb45">3.1. What is an API?</a></li>
+<li><a href="#org9245c9b">3.2. Creating our API</a></li>
+<li><a href="#org73473e2">3.3. Starting our server</a></li>
+<li><a href="#orgba3663e">3.4. Adding another endpoint</a>
 <ul>
-<li><a href="#org8e360a9">3.4.1. Live-reload and other tooling</a></li>
+<li><a href="#org8bc4d0a">3.4.1. Live-reload and other tooling</a></li>
 </ul>
 </li>
-<li><a href="#org33796ac">3.5. Back to our endpoint</a></li>
+<li><a href="#org7b495fa">3.5. Back to our endpoint</a></li>
 </ul>
 </li>
-<li><a href="#org84ecd4d">4. Intro to MongoDB</a>
+<li><a href="#org3db705e">4. Intro to MongoDB</a>
 <ul>
-<li>
+<li><a href="#org3517fbd">4.1. Schemas</a></li>
+<li><a href="#org30c9b1f">4.2. Operations</a>
 <ul>
-<li><a href="#org4dd582e">4.0.1. Schemas</a></li>
-<li><a href="#org624782a">4.0.2. Inserting</a></li>
-<li><a href="#org7a3c197">4.0.3. Querying</a>
-<ul>
-<li><a href="#orgb410fa9">Operators</a></li>
-</ul>
-</li>
-<li><a href="#org90e4c8a">4.0.4. Sorting</a></li>
-<li><a href="#org63cd33d">4.0.5. Deleting</a></li>
-<li><a href="#org8fddeee">4.0.6. Updating</a></li>
-<li><a href="#org4dcc25d">4.0.7. Aggregating</a></li>
+<li><a href="#org3091df4">4.2.1. Inserting</a></li>
+<li><a href="#org4eb8bcc">4.2.2. Finding (Filtering or Querying)</a></li>
+<li><a href="#org6d75c0d">4.2.3. Deleting</a></li>
+<li><a href="#org00f8ca1">4.2.4. Updating</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org88e76db">5. <span class="todo TODO">TODO</span> JavaScript Deep-Dive</a></li>
-<li><a href="#org7fdbbfa">6. Resources and useful links</a></li>
+<li><a href="#org00e1ef6">5. <span class="todo TODO">TODO</span> JavaScript Deep-Dive</a></li>
+<li><a href="#org920f00a">6. Resources and useful links</a></li>
 </ul>
 </div>
 </nav>
@@ -81,8 +75,8 @@
 This course aims to give you an understanding of back-end development and in it you will learn how to build an HTTP server in node.js and integrating it with a MongoDB database. The course will focus a lot on JavaScript and give you an understanding for how the language works so you will be able to solve issues in your code more readily.
 </p>
 
-<div id="outline-container-orgfc2a531" class="outline-2">
-<h2 id="orgfc2a531"><span class="section-number-2">1</span> Setting up your Environment</h2>
+<div id="outline-container-orgcc59074" class="outline-2">
+<h2 id="orgcc59074"><span class="section-number-2">1</span> Setting up your Environment</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In order to follow along with this course you will want to have the following installed:
@@ -107,8 +101,8 @@ git --version
 </div>
 </div>
 
-<div id="outline-container-org663a036" class="outline-3">
-<h3 id="org663a036"><span class="section-number-3">1.1</span> MongoDB</h3>
+<div id="outline-container-org4a00ab8" class="outline-3">
+<h3 id="org4a00ab8"><span class="section-number-3">1.1</span> MongoDB</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Finally you will need to have access to <a href="https://docs.mongodb.com/manual/installation/">MongoDB</a>. The company MongoDB is pushing really hard for you to use the free-tier of their cloud service Atlas. Unfortunately it requires you to create an account and forces you to go through a lot of settings and options. It's important that you choose the free tier, otherwise you can just use the defaults. They will also apparently bombard you with marketing emails, so if you decide to create an account I recommend you use a throwaway email account.
@@ -123,8 +117,8 @@ MongoDB Compass offers a graphical interface to your database and often comes bu
 </p>
 </div>
 
-<div id="outline-container-org9667cdf" class="outline-4">
-<h4 id="org9667cdf"><span class="section-number-4">1.1.1</span> Installing and running MongoDB on MacOS</h4>
+<div id="outline-container-orga6aba7e" class="outline-4">
+<h4 id="orga6aba7e"><span class="section-number-4">1.1.1</span> Installing and running MongoDB on MacOS</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 As long as you have <a href="https://brew.sh/">Homebrew</a> installed it's very easy to install both MongoDB and MongoDB Compass on your computer:
@@ -152,8 +146,8 @@ You can start the database by simply running <code>mongod</code> in a terminal. 
 </div>
 </div>
 
-<div id="outline-container-orgd77ce4f" class="outline-2">
-<h2 id="orgd77ce4f"><span class="section-number-2">2</span> Introduction to node.js</h2>
+<div id="outline-container-org5cf8135" class="outline-2">
+<h2 id="org5cf8135"><span class="section-number-2">2</span> Introduction to node.js</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 In short, node.js is JavaScript for servers and is now one of the most prevalent programming languages in the world. How come it quickly got so popular?
@@ -179,8 +173,8 @@ Node.JS was created 12 years ago by creating a system interface to Chrome’s <a
 </div>
 </div>
 
-<div id="outline-container-org1321a26" class="outline-3">
-<h3 id="org1321a26"><span class="section-number-3">2.1</span> node.js vs the Browser</h3>
+<div id="outline-container-orgf8483f2" class="outline-3">
+<h3 id="orgf8483f2"><span class="section-number-3">2.1</span> node.js vs the Browser</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Moving JavaScript out of the browser and onto the server results in a few important differences:
@@ -196,8 +190,8 @@ Moving JavaScript out of the browser and onto the server results in a few import
 </div>
 </div>
 
-<div id="outline-container-org00b16d0" class="outline-3">
-<h3 id="org00b16d0"><span class="section-number-3">2.2</span> Hello Node</h3>
+<div id="outline-container-orgd29a07c" class="outline-3">
+<h3 id="orgd29a07c"><span class="section-number-3">2.2</span> Hello Node</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 We are going to play around with node.js a bit. First create a new directory called <code>hello-node</code> and move into it. Now create a file called <code>index.js</code> and write the following piece of code:
@@ -217,8 +211,8 @@ A quick aside: naming the main file JavaScript file <code>index.js</code> is a c
 </p>
 </div>
 
-<div id="outline-container-orgd8607a5" class="outline-4">
-<h4 id="orgd8607a5"><span class="section-number-4">2.2.1</span> Importing modules (CommonJS vs JavaScript modules)</h4>
+<div id="outline-container-org97de866" class="outline-4">
+<h4 id="org97de866"><span class="section-number-4">2.2.1</span> Importing modules (CommonJS vs JavaScript modules)</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 We can use node.js to play around with files but for that we need to import the built-in file system module <code>fs</code>.
@@ -261,17 +255,17 @@ Now you can use the <code>import</code> syntax instead:
 </div>
 </div>
 
-<div id="outline-container-org387a4a1" class="outline-4">
-<h4 id="org387a4a1"><span class="section-number-4">2.2.2</span> <span class="todo TODO">TODO</span> Creating your own module</h4>
+<div id="outline-container-orge7bcfa5" class="outline-4">
+<h4 id="orge7bcfa5"><span class="section-number-4">2.2.2</span> <span class="todo TODO">TODO</span> Creating your own module</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-org72027ff" class="outline-2">
-<h2 id="org72027ff"><span class="section-number-2">3</span> Our First API</h2>
+<div id="outline-container-org9ddfe15" class="outline-2">
+<h2 id="org9ddfe15"><span class="section-number-2">3</span> Our First API</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgaef4de3" class="outline-3">
-<h3 id="orgaef4de3"><span class="section-number-3">3.1</span> What is an API?</h3>
+<div id="outline-container-org5f7bb45" class="outline-3">
+<h3 id="org5f7bb45"><span class="section-number-3">3.1</span> What is an API?</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>An API is a set of exposed methods for interacting with a program or package.</li>
@@ -286,8 +280,8 @@ Often when we say API we actually mean an HTTP API to be specific, that is an AP
 </div>
 </div>
 
-<div id="outline-container-orge509f80" class="outline-3">
-<h3 id="orge509f80"><span class="section-number-3">3.2</span> Creating our API</h3>
+<div id="outline-container-org9245c9b" class="outline-3">
+<h3 id="org9245c9b"><span class="section-number-3">3.2</span> Creating our API</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Express is by far the most popular NPM package for creating HTTP APIs in node.js and has been around almost as long as the language itself. Start by creating a new directory called <code>hello-express</code> and initialize it using <code>npm init</code> (also don't forget to update <code>package.json</code> if you want to use JavaScript modules). Now let's install Express:
@@ -330,8 +324,8 @@ There is <i>a lot</i> to unpack here&#x2026;
 </div>
 </div>
 
-<div id="outline-container-org64b6397" class="outline-3">
-<h3 id="org64b6397"><span class="section-number-3">3.3</span> Starting our server</h3>
+<div id="outline-container-org73473e2" class="outline-3">
+<h3 id="org73473e2"><span class="section-number-3">3.3</span> Starting our server</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Run your program by executing <code>node index.js</code>. The first thing you will notice is that your program never quits: you see the message <code>Server running at http://localhost:8080</code> but you don't get a new prompt. This is because your program is running a <b>server</b> which is meant to serve <b>responses</b> to <b>requests</b> from <b>clients</b> and your program needs to be kept alive and running to be able to do that.
@@ -342,7 +336,7 @@ A client is whatever uses, or <i>consumes</i>, the API served by your server and
 </p>
 
 
-<figure id="org9e43724">
+<figure id="orge4b52a0">
 <img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>Accessing an unregistered endpoint results in an error message</figcaption>
@@ -353,7 +347,7 @@ This means that we tried to <code>GET</code> something at the endpoint <code>/</
 </p>
 
 
-<figure id="org392fe17">
+<figure id="org67b910a">
 <img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
 
 <figcaption><span class="figure-number">Figure 2: </span>Successful call to our /hello endpoint</figcaption>
@@ -376,8 +370,8 @@ A server only responds on the port it is listening on and only handles requests 
 </div>
 </div>
 
-<div id="outline-container-org88affa2" class="outline-3">
-<h3 id="org88affa2"><span class="section-number-3">3.4</span> Adding another endpoint</h3>
+<div id="outline-container-orgba3663e" class="outline-3">
+<h3 id="orgba3663e"><span class="section-number-3">3.4</span> Adding another endpoint</h3>
 <div class="outline-text-3" id="text-3-4">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 5: </span>Our next endpoint</label><pre class="src src-js"><span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
@@ -403,8 +397,8 @@ If you now run <code>node index.js</code> again you will be able to access <a hr
 </p>
 </div>
 
-<div id="outline-container-org8e360a9" class="outline-4">
-<h4 id="org8e360a9"><span class="section-number-4">3.4.1</span> Live-reload and other tooling</h4>
+<div id="outline-container-org8bc4d0a" class="outline-4">
+<h4 id="org8bc4d0a"><span class="section-number-4">3.4.1</span> Live-reload and other tooling</h4>
 <div class="outline-text-4" id="text-3-4-1">
 <p>
 A workflow like the above is not only annoying but it can also lead to long troubleshooting sessions trying to figure out why something isn't working, when in the end you just had to restart the server. Thankfully there is an NPM package which helps us automate this workflow: <a href="https://nodemon.io/">nodemon</a>. Since we only need it for development we install it as a development dependency:
@@ -442,8 +436,8 @@ There is another tool I highly recommend you install and that is <a href="https:
 </div>
 </div>
 
-<div id="outline-container-org33796ac" class="outline-3">
-<h3 id="org33796ac"><span class="section-number-3">3.5</span> Back to our endpoint</h3>
+<div id="outline-container-org7b495fa" class="outline-3">
+<h3 id="org7b495fa"><span class="section-number-3">3.5</span> Back to our endpoint</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 Let's make our new endpoint do something more interesting: let's see what happens if we serve a string which looks like HTML.
@@ -540,8 +534,8 @@ A website made up from files like this is called a <b>static website</b>. This i
 </div>
 </div>
 
-<div id="outline-container-org84ecd4d" class="outline-2">
-<h2 id="org84ecd4d"><span class="section-number-2">4</span> Intro to MongoDB</h2>
+<div id="outline-container-org3db705e" class="outline-2">
+<h2 id="org3db705e"><span class="section-number-2">4</span> Intro to MongoDB</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 MongoDB is a <a href="https://www.mongodb.com/document-databases">document (NoSQL) database</a> and has a few important characteristics which makes it a suitable as a first database:
@@ -566,9 +560,9 @@ A MongoDB system consists of one or several <b>databases</b>, which each can hav
 </p>
 </div>
 
-<div id="outline-container-org4dd582e" class="outline-4">
-<h4 id="org4dd582e"><span class="section-number-4">4.0.1</span> Schemas</h4>
-<div class="outline-text-4" id="text-4-0-1">
+<div id="outline-container-org3517fbd" class="outline-3">
+<h3 id="org3517fbd"><span class="section-number-3">4.1</span> Schemas</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
 The main selling point of MongoDB compared to relational (SQL) databases (MySQL, Postgres, &#x2026;) is the flexibility. In relational databases you have to define how your data is structured and the relationship between different kinds of data models. The structure of your data is called its schema or sometimes its data model and defines the properties it has and what data types these properties have. Here's a made-up example of how a schema might look like:
 </p>
@@ -592,7 +586,7 @@ In a <b>document database</b> schemas still exist, but they are just suggestions
 </p>
 
 
-<figure id="org9f9450c">
+<figure id="orge56ca21">
 <img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
 
 <figcaption><span class="figure-number">Figure 3: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
@@ -605,40 +599,220 @@ This flexibility is something to be mindful of and I recommend using MongoDB Com
 </div>
 </div>
 
-<div id="outline-container-org624782a" class="outline-4">
-<h4 id="org624782a"><span class="section-number-4">4.0.2</span> Inserting</h4>
+<div id="outline-container-org30c9b1f" class="outline-3">
+<h3 id="org30c9b1f"><span class="section-number-3">4.2</span> Operations</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Operations are ways of interacting with your database in the terms of data, the most general operations being:
+</p>
+
+<ul class="org-ul">
+<li><b>Create</b> data</li>
+<li><b>Read</b> data</li>
+<li><b>Update</b> data</li>
+<li><b>Delete</b> data</li>
+</ul>
+
+<p>
+These are often called CRUD operations for short.
+</p>
+
+<p>
+The following sections describes what the common CRUD operations are in MongoDB and examples assume that you have a connected <code>db</code> database instance available:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 9: </span>Prelude to the examples below</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">client</span> = mongodb.MongoClient(<span class="org-string">'mongodb://localhost:27017'</span>);
+<span class="org-keyword">await</span> client.connect();
+
+<span class="org-keyword">const</span> <span class="org-variable-name">db</span> = client.db(<span class="org-string">'tutorial-db'</span>);
+</pre>
 </div>
-<div id="outline-container-org7a3c197" class="outline-4">
-<h4 id="org7a3c197"><span class="section-number-4">4.0.3</span> Querying</h4>
-<div class="outline-text-4" id="text-4-0-3">
+
+<p>
+The code assumes that you have the <code>mongodb</code> package in scope and you are in an <code>async</code> context where you can use <code>async</code>.
+</p>
 </div>
-<div id="outline-container-orgb410fa9" class="outline-5">
-<h5 id="orgb410fa9">Operators</h5>
+
+<div id="outline-container-org3091df4" class="outline-4">
+<h4 id="org3091df4"><span class="section-number-4">4.2.1</span> Inserting</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+In MongoDB the act of creating data in a collection is called <b>inserting</b>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 10: </span>Inserting one document</label><pre class="src src-js"><span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).insertOne({
+  name: <span class="org-string">'JavaScript'</span>,
+  family: <span class="org-string">'C'</span>,
+  year: 1995
+});
+</pre>
 </div>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 11: </span>Inserting multiple documents</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">languages</span> = [{
+    name: <span class="org-string">'Haskell'</span>,
+    family: <span class="org-string">'ML'</span>,
+    year: 1990
+  }, {
+    name: <span class="org-string">'Rust'</span>,
+    family: <span class="org-string">'ML'</span>,
+    year: 2010,
+  }, {
+    name: <span class="org-string">'Java'</span>,
+    family: <span class="org-string">'C'</span>,
+    year: 1995,
+  }, {
+    name: <span class="org-string">'Common Lisp'</span>,
+    family: <span class="org-string">'Lisp'</span>,
+    year: 1984,
+  }];
+
+<span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).insertMany(languages)
+</pre>
 </div>
-<div id="outline-container-org90e4c8a" class="outline-4">
-<h4 id="org90e4c8a"><span class="section-number-4">4.0.4</span> Sorting</h4>
-</div>
-<div id="outline-container-org63cd33d" class="outline-4">
-<h4 id="org63cd33d"><span class="section-number-4">4.0.5</span> Deleting</h4>
-</div>
-<div id="outline-container-org8fddeee" class="outline-4">
-<h4 id="org8fddeee"><span class="section-number-4">4.0.6</span> Updating</h4>
-</div>
-<div id="outline-container-org4dcc25d" class="outline-4">
-<h4 id="org4dcc25d"><span class="section-number-4">4.0.7</span> Aggregating</h4>
 </div>
 </div>
 
-<div id="outline-container-org88e76db" class="outline-2">
-<h2 id="org88e76db"><span class="section-number-2">5</span> <span class="todo TODO">TODO</span> JavaScript Deep-Dive</h2>
+<div id="outline-container-org4eb8bcc" class="outline-4">
+<h4 id="org4eb8bcc"><span class="section-number-4">4.2.2</span> Finding (Filtering or Querying)</h4>
+<div class="outline-text-4" id="text-4-2-2">
+<p>
+The operations for reading data are called <b>find</b> in the API but are often referred to as filtering or querying as well.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 12: </span>Empty filter returns all documents</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">cursor</span> = db.collection(<span class="org-string">"languages"</span>).find({});
+<span class="org-keyword">const</span> <span class="org-variable-name">results</span> = cursor.toArray();
+
+console.log(results);
+</pre>
 </div>
 
-<div id="outline-container-org7fdbbfa" class="outline-2">
-<h2 id="org7fdbbfa"><span class="section-number-2">6</span> Resources and useful links</h2>
+<p>
+The <code>find</code> operation can potentially return a huge amount of documents depending on the size of your data set so it does not return the results directly, but a <b>cursor</b> pointing to the results. This allows you to either do further processing or return a subset of the results. You can get all of the matching results by calling its <code>toArray()</code> method as in the example above.
+</p>
+
+<p>
+The simplest filter apart from an empty one is to match on properties exactly. In this example we are picking out allow of the programming languages related to C in our data set.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 13: </span>Filtering with a specific property value</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = {
+  family: <span class="org-string">'C'</span> <span class="org-comment-delimiter">// </span><span class="org-comment">Matching property exactly</span>
+}
+<span class="org-keyword">const</span> <span class="org-variable-name">results</span> = <span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).find(filter).toArray();
+
+console.log(results);
+</pre>
+</div>
+
+<p>
+The <code>findOne</code> operation will return the first document it finds which matches the filter.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 14: </span>Getting one document</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = {
+  type: <span class="org-string">'ML'</span>
+}
+
+<span class="org-keyword">const</span> <span class="org-variable-name">result</span> = <span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).findOne(filter);
+</pre>
+</div>
+
+<p>
+For more advanced filtering we use <a href="https://docs.mongodb.com/manual/reference/operator/query/">query operators</a>, you can quickly identify them since they start with a <code>$</code>. Some common ones are <code>$gte</code> (greater-than-or-equal), <code>$lte</code> (less-than-or-equal) and <code>$regex</code> for matching against a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">regular expression</a>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 15: </span>Finding all languages with Java in their name</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = {
+  name: { $regex: <span class="org-string">/Java/</span> }
+}
+<span class="org-keyword">const</span> <span class="org-variable-name">results</span> = <span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).find(filter).toArray();
+
+console.log(results);
+</pre>
+</div>
+
+<p>
+Regular expressions are an invaluable tool and used all over the place so I highly recommend spending some time getting to know the syntax: <a href="https://regex101.com/">https://regex101.com/</a>.
+</p>
+
+<p>
+We can also combine multiple operators to express more complex queries; the next example finds all of the languages created in the 90s.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 16: </span>Finding all languages from the 90s</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = {
+  year: {
+    $gte: 1990,
+    $lte: 1999
+  }
+};
+</pre>
+</div>
+
+<p>
+You can sort your results with the cursor's <code>sort</code> method by passing it an object containing the property you want to sort on and <code>1</code> for ascending results (low to high) or <code>-1</code> for ascending (high to low).
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 17: </span>All programming languages sorted by year</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">cursor</span> = <span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).find({});
+<span class="org-keyword">const</span> <span class="org-variable-name">results</span> = cursor.sort({ year: 1 }).toArray();
+
+console.log(results);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6d75c0d" class="outline-4">
+<h4 id="org6d75c0d"><span class="section-number-4">4.2.3</span> Deleting</h4>
+<div class="outline-text-4" id="text-4-2-3">
+<p>
+Deleting documents is very similar to finding documents just replace the <code>find</code> or <code>findOne</code> methods with <code>deleteMany</code> or <code>deleteOne</code>, the methods use the same kind of filters.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 18: </span>Delete Java</label><pre class="src src-js"><span class="org-keyword">await</span> db.connection(<span class="org-string">'languages'</span>).deleteOne({
+  name: <span class="org-string">'Java'</span>
+});
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org00f8ca1" class="outline-4">
+<h4 id="org00f8ca1"><span class="section-number-4">4.2.4</span> Updating</h4>
+<div class="outline-text-4" id="text-4-2-4">
+<p>
+Updating can be seen as a combination of a find operation and a write operation. As with the other operations you can either call <code>updateOne</code> or <code>updateMany</code> to update multiple documents at the same time and these methods take two arguments: a filter object to specify which documents will be affected, and an update object defining the modification.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 19: </span>Bringing JavaScript to the 2000s</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = { name: <span class="org-string">'JavaScript'</span>};
+<span class="org-keyword">const</span> <span class="org-variable-name">modification</span> = { $set: { year: 2022 } };
+
+<span class="org-keyword">await</span> db.connection(<span class="org-string">'languages'</span>).updateOne(filter, modification)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org00e1ef6" class="outline-2">
+<h2 id="org00e1ef6"><span class="section-number-2">5</span> <span class="todo TODO">TODO</span> JavaScript Deep-Dive</h2>
+</div>
+
+<div id="outline-container-org920f00a" class="outline-2">
+<h2 id="org920f00a"><span class="section-number-2">6</span> Resources and useful links</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li><a href="https://zellwk.com/blog/async-await-express/">Async/Await in Express</a></li>
+<li><a href="https://docs.mongodb.com/manual/crud/">MongoDB CRUD operations</a></li>
+<li><a href="https://docs.mongodb.com/drivers/node/current/fundamentals/crud/">MongoDB JavaScript Driver CRUD operations</a></li>
 </ul>
 </div>
 </div>
