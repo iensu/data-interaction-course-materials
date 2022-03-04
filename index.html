@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Interaction Course Materials</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Jens Östlund">
+<meta name="description" content="Pseudo-code for a schema definition"
+>
+<link rel="stylesheet" href="assets/base.css" />
+<link rel="stylesheet" href="assets/htmlize.css" />
+<link rel="stylesheet" href="assets/style-overrides.css" />
+</head>
+<body>
+<div id="content">
+<header>
+<h1 class="title">Data Interaction Course Materials</h1>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgfc2a531">1. Setting up your Environment</a>
+<ul>
+<li><a href="#org663a036">1.1. MongoDB</a>
+<ul>
+<li><a href="#org9667cdf">1.1.1. Installing and running MongoDB on MacOS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgd77ce4f">2. Introduction to node.js</a>
+<ul>
+<li><a href="#org1321a26">2.1. node.js vs the Browser</a></li>
+<li><a href="#org00b16d0">2.2. Hello Node</a>
+<ul>
+<li><a href="#orgd8607a5">2.2.1. Importing modules (CommonJS vs JavaScript modules)</a></li>
+<li><a href="#org387a4a1">2.2.2. <span class="todo TODO">TODO</span> Creating your own module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org72027ff">3. Our First API</a>
+<ul>
+<li><a href="#orgaef4de3">3.1. What is an API?</a></li>
+<li><a href="#orge509f80">3.2. Creating our API</a></li>
+<li><a href="#org64b6397">3.3. Starting our server</a></li>
+<li><a href="#org88affa2">3.4. Adding another endpoint</a>
+<ul>
+<li><a href="#org8e360a9">3.4.1. Live-reload and other tooling</a></li>
+</ul>
+</li>
+<li><a href="#org33796ac">3.5. Back to our endpoint</a></li>
+</ul>
+</li>
+<li><a href="#org84ecd4d">4. Intro to MongoDB</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org4dd582e">4.0.1. Schemas</a></li>
+<li><a href="#org624782a">4.0.2. Inserting</a></li>
+<li><a href="#org7a3c197">4.0.3. Querying</a>
+<ul>
+<li><a href="#orgb410fa9">Operators</a></li>
+</ul>
+</li>
+<li><a href="#org90e4c8a">4.0.4. Sorting</a></li>
+<li><a href="#org63cd33d">4.0.5. Deleting</a></li>
+<li><a href="#org8fddeee">4.0.6. Updating</a></li>
+<li><a href="#org4dcc25d">4.0.7. Aggregating</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org88e76db">5. <span class="todo TODO">TODO</span> JavaScript Deep-Dive</a></li>
+<li><a href="#org7fdbbfa">6. Resources and useful links</a></li>
+</ul>
+</div>
+</nav>
+<p>
+This course aims to give you an understanding of back-end development and in it you will learn how to build an HTTP server in node.js and integrating it with a MongoDB database. The course will focus a lot on JavaScript and give you an understanding for how the language works so you will be able to solve issues in your code more readily.
+</p>
+
+<div id="outline-container-orgfc2a531" class="outline-2">
+<h2 id="orgfc2a531"><span class="section-number-2">1</span> Setting up your Environment</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+In order to follow along with this course you will want to have the following installed:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://nodejs.org/en/">node.js</a> v16 or higher</li>
+<li>nom</li>
+<li>An editor with proper JavaScript support (VSCode, Sublime, Vim, Emacs, &#x2026;)</li>
+<li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a></li>
+</ul>
+
+<p>
+You can check that you have all necessary command line tools by running the following commands in your terminal:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">node --version
+npm --version
+git --version
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org663a036" class="outline-3">
+<h3 id="org663a036"><span class="section-number-3">1.1</span> MongoDB</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Finally you will need to have access to <a href="https://docs.mongodb.com/manual/installation/">MongoDB</a>. The company MongoDB is pushing really hard for you to use the free-tier of their cloud service Atlas. Unfortunately it requires you to create an account and forces you to go through a lot of settings and options. It's important that you choose the free tier, otherwise you can just use the defaults. They will also apparently bombard you with marketing emails, so if you decide to create an account I recommend you use a throwaway email account.
+</p>
+
+<p>
+If you don't like to go through the hassle of setting up an account you can either 1) install MongoDB locally following the instructions in link above or 2) use <a href="https://hub.docker.com/_/mongo/">the Docker image</a> if you are comfortable with Docker. Personally I installed it locally.
+</p>
+
+<p>
+MongoDB Compass offers a graphical interface to your database and often comes bundled when installing it locally. If you don't have it installed you can follow <a href="https://www.mongodb.com/try/download/compass">these instructions</a>.
+</p>
+</div>
+
+<div id="outline-container-org9667cdf" class="outline-4">
+<h4 id="org9667cdf"><span class="section-number-4">1.1.1</span> Installing and running MongoDB on MacOS</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+As long as you have <a href="https://brew.sh/">Homebrew</a> installed it's very easy to install both MongoDB and MongoDB Compass on your computer:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">brew install mongodb
+brew install mongodb-compass
+</pre>
+</div>
+
+<p>
+Installing the <code>mongodb</code> package should give you two commands:
+</p>
+<ul class="org-ul">
+<li><code>mongo</code> for interacting with a MongoDB database.</li>
+<li><code>mongod</code> for starting a MongoDB database process (the final <i>d</i> stands for <i>daemon</i> and means a long-running process).</li>
+</ul>
+
+<p>
+You can start the database by simply running <code>mongod</code> in a terminal. You can shut it down by either closing the terminal window or by interrupting the process (hitting Ctrl-c).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd77ce4f" class="outline-2">
+<h2 id="orgd77ce4f"><span class="section-number-2">2</span> Introduction to node.js</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+In short, node.js is JavaScript for servers and is now one of the most prevalent programming languages in the world. How come it quickly got so popular?
+</p>
+
+<ul class="org-ul">
+<li>The same language across the stack (front-end and back-end)</li>
+<li>Simplify the transition to full-stack for front-end developers</li>
+<li>The asynchronous nature of JavaScript makes it great for easily building high performance HTTP servers</li>
+</ul>
+
+<p>
+In summary: familiarity and performance
+</p>
+
+<p>
+Node.JS was created 12 years ago by creating a system interface to Chrome’s <a href="https://en.wikipedia.org/wiki/V8_(JavaScript_engine)">V8 JavaScript engine</a>. That means that Node.JS is running the same version of JavaScript as Chrome and other <a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)">Chromium</a>-based browsers such as Microsoft Edge, Brave etc. Which V8 version Node uses dictates what JavaScript features it supports. If you are curious you can check which exact version of V8 your node.js installation is using by running the following command in a terminal:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">node -p process.versions.v8
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1321a26" class="outline-3">
+<h3 id="org1321a26"><span class="section-number-3">2.1</span> node.js vs the Browser</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Moving JavaScript out of the browser and onto the server results in a few important differences:
+</p>
+
+<ul class="org-ul">
+<li>There's no browser environment, that is you do not have access to the global <code>window</code> and <code>document</code> objects.</li>
+<li>You instead have a global variable <code>global</code> which refers to the current runtime environment.</li>
+<li>You have access to built-in modules for doing things like reading and writing files and networking etc.</li>
+<li>You have support for two different module systems (<i>CommonJS</i> and <i>JavaScript modules</i>).</li>
+<li>You use NPM for managing third party dependencies.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org00b16d0" class="outline-3">
+<h3 id="org00b16d0"><span class="section-number-3">2.2</span> Hello Node</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+We are going to play around with node.js a bit. First create a new directory called <code>hello-node</code> and move into it. Now create a file called <code>index.js</code> and write the following piece of code:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Writing to the terminal</label><pre class="src src-js">console.log(<span class="org-string">"Hello node! \(&gt;0&lt;)/"</span>)
+</pre>
+</div>
+
+<p>
+Now you can run your program with the command <code>node index.js</code> and you should see <code>Hello node! \(&gt;0&lt;)/</code> printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
+</p>
+
+<p>
+A quick aside: naming the main file JavaScript file <code>index.js</code> is a convention and has no special meaning to node.js itself apart from it being loaded by default when importing a directory. We will have a look at what this means later, for now you can think of it as being analogous to naming the main page of a website <code>index.html</code> to avoid having to specify the full file path in the URL (link).
+</p>
+</div>
+
+<div id="outline-container-orgd8607a5" class="outline-4">
+<h4 id="orgd8607a5"><span class="section-number-4">2.2.1</span> Importing modules (CommonJS vs JavaScript modules)</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+We can use node.js to play around with files but for that we need to import the built-in file system module <code>fs</code>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Writing to files</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">fs</span> = require(<span class="org-string">"fs"</span>);
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">We write a string to the file text.txt synchronously</span>
+fs.writeFileSync(<span class="org-string">"test.txt"</span>, <span class="org-string">"Here's some text in a file!"</span>);
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">And read the contents of it (also here synchronously!)</span>
+<span class="org-keyword">const</span> <span class="org-variable-name">contents</span> = fs.readFileSync(<span class="org-string">"test.txt"</span>).toString();
+
+console.log(<span class="org-string">`File contents: ${contents}`</span>);
+</pre>
+</div>
+
+<p>
+In the above example we are using the default CommonJS style imports (<code>require</code>). In the examples in this course we are mainly going to use JavaScript modules (<code>import</code>, <code>export</code>). You are free to use whichever style you are most comfortable with. If you want to use the <code>import</code> syntax you need to edit <code>package.json</code> and set the <code>type</code> property to <code>module</code> as in the example below. You can generate a <code>package.json</code> file by running <code>npm init</code> in the terminal and just accept all of the suggested default settings.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>Add support for JavaScript modules by editing package.json</label><pre class="src src-json">{
+  "name": "hello-node",
+  "type": "module",
+  ...
+}
+</pre>
+</div>
+
+<p>
+Now you can use the <code>import</code> syntax instead:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js"><span class="org-keyword">import</span> fs from <span class="org-string">"fs"</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org387a4a1" class="outline-4">
+<h4 id="org387a4a1"><span class="section-number-4">2.2.2</span> <span class="todo TODO">TODO</span> Creating your own module</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org72027ff" class="outline-2">
+<h2 id="org72027ff"><span class="section-number-2">3</span> Our First API</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgaef4de3" class="outline-3">
+<h3 id="orgaef4de3"><span class="section-number-3">3.1</span> What is an API?</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>An API is a set of exposed methods for interacting with a program or package.</li>
+<li>When you write a JavaScript module and export functions to interact with it you are designing an API.</li>
+<li>When you are interacting with a third-party package, for example <code>express</code>, you are using its API.</li>
+<li>Designing an API allows you to create a layer of abstraction which hides implementation details and simplifies using your service or package.</li>
+</ul>
+
+<p>
+Often when we say API we actually mean an HTTP API to be specific, that is an API which is used over the internet using HTTP.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge509f80" class="outline-3">
+<h3 id="orge509f80"><span class="section-number-3">3.2</span> Creating our API</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Express is by far the most popular NPM package for creating HTTP APIs in node.js and has been around almost as long as the language itself. Start by creating a new directory called <code>hello-express</code> and initialize it using <code>npm init</code> (also don't forget to update <code>package.json</code> if you want to use JavaScript modules). Now let's install Express:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">npm install express
+</pre>
+</div>
+
+<p>
+Now let's create our first API by creating a new file called <code>index.js</code> in the project root directory and write the following code:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>Our first API</label><pre class="src src-js"><span class="org-keyword">import</span> express from <span class="org-string">'express'</span>;
+
+<span class="org-keyword">const</span> <span class="org-variable-name">app</span> = express();
+
+app.get(<span class="org-string">'/hello'</span>, (req, res) =&gt; {
+  res.send(<span class="org-string">'Hello there!'</span>).end();
+});
+
+<span class="org-keyword">const</span> <span class="org-variable-name">PORT</span> = 8080;
+
+app.listen(PORT, () =&gt; {
+  console.log(<span class="org-string">`Server running at http://localhost:${PORT}`</span>)
+});
+</pre>
+</div>
+
+<p>
+There is <i>a lot</i> to unpack here&#x2026;
+</p>
+<ul class="org-ul">
+<li>We begin by creating an instance of an Express app.</li>
+<li>Then we <i>register</i> a handler on the <code>/hello</code> endpoint which will respond with <i>Hello there!</i>.</li>
+<li>Lastly we start a server listening on <i>port</i> 8080.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org64b6397" class="outline-3">
+<h3 id="org64b6397"><span class="section-number-3">3.3</span> Starting our server</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Run your program by executing <code>node index.js</code>. The first thing you will notice is that your program never quits: you see the message <code>Server running at http://localhost:8080</code> but you don't get a new prompt. This is because your program is running a <b>server</b> which is meant to serve <b>responses</b> to <b>requests</b> from <b>clients</b> and your program needs to be kept alive and running to be able to do that.
+</p>
+
+<p>
+A client is whatever uses, or <i>consumes</i>, the API served by your server and can be anything from a web browser, website, another server or a command-line tool etc. For now, let's use our browser as the client and access the URL printed out by the program: <a href="http://localhost:8080">http://localhost:8080</a>. You should see an error message saying something like <code>Cannot GET /</code>.
+</p>
+
+
+<figure id="org9e43724">
+<img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Accessing an unregistered endpoint results in an error message</figcaption>
+</figure>
+
+<p>
+This means that we tried to <code>GET</code> something at the endpoint <code>/</code>. We'll get more into what <code>GET</code> actually means later when we talk about HTTP, but for now let's try changing the endpoint and go to <a href="http://localhost:8080/hello">http://localhost:8080/hello</a> instead. Now you should instead see the expected message <code>Hello there!</code>.
+</p>
+
+
+<figure id="org392fe17">
+<img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>Successful call to our /hello endpoint</figcaption>
+</figure>
+
+<p>
+So what went wrong the first time? There are four pieces of information needed to interact with a server:
+</p>
+
+<ul class="org-ul">
+<li>The <b>protocol</b> the server expects (<code>http</code>)</li>
+<li>The <b>machine</b> the server is running on (our machine <code>localhost</code> or <code>127.0.0.1</code> if we use its IP address). This is also called the <b>host</b>.</li>
+<li>The <b>port</b> the server is listening on (<code>8080</code>)</li>
+<li>The <b>endpoint</b> we want to consume (<code>/hello</code>)</li>
+</ul>
+
+<p>
+A server only responds on the port it is listening on and only handles requests on endpoints which have been registered on it. When not specifying an endpoint, the browser will pick the default one which is <code>/</code> and since we never registered a handler for that endpoint the request failed. You can think of endpoints as file paths on your own computer.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org88affa2" class="outline-3">
+<h3 id="org88affa2"><span class="section-number-3">3.4</span> Adding another endpoint</h3>
+<div class="outline-text-3" id="text-3-4">
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>Our next endpoint</label><pre class="src src-js"><span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+
+app.get(<span class="org-string">'/another-page'</span>, (req, res) =&gt; {
+  res.send(<span class="org-string">'Another page!'</span>).end();
+});
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+</pre>
+</div>
+
+<p>
+If we add another endpoint and try to access it in the browser: <a href="http://localhost:8080/another-page">http://localhost:8080/another-page</a> we get the same error message as we did before.
+</p>
+
+<p>
+The reason is that the server process is already running and changes made to the code will not be reflected until it is restarted. You can stop the server by selecting the terminal where it is running and press Ctrl-c (that means pressing the Ctrl button and the <code>c</code> key at the same time). This will terminate your server and get you back to the terminal prompt.
+</p>
+
+<p>
+If you now run <code>node index.js</code> again you will be able to access <a href="http://localhost:8080/another-page">http://localhost:8080/another-page</a>.
+</p>
+</div>
+
+<div id="outline-container-org8e360a9" class="outline-4">
+<h4 id="org8e360a9"><span class="section-number-4">3.4.1</span> Live-reload and other tooling</h4>
+<div class="outline-text-4" id="text-3-4-1">
+<p>
+A workflow like the above is not only annoying but it can also lead to long troubleshooting sessions trying to figure out why something isn't working, when in the end you just had to restart the server. Thankfully there is an NPM package which helps us automate this workflow: <a href="https://nodemon.io/">nodemon</a>. Since we only need it for development we install it as a development dependency:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">npm install --save-dev nodemon
+</pre>
+</div>
+
+<p>
+Now we add a convenience script called <code>dev</code> in <code>package.json</code> to make it easy to use it:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+  // ...
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
+  }
+  // ...
+}
+</pre>
+</div>
+
+<p>
+By running <code>npm run dev</code> your server will be started up and <code>nodemon</code> will watch your files for changes and restart the server when necessary.
+</p>
+
+<p>
+There is another tool I highly recommend you install and that is <a href="https://prettier.io/">prettier</a>. This tool formats your code automatically and you should be able to make your editor run it every time you save. Here is a <a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">VSCode plugin</a> and here is one for <a href="https://github.com/prettier/prettier-emacs">Emacs</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org33796ac" class="outline-3">
+<h3 id="org33796ac"><span class="section-number-3">3.5</span> Back to our endpoint</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+Let's make our new endpoint do something more interesting: let's see what happens if we serve a string which looks like HTML.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>Serving an HTML string</label><pre class="src src-js"><span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+
+app.get(<span class="org-string">"/another-page"</span>, (req, res) =&gt; {
+  res
+    .send(
+      <span class="org-string">`</span>
+<span class="org-string">&lt;html&gt;</span>
+<span class="org-string">&lt;head&gt;</span>
+<span class="org-string">  &lt;style&gt;</span>
+<span class="org-string">  body {</span>
+<span class="org-string">    margin: 32px;</span>
+<span class="org-string">    background: hotpink;</span>
+<span class="org-string">    color: darkgreen;</span>
+<span class="org-string">    font-family: arial;</span>
+<span class="org-string">  }</span>
+<span class="org-string">  &lt;/style&gt;</span>
+<span class="org-string">&lt;/head&gt;</span>
+<span class="org-string">&lt;body&gt;</span>
+<span class="org-string">  &lt;h1&gt;Our beautiful page&lt;/h1&gt;</span>
+<span class="org-string">  &lt;marquee&gt;We're serving a string which is rendered as a web page!&lt;/marquee&gt;</span>
+<span class="org-string">&lt;/body&gt;</span>
+<span class="org-string">&lt;/html&gt;</span>
+<span class="org-string">`</span>
+    )
+    .end();
+});
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+</pre>
+</div>
+
+<p>
+And we can see that our browser interprets it as HTML! The secret is that the browser interprets EVERYTHING as HTML, so we shouldn't be surprised.
+</p>
+
+<p>
+While it's pretty cool that we can serve web pages as plain strings, what you usually want to do is to serve HTML files instead. We move our HTML to a file which we can call <code>beautiful-page.html</code>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>Our beautiful HTML markup in a file of its own</label><pre class="src src-html">&lt;<span class="org-function-name">html</span>&gt;
+&lt;<span class="org-function-name">head</span>&gt;
+  &lt;<span class="org-function-name">style</span>&gt;
+  body {
+    margin: 32px;
+    background: hotpink;
+    color: darkgreen;
+    font-family: arial;
+  }
+  &lt;/<span class="org-function-name">style</span>&gt;
+&lt;/<span class="org-function-name">head</span>&gt;
+&lt;<span class="org-function-name">body</span>&gt;
+  &lt;<span class="org-function-name">h1</span>&gt;<span class="org-underline"><span class="org-bold">Our beautiful page</span></span>&lt;/<span class="org-function-name">h1</span>&gt;
+  &lt;<span class="org-function-name">marquee</span>&gt;We're serving a string which is rendered as a web page!&lt;/<span class="org-function-name">marquee</span>&gt;
+&lt;/<span class="org-function-name">body</span>&gt;
+&lt;/<span class="org-function-name">html</span>&gt;
+</pre>
+</div>
+
+<p>
+And we change our handler to read that file and serve its contents.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>Serving HTML from a file</label><pre class="src src-js"><span class="org-keyword">import</span> express from <span class="org-string">"express"</span>;
+<span class="org-keyword">import</span> fs from <span class="org-string">"fs"</span>;
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+
+app.get(<span class="org-string">"/another-page"</span>, (req, res) =&gt; {
+  <span class="org-keyword">const</span> <span class="org-variable-name">contents</span> = fs.readFileSync(<span class="org-string">"beautiful-page.html"</span>).toString();
+
+  res.send(contents).end();
+});
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+</pre>
+</div>
+
+<p>
+The page should load like before but the code looks a lot nicer without the inline HTML.
+</p>
+
+<p>
+A website made up from files like this is called a <b>static website</b>. This is how the whole web worked through-out the 90s and the beginning of the 00s until <b>Single Page Applications</b> (SPAs) became a thing. In this course we will assume you will write your website as a SPA (in React), so we won't be serving static pages. In addition, the above code is highly inefficient and is just for illustrative purposes. First we are reading the HTML file for every request even though the contents doesn't change, this will lead to a lot of file system access which impacts performance. Second, we send the page a single string all at once which also impacts performance. If you are interested in how to serve static web pages using Express you can have a look <a href="https://expressjs.com/en/starter/static-files.html">at this documentation</a>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org84ecd4d" class="outline-2">
+<h2 id="org84ecd4d"><span class="section-number-2">4</span> Intro to MongoDB</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+MongoDB is a <a href="https://www.mongodb.com/document-databases">document (NoSQL) database</a> and has a few important characteristics which makes it a suitable as a first database:
+</p>
+
+<ul class="org-ul">
+<li>Flexible data schemas.</li>
+<li>Intuitive data models (basically looks like JSON).</li>
+<li>Simple yet powerful query language.</li>
+</ul>
+
+<p>
+MongoDB, and document databases in general, are often used in MVPs and prototypes when you are still exploring and have yet to decide on the data models to use. This does not mean however that they are not production-ready: document databases are among the most scalable databases out there and allow for efficient horizontal scaling (this means running multiple connected instances in a database cluster).
+</p>
+
+<p>
+While we discuss MongoDB specifically in this section many of the concepts are applicable to other document databases as well such as CouchDB and elasticsearch, though the terminology might be a bit different.
+</p>
+
+<p>
+A MongoDB system consists of one or several <b>databases</b>, which each can have one or multiple <b>collections</b> and each collection contains <b>documents</b>. Documents are the central concept of a document database, naturally.
+</p>
+</div>
+
+<div id="outline-container-org4dd582e" class="outline-4">
+<h4 id="org4dd582e"><span class="section-number-4">4.0.1</span> Schemas</h4>
+<div class="outline-text-4" id="text-4-0-1">
+<p>
+The main selling point of MongoDB compared to relational (SQL) databases (MySQL, Postgres, &#x2026;) is the flexibility. In relational databases you have to define how your data is structured and the relationship between different kinds of data models. The structure of your data is called its schema or sometimes its data model and defines the properties it has and what data types these properties have. Here's a made-up example of how a schema might look like:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js">PersonSchema = {
+  <span class="org-string">"id"</span>: <span class="org-string">"string"</span>,
+  <span class="org-string">"name"</span>: <span class="org-string">"string"</span>,
+  <span class="org-string">"age"</span>: <span class="org-string">"integer"</span>,
+  <span class="org-string">"weight"</span>: <span class="org-string">"float"</span>,
+}
+</pre>
+</div>
+
+<p>
+In a <b>relational database</b> a schema like the above ensures for instance that a <code>Person</code>'s name is a <code>string</code> and that its weight is a <code>float</code>. If you would try to store a <code>Person</code> with a <code>string</code> weight the operation would fail. This makes it difficult for bad and ill-structured data to enter the database.
+</p>
+
+<p>
+In a <b>document database</b> schemas still exist, but they are just suggestions and are meant to improve performance when querying the data. As you most likely will see when you start to work with MongoDB yourself is that it will happily accept a <code>float</code> as the <code>name</code>, or even allow you to insert documents with a completely different set of properties in the same collection.
+</p>
+
+
+<figure id="org9f9450c">
+<img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
+
+<figcaption><span class="figure-number">Figure 3: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
+</figure>
+
+
+<p>
+This flexibility is something to be mindful of and I recommend using MongoDB Compass to explore your data set from time to time to ensure that it looks like you expect it to.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org624782a" class="outline-4">
+<h4 id="org624782a"><span class="section-number-4">4.0.2</span> Inserting</h4>
+</div>
+<div id="outline-container-org7a3c197" class="outline-4">
+<h4 id="org7a3c197"><span class="section-number-4">4.0.3</span> Querying</h4>
+<div class="outline-text-4" id="text-4-0-3">
+</div>
+<div id="outline-container-orgb410fa9" class="outline-5">
+<h5 id="orgb410fa9">Operators</h5>
+</div>
+</div>
+<div id="outline-container-org90e4c8a" class="outline-4">
+<h4 id="org90e4c8a"><span class="section-number-4">4.0.4</span> Sorting</h4>
+</div>
+<div id="outline-container-org63cd33d" class="outline-4">
+<h4 id="org63cd33d"><span class="section-number-4">4.0.5</span> Deleting</h4>
+</div>
+<div id="outline-container-org8fddeee" class="outline-4">
+<h4 id="org8fddeee"><span class="section-number-4">4.0.6</span> Updating</h4>
+</div>
+<div id="outline-container-org4dcc25d" class="outline-4">
+<h4 id="org4dcc25d"><span class="section-number-4">4.0.7</span> Aggregating</h4>
+</div>
+</div>
+
+<div id="outline-container-org88e76db" class="outline-2">
+<h2 id="org88e76db"><span class="section-number-2">5</span> <span class="todo TODO">TODO</span> JavaScript Deep-Dive</h2>
+</div>
+
+<div id="outline-container-org7fdbbfa" class="outline-2">
+<h2 id="org7fdbbfa"><span class="section-number-2">6</span> Resources and useful links</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li><a href="https://zellwk.com/blog/async-await-express/">Async/Await in Express</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jens Östlund</p>
+</div>
+</body>
+</html>
