@@ -12,3 +12,5 @@ Make all the tests pass by solving the exercises.
 4. Run ~npm test~
 
 Running the tests should populate your database with Digimon data in a database called =mongodb-exercises=. You can verify with MongoDB Compass or by other means.
+
+The data set is taken from [[https://www.kaggle.com/rtatman/digidb/][Kaggle]].
