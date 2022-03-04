@@ -1,24 +1,3 @@
 * MongoDB intro
 
-This project aims to show some basic MongoDB operations. This example uses CommonJS style modules in order to make them usable in the Node.JS REPL.
-
-REPL stands for Read-Eval-Print-Loop and basically means a prompt where you can execute code and see what it does. It's very useful when acquainting oneself with a new package or the programming language in general. You can enter the REPL by running ~node~ in the terminal:
-
-#+begin_src shell
-  > 1 + 1
-  2
-  > dbUrl = 'mongodb://localhost:27017'
-  'mongodb://localhost:27017'
-  > mongodb = require('mongodb')
-  # ...
-  > client = new mongodb.MongoClient(dbUrl)
-  # ...
-  > await client.connect()
-  # ...
-  > getConnectedMongoClient = require('01-connecting-to-mongodb.js')
-  # ...
-  > client = await getConnectedMongoClient(dbUrl)
-  # ...
-#+end_src
-
-To exit the REPL hit Ctrl-d once, or Ctrl-c twice.
+This project aims to show some basic MongoDB operations.

@@ -359,7 +359,7 @@ The following sections describes what the common CRUD operations are in MongoDB 
   const client = mongodb.MongoClient('mongodb://localhost:27017');
   await client.connect();
 
-  const db = client.db('tutorial-db');
+  const db = client.db('mongodb-intro');
 #+end_src
 
 The code assumes that you have the ~mongodb~ package in scope and you are in an ~async~ context where you can use ~async~.
@@ -426,7 +426,7 @@ The simplest filter apart from an empty one is to match on properties exactly. I
 
 The ~findOne~ operation will return the first document it finds which matches the filter.
 
-#+caption: Getting one document
+#+caption: Finding one document
 #+begin_src js
   const filter = {
     type: 'ML'
@@ -476,7 +476,7 @@ Deleting documents is very similar to finding documents just replace the ~find~ 
 
 #+caption: Delete Java
 #+begin_src js
-  await db.connection('languages').deleteOne({
+  await db.collection('languages').deleteOne({
     name: 'Java'
   });
 #+end_src
@@ -489,8 +489,10 @@ Updating can be seen as a combination of a find operation and a write operation.
   const filter = { name: 'JavaScript'};
   const modification = { $set: { year: 2022 } };
 
-  await db.connection('languages').updateOne(filter, modification)
+  await db.collection('languages').updateOne(filter, modification)
 #+end_src
+
+** TODO What is the ObjectId?
 
 * TODO JavaScript Deep-Dive
 

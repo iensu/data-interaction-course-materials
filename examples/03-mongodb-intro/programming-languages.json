@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "6222a729b1866ea3b389451e",
+    "name": "JavaScript",
+    "family": "C",
+    "year": 1995
+  },
+  {
+    "_id": "6222a729b1866ea3b389451f",
+    "name": "Haskell",
+    "family": "ML",
+    "year": 1990
+  },
+  {
+    "_id": "6222a729b1866ea3b3894520",
+    "name": "Rust",
+    "family": "ML",
+    "year": 2010
+  },
+  {
+    "_id": "6222a729b1866ea3b3894521",
+    "name": "Java",
+    "family": "C",
+    "year": 1995
+  },
+  {
+    "_id": "6222a729b1866ea3b3894522",
+    "name": "Common Lisp",
+    "family": "Lisp",
+    "year": 1984
+  }
+]
