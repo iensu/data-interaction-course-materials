@@ -3,7 +3,7 @@
 You are going to use your mad MongoDB skillz to find the lost Digimons in
 the data set. Can you collect them all??!
 
-Make all the tests pass by solving the exercises.
+Make all the tests pass by solving the exercises. I have tried to order the exercises by difficulty and I recommend that you solve them in order.
 
 *Preparations*
 1. Ensure you have MongoDB running on your computer.
