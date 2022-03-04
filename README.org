@@ -342,15 +342,159 @@ In a *document database* schemas still exist, but they are just suggestions and 
 
 This flexibility is something to be mindful of and I recommend using MongoDB Compass to explore your data set from time to time to ensure that it looks like you expect it to.
 
+** Operations
+Operations are ways of interacting with your database in the terms of data, the most general operations being:
+
+- *Create* data
+- *Read* data
+- *Update* data
+- *Delete* data
+
+These are often called CRUD operations for short.
+
+The following sections describes what the common CRUD operations are in MongoDB and examples assume that you have a connected ~db~ database instance available:
+
+#+caption: Prelude to the examples below
+#+begin_src js
+  const client = mongodb.MongoClient('mongodb://localhost:27017');
+  await client.connect();
+
+  const db = client.db('tutorial-db');
+#+end_src
+
+The code assumes that you have the ~mongodb~ package in scope and you are in an ~async~ context where you can use ~async~.
+
 *** Inserting
-*** Querying
-**** Operators
-*** Sorting
+In MongoDB the act of creating data in a collection is called *inserting*.
+
+#+caption: Inserting one document
+#+begin_src js :session mongodb
+  await db.collection('languages').insertOne({
+    name: 'JavaScript',
+    family: 'C',
+    year: 1995
+  });
+#+end_src
+
+#+caption: Inserting multiple documents
+#+begin_src js :session mongodb
+  const languages = [{
+      name: 'Haskell',
+      family: 'ML',
+      year: 1990
+    }, {
+      name: 'Rust',
+      family: 'ML',
+      year: 2010,
+    }, {
+      name: 'Java',
+      family: 'C',
+      year: 1995,
+    }, {
+      name: 'Common Lisp',
+      family: 'Lisp',
+      year: 1984,
+    }];
+
+  await db.collection('languages').insertMany(languages)
+#+end_src
+
+*** Finding (Filtering or Querying)
+The operations for reading data are called *find* in the API but are often referred to as filtering or querying as well.
+
+#+caption: Empty filter returns all documents
+#+begin_src js
+  const cursor = db.collection("languages").find({});
+  const results = cursor.toArray();
+
+  console.log(results);
+#+end_src
+
+The ~find~ operation can potentially return a huge amount of documents depending on the size of your data set so it does not return the results directly, but a *cursor* pointing to the results. This allows you to either do further processing or return a subset of the results. You can get all of the matching results by calling its ~toArray()~ method as in the example above.
+
+The simplest filter apart from an empty one is to match on properties exactly. In this example we are picking out allow of the programming languages related to C in our data set.
+
+#+caption: Filtering with a specific property value
+#+begin_src js
+  const filter = {
+    family: 'C' // Matching property exactly
+  }
+  const results = await db.collection('languages').find(filter).toArray();
+
+  console.log(results);
+#+end_src
+
+The ~findOne~ operation will return the first document it finds which matches the filter.
+
+#+caption: Getting one document
+#+begin_src js
+  const filter = {
+    type: 'ML'
+  }
+
+  const result = await db.collection('languages').findOne(filter);
+#+end_src
+
+For more advanced filtering we use [[https://docs.mongodb.com/manual/reference/operator/query/][query operators]], you can quickly identify them since they start with a ~$~. Some common ones are ~$gte~ (greater-than-or-equal), ~$lte~ (less-than-or-equal) and ~$regex~ for matching against a [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions][regular expression]].
+
+#+caption: Finding all languages with Java in their name
+#+begin_src js
+  const filter = {
+    name: { $regex: /Java/ }
+  }
+  const results = await db.collection('languages').find(filter).toArray();
+
+  console.log(results);
+#+end_src
+
+Regular expressions are an invaluable tool and used all over the place so I highly recommend spending some time getting to know the syntax: [[https://regex101.com/]].
+
+We can also combine multiple operators to express more complex queries; the next example finds all of the languages created in the 90s.
+
+#+caption: Finding all languages from the 90s
+#+begin_src js
+  const filter = {
+    year: {
+      $gte: 1990,
+      $lte: 1999
+    }
+  };
+#+end_src
+
+You can sort your results with the cursor's ~sort~ method by passing it an object containing the property you want to sort on and ~1~ for ascending results (low to high) or ~-1~ for ascending (high to low).
+
+#+caption: All programming languages sorted by year
+#+begin_src js
+  const cursor = await db.collection('languages').find({});
+  const results = cursor.sort({ year: 1 }).toArray();
+
+  console.log(results);
+#+end_src
+
 *** Deleting
+Deleting documents is very similar to finding documents just replace the ~find~ or ~findOne~ methods with ~deleteMany~ or ~deleteOne~, the methods use the same kind of filters.
+
+#+caption: Delete Java
+#+begin_src js
+  await db.connection('languages').deleteOne({
+    name: 'Java'
+  });
+#+end_src
+
 *** Updating
-*** Aggregating
+Updating can be seen as a combination of a find operation and a write operation. As with the other operations you can either call ~updateOne~ or ~updateMany~ to update multiple documents at the same time and these methods take two arguments: a filter object to specify which documents will be affected, and an update object defining the modification.
+
+#+caption: Bringing JavaScript to the 2000s
+#+begin_src js
+  const filter = { name: 'JavaScript'};
+  const modification = { $set: { year: 2022 } };
+
+  await db.connection('languages').updateOne(filter, modification)
+#+end_src
 
 * TODO JavaScript Deep-Dive
 
 * Resources and useful links
 - [[https://zellwk.com/blog/async-await-express/][Async/Await in Express]]
+- [[https://docs.mongodb.com/manual/crud/][MongoDB CRUD operations]]
+- [[https://docs.mongodb.com/drivers/node/current/fundamentals/crud/][MongoDB JavaScript Driver CRUD operations]]
