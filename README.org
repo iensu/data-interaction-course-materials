@@ -160,12 +160,14 @@ Run your program by executing ~node index.js~. The first thing you will notice i
 A client is whatever uses, or /consumes/, the API served by your server and can be anything from a web browser, website, another server or a command-line tool etc. For now, let's use our browser as the client and access the URL printed out by the program: [[http://localhost:8080]]. You should see an error message saying something like =Cannot GET /=.
 
 #+caption: Accessing an unregistered endpoint results in an error message
+#+attr_org: :width 700px;
 #+name: not-found
 [[./assets/cannot-get-slash.png]]
 
 This means that we tried to =GET= something at the endpoint =/=. We'll get more into what =GET= actually means later when we talk about HTTP, but for now let's try changing the endpoint and go to [[http://localhost:8080/hello]] instead. Now you should instead see the expected message =Hello there!=.
 
 #+caption: Successful call to our /hello endpoint
+#+attr_org: :width 700px;
 #+name: hello-there
 [[./assets/hello-express-endpoint.png]]
 
@@ -315,7 +317,7 @@ While we discuss MongoDB specifically in this section many of the concepts are a
 
 A MongoDB system consists of one or several *databases*, which each can have one or multiple *collections* and each collection contains *documents*. Documents are the central concept of a document database, naturally.
 
-*** Schemas
+** Schemas
 The main selling point of MongoDB compared to relational (SQL) databases (MySQL, Postgres, ...) is the flexibility. In relational databases you have to define how your data is structured and the relationship between different kinds of data models. The structure of your data is called its schema or sometimes its data model and defines the properties it has and what data types these properties have. Here's a made-up example of how a schema might look like:
 
 #+description: Pseudo-code for a schema definition
@@ -333,7 +335,7 @@ In a *relational database* a schema like the above ensures for instance that a ~
 In a *document database* schemas still exist, but they are just suggestions and are meant to improve performance when querying the data. As you most likely will see when you start to work with MongoDB yourself is that it will happily accept a ~float~ as the ~name~, or even allow you to insert documents with a completely different set of properties in the same collection.
 
 #+caption: Table data view in MongoDB Compass showing the inferred types for each column
-#+attr_org: :width 900px
+#+attr_org: :width 700px
 #+name: schema-example
 [[./assets/mongodb-compass-table-example.png]]
 
