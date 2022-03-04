@@ -1,0 +1,74 @@
+html,
+body {
+  font-family: "Gill Sans", sans-serif;
+  color: #161b22;
+  background-color: #e1e1e1;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 8px 16px;
+}
+
+#content {
+  max-width: 50em;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: #0033ff;
+}
+
+b {
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+code {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.src {
+  background-color: #161b22;
+  color: #fff;
+  border-radius: 8px;
+}
+
+figure {
+  margin-inline-start: 6px;
+}
+
+figcaption,.org-src-name {
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+#table-of-contents {
+  margin: 16px;
+}
+#table-of-contents h2 {
+  display: none;
+}
+#table-of-contents ul {
+  list-style: none;
+}
+#table-of-contents li {
+  margin-bottom: 4px;
+}
+#table-of-contents a {
+  text-decoration: none;
+  margin-bottom: 4px;
+  display: inline-block;
+}

@@ -1,0 +1,167 @@
+.org-bold {
+  /* bold */
+  font-weight: bold;
+}
+
+.org-comment {
+  /* font-lock-comment-face */
+  color: #a8a8a8;
+  font-style: italic;
+}
+
+.org-comment-delimiter {
+  /* font-lock-comment-delimiter-face */
+  color: #a8a8a8;
+  font-style: italic;
+}
+
+.org-constant {
+  /* font-lock-constant-face */
+  color: #00bcff;
+}
+
+.org-function-name {
+  /* font-lock-function-name-face */
+  color: #feacd0;
+}
+
+.org-italic {
+  /* italic */
+  font-style: italic;
+}
+
+.org-keyword {
+  /* font-lock-keyword-face */
+  color: #b6a0ff;
+}
+
+.org-org-block {
+  /* org-block */
+  color: #ffffff;
+}
+
+.org-org-block-begin-line {
+  /* org-block-begin-line */
+  color: #a8a8a8;
+  background-color: #191a1b;
+}
+
+.org-org-block-end-line {
+  /* org-block-end-line */
+  color: #a8a8a8;
+  background-color: #191a1b;
+}
+
+.org-org-code {
+  /* org-code */
+  color: #bfebe0;
+  background-color: #191a1b;
+}
+
+.org-org-document-info {
+  /* org-document-info */
+  color: #c6eaff;
+}
+
+.org-org-document-info-keyword {
+  /* org-document-info-keyword */
+  color: #a8a8a8;
+}
+
+.org-org-document-title {
+  /* org-document-title */
+  color: #c6eaff;
+  font-weight: bold;
+}
+
+.org-org-hide {
+  /* org-hide */
+  color: #000000;
+}
+
+.org-org-level-1 {
+  /* org-level-1 */
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.org-org-level-2 {
+  /* org-level-2 */
+  color: #f8dec0;
+  font-weight: bold;
+}
+
+.org-org-level-3 {
+  /* org-level-3 */
+  color: #c6eaff;
+  font-weight: bold;
+}
+
+.org-org-link {
+  /* org-link */
+  color: #00bcff;
+}
+
+.org-org-meta-line {
+  /* org-meta-line */
+  color: #a8a8a8;
+}
+
+.org-org-superstar-header-bullet {
+}
+
+.org-org-superstar-item {
+  /* org-superstar-item */
+  color: #ffffff;
+}
+
+.org-org-verbatim {
+  /* org-verbatim */
+  color: #fbd6f4;
+  background-color: #191a1b;
+}
+
+.org-preprocessor {
+  /* font-lock-preprocessor-face */
+  color: #ff9077;
+}
+
+.org-rust-builtin-formatting-macro {
+  /* rust-builtin-formatting-macro */
+  color: #f78fe7;
+}
+
+.org-rust-question-mark {
+  /* rust-question-mark */
+  color: #f78fe7;
+  font-weight: bold;
+}
+
+.org-rust-string-interpolation {
+  /* rust-string-interpolation */
+  color: #79a8ff;
+  font-style: italic;
+}
+
+.org-sh-quoted-exec {
+  /* sh-quoted-exec */
+  color: #f78fe7;
+}
+
+
+.org-string {
+  /* font-lock-string-face */
+  color: #79a8ff;
+}
+
+
+.org-type {
+  /* font-lock-type-face */
+  color: #6ae4b9;
+}
+
+
+.org-variable-name {
+  /* font-lock-variable-name-face */
+  color: #00d3d0;
+}

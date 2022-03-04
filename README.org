@@ -1,5 +1,9 @@
 #+title: Data Interaction Course Materials
 #+author: Jens Östlund
+#+email: jens.ostlund@futurice.com
+#+language: en
+#+options: num:3 H:4
+#+export_file_name: docs/index.html
 
 This course aims to give you an understanding of back-end development and in it you will learn how to build an HTTP server in node.js and integrating it with a MongoDB database. The course will focus a lot on JavaScript and give you an understanding for how the language works so you will be able to solve issues in your code more readily.
 
@@ -67,7 +71,7 @@ Moving JavaScript out of the browser and onto the server results in a few import
 ** Hello Node
 We are going to play around with node.js a bit. First create a new directory called ~hello-node~ and move into it. Now create a file called =index.js= and write the following piece of code:
 
-#+name: Writing to the terminal
+#+caption: Writing to the terminal
 #+begin_src js
   console.log("Hello node! \(>0<)/")
 #+end_src
@@ -79,7 +83,7 @@ A quick aside: naming the main file JavaScript file =index.js= is a convention a
 *** Importing modules (CommonJS vs JavaScript modules)
 We can use node.js to play around with files but for that we need to import the built-in file system module ~fs~.
 
-#+name: Writing to files
+#+caption: Writing to files
 #+begin_src js
   const fs = require("fs");
 
@@ -94,7 +98,7 @@ We can use node.js to play around with files but for that we need to import the 
 
 In the above example we are using the default CommonJS style imports (~require~). In the examples in this course we are mainly going to use JavaScript modules (~import~, ~export~). You are free to use whichever style you are most comfortable with. If you want to use the ~import~ syntax you need to edit =package.json= and set the ~type~ property to ~module~ as in the example below. You can generate a =package.json= file by running ~npm init~ in the terminal and just accept all of the suggested default settings.
 
-#+name Add support for JavaScript modules by editing package.json
+#+caption: Add support for JavaScript modules by editing package.json
 #+begin_src json
   {
     "name": "hello-node",
@@ -128,7 +132,7 @@ Express is by far the most popular NPM package for creating HTTP APIs in node.js
 
 Now let's create our first API by creating a new file called ~index.js~ in the project root directory and write the following code:
 
-#+name: Our first API
+#+caption: Our first API
 #+begin_src js
   import express from 'express';
 
@@ -176,7 +180,7 @@ A server only responds on the port it is listening on and only handles requests 
 
 ** Adding another endpoint
 
-#+name: Our next endpoint
+#+caption: Our next endpoint
 #+begin_src js
   // ...
 
@@ -221,7 +225,6 @@ There is another tool I highly recommend you install and that is [[https://prett
 Let's make our new endpoint do something more interesting: let's see what happens if we serve a string which looks like HTML.
 
 #+caption: Serving an HTML string
-#+name: web-page-as-string
 #+begin_src js
   // ...
 
@@ -258,7 +261,6 @@ And we can see that our browser interprets it as HTML! The secret is that the br
 While it's pretty cool that we can serve web pages as plain strings, what you usually want to do is to serve HTML files instead. We move our HTML to a file which we can call =beautiful-page.html=.
 
 #+caption: Our beautiful HTML markup in a file of its own
-#+name: beautiful-page.html
 #+begin_src html
   <html>
   <head>
@@ -281,7 +283,6 @@ While it's pretty cool that we can serve web pages as plain strings, what you us
 And we change our handler to read that file and serve its contents.
 
 #+caption: Serving HTML from a file
-#+name: serving-page-from-file
 #+begin_src js
   import express from "express";
   import fs from "fs";

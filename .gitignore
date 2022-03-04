@@ -10,6 +10,10 @@ node_modules
 # Local MongoDB data
 db-data/
 
+# Page deployment
+.packages/
+docs/
+
 # Various files we don't want
 test.txt
 *.rest
