@@ -20,55 +20,55 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdd9ba88">1. Setting up your Environment</a>
+<li><a href="#org57a5ec1">1. Setting up your Environment</a>
 <ul>
-<li><a href="#org043e980">1.1. MongoDB</a>
+<li><a href="#org71f2859">1.1. MongoDB</a>
 <ul>
-<li><a href="#orga32044d">1.1.1. Installing and running MongoDB on MacOS</a></li>
+<li><a href="#orgd97d742">1.1.1. Installing and running MongoDB on MacOS</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgd9ee613">2. Introduction to node.js</a>
+<li><a href="#org3dae95a">2. Introduction to node.js</a>
 <ul>
-<li><a href="#orgdf350c7">2.1. node.js vs the Browser</a></li>
-<li><a href="#org296175b">2.2. Hello Node</a>
+<li><a href="#org28d92e2">2.1. node.js vs the Browser</a></li>
+<li><a href="#org4ef2810">2.2. Hello Node</a>
 <ul>
-<li><a href="#org726aa28">2.2.1. Importing modules (CommonJS vs JavaScript modules)</a></li>
-<li><a href="#org221f031">2.2.2. <span class="todo TODO">TODO</span> Creating your own module</a></li>
+<li><a href="#org02f66d2">2.2.1. Importing modules (CommonJS vs JavaScript modules)</a></li>
+<li><a href="#org0fb5e25">2.2.2. <span class="todo TODO">TODO</span> Creating your own module</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org7a23f03">3. Our First API</a>
+<li><a href="#org29aee5f">3. Our First API</a>
 <ul>
-<li><a href="#org0d40db6">3.1. What is an API?</a></li>
-<li><a href="#org835e169">3.2. Creating our API</a></li>
-<li><a href="#org003ea6e">3.3. Starting our server</a></li>
-<li><a href="#orgd0eca10">3.4. Adding another endpoint</a>
+<li><a href="#org9f9ca69">3.1. What is an API?</a></li>
+<li><a href="#org7fd9daf">3.2. Creating our API</a></li>
+<li><a href="#orgf00a21f">3.3. Starting our server</a></li>
+<li><a href="#orgf9a0042">3.4. Adding another endpoint</a>
 <ul>
-<li><a href="#orge357be0">3.4.1. Live-reload and other tooling</a></li>
+<li><a href="#org5001a09">3.4.1. Live-reload and other tooling</a></li>
 </ul>
 </li>
-<li><a href="#org95cddb4">3.5. Back to our endpoint</a></li>
+<li><a href="#org744450a">3.5. Back to our endpoint</a></li>
 </ul>
 </li>
-<li><a href="#orgb9ddefc">4. Intro to MongoDB</a>
+<li><a href="#orgcccc393">4. Intro to MongoDB</a>
 <ul>
-<li><a href="#org04ce1b3">4.1. Schemas</a></li>
-<li><a href="#org688ce49">4.2. Operations</a>
+<li><a href="#org4e6ee34">4.1. Schemas</a></li>
+<li><a href="#org240fc7d">4.2. Operations</a>
 <ul>
-<li><a href="#orge80da5f">4.2.1. Inserting</a></li>
-<li><a href="#org6d90785">4.2.2. Finding (Filtering or Querying)</a></li>
-<li><a href="#org0f87319">4.2.3. Deleting</a></li>
-<li><a href="#org8bdd25b">4.2.4. Updating</a></li>
+<li><a href="#orgdfbe202">4.2.1. Inserting</a></li>
+<li><a href="#orgb809294">4.2.2. Finding (Filtering or Querying)</a></li>
+<li><a href="#orga82374c">4.2.3. Deleting</a></li>
+<li><a href="#orgd76a10f">4.2.4. Updating</a></li>
 </ul>
 </li>
-<li><a href="#orgbb63eb3">4.3. <span class="todo TODO">TODO</span> What is the ObjectId?</a></li>
+<li><a href="#org168b314">4.3. <span class="todo TODO">TODO</span> What is the ObjectId?</a></li>
 </ul>
 </li>
-<li><a href="#org9f6514c">5. <span class="todo TODO">TODO</span> JavaScript Deep-Dive</a></li>
-<li><a href="#org0280c51">6. Resources and useful links</a></li>
+<li><a href="#org16b384b">5. <span class="todo TODO">TODO</span> JavaScript Deep-Dive</a></li>
+<li><a href="#orgd5bb626">6. Resources and useful links</a></li>
 </ul>
 </div>
 </nav>
@@ -76,8 +76,8 @@
 This course aims to give you an understanding of back-end development and in it you will learn how to build an HTTP server in node.js and integrating it with a MongoDB database. The course will focus a lot on JavaScript and give you an understanding for how the language works so you will be able to solve issues in your code more readily.
 </p>
 
-<div id="outline-container-orgdd9ba88" class="outline-2">
-<h2 id="orgdd9ba88"><span class="section-number-2">1</span> Setting up your Environment</h2>
+<div id="outline-container-org57a5ec1" class="outline-2">
+<h2 id="org57a5ec1"><span class="section-number-2">1</span> Setting up your Environment</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In order to follow along with this course you will want to have the following installed:
@@ -102,8 +102,8 @@ git --version
 </div>
 </div>
 
-<div id="outline-container-org043e980" class="outline-3">
-<h3 id="org043e980"><span class="section-number-3">1.1</span> MongoDB</h3>
+<div id="outline-container-org71f2859" class="outline-3">
+<h3 id="org71f2859"><span class="section-number-3">1.1</span> MongoDB</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Finally you will need to have access to <a href="https://docs.mongodb.com/manual/installation/">MongoDB</a>. The company MongoDB is pushing really hard for you to use the free-tier of their cloud service Atlas. Unfortunately it requires you to create an account and forces you to go through a lot of settings and options. It's important that you choose the free tier, otherwise you can just use the defaults. They will also apparently bombard you with marketing emails, so if you decide to create an account I recommend you use a throwaway email account.
@@ -118,8 +118,8 @@ MongoDB Compass offers a graphical interface to your database and often comes bu
 </p>
 </div>
 
-<div id="outline-container-orga32044d" class="outline-4">
-<h4 id="orga32044d"><span class="section-number-4">1.1.1</span> Installing and running MongoDB on MacOS</h4>
+<div id="outline-container-orgd97d742" class="outline-4">
+<h4 id="orgd97d742"><span class="section-number-4">1.1.1</span> Installing and running MongoDB on MacOS</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 As long as you have <a href="https://brew.sh/">Homebrew</a> installed it's very easy to install both MongoDB and MongoDB Compass on your computer:
@@ -147,8 +147,8 @@ You can start the database by simply running <code>mongod</code> in a terminal. 
 </div>
 </div>
 
-<div id="outline-container-orgd9ee613" class="outline-2">
-<h2 id="orgd9ee613"><span class="section-number-2">2</span> Introduction to node.js</h2>
+<div id="outline-container-org3dae95a" class="outline-2">
+<h2 id="org3dae95a"><span class="section-number-2">2</span> Introduction to node.js</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 In short, node.js is JavaScript for servers and is now one of the most prevalent programming languages in the world. How come it quickly got so popular?
@@ -174,8 +174,8 @@ Node.JS was created 12 years ago by creating a system interface to Chrome’s <a
 </div>
 </div>
 
-<div id="outline-container-orgdf350c7" class="outline-3">
-<h3 id="orgdf350c7"><span class="section-number-3">2.1</span> node.js vs the Browser</h3>
+<div id="outline-container-org28d92e2" class="outline-3">
+<h3 id="org28d92e2"><span class="section-number-3">2.1</span> node.js vs the Browser</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Moving JavaScript out of the browser and onto the server results in a few important differences:
@@ -191,8 +191,8 @@ Moving JavaScript out of the browser and onto the server results in a few import
 </div>
 </div>
 
-<div id="outline-container-org296175b" class="outline-3">
-<h3 id="org296175b"><span class="section-number-3">2.2</span> Hello Node</h3>
+<div id="outline-container-org4ef2810" class="outline-3">
+<h3 id="org4ef2810"><span class="section-number-3">2.2</span> Hello Node</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 We are going to play around with node.js a bit. First create a new directory called <code>hello-node</code> and move into it. Now create a file called <code>index.js</code> and write the following piece of code:
@@ -207,20 +207,15 @@ We are going to play around with node.js a bit. First create a new directory cal
 Now you can run your program with the command <code>node index.js</code> and you should see <code>Hello node! \(&gt;0&lt;)/</code> printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 </p>
 
-<blockquote>
+<aside id="org26bdbbe">
 <p>
 Naming the main file JavaScript file <code>index.js</code> is a convention and has no special meaning to node.js itself apart from it being loaded by default when importing a directory. We will have a look at what this means later, for now you can think of it as being analogous to naming the main page of a website <code>index.html</code> to avoid having to specify the full file path in the URL (link).
 </p>
-</blockquote>
-
-<pre class="example" id="orge2b522b">
-Naming the main file JavaScript file =index.js= is a convention and has no special meaning to node.js itself apart from it being loaded by default when importing a directory. We will have a look at what this means later, for now you can think of it as being analogous to naming the main page of a website =index.html= to avoid having to specify the full file path in the URL (link).
-</pre>
+</aside>
 </div>
 
-
-<div id="outline-container-org726aa28" class="outline-4">
-<h4 id="org726aa28"><span class="section-number-4">2.2.1</span> Importing modules (CommonJS vs JavaScript modules)</h4>
+<div id="outline-container-org02f66d2" class="outline-4">
+<h4 id="org02f66d2"><span class="section-number-4">2.2.1</span> Importing modules (CommonJS vs JavaScript modules)</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 We can use node.js to play around with files but for that we need to import the built-in file system module <code>fs</code>.
@@ -263,17 +258,17 @@ Now you can use the <code>import</code> syntax instead:
 </div>
 </div>
 
-<div id="outline-container-org221f031" class="outline-4">
-<h4 id="org221f031"><span class="section-number-4">2.2.2</span> <span class="todo TODO">TODO</span> Creating your own module</h4>
+<div id="outline-container-org0fb5e25" class="outline-4">
+<h4 id="org0fb5e25"><span class="section-number-4">2.2.2</span> <span class="todo TODO">TODO</span> Creating your own module</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-org7a23f03" class="outline-2">
-<h2 id="org7a23f03"><span class="section-number-2">3</span> Our First API</h2>
+<div id="outline-container-org29aee5f" class="outline-2">
+<h2 id="org29aee5f"><span class="section-number-2">3</span> Our First API</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org0d40db6" class="outline-3">
-<h3 id="org0d40db6"><span class="section-number-3">3.1</span> What is an API?</h3>
+<div id="outline-container-org9f9ca69" class="outline-3">
+<h3 id="org9f9ca69"><span class="section-number-3">3.1</span> What is an API?</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>An API is a set of exposed methods for interacting with a program or package.</li>
@@ -288,8 +283,8 @@ Often when we say API we actually mean an HTTP API to be specific, that is an AP
 </div>
 </div>
 
-<div id="outline-container-org835e169" class="outline-3">
-<h3 id="org835e169"><span class="section-number-3">3.2</span> Creating our API</h3>
+<div id="outline-container-org7fd9daf" class="outline-3">
+<h3 id="org7fd9daf"><span class="section-number-3">3.2</span> Creating our API</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Express is by far the most popular NPM package for creating HTTP APIs in node.js and has been around almost as long as the language itself. Start by creating a new directory called <code>hello-express</code> and initialize it using <code>npm init</code> (also don't forget to update <code>package.json</code> if you want to use JavaScript modules). Now let's install Express:
@@ -332,8 +327,8 @@ There is <i>a lot</i> to unpack here&#x2026;
 </div>
 </div>
 
-<div id="outline-container-org003ea6e" class="outline-3">
-<h3 id="org003ea6e"><span class="section-number-3">3.3</span> Starting our server</h3>
+<div id="outline-container-orgf00a21f" class="outline-3">
+<h3 id="orgf00a21f"><span class="section-number-3">3.3</span> Starting our server</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Run your program by executing <code>node index.js</code>. The first thing you will notice is that your program never quits: you see the message <code>Server running at http://localhost:8080</code> but you don't get a new prompt. This is because your program is running a <b>server</b> which is meant to serve <b>responses</b> to <b>requests</b> from <b>clients</b> and your program needs to be kept alive and running to be able to do that.
@@ -344,7 +339,7 @@ A client is whatever uses, or <i>consumes</i>, the API served by your server and
 </p>
 
 
-<figure id="org7d457b6">
+<figure id="orgde9f2cf">
 <img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>Accessing an unregistered endpoint results in an error message</figcaption>
@@ -355,7 +350,7 @@ This means that we tried to <code>GET</code> something at the endpoint <code>/</
 </p>
 
 
-<figure id="orgfce96b0">
+<figure id="org7859c58">
 <img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
 
 <figcaption><span class="figure-number">Figure 2: </span>Successful call to our /hello endpoint</figcaption>
@@ -378,8 +373,8 @@ A server only responds on the port it is listening on and only handles requests 
 </div>
 </div>
 
-<div id="outline-container-orgd0eca10" class="outline-3">
-<h3 id="orgd0eca10"><span class="section-number-3">3.4</span> Adding another endpoint</h3>
+<div id="outline-container-orgf9a0042" class="outline-3">
+<h3 id="orgf9a0042"><span class="section-number-3">3.4</span> Adding another endpoint</h3>
 <div class="outline-text-3" id="text-3-4">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 5: </span>Our next endpoint</label><pre class="src src-js"><span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
@@ -405,8 +400,8 @@ If you now run <code>node index.js</code> again you will be able to access <a hr
 </p>
 </div>
 
-<div id="outline-container-orge357be0" class="outline-4">
-<h4 id="orge357be0"><span class="section-number-4">3.4.1</span> Live-reload and other tooling</h4>
+<div id="outline-container-org5001a09" class="outline-4">
+<h4 id="org5001a09"><span class="section-number-4">3.4.1</span> Live-reload and other tooling</h4>
 <div class="outline-text-4" id="text-3-4-1">
 <p>
 A workflow like the above is not only annoying but it can also lead to long troubleshooting sessions trying to figure out why something isn't working, when in the end you just had to restart the server. Thankfully there is an NPM package which helps us automate this workflow: <a href="https://nodemon.io/">nodemon</a>. Since we only need it for development we install it as a development dependency:
@@ -444,8 +439,8 @@ There is another tool I highly recommend you install and that is <a href="https:
 </div>
 </div>
 
-<div id="outline-container-org95cddb4" class="outline-3">
-<h3 id="org95cddb4"><span class="section-number-3">3.5</span> Back to our endpoint</h3>
+<div id="outline-container-org744450a" class="outline-3">
+<h3 id="org744450a"><span class="section-number-3">3.5</span> Back to our endpoint</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 Let's make our new endpoint do something more interesting: let's see what happens if we serve a string which looks like HTML.
@@ -542,8 +537,8 @@ A website made up from files like this is called a <b>static website</b>. This i
 </div>
 </div>
 
-<div id="outline-container-orgb9ddefc" class="outline-2">
-<h2 id="orgb9ddefc"><span class="section-number-2">4</span> Intro to MongoDB</h2>
+<div id="outline-container-orgcccc393" class="outline-2">
+<h2 id="orgcccc393"><span class="section-number-2">4</span> Intro to MongoDB</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 MongoDB is a <a href="https://www.mongodb.com/document-databases">document (NoSQL) database</a> and has a few important characteristics which makes it a suitable as a first database:
@@ -568,8 +563,8 @@ A MongoDB system consists of one or several <b>databases</b>, which each can hav
 </p>
 </div>
 
-<div id="outline-container-org04ce1b3" class="outline-3">
-<h3 id="org04ce1b3"><span class="section-number-3">4.1</span> Schemas</h3>
+<div id="outline-container-org4e6ee34" class="outline-3">
+<h3 id="org4e6ee34"><span class="section-number-3">4.1</span> Schemas</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 The main selling point of MongoDB compared to relational (SQL) databases (MySQL, Postgres, &#x2026;) is the flexibility. In relational databases you have to define how your data is structured and the relationship between different kinds of data models. The structure of your data is called its schema or sometimes its data model and defines the properties it has and what data types these properties have. Here's a made-up example of how a schema might look like:
@@ -594,7 +589,7 @@ In a <b>document database</b> schemas still exist, but they are just suggestions
 </p>
 
 
-<figure id="org614bacc">
+<figure id="org8c4137f">
 <img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
 
 <figcaption><span class="figure-number">Figure 3: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
@@ -607,8 +602,8 @@ This flexibility is something to be mindful of and I recommend using MongoDB Com
 </div>
 </div>
 
-<div id="outline-container-org688ce49" class="outline-3">
-<h3 id="org688ce49"><span class="section-number-3">4.2</span> Operations</h3>
+<div id="outline-container-org240fc7d" class="outline-3">
+<h3 id="org240fc7d"><span class="section-number-3">4.2</span> Operations</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 Operations are ways of interacting with your database in the terms of data, the most general operations being:
@@ -642,8 +637,8 @@ The code assumes that you have the <code>mongodb</code> package in scope and you
 </p>
 </div>
 
-<div id="outline-container-orge80da5f" class="outline-4">
-<h4 id="orge80da5f"><span class="section-number-4">4.2.1</span> Inserting</h4>
+<div id="outline-container-orgdfbe202" class="outline-4">
+<h4 id="orgdfbe202"><span class="section-number-4">4.2.1</span> Inserting</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <p>
 In MongoDB the act of creating data in a collection is called <b>inserting</b>.
@@ -683,8 +678,8 @@ In MongoDB the act of creating data in a collection is called <b>inserting</b>.
 </div>
 </div>
 
-<div id="outline-container-org6d90785" class="outline-4">
-<h4 id="org6d90785"><span class="section-number-4">4.2.2</span> Finding (Filtering or Querying)</h4>
+<div id="outline-container-orgb809294" class="outline-4">
+<h4 id="orgb809294"><span class="section-number-4">4.2.2</span> Finding (Filtering or Querying)</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <p>
 The operations for reading data are called <b>find</b> in the API but are often referred to as filtering or querying as well.
@@ -775,8 +770,8 @@ console.log(results);
 </div>
 </div>
 
-<div id="outline-container-org0f87319" class="outline-4">
-<h4 id="org0f87319"><span class="section-number-4">4.2.3</span> Deleting</h4>
+<div id="outline-container-orga82374c" class="outline-4">
+<h4 id="orga82374c"><span class="section-number-4">4.2.3</span> Deleting</h4>
 <div class="outline-text-4" id="text-4-2-3">
 <p>
 Deleting documents is very similar to finding documents just replace the <code>find</code> or <code>findOne</code> methods with <code>deleteMany</code> or <code>deleteOne</code>, the methods use the same kind of filters.
@@ -791,8 +786,8 @@ Deleting documents is very similar to finding documents just replace the <code>f
 </div>
 </div>
 
-<div id="outline-container-org8bdd25b" class="outline-4">
-<h4 id="org8bdd25b"><span class="section-number-4">4.2.4</span> Updating</h4>
+<div id="outline-container-orgd76a10f" class="outline-4">
+<h4 id="orgd76a10f"><span class="section-number-4">4.2.4</span> Updating</h4>
 <div class="outline-text-4" id="text-4-2-4">
 <p>
 Updating can be seen as a combination of a find operation and a write operation. As with the other operations you can either call <code>updateOne</code> or <code>updateMany</code> to update multiple documents at the same time and these methods take two arguments: a filter object to specify which documents will be affected, and an update object defining the modification.
@@ -809,17 +804,17 @@ Updating can be seen as a combination of a find operation and a write operation.
 </div>
 </div>
 
-<div id="outline-container-orgbb63eb3" class="outline-3">
-<h3 id="orgbb63eb3"><span class="section-number-3">4.3</span> <span class="todo TODO">TODO</span> What is the ObjectId?</h3>
+<div id="outline-container-org168b314" class="outline-3">
+<h3 id="org168b314"><span class="section-number-3">4.3</span> <span class="todo TODO">TODO</span> What is the ObjectId?</h3>
 </div>
 </div>
 
-<div id="outline-container-org9f6514c" class="outline-2">
-<h2 id="org9f6514c"><span class="section-number-2">5</span> <span class="todo TODO">TODO</span> JavaScript Deep-Dive</h2>
+<div id="outline-container-org16b384b" class="outline-2">
+<h2 id="org16b384b"><span class="section-number-2">5</span> <span class="todo TODO">TODO</span> JavaScript Deep-Dive</h2>
 </div>
 
-<div id="outline-container-org0280c51" class="outline-2">
-<h2 id="org0280c51"><span class="section-number-2">6</span> Resources and useful links</h2>
+<div id="outline-container-orgd5bb626" class="outline-2">
+<h2 id="orgd5bb626"><span class="section-number-2">6</span> Resources and useful links</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li><a href="https://zellwk.com/blog/async-await-express/">Async/Await in Express</a></li>
