@@ -17,7 +17,18 @@ content-type: application/json
 ### 
 POST http://localhost:8080/malone
 content-type: application/json
+Accept: ase
 
 {
     "title": "c"
 }
+
+## Status codes
+
+###
+GET http://localhost:8080/make-world-peace/
+
+###
+GET http://localhost:8080/download/car
+
+## HEADERS
