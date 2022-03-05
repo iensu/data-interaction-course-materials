@@ -78,13 +78,15 @@ We are going to play around with node.js a bit. First create a new directory cal
 
 Now you can run your program with the command ~node index.js~ and you should see =Hello node! \(>0<)/= printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 
-A quick aside: naming the main file JavaScript file =index.js= is a convention and has no special meaning to node.js itself apart from it being loaded by default when importing a directory. We will have a look at what this means later, for now you can think of it as being analogous to naming the main page of a website =index.html= to avoid having to specify the full file path in the URL (link).
+#+begin_aside
+Naming the main file JavaScript file =index.js= is a convention and has no special meaning to node.js itself apart from it being loaded by default when importing a directory. We will have a look at what this means later, for now you can think of it as being analogous to naming the main page of a website =index.html= to avoid having to specify the full file path in the URL (link).
+#+end_aside
 
 *** Importing modules (CommonJS vs JavaScript modules)
 We can use node.js to play around with files but for that we need to import the built-in file system module ~fs~.
 
 #+caption: Writing to files
-#+begin_src js
+#+begin_src js -n
   const fs = require("fs");
 
   // We write a string to the file text.txt synchronously
