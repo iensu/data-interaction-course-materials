@@ -79,6 +79,8 @@ We are going to play around with node.js a bit. First create a new directory cal
 Now you can run your program with the command ~node index.js~ and you should see =Hello node! \(>0<)/= printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 
 #+begin_aside
+*Why index.js?*
+
 Naming the main file JavaScript file =index.js= is a convention and has no special meaning to node.js itself apart from it being loaded by default when importing a directory. We will have a look at what this means later, for now you can think of it as being analogous to naming the main page of a website =index.html= to avoid having to specify the full file path in the URL (link).
 #+end_aside
 
@@ -181,6 +183,19 @@ So what went wrong the first time? There are four pieces of information needed t
 - The *endpoint* we want to consume (=/hello=)
 
 A server only responds on the port it is listening on and only handles requests on endpoints which have been registered on it. When not specifying an endpoint, the browser will pick the default one which is =/= and since we never registered a handler for that endpoint the request failed. You can think of endpoints as file paths on your own computer.
+
+#+begin_aside
+*Ports*
+
+You can choose any port number for your service between 1025 to 65535 as long as some other currently running service (program) isn't already listening on it. It is very common to see people assign 8080 and I think this comes from repeating 80 which is the default port for the HTTP protocol. When you specify =http://= in the URL =:80= is implicitly appended to the host. In other words, a port is always used even if it is not explicit in the URL. Below is a table of some reserved ports:
+
+|  Port | Protocol |
+|-------+----------|
+|    80 | =http://=  |
+|   443 | =https://= |
+|    22 | =ssh://=   |
+| 20,21 | =ftp://=   |
+#+end_aside
 
 ** Adding another endpoint
 

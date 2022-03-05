@@ -72,3 +72,31 @@ figcaption,.org-src-name {
   margin-bottom: 4px;
   display: inline-block;
 }
+
+aside {
+  padding: 0 16px;
+  background-color: #dfcbe2;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+}
+
+.linenr {
+  color: darkgrey;
+}
+
+table {
+  margin: 16px 8px;
+
+}
+table thead tr th {
+  font-weight: 700;
+  font-size: 0.9em;
+}
+tbody td {
+  margin-right: 16px;
+  margin-bottom: 16px;
+  padding-left: 8px;
+}
+tbody td.org-right {
+  text-align: left;
+}
