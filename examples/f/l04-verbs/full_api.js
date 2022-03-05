@@ -48,6 +48,27 @@ app.patch('/questions/:id', (req, res) => {
     let voter = req.body.voter;
     let vote = req.body.vote;
 
+    if(voter == undefined) {
+        res.status(400);
+        res.write("You need to supply `voter` to vote\n");
+    }
+    
+    if(vote == undefined) {
+        res.status(400);
+        res.write("You need to supply `vote` to vote\n");
+    }
+
+    if(res.statusCode != 200) {
+        res.send();
+        return;
+    }
+
+    if(selectedQuestion == undefined) {
+        res.status(404);
+        res.send(`That question ${req.params.id} doesn't seem to exist\n`);
+        return;
+    }
+
     let matchingIndex = selectedQuestion.replies.findIndex((e) => e.voter == voter);
     if (matchingIndex >= 0) {
         selectedQuestion.replies[matchingIndex] = new reply(voter, vote);
