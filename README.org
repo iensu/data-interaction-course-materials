@@ -58,6 +58,7 @@ Installing =mongodb.server= installs mongodb as a service that automatically sta
 You can change it with the =services= application (or =sc= if you rather like using a terminal).
 
 The MongoDB Compass application is easily launched by pressing Start and typing =mongodb=.
+To connect Compass to your server, you simply press "Connect" (no connection string required).
 
 * Introduction to node.js
 In short, node.js is JavaScript for servers and is now one of the most prevalent programming languages in the world. How come it quickly got so popular?
