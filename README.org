@@ -118,8 +118,10 @@ Now you can use the ~import~ syntax instead:
 #+end_src
 
 *** TODO Creating your own module
+
+*** TODO Accessing environment variables
 * Our First API
-** What is an API?
+** What is an Application Programming Interface?
 - An API is a set of exposed methods for interacting with a program or package.
 - When you write a JavaScript module and export functions to interact with it you are designing an API.
 - When you are interacting with a third-party package, for example =express=, you are using its API.
@@ -509,8 +511,9 @@ Updating can be seen as a combination of a find operation and a write operation.
   await db.collection('languages').updateOne(filter, modification)
 #+end_src
 
-** TODO What is the ObjectId?
-
+** TODO What is an ObjectId?
+- https://docs.mongodb.com/manual/reference/method/ObjectId/
+- https://docs.mongodb.com/manual/reference/bson-types/#std-label-objectid
 * TODO JavaScript Deep-Dive
 
 * Resources and useful links
