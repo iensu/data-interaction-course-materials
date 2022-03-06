@@ -54,7 +54,7 @@ As long as you have Windows 10 (October 2018 update) or newer it's very easy to 
   winget install mongodb.compass.full
 #+end_src
 
-Installing =mongodb.server= installs mongodb as a service that automatically starts when you start your computer. 
+Installing =mongodb.server= installs mongodb as a service that automatically starts when you start your computer.
 You can change it with the =services= application (or =sc= if you rather like using a terminal).
 
 The MongoDB Compass application is easily launched by pressing Start and typing =mongodb=.
