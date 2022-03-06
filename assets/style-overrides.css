@@ -50,7 +50,7 @@ figure {
   margin-inline-start: 6px;
 }
 
-figcaption,.org-src-name {
+figcaption,.org-src-name,.t-above {
   font-style: italic;
   font-size: 0.9em;
 }
@@ -86,17 +86,23 @@ aside {
 
 table {
   margin: 16px 8px;
-
+  width: 95%;
 }
 table thead tr th {
   font-weight: 700;
   font-size: 0.9em;
+  padding: 4px;
 }
 tbody td {
   margin-right: 16px;
   margin-bottom: 16px;
-  padding-left: 8px;
+  padding: 4px;
 }
 tbody td.org-right {
   text-align: left;
+}
+
+.t-above {
+  text-align: left;
+  margin-bottom: 8px;
 }
