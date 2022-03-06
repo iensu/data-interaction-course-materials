@@ -63,16 +63,15 @@ Node.JS was created 12 years ago by creating a system interface to Chrome’s [[
 Moving JavaScript out of the browser and onto the server results in a few important differences:
 
 - There's no browser environment, that is you do not have access to the global ~window~ and ~document~ objects.
-- You instead have a global variable ~global~ which refers to the current runtime environment.
+- You instead have the global variable ~global~ to refer to the global scope.
+- You have the global variable ~process~ for reading environment variables etc.
 - You have access to built-in modules for doing things like reading and writing files and networking etc.
-- You have support for two different module systems (/CommonJS/ and /ES6 modules/).
-- You use NPM for managing third party dependencies.
 
 ** Hello Node
 We are going to play around with node.js a bit. First create a new directory called ~hello-node~ and move into it. Now create a file called =index.js= and write the following piece of code:
 
 #+caption: Writing to the terminal
-#+begin_src js
+#+begin_src js -n
   console.log("Hello node! \(>0<)/")
 #+end_src
 
@@ -81,26 +80,43 @@ Now you can run your program with the command ~node index.js~ and you should see
 #+begin_aside
 *Why index.js?*
 
-Naming the main file JavaScript file =index.js= is a convention and has no special meaning to node.js itself apart from it being loaded by default when importing a directory. We will have a look at what this means later, for now you can think of it as being analogous to naming the main page of a website =index.html= to avoid having to specify the full file path in the URL (link).
+Naming the main file JavaScript file =index.js= is a convention and has no special meaning to node.js itself apart from it being loaded by default when importing a directory. You can think of it as being analogous to =index.html= on a website.
 #+end_aside
 
-*** Importing modules (CommonJS vs ES6 modules)
-We can use node.js to play around with files but for that we need to import the built-in file system module ~fs~.
+*** Using built-in modules
+Let's use the built-in file system module ~fs~ to play around with files.
 
 #+caption: Writing to files
 #+begin_src js -n
-  const fs = require("fs");
+  import fs from "fs";
 
-  // We write a string to the file text.txt synchronously
-  fs.writeFileSync("test.txt", "Here's some text in a file!");
+  const databases = [
+    { name: 'MongoDB', type: 'document' },
+    { name: 'PostgreSQL', type: 'relational' },
+    { name: 'Neo4j', type: 'graph' },
+    { name: 'Redis', type: 'in-memory' },
+  ];
 
-  // And read the contents of it (also here synchronously!)
+  fs.writeFileSync("test.txt", JSON.stringify(databases, null, 2));
+
   const contents = fs.readFileSync("test.txt").toString();
 
   console.log(`File contents: ${contents}`);
 #+end_src
 
-In the above example we are using the default CommonJS style imports (~require~). In the examples in this course we are mainly going to use ES6 modules (~import~, ~export~), also referred to as EcmaScript modules or JavaScript modules. You are free to use whichever style you are most comfortable with. If you want to use the ~import~ syntax you need to edit =package.json= and set the ~type~ property to ~module~ as in the example below. You can generate a =package.json= file by running ~npm init~ in the terminal and just accept all of the suggested default settings.
+#+begin_aside
+*ES6 modules vs. CommonJS modules*
+
+The node.js ecosystem is in a state of transitioning towards ES6 modules from the default CommonJS style modules. ES6 modules are sometimes referred to as JavaScript modules or EcmaScript modules.
+
+#+caption: Syntax comparison between ES6 and CommonJS modules
+|                 | ES6               | CommonJS                 |
+|-----------------+-------------------+--------------------------|
+| Imports         | =import x from 'x'= | =const x = require('x')=   |
+| Named exports   | =export x=          | =module.exports.x = { x }= |
+| Default exports | =export default x=  | =module.exports = x=       |
+
+In the examples in this course we are going to use ES6 modules because that syntax is commonly used on the front-end. In order to use ES6 modules in node.js code you need to set the ~type~ property to ~module~ in =package.json=. You can quickly generate a =package.json= file by running ~npm init --yes~ in the terminal.
 
 #+caption: Add support for ES6 modules by editing package.json
 #+begin_src json
@@ -111,15 +127,103 @@ In the above example we are using the default CommonJS style imports (~require~)
   }
 #+end_src
 
-Now you can use the ~import~ syntax instead:
+The difference between the module systems lies not only in cosmetics but also semantics, ES6 modules being a lot more restrictive in when and how you can import modules. Given the flexibility of CommonJS modules we might never see a full transition to ES6 modules.
+#+end_aside
 
-#+begin_src js
-  import fs from "fs"
+*** Writing our own module
+Let's create new module with a function that randomly picks an element from a list. And let's call it from =index.js=.
+
+#+caption: random-element.js
+#+begin_src js -n
+  export default function randomElement(xs) {
+    const randomIndex = Math.floor((Math.random() * 10) % xs.length)
+
+    return xs[index];
+  }
 #+end_src
 
-*** TODO Creating your own module
+#+caption: index.js
+#+begin_src js
+  import fs from "fs";
+  import randomElement from './random-element.js';
 
-*** TODO Accessing environment variables
+  const databases = [
+    { name: 'MongoDB', type: 'document' },
+    { name: 'PostgreSQL', type: 'relational' },
+    { name: 'Neo4j', type: 'graph' },
+    { name: 'Redis', type: 'in-memory' },
+  ];
+
+  // ...
+
+  const randomDatabase = randomElement(databases);
+
+  console.log(`Got database: ${randomDatabase}`);
+#+end_src
+
+*** Messing around with the global scope
+Using modules is not the only way of sharing functionality, you can also manipulate the global scope by modifying the ~global~ variable.
+
+#+caption: modifying-global-scope.js
+#+begin_src js -n
+  let count = 0;
+
+  global.ourGlobalFunction = (source) => {
+    count++;
+    console.log(`Call count: ${count} (from ${source})`);
+  };
+#+end_src
+
+#+caption: Importing the file updates the global scope (index.js)
+#+begin_src js -n
+  import fs from "fs";
+  import randomElement from './random-element.js';
+  import './modifying-global-scope.js';
+
+  global.ourGlobalFunction(import.meta.url);
+
+  // Since the scope is global we can even call it directly as well
+  ourGlobalFunction(import.meta.url);
+
+  // ...
+#+end_src
+
+*Exercise* Try calling ~ourGlobalFunction~ from =randomElement.js=. Try both within the function and outside. Is it working? If not, why not?
+
+Finally, *please do not modify ~global~ in /real/ code*. it breaks encapsulation and makes it more difficult to understand what's going on.
+
+*** Reading environment variables
+Another thing we can do in node.js that we can't do in the browser is to get information about the current environment especially things like environment variables.
+
+We can access environment variables via the ~process~ variable:
+
+#+caption: Reading environment variables
+#+begin_src js
+  console.log('USER:', process.env.USER); // Prints your username
+  console.log('MY_VARIABLE', process.env.MY_VARIABLE); // Prints undefined
+#+end_src
+
+#+begin_aside
+*What are environment variables?*
+
+Environment variables are string key-value pairs declared in the environment and are used extensively to configure applications and services. On Linux and MacOS you can list all environment variables in the terminal by running the ~env~ command, on Windows you run ~SET~. Some common environment variables are listed blow:
+
+#+caption: Common environment variables
+| Environment variable | Functionality                                              | OS                |
+|----------------------+------------------------------------------------------------+-------------------|
+| ~PATH~                 | Specifies which directories have executable programs       | Linux, MacOS, Win |
+| ~EDITOR~               | Specifies what editor to open files with from the terminal | Linux, MacOS      |
+
+Environment variables can be created freely and this allows us to configure our application depending on the environment (production, test, local development) without having to do explicit checks in the code itself.
+
+On MacOS and Linux you can set environment variables with the ~export~ command.
+
+#+caption: Setting the environment variable MY_VARIABLE in the terminal
+#+begin_src shell
+  export MY_VARIABLE=foo
+#+end_src
+#+end_aside
+
 * Our First API
 ** What is an Application Programming Interface?
 - An API is a set of exposed methods for interacting with a program or package.

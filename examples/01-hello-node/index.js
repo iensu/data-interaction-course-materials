@@ -1,13 +1,30 @@
-// We can use the import syntax since the package type being set to "module" in package.json
-import fs from 'fs';
-import { addMeaning } from './add-meaning.js';
+import fs from "fs";
+import randomElement from "./random-element.js";
+import "./modifying-global-scope.js";
 
-console.log("Hello node! \(>O<)/")
+// import.meta.url gives the path to the current file
+global.ourGlobalFunction(import.meta.url);
 
-fs.writeFileSync("test.txt", "Here's some text in a file!");
+// Since the scope is global we can even call it directly as well
+ourGlobalFunction(import.meta.url);
+
+const databases = [
+  { name: "MongoDB", type: "document" },
+  { name: "PostgreSQL", type: "relational" },
+  { name: "Neo4j", type: "graph" },
+  { name: "Redis", type: "in-memory" },
+];
+
+fs.writeFileSync("test.txt", JSON.stringify(databases));
+
 const contents = fs.readFileSync("test.txt").toString();
-console.log(contents);
 
-const x = addMeaning(0);
+console.log(`File contents: ${contents}`);
 
-console.log(`x=${x}`);
+const randomDatabase = randomElement(databases);
+
+console.log("Got database:", randomDatabase);
+
+// Reading environment variables:
+console.log("USER:", process.env.USER);
+console.log("MY_VARIABLE", process.env.MY_VARIABLE);
