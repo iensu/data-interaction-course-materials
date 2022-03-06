@@ -1,0 +1,15 @@
+* MongoDB Express API
+
+This is an example of an Express API which calls MongoDB.
+
+To run it locally:
+1. Have MongoDB up and running.
+2. Run ~npm install~.
+3. Run ~npm start~ or ~npm run dev~ if you want to play around with the code.
+
+The API is configurable via the following environment variables:
+
+| Variable    | Description                      | Default value             |
+|-------------+----------------------------------+---------------------------|
+| ~MONGODB_URL~ | URL to MongoDB                   | ~mongodb://localhost:27017~ |
+| ~PORT~        | Port the server should listen on | 8080                      |

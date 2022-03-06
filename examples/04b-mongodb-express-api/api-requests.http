@@ -1,0 +1,19 @@
+## API example requests
+
+## Adding a movie
+POST http://localhost:8080/movies
+Content-Type: application/json
+
+{
+  "title": "Clueless",
+  "year": 1995
+}
+
+# Get all movies
+GET http://localhost:8080/movies
+
+# Get movie by ID (replace :id with the actual ID)
+GET http://localhost:8080/movies/:id
+
+# Finding by title
+GET http://localhost:8080/movies/search?title=clueless

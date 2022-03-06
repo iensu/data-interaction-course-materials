@@ -1,6 +1,6 @@
 import express, { Express } from "express";
 import { Db } from "mongodb";
-import movies from "./modules/movies.js";
+import { routes } from "./modules/movies.js";
 
 /**
  * Returns a bootstrapped Express server
@@ -14,7 +14,7 @@ export function createServer(db) {
   // `application/json` content type are parsed as JSON automatically.
   app.use(express.json());
 
-  app.use('/movies', movies.routes(db));
+  app.use("/movies", routes(db));
 
   return app;
 }

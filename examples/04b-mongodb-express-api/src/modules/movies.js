@@ -7,7 +7,8 @@ import { Db } from "mongodb";
 
 /**
  * All handler functions take a MongoDB instance and returns an Express
- * handler function which can be registered on the router below.
+ * handler function which can be registered on the router below. This is
+ * one example of higher-order functions.
  */
 
 const addMovieHandler = (db) => async (req, res) => {
@@ -57,8 +58,8 @@ const searchMoviesHandler = (db) => async (req, res) => {
     filter.year = parseInt(year);
   }
   if (title) {
-    // We use regular expressions to allow partial matches
-    filter.title = { $regex: new RegExp(title) };
+    // We use regular expressions to allow case-insensitive partial matches
+    filter.title = { $regex: new RegExp(title, "i") };
   }
 
   // We don't want to use an empty filter object

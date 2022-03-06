@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "prestart-db": "mkdir -p db-data",
     "start-db": "mongod --dbpath ./db-data",
