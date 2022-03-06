@@ -46,6 +46,20 @@ Installing the =mongodb= package should give you two commands:
 
 You can start the database by simply running ~mongod~ in a terminal. You can shut it down by either closing the terminal window or by interrupting the process (hitting Ctrl-c).
 
+*** Installing and running MongoDB on Windows
+As long as you have Windows 10 (October 2018 update) or newer it's very easy to install both MongoDB and MongoDB Compass on your computer using =winget=:
+
+#+begin_src shell
+  winget install mongodb.server
+  winget install mongodb.compass.full
+#+end_src
+
+Installing =mongodb.server= installs mongodb as a service that automatically starts when you start your computer. 
+You can change it with the =services= application (or =sc= if you rather like using a terminal).
+
+The MongoDB Compass application is easily launched by pressing Start and typing =mongodb=.
+To connect Compass to your server, you simply press "Connect" (no connection string required).
+
 * Introduction to node.js
 In short, node.js is JavaScript for servers and is now one of the most prevalent programming languages in the world. How come it quickly got so popular?
 
