@@ -20,56 +20,57 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf5fb479">1. Setting up your Environment</a>
+<li><a href="#org9b97035">1. Setting up your Environment</a>
 <ul>
-<li><a href="#orga5823f2">1.1. MongoDB</a>
+<li><a href="#org980149e">1.1. MongoDB</a>
 <ul>
-<li><a href="#org6ce00b3">1.1.1. Installing and running MongoDB on MacOS</a></li>
+<li><a href="#org3c4c39f">1.1.1. Installing and running MongoDB on MacOS</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgc7478d5">2. Introduction to node.js</a>
+<li><a href="#org1557f6c">2. Introduction to node.js</a>
 <ul>
-<li><a href="#org7b17541">2.1. node.js vs the Browser</a></li>
-<li><a href="#org92211c7">2.2. Hello Node</a>
+<li><a href="#orgaf0a97e">2.1. node.js vs the Browser</a></li>
+<li><a href="#orge2cc006">2.2. Hello Node</a>
 <ul>
-<li><a href="#org24ea24e">2.2.1. Importing modules (CommonJS vs ES6 modules)</a></li>
-<li><a href="#org3d57020">2.2.2. <span class="todo TODO">TODO</span> Creating your own module</a></li>
-<li><a href="#org738876f">2.2.3. <span class="todo TODO">TODO</span> Accessing environment variables</a></li>
+<li><a href="#org14f152f">2.2.1. Using built-in modules</a></li>
+<li><a href="#org26d7e02">2.2.2. Writing our own module</a></li>
+<li><a href="#orge02cb6c">2.2.3. Messing around with the global scope</a></li>
+<li><a href="#org8948cf2">2.2.4. Reading environment variables</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org1b49fde">3. Our First API</a>
+<li><a href="#org0f92361">3. Our First API</a>
 <ul>
-<li><a href="#orge89be28">3.1. What is an Application Programming Interface?</a></li>
-<li><a href="#org99ceb76">3.2. Creating our API</a></li>
-<li><a href="#org445d9ca">3.3. Starting our server</a></li>
-<li><a href="#orgff39392">3.4. Adding another endpoint</a>
+<li><a href="#org8affcfe">3.1. What is an Application Programming Interface?</a></li>
+<li><a href="#org363d8e4">3.2. Creating our API</a></li>
+<li><a href="#orgcdd02fb">3.3. Starting our server</a></li>
+<li><a href="#orge3cba5f">3.4. Adding another endpoint</a>
 <ul>
-<li><a href="#orga6c88c8">3.4.1. Live-reload and other tooling</a></li>
+<li><a href="#orgbfea5f8">3.4.1. Live-reload and other tooling</a></li>
 </ul>
 </li>
-<li><a href="#org35805ab">3.5. Back to our endpoint</a></li>
+<li><a href="#org1ee7fe3">3.5. Back to our endpoint</a></li>
 </ul>
 </li>
-<li><a href="#org1596205">4. Intro to MongoDB</a>
+<li><a href="#org2fcb237">4. Intro to MongoDB</a>
 <ul>
-<li><a href="#orgf16ac31">4.1. Schemas</a></li>
-<li><a href="#org9f30cdd">4.2. Operations</a>
+<li><a href="#org13d8e30">4.1. Schemas</a></li>
+<li><a href="#org5014e09">4.2. Operations</a>
 <ul>
-<li><a href="#orge8be2e8">4.2.1. Inserting</a></li>
-<li><a href="#org0c1b939">4.2.2. Finding (Filtering or Querying)</a></li>
-<li><a href="#org88b54e7">4.2.3. Deleting</a></li>
-<li><a href="#org2e5b1b5">4.2.4. Updating</a></li>
+<li><a href="#org7c3477b">4.2.1. Inserting</a></li>
+<li><a href="#orgc14b8de">4.2.2. Finding (Filtering or Querying)</a></li>
+<li><a href="#orga6744f5">4.2.3. Deleting</a></li>
+<li><a href="#orgf6a5b0b">4.2.4. Updating</a></li>
 </ul>
 </li>
-<li><a href="#orge11ee77">4.3. <span class="todo TODO">TODO</span> What is an ObjectId?</a></li>
+<li><a href="#org9197f4c">4.3. <span class="todo TODO">TODO</span> What is an ObjectId?</a></li>
 </ul>
 </li>
-<li><a href="#orgf4dbc6f">5. <span class="todo TODO">TODO</span> JavaScript Deep-Dive</a></li>
-<li><a href="#orge172abf">6. Resources and useful links</a></li>
+<li><a href="#orga9d6cf0">5. <span class="todo TODO">TODO</span> JavaScript Deep-Dive</a></li>
+<li><a href="#orgeb0c8e6">6. Resources and useful links</a></li>
 </ul>
 </div>
 </nav>
@@ -77,8 +78,8 @@
 This course aims to give you an understanding of back-end development and in it you will learn how to build an HTTP server in node.js and integrating it with a MongoDB database. The course will focus a lot on JavaScript and give you an understanding for how the language works so you will be able to solve issues in your code more readily.
 </p>
 
-<div id="outline-container-orgf5fb479" class="outline-2">
-<h2 id="orgf5fb479"><span class="section-number-2">1</span> Setting up your Environment</h2>
+<div id="outline-container-org9b97035" class="outline-2">
+<h2 id="org9b97035"><span class="section-number-2">1</span> Setting up your Environment</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In order to follow along with this course you will want to have the following installed:
@@ -103,8 +104,8 @@ git --version
 </div>
 </div>
 
-<div id="outline-container-orga5823f2" class="outline-3">
-<h3 id="orga5823f2"><span class="section-number-3">1.1</span> MongoDB</h3>
+<div id="outline-container-org980149e" class="outline-3">
+<h3 id="org980149e"><span class="section-number-3">1.1</span> MongoDB</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Finally you will need to have access to <a href="https://docs.mongodb.com/manual/installation/">MongoDB</a>. The company MongoDB is pushing really hard for you to use the free-tier of their cloud service Atlas. Unfortunately it requires you to create an account and forces you to go through a lot of settings and options. It's important that you choose the free tier, otherwise you can just use the defaults. They will also apparently bombard you with marketing emails, so if you decide to create an account I recommend you use a throwaway email account.
@@ -119,8 +120,8 @@ MongoDB Compass offers a graphical interface to your database and often comes bu
 </p>
 </div>
 
-<div id="outline-container-org6ce00b3" class="outline-4">
-<h4 id="org6ce00b3"><span class="section-number-4">1.1.1</span> Installing and running MongoDB on MacOS</h4>
+<div id="outline-container-org3c4c39f" class="outline-4">
+<h4 id="org3c4c39f"><span class="section-number-4">1.1.1</span> Installing and running MongoDB on MacOS</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 As long as you have <a href="https://brew.sh/">Homebrew</a> installed it's very easy to install both MongoDB and MongoDB Compass on your computer:
@@ -148,8 +149,8 @@ You can start the database by simply running <code>mongod</code> in a terminal. 
 </div>
 </div>
 
-<div id="outline-container-orgc7478d5" class="outline-2">
-<h2 id="orgc7478d5"><span class="section-number-2">2</span> Introduction to node.js</h2>
+<div id="outline-container-org1557f6c" class="outline-2">
+<h2 id="org1557f6c"><span class="section-number-2">2</span> Introduction to node.js</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 In short, node.js is JavaScript for servers and is now one of the most prevalent programming languages in the world. How come it quickly got so popular?
@@ -175,8 +176,8 @@ Node.JS was created 12 years ago by creating a system interface to Chrome’s <a
 </div>
 </div>
 
-<div id="outline-container-org7b17541" class="outline-3">
-<h3 id="org7b17541"><span class="section-number-3">2.1</span> node.js vs the Browser</h3>
+<div id="outline-container-orgaf0a97e" class="outline-3">
+<h3 id="orgaf0a97e"><span class="section-number-3">2.1</span> node.js vs the Browser</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Moving JavaScript out of the browser and onto the server results in a few important differences:
@@ -184,23 +185,22 @@ Moving JavaScript out of the browser and onto the server results in a few import
 
 <ul class="org-ul">
 <li>There's no browser environment, that is you do not have access to the global <code>window</code> and <code>document</code> objects.</li>
-<li>You instead have a global variable <code>global</code> which refers to the current runtime environment.</li>
+<li>You instead have the global variable <code>global</code> to refer to the global scope.</li>
+<li>You have the global variable <code>process</code> for reading environment variables etc.</li>
 <li>You have access to built-in modules for doing things like reading and writing files and networking etc.</li>
-<li>You have support for two different module systems (<i>CommonJS</i> and <i>ES6 modules</i>).</li>
-<li>You use NPM for managing third party dependencies.</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org92211c7" class="outline-3">
-<h3 id="org92211c7"><span class="section-number-3">2.2</span> Hello Node</h3>
+<div id="outline-container-orge2cc006" class="outline-3">
+<h3 id="orge2cc006"><span class="section-number-3">2.2</span> Hello Node</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 We are going to play around with node.js a bit. First create a new directory called <code>hello-node</code> and move into it. Now create a file called <code>index.js</code> and write the following piece of code:
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 1: </span>Writing to the terminal</label><pre class="src src-js">console.log(<span class="org-string">"Hello node! \(&gt;0&lt;)/"</span>)
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Writing to the terminal</label><pre class="src src-js"><span class="linenr">1: </span>console.log(<span class="org-string">"Hello node! \(&gt;0&lt;)/"</span>)
 </pre>
 </div>
 
@@ -208,39 +208,91 @@ We are going to play around with node.js a bit. First create a new directory cal
 Now you can run your program with the command <code>node index.js</code> and you should see <code>Hello node! \(&gt;0&lt;)/</code> printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 </p>
 
-<aside id="org4cc156d">
+<aside id="orgfb8504f">
 <p>
 <b>Why index.js?</b>
 </p>
 
 <p>
-Naming the main file JavaScript file <code>index.js</code> is a convention and has no special meaning to node.js itself apart from it being loaded by default when importing a directory. We will have a look at what this means later, for now you can think of it as being analogous to naming the main page of a website <code>index.html</code> to avoid having to specify the full file path in the URL (link).
+Naming the main file JavaScript file <code>index.js</code> is a convention and has no special meaning to node.js itself apart from it being loaded by default when importing a directory. You can think of it as being analogous to <code>index.html</code> on a website.
 </p>
 </aside>
 </div>
 
-<div id="outline-container-org24ea24e" class="outline-4">
-<h4 id="org24ea24e"><span class="section-number-4">2.2.1</span> Importing modules (CommonJS vs ES6 modules)</h4>
+<div id="outline-container-org14f152f" class="outline-4">
+<h4 id="org14f152f"><span class="section-number-4">2.2.1</span> Using built-in modules</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
-We can use node.js to play around with files but for that we need to import the built-in file system module <code>fs</code>.
+Let's use the built-in file system module <code>fs</code> to play around with files.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 2: </span>Writing to files</label><pre class="src src-js"><span class="linenr">1: </span><span class="org-keyword">const</span> <span class="org-variable-name">fs</span> = require(<span class="org-string">"fs"</span>);
-<span class="linenr">2: </span>
-<span class="linenr">3: </span><span class="org-comment-delimiter">// </span><span class="org-comment">We write a string to the file text.txt synchronously</span>
-<span class="linenr">4: </span>fs.writeFileSync(<span class="org-string">"test.txt"</span>, <span class="org-string">"Here's some text in a file!"</span>);
-<span class="linenr">5: </span>
-<span class="linenr">6: </span><span class="org-comment-delimiter">// </span><span class="org-comment">And read the contents of it (also here synchronously!)</span>
-<span class="linenr">7: </span><span class="org-keyword">const</span> <span class="org-variable-name">contents</span> = fs.readFileSync(<span class="org-string">"test.txt"</span>).toString();
-<span class="linenr">8: </span>
-<span class="linenr">9: </span>console.log(<span class="org-string">`File contents: ${contents}`</span>);
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Writing to files</label><pre class="src src-js"><span class="linenr"> 1: </span><span class="org-keyword">import</span> fs from <span class="org-string">"fs"</span>;
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span class="org-keyword">const</span> <span class="org-variable-name">databases</span> = [
+<span class="linenr"> 4: </span>  { name: <span class="org-string">'MongoDB'</span>, type: <span class="org-string">'document'</span> },
+<span class="linenr"> 5: </span>  { name: <span class="org-string">'PostgreSQL'</span>, type: <span class="org-string">'relational'</span> },
+<span class="linenr"> 6: </span>  { name: <span class="org-string">'Neo4j'</span>, type: <span class="org-string">'graph'</span> },
+<span class="linenr"> 7: </span>  { name: <span class="org-string">'Redis'</span>, type: <span class="org-string">'in-memory'</span> },
+<span class="linenr"> 8: </span>];
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>fs.writeFileSync(<span class="org-string">"test.txt"</span>, JSON.stringify(databases, <span class="org-constant">null</span>, 2));
+<span class="linenr">11: </span>
+<span class="linenr">12: </span><span class="org-keyword">const</span> <span class="org-variable-name">contents</span> = fs.readFileSync(<span class="org-string">"test.txt"</span>).toString();
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>console.log(<span class="org-string">`File contents: ${contents}`</span>);
 </pre>
 </div>
 
+<aside id="orge7746a9">
 <p>
-In the above example we are using the default CommonJS style imports (<code>require</code>). In the examples in this course we are mainly going to use ES6 modules (<code>import</code>, <code>export</code>), also referred to as EcmaScript modules or JavaScript modules. You are free to use whichever style you are most comfortable with. If you want to use the <code>import</code> syntax you need to edit <code>package.json</code> and set the <code>type</code> property to <code>module</code> as in the example below. You can generate a <code>package.json</code> file by running <code>npm init</code> in the terminal and just accept all of the suggested default settings.
+<b>ES6 modules vs. CommonJS modules</b>
+</p>
+
+<p>
+The node.js ecosystem is in a state of transitioning towards ES6 modules from the default CommonJS style modules. ES6 modules are sometimes referred to as JavaScript modules or EcmaScript modules.
+</p>
+
+<table>
+<caption class="t-above"><span class="table-number">Table 1:</span> Syntax comparison between ES6 and CommonJS modules</caption>
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">ES6</th>
+<th scope="col" class="org-left">CommonJS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Imports</td>
+<td class="org-left"><code>import x from 'x'</code></td>
+<td class="org-left"><code>const x = require('x')</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Named exports</td>
+<td class="org-left"><code>export x</code></td>
+<td class="org-left"><code>module.exports.x = { x }</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Default exports</td>
+<td class="org-left"><code>export default x</code></td>
+<td class="org-left"><code>module.exports = x</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+In the examples in this course we are going to use ES6 modules because that syntax is commonly used on the front-end. In order to use ES6 modules in node.js code you need to set the <code>type</code> property to <code>module</code> in <code>package.json</code>. You can quickly generate a <code>package.json</code> file by running <code>npm init --yes</code> in the terminal.
 </p>
 
 <div class="org-src-container">
@@ -253,31 +305,172 @@ In the above example we are using the default CommonJS style imports (<code>requ
 </div>
 
 <p>
-Now you can use the <code>import</code> syntax instead:
+The difference between the module systems lies not only in cosmetics but also semantics, ES6 modules being a lot more restrictive in when and how you can import modules. Given the flexibility of CommonJS modules we might never see a full transition to ES6 modules.
+</p>
+</aside>
+</div>
+</div>
+
+<div id="outline-container-org26d7e02" class="outline-4">
+<h4 id="org26d7e02"><span class="section-number-4">2.2.2</span> Writing our own module</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+Let's create new module with a function that randomly picks an element from a list. And let's call it from <code>index.js</code>.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span class="org-keyword">import</span> fs from <span class="org-string">"fs"</span>
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>random-element.js</label><pre class="src src-js"><span class="linenr">1: </span><span class="org-keyword">export</span> <span class="org-keyword">default</span> <span class="org-keyword">function</span> randomElement(<span class="org-variable-name">xs</span>) {
+<span class="linenr">2: </span>  <span class="org-keyword">const</span> <span class="org-variable-name">randomIndex</span> = Math.floor((Math.random() * 10) % xs.length)
+<span class="linenr">3: </span>
+<span class="linenr">4: </span>  <span class="org-keyword">return</span> xs[index];
+<span class="linenr">5: </span>}
+</pre>
+</div>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>index.js</label><pre class="src src-js"><span class="org-keyword">import</span> fs from <span class="org-string">"fs"</span>;
+<span class="org-keyword">import</span> randomElement from <span class="org-string">'./random-element.js'</span>;
+
+<span class="org-keyword">const</span> <span class="org-variable-name">databases</span> = [
+  { name: <span class="org-string">'MongoDB'</span>, type: <span class="org-string">'document'</span> },
+  { name: <span class="org-string">'PostgreSQL'</span>, type: <span class="org-string">'relational'</span> },
+  { name: <span class="org-string">'Neo4j'</span>, type: <span class="org-string">'graph'</span> },
+  { name: <span class="org-string">'Redis'</span>, type: <span class="org-string">'in-memory'</span> },
+];
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+
+<span class="org-keyword">const</span> <span class="org-variable-name">randomDatabase</span> = randomElement(databases);
+
+console.log(<span class="org-string">`Got database: ${randomDatabase}`</span>);
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3d57020" class="outline-4">
-<h4 id="org3d57020"><span class="section-number-4">2.2.2</span> <span class="todo TODO">TODO</span> Creating your own module</h4>
+<div id="outline-container-orge02cb6c" class="outline-4">
+<h4 id="orge02cb6c"><span class="section-number-4">2.2.3</span> Messing around with the global scope</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+Using modules is not the only way of sharing functionality, you can also manipulate the global scope by modifying the <code>global</code> variable.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>modifying-global-scope.js</label><pre class="src src-js"><span class="linenr">1: </span><span class="org-keyword">let</span> <span class="org-variable-name">count</span> = 0;
+<span class="linenr">2: </span>
+<span class="linenr">3: </span>global.ourGlobalFunction = (source) =&gt; {
+<span class="linenr">4: </span>  count++;
+<span class="linenr">5: </span>  console.log(<span class="org-string">`Call count: ${count} (from ${source})`</span>);
+<span class="linenr">6: </span>};
+</pre>
 </div>
 
-<div id="outline-container-org738876f" class="outline-4">
-<h4 id="org738876f"><span class="section-number-4">2.2.3</span> <span class="todo TODO">TODO</span> Accessing environment variables</h4>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>Importing the file updates the global scope (index.js)</label><pre class="src src-js"><span class="linenr"> 1: </span><span class="org-keyword">import</span> fs from <span class="org-string">"fs"</span>;
+<span class="linenr"> 2: </span><span class="org-keyword">import</span> randomElement from <span class="org-string">'./random-element.js'</span>;
+<span class="linenr"> 3: </span><span class="org-keyword">import</span> <span class="org-string">'./modifying-global-scope.js'</span>;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>global.ourGlobalFunction(<span class="org-keyword">import</span>.meta.url);
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span><span class="org-comment-delimiter">// </span><span class="org-comment">Since the scope is global we can even call it directly as well</span>
+<span class="linenr"> 8: </span>ourGlobalFunction(<span class="org-keyword">import</span>.meta.url);
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span><span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+</pre>
+</div>
+
+<p>
+<b>Exercise</b> Try calling <code>ourGlobalFunction</code> from <code>randomElement.js</code>. Try both within the function and outside. Is it working? If not, why not?
+</p>
+
+<p>
+Finally, <b>please do not modify <code>global</code> in <i>real</i> code</b>. it breaks encapsulation and makes it more difficult to understand what's going on.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8948cf2" class="outline-4">
+<h4 id="org8948cf2"><span class="section-number-4">2.2.4</span> Reading environment variables</h4>
+<div class="outline-text-4" id="text-2-2-4">
+<p>
+Another thing we can do in node.js that we can't do in the browser is to get information about the current environment especially things like environment variables.
+</p>
+
+<p>
+We can access environment variables via the <code>process</code> variable:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>Reading environment variables</label><pre class="src src-js">console.log(<span class="org-string">'USER:'</span>, process.env.USER); <span class="org-comment-delimiter">// </span><span class="org-comment">Prints your username</span>
+console.log(<span class="org-string">'MY_VARIABLE'</span>, process.env.MY_VARIABLE); <span class="org-comment-delimiter">// </span><span class="org-comment">Prints undefined</span>
+</pre>
+</div>
+
+<aside id="org64ebbf0">
+<p>
+<b>What are environment variables?</b>
+</p>
+
+<p>
+Environment variables are string key-value pairs declared in the environment and are used extensively to configure applications and services. On Linux and MacOS you can list all environment variables in the terminal by running the <code>env</code> command, on Windows you run <code>SET</code>. Some common environment variables are listed blow:
+</p>
+
+<table>
+<caption class="t-above"><span class="table-number">Table 2:</span> Common environment variables</caption>
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Environment variable</th>
+<th scope="col" class="org-left">Functionality</th>
+<th scope="col" class="org-left">OS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>PATH</code></td>
+<td class="org-left">Specifies which directories have executable programs</td>
+<td class="org-left">Linux, MacOS, Win</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>EDITOR</code></td>
+<td class="org-left">Specifies what editor to open files with from the terminal</td>
+<td class="org-left">Linux, MacOS</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Environment variables can be created freely and this allows us to configure our application depending on the environment (production, test, local development) without having to do explicit checks in the code itself.
+</p>
+
+<p>
+On MacOS and Linux you can set environment variables with the <code>export</code> command.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 9: </span>Setting the environment variable MY<sub>VARIABLE</sub> in the terminal</label><pre class="src src-shell"><span class="org-builtin">export</span> <span class="org-variable-name">MY_VARIABLE</span>=foo
+</pre>
+</div>
+</aside>
 </div>
 </div>
 </div>
-<div id="outline-container-org1b49fde" class="outline-2">
-<h2 id="org1b49fde"><span class="section-number-2">3</span> Our First API</h2>
+</div>
+
+<div id="outline-container-org0f92361" class="outline-2">
+<h2 id="org0f92361"><span class="section-number-2">3</span> Our First API</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orge89be28" class="outline-3">
-<h3 id="orge89be28"><span class="section-number-3">3.1</span> What is an Application Programming Interface?</h3>
+<div id="outline-container-org8affcfe" class="outline-3">
+<h3 id="org8affcfe"><span class="section-number-3">3.1</span> What is an Application Programming Interface?</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>An API is a set of exposed methods for interacting with a program or package.</li>
@@ -292,8 +485,8 @@ Often when we say API we actually mean an HTTP API to be specific, that is an AP
 </div>
 </div>
 
-<div id="outline-container-org99ceb76" class="outline-3">
-<h3 id="org99ceb76"><span class="section-number-3">3.2</span> Creating our API</h3>
+<div id="outline-container-org363d8e4" class="outline-3">
+<h3 id="org363d8e4"><span class="section-number-3">3.2</span> Creating our API</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Express is by far the most popular NPM package for creating HTTP APIs in node.js and has been around almost as long as the language itself. Start by creating a new directory called <code>hello-express</code> and initialize it using <code>npm init</code> (also don't forget to update <code>package.json</code> if you want to use ES6 modules). Now let's install Express:
@@ -309,7 +502,7 @@ Now let's create our first API by creating a new file called <code>index.js</cod
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 4: </span>Our first API</label><pre class="src src-js"><span class="org-keyword">import</span> express from <span class="org-string">'express'</span>;
+<label class="org-src-name"><span class="listing-number">Listing 10: </span>Our first API</label><pre class="src src-js"><span class="org-keyword">import</span> express from <span class="org-string">'express'</span>;
 
 <span class="org-keyword">const</span> <span class="org-variable-name">app</span> = express();
 
@@ -336,8 +529,8 @@ There is <i>a lot</i> to unpack here&#x2026;
 </div>
 </div>
 
-<div id="outline-container-org445d9ca" class="outline-3">
-<h3 id="org445d9ca"><span class="section-number-3">3.3</span> Starting our server</h3>
+<div id="outline-container-orgcdd02fb" class="outline-3">
+<h3 id="orgcdd02fb"><span class="section-number-3">3.3</span> Starting our server</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Run your program by executing <code>node index.js</code>. The first thing you will notice is that your program never quits: you see the message <code>Server running at http://localhost:8080</code> but you don't get a new prompt. This is because your program is running a <b>server</b> which is meant to serve <b>responses</b> to <b>requests</b> from <b>clients</b> and your program needs to be kept alive and running to be able to do that.
@@ -348,7 +541,7 @@ A client is whatever uses, or <i>consumes</i>, the API served by your server and
 </p>
 
 
-<figure id="org221ebe3">
+<figure id="org19298e6">
 <img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>Accessing an unregistered endpoint results in an error message</figcaption>
@@ -359,7 +552,7 @@ This means that we tried to <code>GET</code> something at the endpoint <code>/</
 </p>
 
 
-<figure id="org51e0839">
+<figure id="org2959191">
 <img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
 
 <figcaption><span class="figure-number">Figure 2: </span>Successful call to our /hello endpoint</figcaption>
@@ -380,7 +573,7 @@ So what went wrong the first time? There are four pieces of information needed t
 A server only responds on the port it is listening on and only handles requests on endpoints which have been registered on it. When not specifying an endpoint, the browser will pick the default one which is <code>/</code> and since we never registered a handler for that endpoint the request failed. You can think of endpoints as file paths on your own computer.
 </p>
 
-<aside id="org43c4535">
+<aside id="org9f0aaa8">
 <p>
 <b>Ports</b>
 </p>
@@ -429,11 +622,11 @@ You can choose any port number for your service between 1025 to 65535 as long as
 </div>
 </div>
 
-<div id="outline-container-orgff39392" class="outline-3">
-<h3 id="orgff39392"><span class="section-number-3">3.4</span> Adding another endpoint</h3>
+<div id="outline-container-orge3cba5f" class="outline-3">
+<h3 id="orge3cba5f"><span class="section-number-3">3.4</span> Adding another endpoint</h3>
 <div class="outline-text-3" id="text-3-4">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 5: </span>Our next endpoint</label><pre class="src src-js"><span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+<label class="org-src-name"><span class="listing-number">Listing 11: </span>Our next endpoint</label><pre class="src src-js"><span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
 
 app.get(<span class="org-string">'/another-page'</span>, (req, res) =&gt; {
   res.send(<span class="org-string">'Another page!'</span>).end();
@@ -456,8 +649,8 @@ If you now run <code>node index.js</code> again you will be able to access <a hr
 </p>
 </div>
 
-<div id="outline-container-orga6c88c8" class="outline-4">
-<h4 id="orga6c88c8"><span class="section-number-4">3.4.1</span> Live-reload and other tooling</h4>
+<div id="outline-container-orgbfea5f8" class="outline-4">
+<h4 id="orgbfea5f8"><span class="section-number-4">3.4.1</span> Live-reload and other tooling</h4>
 <div class="outline-text-4" id="text-3-4-1">
 <p>
 A workflow like the above is not only annoying but it can also lead to long troubleshooting sessions trying to figure out why something isn't working, when in the end you just had to restart the server. Thankfully there is an NPM package which helps us automate this workflow: <a href="https://nodemon.io/">nodemon</a>. Since we only need it for development we install it as a development dependency:
@@ -495,15 +688,15 @@ There is another tool I highly recommend you install and that is <a href="https:
 </div>
 </div>
 
-<div id="outline-container-org35805ab" class="outline-3">
-<h3 id="org35805ab"><span class="section-number-3">3.5</span> Back to our endpoint</h3>
+<div id="outline-container-org1ee7fe3" class="outline-3">
+<h3 id="org1ee7fe3"><span class="section-number-3">3.5</span> Back to our endpoint</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 Let's make our new endpoint do something more interesting: let's see what happens if we serve a string which looks like HTML.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 6: </span>Serving an HTML string</label><pre class="src src-js"><span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+<label class="org-src-name"><span class="listing-number">Listing 12: </span>Serving an HTML string</label><pre class="src src-js"><span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
 
 app.get(<span class="org-string">"/another-page"</span>, (req, res) =&gt; {
   res
@@ -543,7 +736,7 @@ While it's pretty cool that we can serve web pages as plain strings, what you us
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 7: </span>Our beautiful HTML markup in a file of its own</label><pre class="src src-html">&lt;<span class="org-function-name">html</span>&gt;
+<label class="org-src-name"><span class="listing-number">Listing 13: </span>Our beautiful HTML markup in a file of its own</label><pre class="src src-html">&lt;<span class="org-function-name">html</span>&gt;
 &lt;<span class="org-function-name">head</span>&gt;
   &lt;<span class="org-function-name">style</span>&gt;
   body {
@@ -567,7 +760,7 @@ And we change our handler to read that file and serve its contents.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 8: </span>Serving HTML from a file</label><pre class="src src-js"><span class="org-keyword">import</span> express from <span class="org-string">"express"</span>;
+<label class="org-src-name"><span class="listing-number">Listing 14: </span>Serving HTML from a file</label><pre class="src src-js"><span class="org-keyword">import</span> express from <span class="org-string">"express"</span>;
 <span class="org-keyword">import</span> fs from <span class="org-string">"fs"</span>;
 
 <span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
@@ -593,8 +786,8 @@ A website made up from files like this is called a <b>static website</b>. This i
 </div>
 </div>
 
-<div id="outline-container-org1596205" class="outline-2">
-<h2 id="org1596205"><span class="section-number-2">4</span> Intro to MongoDB</h2>
+<div id="outline-container-org2fcb237" class="outline-2">
+<h2 id="org2fcb237"><span class="section-number-2">4</span> Intro to MongoDB</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 MongoDB is a <a href="https://www.mongodb.com/document-databases">document (NoSQL) database</a> and has a few important characteristics which makes it a suitable as a first database:
@@ -619,8 +812,8 @@ A MongoDB system consists of one or several <b>databases</b>, which each can hav
 </p>
 </div>
 
-<div id="outline-container-orgf16ac31" class="outline-3">
-<h3 id="orgf16ac31"><span class="section-number-3">4.1</span> Schemas</h3>
+<div id="outline-container-org13d8e30" class="outline-3">
+<h3 id="org13d8e30"><span class="section-number-3">4.1</span> Schemas</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 The main selling point of MongoDB compared to relational (SQL) databases (MySQL, Postgres, &#x2026;) is the flexibility. In relational databases you have to define how your data is structured and the relationship between different kinds of data models. The structure of your data is called its schema or sometimes its data model and defines the properties it has and what data types these properties have. Here's a made-up example of how a schema might look like:
@@ -645,7 +838,7 @@ In a <b>document database</b> schemas still exist, but they are just suggestions
 </p>
 
 
-<figure id="org08fbc2d">
+<figure id="org6e0d916">
 <img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
 
 <figcaption><span class="figure-number">Figure 3: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
@@ -658,8 +851,8 @@ This flexibility is something to be mindful of and I recommend using MongoDB Com
 </div>
 </div>
 
-<div id="outline-container-org9f30cdd" class="outline-3">
-<h3 id="org9f30cdd"><span class="section-number-3">4.2</span> Operations</h3>
+<div id="outline-container-org5014e09" class="outline-3">
+<h3 id="org5014e09"><span class="section-number-3">4.2</span> Operations</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 Operations are ways of interacting with your database in the terms of data, the most general operations being:
@@ -681,7 +874,7 @@ The following sections describes what the common CRUD operations are in MongoDB 
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 9: </span>Prelude to the examples below</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">client</span> = mongodb.MongoClient(<span class="org-string">'mongodb://localhost:27017'</span>);
+<label class="org-src-name"><span class="listing-number">Listing 15: </span>Prelude to the examples below</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">client</span> = mongodb.MongoClient(<span class="org-string">'mongodb://localhost:27017'</span>);
 <span class="org-keyword">await</span> client.connect();
 
 <span class="org-keyword">const</span> <span class="org-variable-name">db</span> = client.db(<span class="org-string">'mongodb-intro'</span>);
@@ -693,15 +886,15 @@ The code assumes that you have the <code>mongodb</code> package in scope and you
 </p>
 </div>
 
-<div id="outline-container-orge8be2e8" class="outline-4">
-<h4 id="orge8be2e8"><span class="section-number-4">4.2.1</span> Inserting</h4>
+<div id="outline-container-org7c3477b" class="outline-4">
+<h4 id="org7c3477b"><span class="section-number-4">4.2.1</span> Inserting</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <p>
 In MongoDB the act of creating data in a collection is called <b>inserting</b>.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 10: </span>Inserting one document</label><pre class="src src-js"><span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).insertOne({
+<label class="org-src-name"><span class="listing-number">Listing 16: </span>Inserting one document</label><pre class="src src-js"><span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).insertOne({
   name: <span class="org-string">'JavaScript'</span>,
   family: <span class="org-string">'C'</span>,
   year: 1995
@@ -710,7 +903,7 @@ In MongoDB the act of creating data in a collection is called <b>inserting</b>.
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 11: </span>Inserting multiple documents</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">languages</span> = [{
+<label class="org-src-name"><span class="listing-number">Listing 17: </span>Inserting multiple documents</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">languages</span> = [{
     name: <span class="org-string">'Haskell'</span>,
     family: <span class="org-string">'ML'</span>,
     year: 1990
@@ -734,15 +927,15 @@ In MongoDB the act of creating data in a collection is called <b>inserting</b>.
 </div>
 </div>
 
-<div id="outline-container-org0c1b939" class="outline-4">
-<h4 id="org0c1b939"><span class="section-number-4">4.2.2</span> Finding (Filtering or Querying)</h4>
+<div id="outline-container-orgc14b8de" class="outline-4">
+<h4 id="orgc14b8de"><span class="section-number-4">4.2.2</span> Finding (Filtering or Querying)</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <p>
 The operations for reading data are called <b>find</b> in the API but are often referred to as filtering or querying as well.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 12: </span>Empty filter returns all documents</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">cursor</span> = db.collection(<span class="org-string">"languages"</span>).find({});
+<label class="org-src-name"><span class="listing-number">Listing 18: </span>Empty filter returns all documents</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">cursor</span> = db.collection(<span class="org-string">"languages"</span>).find({});
 <span class="org-keyword">const</span> <span class="org-variable-name">results</span> = cursor.toArray();
 
 console.log(results);
@@ -758,7 +951,7 @@ The simplest filter apart from an empty one is to match on properties exactly. I
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 13: </span>Filtering with a specific property value</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = {
+<label class="org-src-name"><span class="listing-number">Listing 19: </span>Filtering with a specific property value</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = {
   family: <span class="org-string">'C'</span> <span class="org-comment-delimiter">// </span><span class="org-comment">Matching property exactly</span>
 }
 <span class="org-keyword">const</span> <span class="org-variable-name">results</span> = <span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).find(filter).toArray();
@@ -772,7 +965,7 @@ The <code>findOne</code> operation will return the first document it finds which
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 14: </span>Finding one document</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = {
+<label class="org-src-name"><span class="listing-number">Listing 20: </span>Finding one document</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = {
   type: <span class="org-string">'ML'</span>
 }
 
@@ -785,7 +978,7 @@ For more advanced filtering we use <a href="https://docs.mongodb.com/manual/refe
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 15: </span>Finding all languages with Java in their name</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = {
+<label class="org-src-name"><span class="listing-number">Listing 21: </span>Finding all languages with Java in their name</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = {
   name: { $regex: <span class="org-string">/Java/</span> }
 }
 <span class="org-keyword">const</span> <span class="org-variable-name">results</span> = <span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).find(filter).toArray();
@@ -803,7 +996,7 @@ We can also combine multiple operators to express more complex queries; the next
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 16: </span>Finding all languages from the 90s</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = {
+<label class="org-src-name"><span class="listing-number">Listing 22: </span>Finding all languages from the 90s</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = {
   year: {
     $gte: 1990,
     $lte: 1999
@@ -817,7 +1010,7 @@ You can sort your results with the cursor's <code>sort</code> method by passing 
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 17: </span>All programming languages sorted by year</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">cursor</span> = <span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).find({});
+<label class="org-src-name"><span class="listing-number">Listing 23: </span>All programming languages sorted by year</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">cursor</span> = <span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).find({});
 <span class="org-keyword">const</span> <span class="org-variable-name">results</span> = cursor.sort({ year: 1 }).toArray();
 
 console.log(results);
@@ -826,15 +1019,15 @@ console.log(results);
 </div>
 </div>
 
-<div id="outline-container-org88b54e7" class="outline-4">
-<h4 id="org88b54e7"><span class="section-number-4">4.2.3</span> Deleting</h4>
+<div id="outline-container-orga6744f5" class="outline-4">
+<h4 id="orga6744f5"><span class="section-number-4">4.2.3</span> Deleting</h4>
 <div class="outline-text-4" id="text-4-2-3">
 <p>
 Deleting documents is very similar to finding documents just replace the <code>find</code> or <code>findOne</code> methods with <code>deleteMany</code> or <code>deleteOne</code>, the methods use the same kind of filters.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 18: </span>Delete Java</label><pre class="src src-js"><span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).deleteOne({
+<label class="org-src-name"><span class="listing-number">Listing 24: </span>Delete Java</label><pre class="src src-js"><span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).deleteOne({
   name: <span class="org-string">'Java'</span>
 });
 </pre>
@@ -842,15 +1035,15 @@ Deleting documents is very similar to finding documents just replace the <code>f
 </div>
 </div>
 
-<div id="outline-container-org2e5b1b5" class="outline-4">
-<h4 id="org2e5b1b5"><span class="section-number-4">4.2.4</span> Updating</h4>
+<div id="outline-container-orgf6a5b0b" class="outline-4">
+<h4 id="orgf6a5b0b"><span class="section-number-4">4.2.4</span> Updating</h4>
 <div class="outline-text-4" id="text-4-2-4">
 <p>
 Updating can be seen as a combination of a find operation and a write operation. As with the other operations you can either call <code>updateOne</code> or <code>updateMany</code> to update multiple documents at the same time and these methods take two arguments: a filter object to specify which documents will be affected, and an update object defining the modification.
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 19: </span>Bringing JavaScript to the 2000s</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = { name: <span class="org-string">'JavaScript'</span>};
+<label class="org-src-name"><span class="listing-number">Listing 25: </span>Bringing JavaScript to the 2000s</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = { name: <span class="org-string">'JavaScript'</span>};
 <span class="org-keyword">const</span> <span class="org-variable-name">modification</span> = { $set: { year: 2022 } };
 
 <span class="org-keyword">await</span> db.collection(<span class="org-string">'languages'</span>).updateOne(filter, modification)
@@ -860,8 +1053,8 @@ Updating can be seen as a combination of a find operation and a write operation.
 </div>
 </div>
 
-<div id="outline-container-orge11ee77" class="outline-3">
-<h3 id="orge11ee77"><span class="section-number-3">4.3</span> <span class="todo TODO">TODO</span> What is an ObjectId?</h3>
+<div id="outline-container-org9197f4c" class="outline-3">
+<h3 id="org9197f4c"><span class="section-number-3">4.3</span> <span class="todo TODO">TODO</span> What is an ObjectId?</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li><a href="https://docs.mongodb.com/manual/reference/method/ObjectId/">https://docs.mongodb.com/manual/reference/method/ObjectId/</a></li>
@@ -870,12 +1063,12 @@ Updating can be seen as a combination of a find operation and a write operation.
 </div>
 </div>
 </div>
-<div id="outline-container-orgf4dbc6f" class="outline-2">
-<h2 id="orgf4dbc6f"><span class="section-number-2">5</span> <span class="todo TODO">TODO</span> JavaScript Deep-Dive</h2>
+<div id="outline-container-orga9d6cf0" class="outline-2">
+<h2 id="orga9d6cf0"><span class="section-number-2">5</span> <span class="todo TODO">TODO</span> JavaScript Deep-Dive</h2>
 </div>
 
-<div id="outline-container-orge172abf" class="outline-2">
-<h2 id="orge172abf"><span class="section-number-2">6</span> Resources and useful links</h2>
+<div id="outline-container-orgeb0c8e6" class="outline-2">
+<h2 id="orgeb0c8e6"><span class="section-number-2">6</span> Resources and useful links</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li><a href="https://zellwk.com/blog/async-await-express/">Async/Await in Express</a></li>
