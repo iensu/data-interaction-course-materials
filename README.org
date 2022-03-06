@@ -646,7 +646,12 @@ Updating can be seen as a combination of a find operation and a write operation.
 * TODO JavaScript Deep-Dive
 
 * Resources and useful links
+*General*
 - [[https://github.com/iensu/data-interaction-course-materials][Course GitHub repository with code examples and exercises]]
-- [[https://zellwk.com/blog/async-await-express/][Async/Await in Express]]
+
+*Express*
+-[[https://zellwk.com/blog/async-await-express/][ Async/Await in Express]]
+
+*MongoDB*
 - [[https://docs.mongodb.com/manual/crud/][MongoDB CRUD operations]]
 - [[https://docs.mongodb.com/drivers/node/current/fundamentals/crud/][MongoDB JavaScript Driver CRUD operations]]
