@@ -571,7 +571,14 @@ For more advanced filtering we use [[https://docs.mongodb.com/manual/reference/o
   console.log(results);
 #+end_src
 
-Regular expressions are an invaluable tool and used all over the place so I highly recommend spending some time getting to know the syntax: [[https://regex101.com/]].
+#+begin_aside
+*What are regular expressions?*
+
+Regular expressions (aka /regex/ and /regexps/) are a way of creating text search patterns. In JavaScript you can create regular expressions in two ways: ~/pattern/~ or ~new RegExp("pattern").~ Regexes are an invaluable tool and used all over the place so I highly recommend spending some time getting to know the syntax:
+
+- [[https://cheatography.com/davechild/cheat-sheets/regular-expressions/][Regular expression cheatsheet]]
+- [[https://regex101.com/][Regular expression test page]]
+#+end_aside
 
 We can also combine multiple operators to express more complex queries; the next example finds all of the languages created in the 90s.
 
