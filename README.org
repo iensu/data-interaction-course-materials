@@ -208,17 +208,18 @@ We can access environment variables via the ~process~ variable:
 
 Environment variables are string key-value pairs declared in the environment and are used extensively to configure applications and services. On Linux and MacOS you can list all environment variables in the terminal by running the ~env~ command, on Windows you run ~SET~. Some common environment variables are listed blow:
 
-#+caption: Common environment variables
-| Environment variable | Functionality                                              | OS                |
-|----------------------+------------------------------------------------------------+-------------------|
-| ~PATH~                 | Specifies which directories have executable programs       | Linux, MacOS, Win |
-| ~EDITOR~               | Specifies what editor to open files with from the terminal | Linux, MacOS      |
+#+caption: Examples of predefined environment variables
+| Variable | Functionality                                              | OS                 |
+|----------+------------------------------------------------------------+--------------------|
+| ~PATH~     | Specifies which directories have executable programs       | Linux, MacOS, Win  |
+| ~EDITOR~   | Specifies what editor to open files with from the terminal | Linux, MacOS, Win? |
+| ~USER~     | The currently logged in user                               | Linux, MacOS, Win? |
 
 Environment variables can be created freely and this allows us to configure our application depending on the environment (production, test, local development) without having to do explicit checks in the code itself.
 
 On MacOS and Linux you can set environment variables with the ~export~ command.
 
-#+caption: Setting the environment variable MY_VARIABLE in the terminal
+#+caption: Setting the environment variable ~MY_VARIABLE~ in the terminal
 #+begin_src shell
   export MY_VARIABLE=foo
 #+end_src
@@ -615,7 +616,7 @@ Updating can be seen as a combination of a find operation and a write operation.
   await db.collection('languages').updateOne(filter, modification)
 #+end_src
 
-** TODO What is an ObjectId?
+** TODO What is an ObjectId?                                       :noexport:
 - https://docs.mongodb.com/manual/reference/method/ObjectId/
 - https://docs.mongodb.com/manual/reference/bson-types/#std-label-objectid
 * TODO JavaScript Deep-Dive
