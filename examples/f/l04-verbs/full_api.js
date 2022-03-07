@@ -8,17 +8,25 @@ app.use(express.json());
  * - GET questions
  * - POST questions
  * - PATCH questions/:id
- * - DELETE questions/:id
  */
 
-class question {
+/**
+ * questions: {
+ *  id:
+ *  title:
+ *  votes: count
+ *  totalScore: number
+ * }
+ */
+
+class Question {
     constructor(title) {
         this.title = title;
         this.replies = [];
     }
 }
 
-class reply {
+class Reply {
     constructor(voter, vote) {
         this.voter = voter;
         this.vote = vote;
@@ -27,15 +35,30 @@ class reply {
 
 let questions = [];
 
+// V1
 app.get('/questions', (req, res) => {
-    res.json(questions.map((q, index) => {
+    const questionSummary = questions.map((q, index) => {
+        return {
+            "id": index,
+            "title": q.title,
+            "average": q.totalScore / q.numberOfVotes,
+            "votes": q.numberOfVotes
+        };
+    });
+    res.json(questionSummary);
+});
+
+// V2
+app.get('/questions', (req, res) => {
+    const questionSummary = questions.map((q, index) => {
         return {
             "id": index,
             "title": q.title,
             "average": q.replies.reduce((total, current) => total += current.vote, 0) / q.replies.length,
             "votes": q.replies.length
-        }
-    }));
+        };
+    });
+    res.json(questionSummary);
 });
 
 app.get('/questions/:id', (req, res) => {
@@ -49,7 +72,7 @@ app.get('/questions/:id', (req, res) => {
 });
 
 app.post('/questions', (req, res) => {
-    questions.push(new question(req.body.title));
+    questions.push(new Question(req.body.title));
     res.status(200).end();
 });
 
@@ -81,10 +104,10 @@ app.patch('/questions/:id', (req, res) => {
 
     let matchingIndex = selectedQuestion.replies.findIndex((e) => e.voter == voter);
     if (matchingIndex >= 0) {
-        selectedQuestion.replies[matchingIndex] = new reply(voter, vote);
+        selectedQuestion.replies[matchingIndex] = new Reply(voter, vote);
     }
     else {
-        selectedQuestion.replies.push(new reply(voter, vote));
+        selectedQuestion.replies.push(new Reply(voter, vote));
     }
 
     res.end();
