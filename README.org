@@ -41,19 +41,19 @@ As long as you have [[https://brew.sh/][Homebrew]] installed it's very easy to i
   brew install mongodb-compass
 #+end_src
 
-Installing the =mongodb= package should give you two commands:
-- =mongo= for interacting with a MongoDB database.
+Installing the =mongodb-community= package should give you two commands:
+- =mongosh= for interacting with a MongoDB database through the terminal.
 - =mongod= for starting a MongoDB database process (the final /d/ stands for /daemon/ and means a long-running process).
 
-When installing through brew it seems that running ~mongod~ by itself doesn't work. So instead you need to start MongoDB as a brew service, which means that MongoDB will be running in the background. You do this by running:
+When installing through Homebrew it seems that running ~mongod~ by itself doesn't work. So instead you need to start MongoDB as a Homebrew service, which means that MongoDB will be running in the background. You do this by running:
 
 #+begin_src shell
   brew services start mongodb/brew/mongodb-community
 #+end_src
 
-If everything works, you should be able to run ~mongo~ and be taken to a MongoDB prompt.
+If everything works, you should be able to run ~mongosh~ and be taken to a MongoDB prompt.
 
-#+caption: Running ~mongo~ should open a MongoDB prompt like this one
+#+caption: Running ~mongosh~ should open a MongoDB prompt like this one
 #+attr_org: :width 700px;
 #+name: mongodb
 [[./assets/mongodb-prompt.png]]
