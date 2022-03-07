@@ -36,7 +36,8 @@ MongoDB Compass offers a graphical interface to your database and often comes bu
 As long as you have [[https://brew.sh/][Homebrew]] installed it's very easy to install both MongoDB and MongoDB Compass on your computer:
 
 #+begin_src shell
-  brew install mongodb
+  brew tap mongodb/brew
+  brew install mongodb-community@5.0
   brew install mongodb-compass
 #+end_src
 
@@ -44,7 +45,24 @@ Installing the =mongodb= package should give you two commands:
 - =mongo= for interacting with a MongoDB database.
 - =mongod= for starting a MongoDB database process (the final /d/ stands for /daemon/ and means a long-running process).
 
-You can start the database by simply running ~mongod~ in a terminal. You can shut it down by either closing the terminal window or by interrupting the process (hitting Ctrl-c).
+When installing through brew it seems that running ~mongod~ by itself doesn't work. So instead you need to start MongoDB as a brew service, which means that MongoDB will be running in the background. You do this by running:
+
+#+begin_src shell
+  brew services start mongodb/brew/mongodb-community
+#+end_src
+
+If everything works, you should be able to run ~mongo~ and be taken to a MongoDB prompt.
+
+#+caption: Running ~mongo~ should open a MongoDB prompt like this one
+#+attr_org: :width 700px;
+#+name: mongodb
+[[./assets/mongodb-prompt.png]]
+
+If this is not working you can list your ~brew~ services by running ~brew services list~ and see the status of =mongodb-community=. you can show detailed information about it by running:
+
+#+begin_src shell
+  brew services info mongodb-community
+#+end_src
 
 *** Installing and running MongoDB on Windows
 As long as you have Windows 10 (October 2018 update) or newer it's very easy to install both MongoDB and MongoDB Compass on your computer using =winget=:
