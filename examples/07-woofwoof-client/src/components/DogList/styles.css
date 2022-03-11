@@ -4,16 +4,13 @@
 .dog-list-item {
   list-style: none;
   display: flex;
-  flex-direction: row;
-  align-items: center;
   transition: 0.3s ease;
   margin-bottom: 16px;
   padding: 8px;
   border-radius: 16px;
 }
 .dog-list-item:hover,
-.dog-list-item:active,
-.dog-list-item--selected {
+.dog-list-item:active {
   transform: scale(1.5, 1.5) translateX(40px);
   font-weight: bold;
 }
@@ -24,6 +21,13 @@
   object-fit: cover;
   border: solid 2px rebeccapurple;
   margin-right: 16px;
+}
+.dog-list-item__link {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .dog-list-item__title {
   font-size: 1.2em;
