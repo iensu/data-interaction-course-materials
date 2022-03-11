@@ -22,6 +22,48 @@ app.get("/dogs", async (request, response) => {
   response.json(dogs);
 });
 
+app.get("/dogs/:dogId", async (request, response) => {
+  const dogId = request.params.dogId;
+
+  const dog = await collection.findOne({ _id: dogId });
+
+  if (dog) {
+    response.json(dog);
+  } else {
+    response.sendStatus(404);
+  }
+});
+
+app.patch("/dogs/:dogId", async (request, response) => {
+  const dogId = request.params.dogId;
+  const requestBody = request.body;
+
+  const documentCount = await collection.count({ _id: dogId });
+  const dogExists = documentCount === 1;
+
+  if (dogExists) {
+    await collection.updateOne({ _id: dogId }, { $set: requestBody });
+    response.sendStatus(200);
+  } else {
+    response.sendStatus(404);
+  }
+});
+
+app.delete("/dogs/:dogId", async (request, response) => {
+  const dogId = request.params.dogId;
+
+  const documentCount = await collection.count({ _id: dogId });
+  const dogExists = documentCount === 1;
+
+  if (dogExists) {
+    await collection.deleteOne({ _id: dogId });
+    // response.status(200).end();
+    response.sendStatus(200);
+  } else {
+    response.sendStatus(404);
+  }
+});
+
 app.post("/dogs", async (request, response) => {
   const dogPic = request.body;
 

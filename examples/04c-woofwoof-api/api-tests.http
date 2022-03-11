@@ -10,5 +10,11 @@ Content-Type: application/json
   "containsPuppy": false
 }
 
-### Getting dawgs
-GET http://localhost:4649/dogs
+### Getting Chihuahuas
+GET http://localhost:4649/dogs?breed=chihuahua
+
+### Search through title
+GET http://localhost:4649/dogs?title=pope&breed=chihuahua&age=14
+
+### Get a dog
+GET http://localhost:4649/dogs/d
