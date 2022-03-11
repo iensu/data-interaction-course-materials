@@ -16,6 +16,27 @@ const app = express();
 
 app.use(express.json());
 
+const requestLogger = (request, response, next) => {
+  const timestamp = new Date().toISOString();
+  const method = request.method;
+  const url = request.url;
+
+  const currentTimeMs = Date.now();
+
+  const logString = `${timestamp} ${method} ${url}`;
+  console.log(logString);
+
+  request.on("end", () => {
+    const elapsedTimeMs = Date.now() - currentTimeMs;
+
+    console.log(`${logString} ${elapsedTimeMs}ms`);
+  });
+
+  next();
+};
+
+app.use(requestLogger);
+
 app.get("/dogs", async (request, response) => {
   const query = request.query;
 
