@@ -17,7 +17,18 @@ const app = express();
 app.use(express.json());
 
 app.get("/dogs", async (request, response) => {
-  const dogs = await collection.find({}).toArray();
+  const query = request.query;
+
+  let filter = {};
+  if (query.containsPuppy) {
+    filter = { ...filter, containsPuppy: query.containsPuppy === "true" };
+  }
+  if (query.breed) {
+    // Case-insensitive substring matching using regular expressions
+    filter.breed = { $regex: new RegExp(query.breed, "i") };
+  }
+
+  const dogs = await collection.find(filter).toArray();
 
   response.json(dogs);
 });
