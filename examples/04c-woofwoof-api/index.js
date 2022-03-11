@@ -1,5 +1,6 @@
 import express from "express";
 import mongodb from "mongodb";
+import cors from "cors";
 
 // Configuring the MongoClient to talk to our local MongoDB
 const mongoClient = new mongodb.MongoClient("mongodb://localhost:27017");
@@ -14,6 +15,11 @@ const PORT = 4649;
 
 const app = express();
 
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 app.use(express.json());
 
 const requestLogger = (request, response, next) => {
