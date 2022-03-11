@@ -81,7 +81,7 @@ export const find_all_fire_champions = async (db) => {
   throw Error("Not implemented");
 };
 
-export const find_all_digimons_with_lv50Health_below_100 = async (db) => {
+export const find_all_digimons_with_lv50HP_below_540 = async (db) => {
   throw Error("Not implemented");
 };
 
