@@ -17,3 +17,4 @@ docs/
 # Various files we don't want
 test.txt
 *.rest
+*.bak
