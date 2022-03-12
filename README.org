@@ -278,7 +278,7 @@ Express is by far the most popular NPM package for creating HTTP APIs in node.js
 Now let's create our first API by creating a new file called ~index.js~ in the project root directory and write the following code:
 
 #+caption: Our first API
-#+begin_src js
+#+begin_src js -n
   import express from 'express';
 
   const app = express();
