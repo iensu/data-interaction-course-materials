@@ -908,6 +908,214 @@ Understanding this, we are now equipped to clean-up our file listing example abo
   }
 #+end_src
 
+** Fun with functions
+This is the section where we dip our toes into functional programming. While JavaScript is object oriented in that almost everything is an object with methods and properties, at its core it's actually very much a functional language where functions are front and center.
+
+#+begin_aside
+*Functional Programming vs. Object Oriented Programming*
+
+Functional programming (FP) is influenced by mathematics and especially [[https://plato.stanford.edu/entries/lambda-calculus/][Lambda calculus]]. You don't have to understand Lambda calculus to program in a functional programming style. What developers usually mean when talking about functional programming are these three points:
+
+- Referential transparency :: This means that a function must always return the same thing given the same arguments, that is you should always be able to replace the function call with the result of the call.
+- Higher-order functions :: Functions take functions as arguments or functions that return functions.
+- Function composition :: Creating more complicated behavior by combining functions.
+
+In practice this means for instance that you avoid using side-effects such as mutations. The reason you want to avoid side-effects and unnecessary mutations is that it can lead to unintended and surprising results which may lead to bugs and your code becoming harder to debug.
+
+#+caption: Two append functions one of which has the side-effect of updating the original list
+#+begin_src js -n
+  function functionalAppend(list, element) {
+    return [...list, element]
+  }
+
+  function mutatingAppend(list, element) {
+    list.push(element);
+    return list;
+  }
+
+  const originalList = [1, 2, 3];
+
+  let result = functionalAppend(originalList, 4);
+
+  console.log(result); // [1, 2, 3, 4]
+  console.log(originalList); // [1, 2, 3]
+
+  result = mutatingAppend(originalList, 4);
+
+  console.log(result); // [1, 2, 3, 4]
+  console.log(originalList); // [1, 2, 3, 4] <- !!!!!!!!
+#+end_src
+
+Another consequence of functional programming is that you clearly separate the data and operations on the data.
+
+Although most languages can be used in a more or less functional style, there are certain languages that are considered /functional/ like [[https://www.haskell.org/][Haskell]], [[https://elixir-lang.org/][Elixir]], [[https://clojure.org/][Clojure]] and [[https://elm-lang.org/][Elm]].
+
+Object oriented programming (OOP) is extremely common and you encounter this style a lot. Below are the four principles of OOP (taken from [[https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop][Object-oriented programming in C#]]):
+
+- Abstraction :: Modeling the relevant attributes and interactions of entities as classes to define an abstract representation of a system.
+- Encapsulation :: Hiding the internal state and functionality of an object and only allowing access through a public set of functions.
+- Inheritance :: Ability to create new abstractions based on existing abstractions.
+- Polymorphism :: Ability to implement inherited properties or methods in different ways across multiple abstractions.
+
+The goal of OOP is to create modular and flexible code. Some common languages that more or less strictly follows OOP are [[https://www.java.com/en/][Java]], [[https://en.wikipedia.org/wiki/C_Sharp_(programming_language)][C#]] and [[https://en.wikipedia.org/wiki/Smalltalk][Smalltalk]].
+
+A common critique of OOP is that it can lead to extremely complex code with an excess of abstraction layers which add very little to in form of functionality. This kind of over-engineering is not specific to OOP though and can also be seen in code-bases following a functional programming approach. The tendency to rely on mutation does however often lead to code that is hard to debug.
+
+If the topic of programming languages interests you I can't recommend [[https://www.coursera.org/learn/programming-languages][Dan Grossman's course on programming languages]] enough. It is by far the best programming course I have ever taken and will give you a thorough understanding of different programming paradigms.
+#+end_aside
+
+We are going to have a look at the power of functional programming by implementing some of the JavaScript array methods ourselves, namely ~[].map()~, ~[].filter()~ and ~[].reduce()~.
+
+
+*** Implementing our own ~map~ function
+A mapping function takes an operation and a list and returns a list where the operation has been applied to each element.
+
+#+caption: Our own ~map~ function
+#+begin_src js -n
+  const map = (operation, list) => {
+    let results = [];
+
+    for (element of list) {
+      results.push(operation(element));
+    }
+
+    return results;
+  };
+#+end_src
+Since we will apply an operation to each element in the list we need our operations to take only 1 argument. We can do that by turning a multi-argument function into a so-called /higher-order function/ that only take one argument and returns a function which takes the next argument. This is called [[https://javascript.info/currying-partials][currying]].
+
+#+caption:
+#+begin_src js -n
+  function add(x) {
+    return function (y) {
+      return x * y;
+    };
+  }
+
+  // The above can be shortened to this using arrow functions:
+  const subtract = (x) => (y) => x - y;
+
+  // Now we can "configure" our operation according to our needs. Let's
+  // create an operation that takes 1 argument and adds 5 to it:
+  const addFive = add(5);
+#+end_src
+
+The ~addFive~ function is a function that takes one number as its argument and adds 5 to it, so we can readily pass it to our ~map~ function:
+
+#+caption: Using ~addFive~ in our ~map~ function
+#+begin_src js
+  const result = map(addFive, [1, 2, 3, 4]);
+  console.log(result) // [6, 7, 8, 9]
+#+end_src
+
+*** Implementing our own ~filter~ function
+A filter function takes a function and a list. The function passed to filter should return either ~true~ or ~false~ when given an element of the list and ~filter~ will return a list of all elements for which the function returned ~true~. This kind of function is usually called a *predicate*.
+
+#+caption: Our filter function
+#+begin_src js -n
+  const filter = (predicate, list) => {
+    let results = [];
+
+    for (element of list) {
+      if (predicate(element)) {
+        results.push(element);
+      }
+    }
+
+    return results;
+  };
+
+  // Our predicate function which returns true if the passed in value is even
+  const isEven = (x) => x % 2 == 0;
+
+  const result = filter(isEven, [1, 2, 3, 4]);
+  console.log(result) // [2, 4]
+#+end_src
+
+*** Implementing our own ~reduceList~
+You might have noticed that there are some code duplication between applyToElements and keepIf. Let's try and generalize what we are doing and extract the common bits into another function: ~reduceList~:
+
+#+caption: ~reduceList~
+#+begin_src js -n
+  const reduceList = (operation, list) => {
+    let results = [];
+
+    for (element of list) {
+      // Since we don't know what the operation will do to the
+      // accumulated results list (append or not append), we need
+      // to be able to pass it to the operation function:
+      results = operation(results, element);
+    }
+
+    return results;
+  };
+#+end_src
+
+~reduceList~ is able to handle both mapping and filtering at the expense of the operation functions becoming more specific in that they need to update the results list.
+
+#+caption: Re-implementing ~map~ and ~filter~ using ~reduceList~
+#+begin_src js -n
+  let result = reduceList((results, x) => {
+    return [...results, addFive(x)];
+  }, [1, 2, 3, 4]);
+
+  console.log(result); // [6, 7, 8, 9]
+
+  result = reduceList((results, x) => {
+    if (isEven(x)) {
+      return [...results, x];
+    }
+
+    return results;
+  }, [1, 2, 3, 4]);
+
+  console.log(result); // [2, 4]
+#+end_src
+
+*** Implementing our own ~reduce~
+We can go further though; by allowing the caller to pass in the accumulator (results) we can actually handle even more use-cases.
+
+#+caption: Our ~reduce~ function
+#+begin_src js -n
+  const reduce = (operation, list, accumulator) => {
+    for (element of list) {
+      accumulator = operation(accumulator, element);
+    }
+
+    return accumulator;
+  };
+#+end_src
+
+We can use ~reduce~ to not only work with lists, but we can actually use it do calculations as well if we pass in a number as the accumulator.
+
+#+caption: Using ~reduce~ to add a list of numbers together
+#+begin_src js -n
+  const result = reduce((sum, x) => sum + x, [1, 2, 3, 4], 0);
+
+  console.log(result); // 10
+#+end_src
+
+Passing an object as the accumulator allows us to create more complex aggregations from for instance a list of objects.
+
+#+caption: Using ~reduce~ to produce a count of dog breeds
+#+begin_src js -n
+  // Or build an object from a list
+  const dogs = [
+    { name: "Fido", breed: "Chihuahua" },
+    { name: "Woofmeister", breed: "Poodle" },
+    { name: "Puglifer", breed: "Pug" },
+    { name: "Poddle McPoodleface", breed: "Poodle" },
+  ];
+
+  const result = reduce((accumulator, dog) => ({
+    ...accumulator,
+    [dog.breed]: (accumulator[dog.breed] || 0) + 1,
+  }), dogs, {});
+
+  console.log(result) // { 'Chihuahua': 1, 'Pug': 1, 'Poodle': 2 }
+#+end_src
+
+Now we have implemented almost a full version of the JavaScript reduce array method [].reduce. I hope this illustrates the power of the concept of higher-order functions. Higher-order functions together with referential transparency (the fact that a function should always return the same result when passed the same arguments) are at the heart of functional programming and grasping the potential of them allows for very powerful abstractions.
 
 * Resources and useful links
 *General*
