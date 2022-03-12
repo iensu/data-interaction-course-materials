@@ -106,3 +106,13 @@ tbody td.org-right {
   text-align: left;
   margin-bottom: 8px;
 }
+
+.org-dl {
+  margin-left: 16px;
+}
+.org-dl dt {
+  font-size: 0.8em
+}
+.org-dl dd {
+  margin-left: 16px;
+}
