@@ -20,57 +20,68 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org892a7fa">1. Setting up your Environment</a>
+<li><a href="#orgb9390c7">1. Setting up your Environment</a>
 <ul>
-<li><a href="#org6c08fd7">1.1. MongoDB</a>
+<li><a href="#orgc06f1f9">1.1. MongoDB</a>
 <ul>
-<li><a href="#orgb8568f1">1.1.1. Installing and running MongoDB on MacOS</a></li>
-<li><a href="#orgbdc136a">1.1.2. Installing and running MongoDB on Windows</a></li>
+<li><a href="#org0be8283">1.1.1. Installing and running MongoDB on MacOS</a></li>
+<li><a href="#org9ab42a2">1.1.2. Installing and running MongoDB on Windows</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgbb5f0fc">2. Introduction to node.js</a>
+<li><a href="#org43a3960">2. Introduction to node.js</a>
 <ul>
-<li><a href="#org900b349">2.1. node.js vs the Browser</a></li>
-<li><a href="#org11187bc">2.2. Hello Node</a>
+<li><a href="#orgd3bdc36">2.1. node.js vs the Browser</a></li>
+<li><a href="#orga494873">2.2. Hello Node</a>
 <ul>
-<li><a href="#orga8aded7">2.2.1. Using built-in modules</a></li>
-<li><a href="#org0ce14ce">2.2.2. Writing our own module</a></li>
-<li><a href="#org8bf359b">2.2.3. Messing around with the global scope</a></li>
-<li><a href="#org650ca97">2.2.4. Reading environment variables</a></li>
+<li><a href="#orgd8d371a">2.2.1. Using built-in modules</a></li>
+<li><a href="#org43f7370">2.2.2. Writing our own module</a></li>
+<li><a href="#org503b2a9">2.2.3. Messing around with the global scope</a></li>
+<li><a href="#org893b094">2.2.4. Reading environment variables</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org04636ae">3. Our First API</a>
+<li><a href="#org4ab2dd4">3. Our First API</a>
 <ul>
-<li><a href="#org3a91001">3.1. What is an Application Programming Interface?</a></li>
-<li><a href="#orgf9e2368">3.2. Creating our API</a></li>
-<li><a href="#org06586eb">3.3. Starting our server</a></li>
-<li><a href="#orgc55f953">3.4. Adding another endpoint</a>
+<li><a href="#orga4929f6">3.1. What is an Application Programming Interface?</a></li>
+<li><a href="#orga43cc52">3.2. Creating our API</a></li>
+<li><a href="#orgf0532fb">3.3. Starting our server</a></li>
+<li><a href="#orga4b243b">3.4. Adding another endpoint</a>
 <ul>
-<li><a href="#orgb25d882">3.4.1. Live-reload and other tooling</a></li>
+<li><a href="#org96af0aa">3.4.1. Live-reload and other tooling</a></li>
 </ul>
 </li>
-<li><a href="#orge2a6f2f">3.5. Back to our endpoint</a></li>
+<li><a href="#orge544f03">3.5. Back to our endpoint</a></li>
 </ul>
 </li>
-<li><a href="#orgcff29e8">4. HTTP + API Deep-dive</a></li>
-<li><a href="#orgf79d867">5. Intro to MongoDB</a>
+<li><a href="#orgfd3c1e9">4. HTTP + API Deep-dive</a></li>
+<li><a href="#orgc2cb8bd">5. Intro to MongoDB</a>
 <ul>
-<li><a href="#org1783346">5.1. Schemas</a></li>
-<li><a href="#org7921a76">5.2. Operations</a>
+<li><a href="#org002b2ea">5.1. Schemas</a></li>
+<li><a href="#org7618d7e">5.2. Operations</a>
 <ul>
-<li><a href="#org16ef740">5.2.1. Inserting</a></li>
-<li><a href="#orge6efb6f">5.2.2. Finding (Filtering or Querying)</a></li>
-<li><a href="#org275698b">5.2.3. Deleting</a></li>
-<li><a href="#org16a246c">5.2.4. Updating</a></li>
+<li><a href="#org79bafa7">5.2.1. Inserting</a></li>
+<li><a href="#orgfa664d2">5.2.2. Finding (Filtering or Querying)</a></li>
+<li><a href="#orgfe8fa27">5.2.3. Deleting</a></li>
+<li><a href="#orgcb59613">5.2.4. Updating</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgf41ef49">6. Resources and useful links</a></li>
+<li><a href="#org69cef84">6. JavaScript Deep-Dive</a>
+<ul>
+<li><a href="#orgf22135e">6.1. Async, Await and the Promise of the Path out of Callback Hell</a>
+<ul>
+<li><a href="#org97eac44">6.1.1. Callback Hell</a></li>
+<li><a href="#orgad5ace0">6.1.2. The Promise of Heaven</a></li>
+<li><a href="#org2d8ed73">6.1.3. Awaiting salvation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org7994b25">7. Resources and useful links</a></li>
 </ul>
 </div>
 </nav>
@@ -82,8 +93,8 @@ This course aims to give you an understanding of back-end development and in it 
 You can find working code samples for each chapter along with some exercises in <a href="https://github.com/iensu/data-interaction-course-materials">the course Github repository</a>.
 </p>
 
-<div id="outline-container-org892a7fa" class="outline-2">
-<h2 id="org892a7fa"><span class="section-number-2">1</span> Setting up your Environment</h2>
+<div id="outline-container-orgb9390c7" class="outline-2">
+<h2 id="orgb9390c7"><span class="section-number-2">1</span> Setting up your Environment</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In order to follow along with this course you will want to have the following installed:
@@ -108,8 +119,8 @@ git --version
 </div>
 </div>
 
-<div id="outline-container-org6c08fd7" class="outline-3">
-<h3 id="org6c08fd7"><span class="section-number-3">1.1</span> MongoDB</h3>
+<div id="outline-container-orgc06f1f9" class="outline-3">
+<h3 id="orgc06f1f9"><span class="section-number-3">1.1</span> MongoDB</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Finally you will need to have access to <a href="https://docs.mongodb.com/manual/installation/">MongoDB</a>. The company MongoDB is pushing really hard for you to use the free-tier of their cloud service Atlas. Unfortunately it requires you to create an account and forces you to go through a lot of settings and options. It's important that you choose the free tier, otherwise you can just use the defaults. They will also apparently bombard you with marketing emails, so if you decide to create an account I recommend you use a throwaway email account.
@@ -124,8 +135,8 @@ MongoDB Compass offers a graphical interface to your database and often comes bu
 </p>
 </div>
 
-<div id="outline-container-orgb8568f1" class="outline-4">
-<h4 id="orgb8568f1"><span class="section-number-4">1.1.1</span> Installing and running MongoDB on MacOS</h4>
+<div id="outline-container-org0be8283" class="outline-4">
+<h4 id="org0be8283"><span class="section-number-4">1.1.1</span> Installing and running MongoDB on MacOS</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 As long as you have <a href="https://brew.sh/">Homebrew</a> installed it's very easy to install both MongoDB and MongoDB Compass on your computer:
@@ -160,7 +171,7 @@ If everything works, you should be able to run <code>mongosh</code> and be taken
 </p>
 
 
-<figure id="org48337a0">
+<figure id="org0122d31">
 <img src="./assets/mongodb-prompt.png" alt="mongodb-prompt.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>Running <code>mongosh</code> should open a MongoDB prompt like this one</figcaption>
@@ -177,8 +188,8 @@ If this is not working you can list your <code>brew</code> services by running <
 </div>
 </div>
 
-<div id="outline-container-orgbdc136a" class="outline-4">
-<h4 id="orgbdc136a"><span class="section-number-4">1.1.2</span> Installing and running MongoDB on Windows</h4>
+<div id="outline-container-org9ab42a2" class="outline-4">
+<h4 id="org9ab42a2"><span class="section-number-4">1.1.2</span> Installing and running MongoDB on Windows</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 As long as you have Windows 10 (October 2018 update) or newer it's very easy to install both MongoDB and MongoDB Compass on your computer using <code>winget</code>:
@@ -204,8 +215,8 @@ To connect Compass to your server, you simply press "Connect" (no connection str
 </div>
 </div>
 
-<div id="outline-container-orgbb5f0fc" class="outline-2">
-<h2 id="orgbb5f0fc"><span class="section-number-2">2</span> Introduction to node.js</h2>
+<div id="outline-container-org43a3960" class="outline-2">
+<h2 id="org43a3960"><span class="section-number-2">2</span> Introduction to node.js</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 In short, node.js is JavaScript for servers and is now one of the most prevalent programming languages in the world. How come it quickly got so popular?
@@ -231,8 +242,8 @@ Node.JS was created 12 years ago by creating a system interface to Chrome’s <a
 </div>
 </div>
 
-<div id="outline-container-org900b349" class="outline-3">
-<h3 id="org900b349"><span class="section-number-3">2.1</span> node.js vs the Browser</h3>
+<div id="outline-container-orgd3bdc36" class="outline-3">
+<h3 id="orgd3bdc36"><span class="section-number-3">2.1</span> node.js vs the Browser</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Moving JavaScript out of the browser and onto the server results in a few important differences:
@@ -247,8 +258,8 @@ Moving JavaScript out of the browser and onto the server results in a few import
 </div>
 </div>
 
-<div id="outline-container-org11187bc" class="outline-3">
-<h3 id="org11187bc"><span class="section-number-3">2.2</span> Hello Node</h3>
+<div id="outline-container-orga494873" class="outline-3">
+<h3 id="orga494873"><span class="section-number-3">2.2</span> Hello Node</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 We are going to play around with node.js a bit. First create a new directory called <code>hello-node</code> and move into it. Now create a file called <code>index.js</code> and write the following piece of code:
@@ -263,7 +274,7 @@ We are going to play around with node.js a bit. First create a new directory cal
 Now you can run your program with the command <code>node index.js</code> and you should see <code>Hello node! \(&gt;0&lt;)/</code> printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 </p>
 
-<aside id="orgaca2222">
+<aside id="org4e9d18d">
 <p>
 <b>Why index.js?</b>
 </p>
@@ -274,8 +285,8 @@ Naming the main file JavaScript file <code>index.js</code> is a convention and h
 </aside>
 </div>
 
-<div id="outline-container-orga8aded7" class="outline-4">
-<h4 id="orga8aded7"><span class="section-number-4">2.2.1</span> Using built-in modules</h4>
+<div id="outline-container-orgd8d371a" class="outline-4">
+<h4 id="orgd8d371a"><span class="section-number-4">2.2.1</span> Using built-in modules</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 Let's use the built-in file system module <code>fs</code> to play around with files.
@@ -299,7 +310,7 @@ Let's use the built-in file system module <code>fs</code> to play around with fi
 </pre>
 </div>
 
-<aside id="org0132cc2">
+<aside id="org06821ad">
 <p>
 <b>ES6 modules vs. CommonJS modules</b>
 </p>
@@ -366,8 +377,8 @@ The difference between the module systems lies not only in cosmetics but also se
 </div>
 </div>
 
-<div id="outline-container-org0ce14ce" class="outline-4">
-<h4 id="org0ce14ce"><span class="section-number-4">2.2.2</span> Writing our own module</h4>
+<div id="outline-container-org43f7370" class="outline-4">
+<h4 id="org43f7370"><span class="section-number-4">2.2.2</span> Writing our own module</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 Let's create new module with a function that randomly picks an element from a list. And let's call it from <code>index.js</code>.
@@ -403,8 +414,8 @@ console.log(<span class="org-string">`Got database: ${randomDatabase}`</span>);
 </div>
 </div>
 
-<div id="outline-container-org8bf359b" class="outline-4">
-<h4 id="org8bf359b"><span class="section-number-4">2.2.3</span> Messing around with the global scope</h4>
+<div id="outline-container-org503b2a9" class="outline-4">
+<h4 id="org503b2a9"><span class="section-number-4">2.2.3</span> Messing around with the global scope</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <p>
 Using modules is not the only way of sharing functionality, you can also manipulate the global scope by modifying the <code>global</code> variable.
@@ -444,8 +455,8 @@ Finally, <b>please do not modify <code>global</code> in <i>real</i> code</b>. it
 </div>
 </div>
 
-<div id="outline-container-org650ca97" class="outline-4">
-<h4 id="org650ca97"><span class="section-number-4">2.2.4</span> Reading environment variables</h4>
+<div id="outline-container-org893b094" class="outline-4">
+<h4 id="org893b094"><span class="section-number-4">2.2.4</span> Reading environment variables</h4>
 <div class="outline-text-4" id="text-2-2-4">
 <p>
 Another thing we can do in node.js that we can't do in the browser is to get information about the current environment especially things like environment variables.
@@ -461,7 +472,7 @@ console.log(<span class="org-string">'MY_VARIABLE'</span>, process.env.MY_VARIAB
 </pre>
 </div>
 
-<aside id="org4f5c9e6">
+<aside id="orgc294736">
 <p>
 <b>What are environment variables?</b>
 </p>
@@ -526,12 +537,12 @@ On MacOS and Linux you can set environment variables with the <code>export</code
 </div>
 </div>
 
-<div id="outline-container-org04636ae" class="outline-2">
-<h2 id="org04636ae"><span class="section-number-2">3</span> Our First API</h2>
+<div id="outline-container-org4ab2dd4" class="outline-2">
+<h2 id="org4ab2dd4"><span class="section-number-2">3</span> Our First API</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org3a91001" class="outline-3">
-<h3 id="org3a91001"><span class="section-number-3">3.1</span> What is an Application Programming Interface?</h3>
+<div id="outline-container-orga4929f6" class="outline-3">
+<h3 id="orga4929f6"><span class="section-number-3">3.1</span> What is an Application Programming Interface?</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>An API is a set of exposed methods for interacting with a program or package.</li>
@@ -546,8 +557,8 @@ Often when we say API we actually mean an HTTP API to be specific, that is an AP
 </div>
 </div>
 
-<div id="outline-container-orgf9e2368" class="outline-3">
-<h3 id="orgf9e2368"><span class="section-number-3">3.2</span> Creating our API</h3>
+<div id="outline-container-orga43cc52" class="outline-3">
+<h3 id="orga43cc52"><span class="section-number-3">3.2</span> Creating our API</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Express is by far the most popular NPM package for creating HTTP APIs in node.js and has been around almost as long as the language itself. Start by creating a new directory called <code>hello-express</code> and initialize it using <code>npm init</code> (also don't forget to update <code>package.json</code> if you want to use ES6 modules). Now let's install Express:
@@ -590,8 +601,8 @@ There is <i>a lot</i> to unpack here&#x2026;
 </div>
 </div>
 
-<div id="outline-container-org06586eb" class="outline-3">
-<h3 id="org06586eb"><span class="section-number-3">3.3</span> Starting our server</h3>
+<div id="outline-container-orgf0532fb" class="outline-3">
+<h3 id="orgf0532fb"><span class="section-number-3">3.3</span> Starting our server</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Run your program by executing <code>node index.js</code>. The first thing you will notice is that your program never quits: you see the message <code>Server running at http://localhost:8080</code> but you don't get a new prompt. This is because your program is running a <b>server</b> which is meant to serve <b>responses</b> to <b>requests</b> from <b>clients</b> and your program needs to be kept alive and running to be able to do that.
@@ -602,7 +613,7 @@ A client is whatever uses, or <i>consumes</i>, the API served by your server and
 </p>
 
 
-<figure id="orgace4066">
+<figure id="org33e31cf">
 <img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
 
 <figcaption><span class="figure-number">Figure 2: </span>Accessing an unregistered endpoint results in an error message</figcaption>
@@ -613,7 +624,7 @@ This means that we tried to <code>GET</code> something at the endpoint <code>/</
 </p>
 
 
-<figure id="orgc93c79a">
+<figure id="orgf2dcd41">
 <img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
 
 <figcaption><span class="figure-number">Figure 3: </span>Successful call to our /hello endpoint</figcaption>
@@ -634,7 +645,7 @@ So what went wrong the first time? There are four pieces of information needed t
 A server only responds on the port it is listening on and only handles requests on endpoints which have been registered on it. When not specifying an endpoint, the browser will pick the default one which is <code>/</code> and since we never registered a handler for that endpoint the request failed. You can think of endpoints as file paths on your own computer.
 </p>
 
-<aside id="org3de1067">
+<aside id="org89cfce8">
 <p>
 <b>Ports</b>
 </p>
@@ -683,8 +694,8 @@ You can choose any port number for your service between 1025 to 65535 as long as
 </div>
 </div>
 
-<div id="outline-container-orgc55f953" class="outline-3">
-<h3 id="orgc55f953"><span class="section-number-3">3.4</span> Adding another endpoint</h3>
+<div id="outline-container-orga4b243b" class="outline-3">
+<h3 id="orga4b243b"><span class="section-number-3">3.4</span> Adding another endpoint</h3>
 <div class="outline-text-3" id="text-3-4">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 11: </span>Our next endpoint</label><pre class="src src-js"><span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
@@ -710,8 +721,8 @@ If you now run <code>node index.js</code> again you will be able to access <a hr
 </p>
 </div>
 
-<div id="outline-container-orgb25d882" class="outline-4">
-<h4 id="orgb25d882"><span class="section-number-4">3.4.1</span> Live-reload and other tooling</h4>
+<div id="outline-container-org96af0aa" class="outline-4">
+<h4 id="org96af0aa"><span class="section-number-4">3.4.1</span> Live-reload and other tooling</h4>
 <div class="outline-text-4" id="text-3-4-1">
 <p>
 A workflow like the above is not only annoying but it can also lead to long troubleshooting sessions trying to figure out why something isn't working, when in the end you just had to restart the server. Thankfully there is an NPM package which helps us automate this workflow: <a href="https://nodemon.io/">nodemon</a>. Since we only need it for development we install it as a development dependency:
@@ -749,8 +760,8 @@ There is another tool I highly recommend you install and that is <a href="https:
 </div>
 </div>
 
-<div id="outline-container-orge2a6f2f" class="outline-3">
-<h3 id="orge2a6f2f"><span class="section-number-3">3.5</span> Back to our endpoint</h3>
+<div id="outline-container-orge544f03" class="outline-3">
+<h3 id="orge544f03"><span class="section-number-3">3.5</span> Back to our endpoint</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 Let's make our new endpoint do something more interesting: let's see what happens if we serve a string which looks like HTML.
@@ -847,11 +858,11 @@ A website made up from files like this is called a <b>static website</b>. This i
 </div>
 </div>
 
-<div id="outline-container-orgcff29e8" class="outline-2">
-<h2 id="orgcff29e8"><span class="section-number-2">4</span> HTTP + API Deep-dive</h2>
+<div id="outline-container-orgfd3c1e9" class="outline-2">
+<h2 id="orgfd3c1e9"><span class="section-number-2">4</span> HTTP + API Deep-dive</h2>
 </div>
-<div id="outline-container-orgf79d867" class="outline-2">
-<h2 id="orgf79d867"><span class="section-number-2">5</span> Intro to MongoDB</h2>
+<div id="outline-container-orgc2cb8bd" class="outline-2">
+<h2 id="orgc2cb8bd"><span class="section-number-2">5</span> Intro to MongoDB</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 MongoDB is a <a href="https://www.mongodb.com/document-databases">document (NoSQL) database</a> and has a few important characteristics which makes it a suitable as a first database:
@@ -876,8 +887,8 @@ A MongoDB system consists of one or several <b>databases</b>, which each can hav
 </p>
 </div>
 
-<div id="outline-container-org1783346" class="outline-3">
-<h3 id="org1783346"><span class="section-number-3">5.1</span> Schemas</h3>
+<div id="outline-container-org002b2ea" class="outline-3">
+<h3 id="org002b2ea"><span class="section-number-3">5.1</span> Schemas</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 The main selling point of MongoDB compared to relational (SQL) databases (MySQL, Postgres, &#x2026;) is the flexibility. In relational databases you have to define how your data is structured and the relationship between different kinds of data models. The structure of your data is called its schema or sometimes its data model and defines the properties it has and what data types these properties have. Here's a made-up example of how a schema might look like:
@@ -902,7 +913,7 @@ In a <b>document database</b> schemas still exist, but they are just suggestions
 </p>
 
 
-<figure id="org8157537">
+<figure id="org6daaefd">
 <img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
 
 <figcaption><span class="figure-number">Figure 4: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
@@ -915,8 +926,8 @@ This flexibility is something to be mindful of and I recommend using MongoDB Com
 </div>
 </div>
 
-<div id="outline-container-org7921a76" class="outline-3">
-<h3 id="org7921a76"><span class="section-number-3">5.2</span> Operations</h3>
+<div id="outline-container-org7618d7e" class="outline-3">
+<h3 id="org7618d7e"><span class="section-number-3">5.2</span> Operations</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 Operations are ways of interacting with your database in the terms of data, the most general operations being:
@@ -950,8 +961,8 @@ The code assumes that you have the <code>mongodb</code> package in scope and you
 </p>
 </div>
 
-<div id="outline-container-org16ef740" class="outline-4">
-<h4 id="org16ef740"><span class="section-number-4">5.2.1</span> Inserting</h4>
+<div id="outline-container-org79bafa7" class="outline-4">
+<h4 id="org79bafa7"><span class="section-number-4">5.2.1</span> Inserting</h4>
 <div class="outline-text-4" id="text-5-2-1">
 <p>
 In MongoDB the act of creating data in a collection is called <b>inserting</b>.
@@ -991,8 +1002,8 @@ In MongoDB the act of creating data in a collection is called <b>inserting</b>.
 </div>
 </div>
 
-<div id="outline-container-orge6efb6f" class="outline-4">
-<h4 id="orge6efb6f"><span class="section-number-4">5.2.2</span> Finding (Filtering or Querying)</h4>
+<div id="outline-container-orgfa664d2" class="outline-4">
+<h4 id="orgfa664d2"><span class="section-number-4">5.2.2</span> Finding (Filtering or Querying)</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <p>
 The operations for reading data are called <b>find</b> in the API but are often referred to as filtering or querying as well.
@@ -1051,7 +1062,7 @@ console.log(results);
 </pre>
 </div>
 
-<aside id="orgaf87705">
+<aside id="org8ae04aa">
 <p>
 <b>What are regular expressions?</b>
 </p>
@@ -1094,8 +1105,8 @@ console.log(results);
 </div>
 </div>
 
-<div id="outline-container-org275698b" class="outline-4">
-<h4 id="org275698b"><span class="section-number-4">5.2.3</span> Deleting</h4>
+<div id="outline-container-orgfe8fa27" class="outline-4">
+<h4 id="orgfe8fa27"><span class="section-number-4">5.2.3</span> Deleting</h4>
 <div class="outline-text-4" id="text-5-2-3">
 <p>
 Deleting documents is very similar to finding documents just replace the <code>find</code> or <code>findOne</code> methods with <code>deleteMany</code> or <code>deleteOne</code>, the methods use the same kind of filters.
@@ -1110,8 +1121,8 @@ Deleting documents is very similar to finding documents just replace the <code>f
 </div>
 </div>
 
-<div id="outline-container-org16a246c" class="outline-4">
-<h4 id="org16a246c"><span class="section-number-4">5.2.4</span> Updating</h4>
+<div id="outline-container-orgcb59613" class="outline-4">
+<h4 id="orgcb59613"><span class="section-number-4">5.2.4</span> Updating</h4>
 <div class="outline-text-4" id="text-5-2-4">
 <p>
 Updating can be seen as a combination of a find operation and a write operation. As with the other operations you can either call <code>updateOne</code> or <code>updateMany</code> to update multiple documents at the same time and these methods take two arguments: a filter object to specify which documents will be affected, and an update object defining the modification.
@@ -1129,14 +1140,339 @@ Updating can be seen as a combination of a find operation and a write operation.
 </div>
 </div>
 
-<div id="outline-container-orgf41ef49" class="outline-2">
-<h2 id="orgf41ef49"><span class="section-number-2">6</span> Resources and useful links</h2>
+<div id="outline-container-org69cef84" class="outline-2">
+<h2 id="org69cef84"><span class="section-number-2">6</span> JavaScript Deep-Dive</h2>
 <div class="outline-text-2" id="text-6">
+<p>
+This section provides a smorgosbord of JavaScript concepts and weirdness. We won't have time to go into all of the nitty gritty details for each topic but rather use them to illustrate more general computing concepts. We will touch upon processes and threads, scope, bindings, functional programming, equality. There's a lot of ground to cover, so let's get started!
+</p>
+</div>
+
+<div id="outline-container-orgf22135e" class="outline-3">
+<h3 id="orgf22135e"><span class="section-number-3">6.1</span> Async, Await and the Promise of the Path out of Callback Hell</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+JavaScript is allegedly "asynchronous by default" AND "single-threaded", but what does this actually mean? What is <b>synchronous</b> versus <b>asynchronous</b> execution? In short asynchronous execution allows us to do more work at the same time (concurrently). First let's have a look at how the browser executes JavaScript.
+</p>
+
+
+<figure id="orgbc1eca5">
+<img src="./assets/simplified-browser-process.png" alt="simplified-browser-process.png">
+
+<figcaption><span class="figure-number">Figure 5: </span>A very simplified view of how a web browser works</figcaption>
+</figure>
+
+<p>
+The browser has a main thread which is responsible for not only executing JavaScript but also rendering the HTML and CSS as well as handling user input like clicks and scrolling. If JavaScript allowed for synchronous HTTP requests the whole browser tab would stall while waiting for the response to come back. This is of course something we want to avoid at all costs and thus JavaScript does these sort of I/O operations asynchronously by default for us.
+</p>
+
+<aside id="orgfe0a7f4">
+<p>
+<b>What is I/O?</b>
+</p>
+
+<p>
+I/O stands for Input/Output and designates any operations that <i>reaches outside</i> of the main process, such as HTTP requests, reading from files, writing to files etc.
+</p>
+</aside>
+
+<p>
+All asynchronous operations are put on the <b>Event Queue</b> so as to not block the main thread, and from there the operations are executed in other threads. It is important to understand that once a piece of code has gone on the event queue, there's really no way of fully "getting back" to the main thread.
+</p>
+
+<p>
+Even though the explanation above focused on JavaScript in the browser node.js works in very much the same way with a main thread and an event queue to handle asynchronous requests. It's important to know understand that the node.js process will stay alive for as long as there is something on its event queue.
+</p>
+
+<aside id="org636b4c6">
+<p>
+<b>Process vs. threads?</b>
+</p>
+
+<p>
+You can think of a process as an application running on your computer: VSCode, Chrome, Spotify etc. When you run <code>node index.js</code> to start your server, you are actually starting a new process. Each process runs in isolation and has its own section of memory which other processes cannot see or touch. Threads on the other hand are what are actually executing the instructions in your code. A process can either be single-threaded, meaning that it only uses one thread, or multi-threaded.
+</p>
+
+<p>
+You can check which processes are currently running in the Task Manager on Windows or in the Activity Monitor on MacOS. On MacOS you can also list them in the terminal by running the command <code>ps aux</code>.
+</p>
+</aside>
+</div>
+
+<div id="outline-container-org97eac44" class="outline-4">
+<h4 id="org97eac44"><span class="section-number-4">6.1.1</span> Callback Hell</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<p>
+In the beginning there was the callback.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 26: </span>Collecting all files in a directory using callbacks</label><pre class="src src-js"><span class="linenr"> 1: </span>fs.readdir(directory, (err, files) =&gt; {
+<span class="linenr"> 2: </span>  <span class="org-keyword">if</span> (err) {
+<span class="linenr"> 3: </span>    console.log(<span class="org-string">'Error finding files: '</span>, err)
+<span class="linenr"> 4: </span>  } <span class="org-keyword">else</span> {
+<span class="linenr"> 5: </span>    files.forEach((filename) =&gt; {
+<span class="linenr"> 6: </span>      <span class="org-keyword">const</span> <span class="org-variable-name">filePath</span> = <span class="org-string">`${directory}/${filename}`</span>;
+<span class="linenr"> 7: </span>      fs.stat(filePath, (err, fileStats) =&gt; {
+<span class="linenr"> 8: </span>        <span class="org-keyword">if</span> (err) {
+<span class="linenr"> 9: </span>          console.log(<span class="org-string">'Error checking file status: '</span>, err)
+<span class="linenr">10: </span>        } <span class="org-keyword">else</span> {
+<span class="linenr">11: </span>          <span class="org-keyword">if</span> (fileStats.isFile())
+<span class="linenr">12: </span>            console.log(<span class="org-string">'Found file:'</span>, filePath);
+<span class="linenr">13: </span>          }
+<span class="linenr">14: </span>      })
+<span class="linenr">15: </span>    })
+<span class="linenr">16: </span>  }
+<span class="linenr">17: </span>})
+</pre>
+</div>
+
+<p>
+This was the only means of handling asynchronous operations and as you can see from the example above, it quickly lead to unreadable and nested spaghetti code. Adding proper error handling made things worse which meant you would often skip error handling for the sake of readability, leading to code that was broken and error prone. Promises was created to solve this issue and remove the nested spaghetti mess of the code above.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgad5ace0" class="outline-4">
+<h4 id="orgad5ace0"><span class="section-number-4">6.1.2</span> The Promise of Heaven</h4>
+<div class="outline-text-4" id="text-6-1-2">
+<p>
+A Promise can be thought of as a <i>promise of a future value</i>, that is, we do not have the value yet, but we capture the promise of it in a variable that we can use in our code. Before we revisit the file listing example above, let's look at the connection between callbacks and promises using <code>setTimeout</code>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 27: </span>Using setTimeout to delay console.log by a second</label><pre class="src src-js"><span class="linenr">1: </span>console.log(<span class="org-string">'Before setTimeout'</span>)
+<span class="linenr">2: </span>
+<span class="linenr">3: </span>setTimeout(() =&gt; {
+<span class="linenr">4: </span>  console.log(<span class="org-string">'Inside setTimeout'</span>)
+<span class="linenr">5: </span>}, 1000);
+<span class="linenr">6: </span>
+<span class="linenr">7: </span>console.log(<span class="org-string">'After setTimeout'</span>)
+</pre>
+</div>
+
+<p>
+The output of the above example should be:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">Before setTimeout
+After setTimeout
+<span class="org-comment-delimiter"># </span><span class="org-comment">After one second:</span>
+Inside setTimeout
+</pre>
+</div>
+
+<p>
+The node.js process is kept alive until the callback passed to <code>setTimeout</code> is finished and prints its output. The callback is put on the event queue and hence executed asynchronously. We see that since the last <code>console.log</code> statement in the code, which is executed by the main thread, is printed out before the one in <code>setTimeout</code>.
+</p>
+
+<p>
+We can turn the <code>setTimeout</code> call into a <code>Promise</code> by using the <code>Promise</code> constructor which takes a callback function with two arguments a <code>resolve</code> function and a <code>reject</code> function. For now we'll only focus on the <code>resolve</code> function which <i>resolves</i> the promise.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 28: </span><code>setTimeout</code> as a <code>Promise</code></label><pre class="src src-js"><span class="linenr"> 1: </span>console.log(<span class="org-string">'Before setTimeout'</span>)
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span class="org-keyword">new</span> <span class="org-type">Promise</span>((resolve, reject) =&gt; {
+<span class="linenr"> 4: </span>  setTimeout(() =&gt; {
+<span class="linenr"> 5: </span>    console.log(<span class="org-string">'Inside setTimeout'</span>)
+<span class="linenr"> 6: </span>    resolve();
+<span class="linenr"> 7: </span>  }, 1000);
+<span class="linenr"> 8: </span>});
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>console.log(<span class="org-string">'After setTimeout'</span>)
+</pre>
+</div>
+
+<p>
+The output should be the same as in the previous example. But why would we want to wrap an asynchronous call in a <code>Promise</code> like this? Because it allows us to untangle the nested horizontal callback hell pyramid of doom that we saw above. The weapon we have at our disposal is the <code>then</code> method of the promise:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 29: </span>Untangling the file collecting callback hell from before</label><pre class="src src-js"><span class="linenr"> 1: </span><span class="org-comment-delimiter">// </span><span class="org-comment">We wrap our functions in functions that return promises</span>
+<span class="linenr"> 2: </span><span class="org-keyword">const</span> <span class="org-variable-name">readdir</span> = (dir) =&gt; {
+<span class="linenr"> 3: </span>  <span class="org-keyword">return</span> <span class="org-keyword">new</span> <span class="org-type">Promise</span>((resolve, reject) =&gt; {
+<span class="linenr"> 4: </span>    fs.readdir(dir, (err, files) =&gt; {
+<span class="linenr"> 5: </span>      <span class="org-keyword">if</span> (err) {
+<span class="linenr"> 6: </span>        <span class="org-comment-delimiter">// </span><span class="org-comment">We can handle errors by passing them to the reject callback</span>
+<span class="linenr"> 7: </span>        reject(<span class="org-string">'Error finding files: '</span>, err)
+<span class="linenr"> 8: </span>      } <span class="org-keyword">else</span> {
+<span class="linenr"> 9: </span>        <span class="org-comment-delimiter">// </span><span class="org-comment">and pass on values to the next Promise in the chain by</span>
+<span class="linenr">10: </span>        <span class="org-comment-delimiter">// </span><span class="org-comment">using the resolve callback</span>
+<span class="linenr">11: </span>        resolve(files);
+<span class="linenr">12: </span>      }
+<span class="linenr">13: </span>    })
+<span class="linenr">14: </span>  })
+<span class="linenr">15: </span>}
+<span class="linenr">16: </span>
+<span class="linenr">17: </span><span class="org-keyword">const</span> <span class="org-variable-name">fileStats</span> = (filePath) =&gt; {
+<span class="linenr">18: </span>  <span class="org-keyword">return</span> <span class="org-keyword">new</span> <span class="org-type">Promise</span>((resolve, reject) =&gt; {
+<span class="linenr">19: </span>    fs.stat(filePath, (err, fileStats) =&gt; {
+<span class="linenr">20: </span>        <span class="org-keyword">if</span> (err) {
+<span class="linenr">21: </span>          reject(<span class="org-string">'Error checking file status: '</span>, err)
+<span class="linenr">22: </span>        } <span class="org-keyword">else</span> {
+<span class="linenr">23: </span>          resolve(fileStats);
+<span class="linenr">24: </span>        }
+<span class="linenr">25: </span>    })
+<span class="linenr">26: </span>  })
+<span class="linenr">27: </span>}
+<span class="linenr">28: </span>
+<span class="linenr">29: </span>readdir(directory)
+<span class="linenr">30: </span>  .then((directoryContents) =&gt; {
+<span class="linenr">31: </span>    directoryContents.forEach((name) =&gt; {
+<span class="linenr">32: </span>      <span class="org-keyword">const</span> <span class="org-variable-name">filePath</span> = <span class="org-string">`${directory}/${name}`</span>;
+<span class="linenr">33: </span>
+<span class="linenr">34: </span>      fileStats(filePath).then((stats) =&gt; {
+<span class="linenr">35: </span>          <span class="org-keyword">if</span> (stats.isFile()) {
+<span class="linenr">36: </span>            console.log(<span class="org-string">'Found file:'</span>, filePath);
+<span class="linenr">37: </span>          }
+<span class="linenr">38: </span>        }).<span class="org-keyword">catch</span>((err) =&gt; {
+<span class="linenr">39: </span>          console.log(err);
+<span class="linenr">40: </span>        });
+<span class="linenr">41: </span>    })
+<span class="linenr">42: </span>  }).<span class="org-keyword">catch</span>((err) =&gt; {
+<span class="linenr">43: </span>    console.log(err);
+<span class="linenr">44: </span>  })
+</pre>
+</div>
+
+<p>
+If we ignore the boilerplate code for creating our promises, the code looks a little bit neater now. It's still nested but we've been able to extract the error handling so it doesn't pollute our core logic as much. We can do better however. The helper function <code>Promise.all</code> will allow us to pass a list of promises and get back the results of all promises in as a list:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 30: </span>Pillar of promises</label><pre class="src src-js">readdir(directory)
+  .then((directoryContents) =&gt; directoryContents.map((name) =&gt; <span class="org-string">`${directory}/${name}`</span>))
+  .then((filePaths) =&gt; {
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">Collect all of the stats calls into a list of promises</span>
+    <span class="org-keyword">const</span> <span class="org-variable-name">promises</span> = filePaths.map((filePath) =&gt;
+      fileStats(filePath).then((stats) =&gt; ({
+        filePath,
+        isFile: stats.isFile()
+      }))
+    );
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">Use Promise.all to make this promise resolve when all promises in the list are resolved.</span>
+    <span class="org-keyword">return</span> Promise.all(promises);
+  })
+  .then((maybeFiles) =&gt; maybeFiles.filter((f) =&gt; f.isFile))
+  .then((files) =&gt; files.map((f) =&gt; f.filePath))
+  .then((paths) =&gt; console.log(paths))
+   <span class="org-comment-delimiter">// </span><span class="org-comment">Now we only need one (1!) catch</span>
+  .<span class="org-keyword">catch</span>((err) =&gt; console.log(err))
+</pre>
+</div>
+
+<p>
+Now instead of having a horizontal callback pyramid of doom, we have a pillar of promises. Many of the operations we do in the <code>then</code> clauses are not asynchronous themselves, but once we enter Promiseland there's no escape. You can only use the result of a promise in its <code>then</code> clause, and since <code>then</code> also returns a <code>Promise</code> we can't get out.
+</p>
+
+<p>
+The main benefit of this approach is that we reduce the nesting and our error handling is significantly simplified. However, we can do better. Enter async/await.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2d8ed73" class="outline-4">
+<h4 id="org2d8ed73"><span class="section-number-4">6.1.3</span> Awaiting salvation</h4>
+<div class="outline-text-4" id="text-6-1-3">
+<p>
+The final improvement we can do is to replace our pillar of promises with awaits, but first let's look at the relationship between <code>async</code> functions, <code>await</code> and promises.
+</p>
+
+<p>
+You can think of <code>await</code> being similar to calling <code>then</code> on a promise, the main difference is that <code>await</code> can only be used in an <code>async</code> context.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 31: </span><code>await</code> in an <code>async</code> context</label><pre class="src src-js"><span class="linenr"> 1: </span><span class="org-comment-delimiter">// </span><span class="org-comment">We can't do this:</span>
+<span class="linenr"> 2: </span><span class="org-keyword">await</span> fetch(<span class="org-string">'https://http.cat/500'</span>)
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span><span class="org-keyword">const</span> <span class="org-variable-name">foo</span> = <span class="org-keyword">async</span> () {
+<span class="linenr"> 5: </span>  <span class="org-comment-delimiter">// </span><span class="org-comment">This is OK since we're in an async arrow function context</span>
+<span class="linenr"> 6: </span>  <span class="org-keyword">await</span> fetch(<span class="org-string">'https://http.cat/200'</span>)
+<span class="linenr"> 7: </span>}
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span><span class="org-keyword">async</span> <span class="org-keyword">function</span> bar() {
+<span class="linenr">10: </span>  <span class="org-comment-delimiter">// </span><span class="org-comment">This is OK since we're in an async function context</span>
+<span class="linenr">11: </span>  <span class="org-keyword">await</span> fetch(<span class="org-string">'https://http.cat/200'</span>)
+<span class="linenr">12: </span>}
+</pre>
+</div>
+
+<p>
+In fact, if you log the <span class="underline">unawaited</span> return value of an <code>async</code> function you will see that it actually returns a <code>Promise</code>:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 32: </span>All <code>async</code> functions return <code>Promise</code>:s</label><pre class="src src-js"><span class="linenr">1: </span><span class="org-keyword">async</span> <span class="org-keyword">function</span> willReturnAPromise() {
+<span class="linenr">2: </span>  <span class="org-keyword">return</span> 42
+<span class="linenr">3: </span>}
+<span class="linenr">4: </span>
+<span class="linenr">5: </span>console.log(willReturnAPromise()) <span class="org-comment-delimiter">// </span><span class="org-comment">Prints: Promise { 42 }</span>
+</pre>
+</div>
+
+<p>
+This means that you can <code>await</code> <code>Promise</code>:s and <code>then</code> <code>async</code> functions:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 33: </span>Awaiting promises and then async functions</label><pre class="src src-js"><span class="linenr"> 1: </span><span class="org-keyword">async</span> <span class="org-keyword">function</span> foo() {
+<span class="linenr"> 2: </span>  <span class="org-keyword">return</span> 10;
+<span class="linenr"> 3: </span>}
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span><span class="org-keyword">async</span> <span class="org-keyword">function</span> () {
+<span class="linenr"> 6: </span>  <span class="org-keyword">const</span> <span class="org-variable-name">ten</span> = <span class="org-keyword">await</span> Promise.resolve(10);
+<span class="linenr"> 7: </span>  console.log(ten);
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span>  <span class="org-keyword">await</span> foo().then((result) =&gt; console.log(result + 32));
+<span class="linenr">10: </span>}
+</pre>
+</div>
+
+<p>
+Understanding this, we are now equipped to clean-up our file listing example above and make it really appear synchronous.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js"><span class="org-keyword">async</span> <span class="org-keyword">function</span> listFilesInDirectory(<span class="org-variable-name">directory</span>) {
+  <span class="org-keyword">try</span> {
+    <span class="org-keyword">const</span> <span class="org-variable-name">directoryContents</span> = <span class="org-keyword">await</span> readdir(directory);
+    <span class="org-keyword">const</span> <span class="org-variable-name">filePaths</span> = directoryContents.map((name) =&gt; <span class="org-string">`${directory}/${name}`</span>);
+    <span class="org-keyword">const</span> <span class="org-variable-name">promises</span> = filePaths.map((filePath) =&gt;
+      fileStats(filePath).then((stats) =&gt; ({
+        filePath,
+        isFile: stats.isFile()
+      }))
+    );
+    <span class="org-keyword">const</span> <span class="org-variable-name">maybeFiles</span> = <span class="org-keyword">await</span> Promise.all(promises);
+    <span class="org-keyword">const</span> <span class="org-variable-name">files</span> = maybeFiles.filter((f) =&gt; f.isFile);
+    <span class="org-keyword">const</span> <span class="org-variable-name">paths</span> = files.map((f) =&gt; f.filePath);
+    console.log(paths);
+  } <span class="org-keyword">catch</span> (err) {
+    console.log(err);
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org7994b25" class="outline-2">
+<h2 id="org7994b25"><span class="section-number-2">7</span> Resources and useful links</h2>
+<div class="outline-text-2" id="text-7">
 <p>
 <b>General</b>
 </p>
 <ul class="org-ul">
 <li><a href="https://github.com/iensu/data-interaction-course-materials">Course GitHub repository with code examples and exercises</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work">How browsers work</a></li>
 </ul>
 
 <p>
