@@ -658,11 +658,261 @@ Updating can be seen as a combination of a find operation and a write operation.
   await db.collection('languages').updateOne(filter, modification)
 #+end_src
 
-* TODO JavaScript Deep-Dive                                        :noexport:
+* JavaScript Deep-Dive
+This section provides a smorgosbord of JavaScript concepts and weirdness. We won't have time to go into all of the nitty gritty details for each topic but rather use them to illustrate more general computing concepts. We will touch upon processes and threads, scope, bindings, functional programming, equality. There's a lot of ground to cover, so let's get started!
+
+** Async, Await and the Promise a the Path out of Callback Hell
+JavaScript is allegedly "asynchronous by default" AND "single-threaded", but what does this actually mean? What is *synchronous* versus *asynchronous* execution? In short asynchronous execution allows us to do more work at the same time (concurrently). First let's have a look at how the browser executes JavaScript.
+
+#+caption: A very simplified view of how a web browser works
+#+attr_org: :width 700px
+#+name: web-browser
+[[./assets/simplified-browser-process.png]]
+
+The browser has a main thread which is responsible for not only executing JavaScript but also rendering the HTML and CSS as well as handling user input like clicks and scrolling. If JavaScript allowed for synchronous HTTP requests the whole browser tab would stall while waiting for the response to come back. This is of course something we want to avoid at all costs and thus JavaScript does these sort of I/O operations asynchronously by default for us.
+
+#+begin_aside
+*What is I/O?*
+
+I/O stands for Input/Output and designates any operations that /reaches outside/ of the main process, such as HTTP requests, reading from files, writing to files etc.
+#+end_aside
+
+All asynchronous operations are put on the *Event Queue* so as to not block the main thread, and from there the operations are executed in other threads. It is important to understand that once a piece of code has gone on the event queue, there's really no way of fully "getting back" to the main thread.
+
+Even though the explanation above focused on JavaScript in the browser node.js works in very much the same way with a main thread and an event queue to handle asynchronous requests. It's important to know understand that the node.js process will stay alive for as long as there is something on its event queue.
+
+#+begin_aside
+*Process vs. threads?*
+
+You can think of a process as an application running on your computer: VSCode, Chrome, Spotify etc. When you run ~node index.js~ to start your server, you are actually starting a new process. Each process runs in isolation and has its own section of memory which other processes cannot see or touch. Threads on the other hand are what are actually executing the instructions in your code. A process can either be single-threaded, meaning that it only uses one thread, or multi-threaded.
+
+You can check which processes are currently running in the Task Manager on Windows or in the Activity Monitor on MacOS. On MacOS you can also list them in the terminal by running the command ~ps aux~.
+#+end_aside
+
+*** Callback Hell
+In the beginning there was the callback.
+
+#+caption: Collecting all files in a directory using callbacks
+#+begin_src js -n
+  fs.readdir(directory, (err, files) => {
+    if (err) {
+      console.log('Error finding files: ', err)
+    } else {
+      files.forEach((filename) => {
+        const filePath = `${directory}/${filename}`;
+        fs.stat(filePath, (err, fileStats) => {
+          if (err) {
+            console.log('Error checking file status: ', err)
+          } else {
+            if (fileStats.isFile())
+              console.log('Found file:', filePath);
+            }
+        })
+      })
+    }
+  })
+#+end_src
+
+This was the only means of handling asynchronous operations and as you can see from the example above, it quickly lead to unreadable and nested spaghetti code. Adding proper error handling made things worse which meant you would often skip error handling for the sake of readability, leading to code that was broken and error prone. Promises was created to solve this issue and remove the nested spaghetti mess of the code above.
+
+*** The Promise of Heaven
+A Promise can be thought of as a /promise of a future value/, that is, we do not have the value yet, but we capture the promise of it in a variable that we can use in our code. Before we revisit the file listing example above, let's look at the connection between callbacks and promises using ~setTimeout~.
+
+#+caption: Using setTimeout to delay console.log by a second
+#+begin_src js -n
+  console.log('Before setTimeout')
+
+  setTimeout(() => {
+    console.log('Inside setTimeout')
+  }, 1000);
+
+  console.log('After setTimeout')
+#+end_src
+
+The output of the above example should be:
+
+#+begin_src shell
+  Before setTimeout
+  After setTimeout
+  # After one second:
+  Inside setTimeout
+#+end_src
+
+The node.js process is kept alive until the callback passed to ~setTimeout~ is finished and prints its output. The callback is put on the event queue and hence executed asynchronously. We see that since the last ~console.log~ statement in the code, which is executed by the main thread, is printed out before the one in ~setTimeout~.
+
+We can turn the ~setTimeout~ call into a ~Promise~ by using the ~Promise~ constructor which takes a callback function with two arguments a ~resolve~ function and a ~reject~ function. For now we'll only focus on the ~resolve~ function which /resolves/ the promise.
+
+#+caption: ~setTimeout~ as a ~Promise~
+#+begin_src js -n
+  console.log('Before setTimeout')
+
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log('Inside setTimeout')
+      resolve();
+    }, 1000);
+  });
+
+  console.log('After setTimeout')
+#+end_src
+
+The output should be the same as in the previous example. But why would we want to wrap an asynchronous call in a ~Promise~ like this? Because it allows us to untangle the nested horizontal callback hell pyramid of doom that we saw above. The weapon we have at our disposal is the ~then~ method of the promise:
+
+#+caption: Untangling the file collecting callback hell from before
+#+begin_src js -n
+  // We wrap our functions in functions that return promises
+  const readdir = (dir) => {
+    return new Promise((resolve, reject) => {
+      fs.readdir(dir, (err, files) => {
+        if (err) {
+          // We can handle errors by passing them to the reject callback
+          reject('Error finding files: ', err)
+        } else {
+          // and pass on values to the next Promise in the chain by
+          // using the resolve callback
+          resolve(files);
+        }
+      })
+    })
+  }
+
+  const fileStats = (filePath) => {
+    return new Promise((resolve, reject) => {
+      fs.stat(filePath, (err, fileStats) => {
+          if (err) {
+            reject('Error checking file status: ', err)
+          } else {
+            resolve(fileStats);
+          }
+      })
+    })
+  }
+
+  readdir(directory)
+    .then((directoryContents) => {
+      directoryContents.forEach((name) => {
+        const filePath = `${directory}/${name}`;
+
+        fileStats(filePath).then((stats) => {
+            if (stats.isFile()) {
+              console.log('Found file:', filePath);
+            }
+          }).catch((err) => {
+            console.log(err);
+          });
+      })
+    }).catch((err) => {
+      console.log(err);
+    })
+#+end_src
+
+If we ignore the boilerplate code for creating our promises, the code looks a little bit neater now. It's still nested but we've been able to extract the error handling so it doesn't pollute our core logic as much. We can do better however. The helper function ~Promise.all~ will allow us to pass a list of promises and get back the results of all promises in as a list:
+
+#+caption: Pillar of promises
+#+begin_src js
+  readdir(directory)
+    .then((directoryContents) => directoryContents.map((name) => `${directory}/${name}`))
+    .then((filePaths) => {
+
+      // Collect all of the stats calls into a list of promises
+      const promises = filePaths.map((filePath) =>
+        fileStats(filePath).then((stats) => ({
+          filePath,
+          isFile: stats.isFile()
+        }))
+      );
+
+      // Use Promise.all to make this promise resolve when all promises in the list are resolved.
+      return Promise.all(promises);
+    })
+    .then((maybeFiles) => maybeFiles.filter((f) => f.isFile))
+    .then((files) => files.map((f) => f.filePath))
+    .then((paths) => console.log(paths))
+     // Now we only need one (1!) catch
+    .catch((err) => console.log(err))
+#+end_src
+
+Now instead of having a horizontal callback pyramid of doom, we have a pillar of promises. Many of the operations we do in the ~then~ clauses are not asynchronous themselves, but once we enter Promiseland there's no escape. You can only use the result of a promise in its ~then~ clause, and since ~then~ also returns a ~Promise~ we can't get out.
+
+The main benefit of this approach is that we reduce the nesting and our error handling is significantly simplified. However, we can do better. Enter async/await.
+
+*** Awaiting salvation
+The final improvement we can do is to replace our pillar of promises with awaits, but first let's look at the relationship between ~async~ functions, ~await~ and promises.
+
+You can think of ~await~ being similar to calling ~then~ on a promise, the main difference is that ~await~ can only be used in an ~async~ context.
+
+#+caption: ~await~ in an ~async~ context
+#+begin_src js -n
+  // We can't do this:
+  await fetch('https://http.cat/500')
+
+  const foo = async () {
+    // This is OK since we're in an async arrow function context
+    await fetch('https://http.cat/200')
+  }
+
+  async function bar() {
+    // This is OK since we're in an async function context
+    await fetch('https://http.cat/200')
+  }
+#+end_src
+
+In fact, if you log the _unawaited_ return value of an ~async~ function you will see that it actually returns a ~Promise~:
+
+#+caption: All ~async~ functions return ~Promise~:s
+#+begin_src js -n
+  async function willReturnAPromise() {
+    return 42
+  }
+
+  console.log(willReturnAPromise()) // Prints: Promise { 42 }
+#+end_src
+
+This means that you can ~await~ ~Promise~:s and ~then~ ~async~ functions:
+
+#+caption: Awaiting promises and then async functions
+#+begin_src js -n
+  async function foo() {
+    return 10;
+  }
+
+  async function () {
+    const ten = await Promise.resolve(10);
+    console.log(ten);
+
+    await foo().then((result) => console.log(result + 32));
+  }
+#+end_src
+
+Understanding this, we are now equipped to clean-up our file listing example above and make it really appear synchronous.
+
+#+caption:
+#+begin_src js
+  async function listFilesInDirectory(directory) {
+    try {
+      const directoryContents = await readdir(directory);
+      const filePaths = directoryContents.map((name) => `${directory}/${name}`);
+      const promises = filePaths.map((filePath) =>
+        fileStats(filePath).then((stats) => ({
+          filePath,
+          isFile: stats.isFile()
+        }))
+      );
+      const maybeFiles = await Promise.all(promises);
+      const files = maybeFiles.filter((f) => f.isFile);
+      const paths = files.map((f) => f.filePath);
+      console.log(paths);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+#+end_src
+
 
 * Resources and useful links
 *General*
 - [[https://github.com/iensu/data-interaction-course-materials][Course GitHub repository with code examples and exercises]]
+- [[https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work][How browsers work]]
 
 *Express*
 -[[https://zellwk.com/blog/async-await-express/][ Async/Await in Express]]
