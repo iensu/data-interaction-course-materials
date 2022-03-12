@@ -38,7 +38,7 @@
          :base-extension "css\\|png\\|jpe?g\\|svg"
          :publishing-directory ,publish-project-path
          :publishing-function org-publish-attachment
-         :exclude "docs\\|.direnv\\|exercises"
+         :exclude "docs\\|.direnv\\|exercises\\|examples"
          :recursive t)
 
         ("org"
@@ -46,7 +46,7 @@
          :publishing-directory ,publish-project-path
          :publishing-function org-html-publish-to-html
          :base-extension "org"
-         :exclude "docs\\|.direnv\\|exercises"
+         :exclude "docs\\|.direnv\\|exercises\\|examples"
          :time-stamp-file nil)
 
         ("site" :components ("static" "org"))))
