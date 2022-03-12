@@ -658,9 +658,6 @@ Updating can be seen as a combination of a find operation and a write operation.
   await db.collection('languages').updateOne(filter, modification)
 #+end_src
 
-** TODO What is an ObjectId?                                       :noexport:
-- https://docs.mongodb.com/manual/reference/method/ObjectId/
-- https://docs.mongodb.com/manual/reference/bson-types/#std-label-objectid
 * TODO JavaScript Deep-Dive                                        :noexport:
 
 * Resources and useful links
