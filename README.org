@@ -915,7 +915,7 @@ Understanding this, we are now equipped to clean-up our file listing example abo
 - [[https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work][How browsers work]]
 
 *Express*
--[[https://zellwk.com/blog/async-await-express/][ Async/Await in Express]]
+- [[https://zellwk.com/blog/async-await-express][Async/Await in Express]]
 
 *MongoDB*
 - [[https://docs.mongodb.com/manual/crud/][MongoDB CRUD operations]]
