@@ -20,68 +20,76 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org536ed36">1. Setting up your Environment</a>
+<li><a href="#org04e72c8">1. Setting up your Environment</a>
 <ul>
-<li><a href="#orga48daff">1.1. MongoDB</a>
+<li><a href="#org25b109c">1.1. MongoDB</a>
 <ul>
-<li><a href="#org77d1c24">1.1.1. Installing and running MongoDB on MacOS</a></li>
-<li><a href="#org5d88aea">1.1.2. Installing and running MongoDB on Windows</a></li>
+<li><a href="#org404dbaf">1.1.1. Installing and running MongoDB on MacOS</a></li>
+<li><a href="#orge40d525">1.1.2. Installing and running MongoDB on Windows</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org99d4ff6">2. Introduction to node.js</a>
+<li><a href="#org41118d5">2. Introduction to node.js</a>
 <ul>
-<li><a href="#org0342307">2.1. node.js vs the Browser</a></li>
-<li><a href="#org692f546">2.2. Hello Node</a>
+<li><a href="#org6284375">2.1. node.js vs the Browser</a></li>
+<li><a href="#orgae9c696">2.2. Hello Node</a>
 <ul>
-<li><a href="#org6de19b6">2.2.1. Using built-in modules</a></li>
-<li><a href="#org873d462">2.2.2. Writing our own module</a></li>
-<li><a href="#org775d763">2.2.3. Messing around with the global scope</a></li>
-<li><a href="#orgd62c4e1">2.2.4. Reading environment variables</a></li>
+<li><a href="#org61c1ace">2.2.1. Using built-in modules</a></li>
+<li><a href="#org2c40dba">2.2.2. Writing our own module</a></li>
+<li><a href="#org1ca9bd6">2.2.3. Messing around with the global scope</a></li>
+<li><a href="#orgc119265">2.2.4. Reading environment variables</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgf31feb7">3. Our First API</a>
+<li><a href="#org7951845">3. Our First API</a>
 <ul>
-<li><a href="#org3218441">3.1. What is an Application Programming Interface?</a></li>
-<li><a href="#orgd80537f">3.2. Creating our API</a></li>
-<li><a href="#org8c24fe9">3.3. Starting our server</a></li>
-<li><a href="#org0b52141">3.4. Adding another endpoint</a>
+<li><a href="#orge0c28ae">3.1. What is an Application Programming Interface?</a></li>
+<li><a href="#orgdc3b76c">3.2. Creating our API</a></li>
+<li><a href="#org7d73ba5">3.3. Starting our server</a></li>
+<li><a href="#org7ebb64d">3.4. Adding another endpoint</a>
 <ul>
-<li><a href="#orgaed97ee">3.4.1. Live-reload and other tooling</a></li>
+<li><a href="#orgac46aa6">3.4.1. Live-reload and other tooling</a></li>
 </ul>
 </li>
-<li><a href="#orgbc734de">3.5. Back to our endpoint</a></li>
+<li><a href="#org735bfd0">3.5. Back to our endpoint</a></li>
 </ul>
 </li>
-<li><a href="#orge6823ae">4. HTTP + API Deep-dive</a></li>
-<li><a href="#org59ab04b">5. Intro to MongoDB</a>
+<li><a href="#org0f26381">4. HTTP + API Deep-dive</a></li>
+<li><a href="#orgd342b99">5. Intro to MongoDB</a>
 <ul>
-<li><a href="#orgc485e80">5.1. Schemas</a></li>
-<li><a href="#orgebd9e0b">5.2. Operations</a>
+<li><a href="#orgb1bd956">5.1. Schemas</a></li>
+<li><a href="#org45375fd">5.2. Operations</a>
 <ul>
-<li><a href="#orgd063a79">5.2.1. Inserting</a></li>
-<li><a href="#org93542ad">5.2.2. Finding (Filtering or Querying)</a></li>
-<li><a href="#orgf9585b1">5.2.3. Deleting</a></li>
-<li><a href="#org79ebae2">5.2.4. Updating</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org12e8e82">6. JavaScript Deep-Dive</a>
-<ul>
-<li><a href="#orgff64687">6.1. Async, Await and the Promise a the Path out of Callback Hell</a>
-<ul>
-<li><a href="#org7e43970">6.1.1. Callback Hell</a></li>
-<li><a href="#orgee240cb">6.1.2. The Promise of Heaven</a></li>
-<li><a href="#org35ada2e">6.1.3. Awaiting salvation</a></li>
+<li><a href="#orgeff094b">5.2.1. Inserting</a></li>
+<li><a href="#orgce7f273">5.2.2. Finding (Filtering or Querying)</a></li>
+<li><a href="#orga82d39a">5.2.3. Deleting</a></li>
+<li><a href="#orgd4a3ae1">5.2.4. Updating</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org56a7437">7. Resources and useful links</a></li>
+<li><a href="#orgcf63ac5">6. JavaScript Deep-Dive</a>
+<ul>
+<li><a href="#org23eec23">6.1. Async, Await and the Promise a the Path out of Callback Hell</a>
+<ul>
+<li><a href="#org88aebce">6.1.1. Callback Hell</a></li>
+<li><a href="#orgf9eb98d">6.1.2. The Promise of Heaven</a></li>
+<li><a href="#orgdc7f3ad">6.1.3. Awaiting salvation</a></li>
+</ul>
+</li>
+<li><a href="#org0d168e6">6.2. Fun with functions</a>
+<ul>
+<li><a href="#orgc12d953">6.2.1. Implementing our own <code>map</code> function</a></li>
+<li><a href="#org34d2078">6.2.2. Implementing our own <code>filter</code> function</a></li>
+<li><a href="#org0f0aa5f">6.2.3. Implementing our own <code>reduceList</code></a></li>
+<li><a href="#org9087856">6.2.4. Implementing our own <code>reduce</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4a44416">7. Resources and useful links</a></li>
 </ul>
 </div>
 </nav>
@@ -93,8 +101,8 @@ This course aims to give you an understanding of back-end development and in it 
 You can find working code samples for each chapter along with some exercises in <a href="https://github.com/iensu/data-interaction-course-materials">the course Github repository</a>.
 </p>
 
-<div id="outline-container-org536ed36" class="outline-2">
-<h2 id="org536ed36"><span class="section-number-2">1</span> Setting up your Environment</h2>
+<div id="outline-container-org04e72c8" class="outline-2">
+<h2 id="org04e72c8"><span class="section-number-2">1</span> Setting up your Environment</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In order to follow along with this course you will want to have the following installed:
@@ -119,8 +127,8 @@ git --version
 </div>
 </div>
 
-<div id="outline-container-orga48daff" class="outline-3">
-<h3 id="orga48daff"><span class="section-number-3">1.1</span> MongoDB</h3>
+<div id="outline-container-org25b109c" class="outline-3">
+<h3 id="org25b109c"><span class="section-number-3">1.1</span> MongoDB</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Finally you will need to have access to <a href="https://docs.mongodb.com/manual/installation/">MongoDB</a>. The company MongoDB is pushing really hard for you to use the free-tier of their cloud service Atlas. Unfortunately it requires you to create an account and forces you to go through a lot of settings and options. It's important that you choose the free tier, otherwise you can just use the defaults. They will also apparently bombard you with marketing emails, so if you decide to create an account I recommend you use a throwaway email account.
@@ -135,8 +143,8 @@ MongoDB Compass offers a graphical interface to your database and often comes bu
 </p>
 </div>
 
-<div id="outline-container-org77d1c24" class="outline-4">
-<h4 id="org77d1c24"><span class="section-number-4">1.1.1</span> Installing and running MongoDB on MacOS</h4>
+<div id="outline-container-org404dbaf" class="outline-4">
+<h4 id="org404dbaf"><span class="section-number-4">1.1.1</span> Installing and running MongoDB on MacOS</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 As long as you have <a href="https://brew.sh/">Homebrew</a> installed it's very easy to install both MongoDB and MongoDB Compass on your computer:
@@ -171,7 +179,7 @@ If everything works, you should be able to run <code>mongosh</code> and be taken
 </p>
 
 
-<figure id="orgafba590">
+<figure id="org0aff0e0">
 <img src="./assets/mongodb-prompt.png" alt="mongodb-prompt.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>Running <code>mongosh</code> should open a MongoDB prompt like this one</figcaption>
@@ -188,8 +196,8 @@ If this is not working you can list your <code>brew</code> services by running <
 </div>
 </div>
 
-<div id="outline-container-org5d88aea" class="outline-4">
-<h4 id="org5d88aea"><span class="section-number-4">1.1.2</span> Installing and running MongoDB on Windows</h4>
+<div id="outline-container-orge40d525" class="outline-4">
+<h4 id="orge40d525"><span class="section-number-4">1.1.2</span> Installing and running MongoDB on Windows</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 As long as you have Windows 10 (October 2018 update) or newer it's very easy to install both MongoDB and MongoDB Compass on your computer using <code>winget</code>:
@@ -215,8 +223,8 @@ To connect Compass to your server, you simply press "Connect" (no connection str
 </div>
 </div>
 
-<div id="outline-container-org99d4ff6" class="outline-2">
-<h2 id="org99d4ff6"><span class="section-number-2">2</span> Introduction to node.js</h2>
+<div id="outline-container-org41118d5" class="outline-2">
+<h2 id="org41118d5"><span class="section-number-2">2</span> Introduction to node.js</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 In short, node.js is JavaScript for servers and is now one of the most prevalent programming languages in the world. How come it quickly got so popular?
@@ -242,8 +250,8 @@ Node.JS was created 12 years ago by creating a system interface to Chrome’s <a
 </div>
 </div>
 
-<div id="outline-container-org0342307" class="outline-3">
-<h3 id="org0342307"><span class="section-number-3">2.1</span> node.js vs the Browser</h3>
+<div id="outline-container-org6284375" class="outline-3">
+<h3 id="org6284375"><span class="section-number-3">2.1</span> node.js vs the Browser</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Moving JavaScript out of the browser and onto the server results in a few important differences:
@@ -258,8 +266,8 @@ Moving JavaScript out of the browser and onto the server results in a few import
 </div>
 </div>
 
-<div id="outline-container-org692f546" class="outline-3">
-<h3 id="org692f546"><span class="section-number-3">2.2</span> Hello Node</h3>
+<div id="outline-container-orgae9c696" class="outline-3">
+<h3 id="orgae9c696"><span class="section-number-3">2.2</span> Hello Node</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 We are going to play around with node.js a bit. First create a new directory called <code>hello-node</code> and move into it. Now create a file called <code>index.js</code> and write the following piece of code:
@@ -274,7 +282,7 @@ We are going to play around with node.js a bit. First create a new directory cal
 Now you can run your program with the command <code>node index.js</code> and you should see <code>Hello node! \(&gt;0&lt;)/</code> printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 </p>
 
-<aside id="org5deeb5b">
+<aside id="org203ea54">
 <p>
 <b>Why index.js?</b>
 </p>
@@ -285,8 +293,8 @@ Naming the main file JavaScript file <code>index.js</code> is a convention and h
 </aside>
 </div>
 
-<div id="outline-container-org6de19b6" class="outline-4">
-<h4 id="org6de19b6"><span class="section-number-4">2.2.1</span> Using built-in modules</h4>
+<div id="outline-container-org61c1ace" class="outline-4">
+<h4 id="org61c1ace"><span class="section-number-4">2.2.1</span> Using built-in modules</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 Let's use the built-in file system module <code>fs</code> to play around with files.
@@ -310,7 +318,7 @@ Let's use the built-in file system module <code>fs</code> to play around with fi
 </pre>
 </div>
 
-<aside id="org1b28336">
+<aside id="org67583b3">
 <p>
 <b>ES6 modules vs. CommonJS modules</b>
 </p>
@@ -377,8 +385,8 @@ The difference between the module systems lies not only in cosmetics but also se
 </div>
 </div>
 
-<div id="outline-container-org873d462" class="outline-4">
-<h4 id="org873d462"><span class="section-number-4">2.2.2</span> Writing our own module</h4>
+<div id="outline-container-org2c40dba" class="outline-4">
+<h4 id="org2c40dba"><span class="section-number-4">2.2.2</span> Writing our own module</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 Let's create new module with a function that randomly picks an element from a list. And let's call it from <code>index.js</code>.
@@ -414,8 +422,8 @@ console.log(<span class="org-string">`Got database: ${randomDatabase}`</span>);
 </div>
 </div>
 
-<div id="outline-container-org775d763" class="outline-4">
-<h4 id="org775d763"><span class="section-number-4">2.2.3</span> Messing around with the global scope</h4>
+<div id="outline-container-org1ca9bd6" class="outline-4">
+<h4 id="org1ca9bd6"><span class="section-number-4">2.2.3</span> Messing around with the global scope</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <p>
 Using modules is not the only way of sharing functionality, you can also manipulate the global scope by modifying the <code>global</code> variable.
@@ -455,8 +463,8 @@ Finally, <b>please do not modify <code>global</code> in <i>real</i> code</b>. it
 </div>
 </div>
 
-<div id="outline-container-orgd62c4e1" class="outline-4">
-<h4 id="orgd62c4e1"><span class="section-number-4">2.2.4</span> Reading environment variables</h4>
+<div id="outline-container-orgc119265" class="outline-4">
+<h4 id="orgc119265"><span class="section-number-4">2.2.4</span> Reading environment variables</h4>
 <div class="outline-text-4" id="text-2-2-4">
 <p>
 Another thing we can do in node.js that we can't do in the browser is to get information about the current environment especially things like environment variables.
@@ -472,7 +480,7 @@ console.log(<span class="org-string">'MY_VARIABLE'</span>, process.env.MY_VARIAB
 </pre>
 </div>
 
-<aside id="org6b08502">
+<aside id="orgb27ed19">
 <p>
 <b>What are environment variables?</b>
 </p>
@@ -537,12 +545,12 @@ On MacOS and Linux you can set environment variables with the <code>export</code
 </div>
 </div>
 
-<div id="outline-container-orgf31feb7" class="outline-2">
-<h2 id="orgf31feb7"><span class="section-number-2">3</span> Our First API</h2>
+<div id="outline-container-org7951845" class="outline-2">
+<h2 id="org7951845"><span class="section-number-2">3</span> Our First API</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org3218441" class="outline-3">
-<h3 id="org3218441"><span class="section-number-3">3.1</span> What is an Application Programming Interface?</h3>
+<div id="outline-container-orge0c28ae" class="outline-3">
+<h3 id="orge0c28ae"><span class="section-number-3">3.1</span> What is an Application Programming Interface?</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>An API is a set of exposed methods for interacting with a program or package.</li>
@@ -557,8 +565,8 @@ Often when we say API we actually mean an HTTP API to be specific, that is an AP
 </div>
 </div>
 
-<div id="outline-container-orgd80537f" class="outline-3">
-<h3 id="orgd80537f"><span class="section-number-3">3.2</span> Creating our API</h3>
+<div id="outline-container-orgdc3b76c" class="outline-3">
+<h3 id="orgdc3b76c"><span class="section-number-3">3.2</span> Creating our API</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Express is by far the most popular NPM package for creating HTTP APIs in node.js and has been around almost as long as the language itself. Start by creating a new directory called <code>hello-express</code> and initialize it using <code>npm init</code> (also don't forget to update <code>package.json</code> if you want to use ES6 modules). Now let's install Express:
@@ -601,8 +609,8 @@ There is <i>a lot</i> to unpack here&#x2026;
 </div>
 </div>
 
-<div id="outline-container-org8c24fe9" class="outline-3">
-<h3 id="org8c24fe9"><span class="section-number-3">3.3</span> Starting our server</h3>
+<div id="outline-container-org7d73ba5" class="outline-3">
+<h3 id="org7d73ba5"><span class="section-number-3">3.3</span> Starting our server</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Run your program by executing <code>node index.js</code>. The first thing you will notice is that your program never quits: you see the message <code>Server running at http://localhost:8080</code> but you don't get a new prompt. This is because your program is running a <b>server</b> which is meant to serve <b>responses</b> to <b>requests</b> from <b>clients</b> and your program needs to be kept alive and running to be able to do that.
@@ -613,7 +621,7 @@ A client is whatever uses, or <i>consumes</i>, the API served by your server and
 </p>
 
 
-<figure id="orgd9cdde5">
+<figure id="org8feed65">
 <img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
 
 <figcaption><span class="figure-number">Figure 2: </span>Accessing an unregistered endpoint results in an error message</figcaption>
@@ -624,7 +632,7 @@ This means that we tried to <code>GET</code> something at the endpoint <code>/</
 </p>
 
 
-<figure id="org3a7c498">
+<figure id="orgf083129">
 <img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
 
 <figcaption><span class="figure-number">Figure 3: </span>Successful call to our /hello endpoint</figcaption>
@@ -645,7 +653,7 @@ So what went wrong the first time? There are four pieces of information needed t
 A server only responds on the port it is listening on and only handles requests on endpoints which have been registered on it. When not specifying an endpoint, the browser will pick the default one which is <code>/</code> and since we never registered a handler for that endpoint the request failed. You can think of endpoints as file paths on your own computer.
 </p>
 
-<aside id="orga086d5c">
+<aside id="org9b5023c">
 <p>
 <b>Ports</b>
 </p>
@@ -694,8 +702,8 @@ You can choose any port number for your service between 1025 to 65535 as long as
 </div>
 </div>
 
-<div id="outline-container-org0b52141" class="outline-3">
-<h3 id="org0b52141"><span class="section-number-3">3.4</span> Adding another endpoint</h3>
+<div id="outline-container-org7ebb64d" class="outline-3">
+<h3 id="org7ebb64d"><span class="section-number-3">3.4</span> Adding another endpoint</h3>
 <div class="outline-text-3" id="text-3-4">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 11: </span>Our next endpoint</label><pre class="src src-js"><span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
@@ -721,8 +729,8 @@ If you now run <code>node index.js</code> again you will be able to access <a hr
 </p>
 </div>
 
-<div id="outline-container-orgaed97ee" class="outline-4">
-<h4 id="orgaed97ee"><span class="section-number-4">3.4.1</span> Live-reload and other tooling</h4>
+<div id="outline-container-orgac46aa6" class="outline-4">
+<h4 id="orgac46aa6"><span class="section-number-4">3.4.1</span> Live-reload and other tooling</h4>
 <div class="outline-text-4" id="text-3-4-1">
 <p>
 A workflow like the above is not only annoying but it can also lead to long troubleshooting sessions trying to figure out why something isn't working, when in the end you just had to restart the server. Thankfully there is an NPM package which helps us automate this workflow: <a href="https://nodemon.io/">nodemon</a>. Since we only need it for development we install it as a development dependency:
@@ -760,8 +768,8 @@ There is another tool I highly recommend you install and that is <a href="https:
 </div>
 </div>
 
-<div id="outline-container-orgbc734de" class="outline-3">
-<h3 id="orgbc734de"><span class="section-number-3">3.5</span> Back to our endpoint</h3>
+<div id="outline-container-org735bfd0" class="outline-3">
+<h3 id="org735bfd0"><span class="section-number-3">3.5</span> Back to our endpoint</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 Let's make our new endpoint do something more interesting: let's see what happens if we serve a string which looks like HTML.
@@ -858,11 +866,11 @@ A website made up from files like this is called a <b>static website</b>. This i
 </div>
 </div>
 
-<div id="outline-container-orge6823ae" class="outline-2">
-<h2 id="orge6823ae"><span class="section-number-2">4</span> HTTP + API Deep-dive</h2>
+<div id="outline-container-org0f26381" class="outline-2">
+<h2 id="org0f26381"><span class="section-number-2">4</span> HTTP + API Deep-dive</h2>
 </div>
-<div id="outline-container-org59ab04b" class="outline-2">
-<h2 id="org59ab04b"><span class="section-number-2">5</span> Intro to MongoDB</h2>
+<div id="outline-container-orgd342b99" class="outline-2">
+<h2 id="orgd342b99"><span class="section-number-2">5</span> Intro to MongoDB</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 MongoDB is a <a href="https://www.mongodb.com/document-databases">document (NoSQL) database</a> and has a few important characteristics which makes it a suitable as a first database:
@@ -887,8 +895,8 @@ A MongoDB system consists of one or several <b>databases</b>, which each can hav
 </p>
 </div>
 
-<div id="outline-container-orgc485e80" class="outline-3">
-<h3 id="orgc485e80"><span class="section-number-3">5.1</span> Schemas</h3>
+<div id="outline-container-orgb1bd956" class="outline-3">
+<h3 id="orgb1bd956"><span class="section-number-3">5.1</span> Schemas</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 The main selling point of MongoDB compared to relational (SQL) databases (MySQL, Postgres, &#x2026;) is the flexibility. In relational databases you have to define how your data is structured and the relationship between different kinds of data models. The structure of your data is called its schema or sometimes its data model and defines the properties it has and what data types these properties have. Here's a made-up example of how a schema might look like:
@@ -913,7 +921,7 @@ In a <b>document database</b> schemas still exist, but they are just suggestions
 </p>
 
 
-<figure id="orgec99b0a">
+<figure id="org6e27630">
 <img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
 
 <figcaption><span class="figure-number">Figure 4: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
@@ -926,8 +934,8 @@ This flexibility is something to be mindful of and I recommend using MongoDB Com
 </div>
 </div>
 
-<div id="outline-container-orgebd9e0b" class="outline-3">
-<h3 id="orgebd9e0b"><span class="section-number-3">5.2</span> Operations</h3>
+<div id="outline-container-org45375fd" class="outline-3">
+<h3 id="org45375fd"><span class="section-number-3">5.2</span> Operations</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 Operations are ways of interacting with your database in the terms of data, the most general operations being:
@@ -961,8 +969,8 @@ The code assumes that you have the <code>mongodb</code> package in scope and you
 </p>
 </div>
 
-<div id="outline-container-orgd063a79" class="outline-4">
-<h4 id="orgd063a79"><span class="section-number-4">5.2.1</span> Inserting</h4>
+<div id="outline-container-orgeff094b" class="outline-4">
+<h4 id="orgeff094b"><span class="section-number-4">5.2.1</span> Inserting</h4>
 <div class="outline-text-4" id="text-5-2-1">
 <p>
 In MongoDB the act of creating data in a collection is called <b>inserting</b>.
@@ -1002,8 +1010,8 @@ In MongoDB the act of creating data in a collection is called <b>inserting</b>.
 </div>
 </div>
 
-<div id="outline-container-org93542ad" class="outline-4">
-<h4 id="org93542ad"><span class="section-number-4">5.2.2</span> Finding (Filtering or Querying)</h4>
+<div id="outline-container-orgce7f273" class="outline-4">
+<h4 id="orgce7f273"><span class="section-number-4">5.2.2</span> Finding (Filtering or Querying)</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <p>
 The operations for reading data are called <b>find</b> in the API but are often referred to as filtering or querying as well.
@@ -1062,7 +1070,7 @@ console.log(results);
 </pre>
 </div>
 
-<aside id="org4a44906">
+<aside id="orge91b780">
 <p>
 <b>What are regular expressions?</b>
 </p>
@@ -1105,8 +1113,8 @@ console.log(results);
 </div>
 </div>
 
-<div id="outline-container-orgf9585b1" class="outline-4">
-<h4 id="orgf9585b1"><span class="section-number-4">5.2.3</span> Deleting</h4>
+<div id="outline-container-orga82d39a" class="outline-4">
+<h4 id="orga82d39a"><span class="section-number-4">5.2.3</span> Deleting</h4>
 <div class="outline-text-4" id="text-5-2-3">
 <p>
 Deleting documents is very similar to finding documents just replace the <code>find</code> or <code>findOne</code> methods with <code>deleteMany</code> or <code>deleteOne</code>, the methods use the same kind of filters.
@@ -1121,8 +1129,8 @@ Deleting documents is very similar to finding documents just replace the <code>f
 </div>
 </div>
 
-<div id="outline-container-org79ebae2" class="outline-4">
-<h4 id="org79ebae2"><span class="section-number-4">5.2.4</span> Updating</h4>
+<div id="outline-container-orgd4a3ae1" class="outline-4">
+<h4 id="orgd4a3ae1"><span class="section-number-4">5.2.4</span> Updating</h4>
 <div class="outline-text-4" id="text-5-2-4">
 <p>
 Updating can be seen as a combination of a find operation and a write operation. As with the other operations you can either call <code>updateOne</code> or <code>updateMany</code> to update multiple documents at the same time and these methods take two arguments: a filter object to specify which documents will be affected, and an update object defining the modification.
@@ -1140,23 +1148,23 @@ Updating can be seen as a combination of a find operation and a write operation.
 </div>
 </div>
 
-<div id="outline-container-org12e8e82" class="outline-2">
-<h2 id="org12e8e82"><span class="section-number-2">6</span> JavaScript Deep-Dive</h2>
+<div id="outline-container-orgcf63ac5" class="outline-2">
+<h2 id="orgcf63ac5"><span class="section-number-2">6</span> JavaScript Deep-Dive</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 This section provides a smorgosbord of JavaScript concepts and weirdness. We won't have time to go into all of the nitty gritty details for each topic but rather use them to illustrate more general computing concepts. We will touch upon processes and threads, scope, bindings, functional programming, equality. There's a lot of ground to cover, so let's get started!
 </p>
 </div>
 
-<div id="outline-container-orgff64687" class="outline-3">
-<h3 id="orgff64687"><span class="section-number-3">6.1</span> Async, Await and the Promise a the Path out of Callback Hell</h3>
+<div id="outline-container-org23eec23" class="outline-3">
+<h3 id="org23eec23"><span class="section-number-3">6.1</span> Async, Await and the Promise a the Path out of Callback Hell</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 JavaScript is allegedly "asynchronous by default" AND "single-threaded", but what does this actually mean? What is <b>synchronous</b> versus <b>asynchronous</b> execution? In short asynchronous execution allows us to do more work at the same time (concurrently). First let's have a look at how the browser executes JavaScript.
 </p>
 
 
-<figure id="org45cc19e">
+<figure id="org57392cf">
 <img src="./assets/simplified-browser-process.png" alt="simplified-browser-process.png">
 
 <figcaption><span class="figure-number">Figure 5: </span>A very simplified view of how a web browser works</figcaption>
@@ -1166,7 +1174,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 The browser has a main thread which is responsible for not only executing JavaScript but also rendering the HTML and CSS as well as handling user input like clicks and scrolling. If JavaScript allowed for synchronous HTTP requests the whole browser tab would stall while waiting for the response to come back. This is of course something we want to avoid at all costs and thus JavaScript does these sort of I/O operations asynchronously by default for us.
 </p>
 
-<aside id="org49618f8">
+<aside id="org8cc70a7">
 <p>
 <b>What is I/O?</b>
 </p>
@@ -1184,7 +1192,7 @@ All asynchronous operations are put on the <b>Event Queue</b> so as to not block
 Even though the explanation above focused on JavaScript in the browser node.js works in very much the same way with a main thread and an event queue to handle asynchronous requests. It's important to know understand that the node.js process will stay alive for as long as there is something on its event queue.
 </p>
 
-<aside id="org1a69c51">
+<aside id="orgab75dbf">
 <p>
 <b>Process vs. threads?</b>
 </p>
@@ -1199,8 +1207,8 @@ You can check which processes are currently running in the Task Manager on Windo
 </aside>
 </div>
 
-<div id="outline-container-org7e43970" class="outline-4">
-<h4 id="org7e43970"><span class="section-number-4">6.1.1</span> Callback Hell</h4>
+<div id="outline-container-org88aebce" class="outline-4">
+<h4 id="org88aebce"><span class="section-number-4">6.1.1</span> Callback Hell</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <p>
 In the beginning there was the callback.
@@ -1233,8 +1241,8 @@ This was the only means of handling asynchronous operations and as you can see f
 </div>
 </div>
 
-<div id="outline-container-orgee240cb" class="outline-4">
-<h4 id="orgee240cb"><span class="section-number-4">6.1.2</span> The Promise of Heaven</h4>
+<div id="outline-container-orgf9eb98d" class="outline-4">
+<h4 id="orgf9eb98d"><span class="section-number-4">6.1.2</span> The Promise of Heaven</h4>
 <div class="outline-text-4" id="text-6-1-2">
 <p>
 A Promise can be thought of as a <i>promise of a future value</i>, that is, we do not have the value yet, but we capture the promise of it in a variable that we can use in our code. Before we revisit the file listing example above, let's look at the connection between callbacks and promises using <code>setTimeout</code>.
@@ -1375,8 +1383,8 @@ The main benefit of this approach is that we reduce the nesting and our error ha
 </div>
 </div>
 
-<div id="outline-container-org35ada2e" class="outline-4">
-<h4 id="org35ada2e"><span class="section-number-4">6.1.3</span> Awaiting salvation</h4>
+<div id="outline-container-orgdc7f3ad" class="outline-4">
+<h4 id="orgdc7f3ad"><span class="section-number-4">6.1.3</span> Awaiting salvation</h4>
 <div class="outline-text-4" id="text-6-1-3">
 <p>
 The final improvement we can do is to replace our pillar of promises with awaits, but first let's look at the relationship between <code>async</code> functions, <code>await</code> and promises.
@@ -1461,11 +1469,285 @@ Understanding this, we are now equipped to clean-up our file listing example abo
 </div>
 </div>
 </div>
+
+<div id="outline-container-org0d168e6" class="outline-3">
+<h3 id="org0d168e6"><span class="section-number-3">6.2</span> Fun with functions</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+This is the section where we dip our toes into functional programming. While JavaScript is object oriented in that almost everything is an object with methods and properties, at its core it's actually very much a functional language where functions are front and center.
+</p>
+
+<aside id="orga7f93a3">
+<p>
+<b>Functional Programming vs. Object Oriented Programming</b>
+</p>
+
+<p>
+Functional programming (FP) is influenced by mathematics and especially <a href="https://plato.stanford.edu/entries/lambda-calculus/">Lambda calculus</a>. You don't have to understand Lambda calculus to program in a functional programming style. What developers usually mean when talking about functional programming are these three points:
+</p>
+
+<dl class="org-dl">
+<dt>Referential transparency</dt><dd>This means that a function must always return the same thing given the same arguments, that is you should always be able to replace the function call with the result of the call.</dd>
+<dt>Higher-order functions</dt><dd>Functions take functions as arguments or functions that return functions.</dd>
+<dt>Function composition</dt><dd>Creating more complicated behavior by combining functions.</dd>
+</dl>
+
+<p>
+In practice this means for instance that you avoid using side-effects such as mutations. The reason you want to avoid side-effects and unnecessary mutations is that it can lead to unintended and surprising results which may lead to bugs and your code becoming harder to debug.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 35: </span>Two append functions one of which has the side-effect of updating the original list</label><pre class="src src-js"><span class="linenr"> 1: </span><span class="org-keyword">function</span> <span class="org-function-name">functionalAppend</span>(<span class="org-variable-name">list</span>, <span class="org-variable-name">element</span>) {
+<span class="linenr"> 2: </span>  <span class="org-keyword">return</span> [...list, element]
+<span class="linenr"> 3: </span>}
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span><span class="org-keyword">function</span> <span class="org-function-name">mutatingAppend</span>(<span class="org-variable-name">list</span>, <span class="org-variable-name">element</span>) {
+<span class="linenr"> 6: </span>  list.push(element);
+<span class="linenr"> 7: </span>  <span class="org-keyword">return</span> list;
+<span class="linenr"> 8: </span>}
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span><span class="org-keyword">const</span> <span class="org-variable-name">originalList</span> = [1, 2, 3];
+<span class="linenr">11: </span>
+<span class="linenr">12: </span><span class="org-keyword">let</span> <span class="org-variable-name">result</span> = functionalAppend(originalList, 4);
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>console.log(result); <span class="org-comment-delimiter">// </span><span class="org-comment">[1, 2, 3, 4]</span>
+<span class="linenr">15: </span>console.log(originalList); <span class="org-comment-delimiter">// </span><span class="org-comment">[1, 2, 3]</span>
+<span class="linenr">16: </span>
+<span class="linenr">17: </span>result = mutatingAppend(originalList, 4);
+<span class="linenr">18: </span>
+<span class="linenr">19: </span>console.log(result); <span class="org-comment-delimiter">// </span><span class="org-comment">[1, 2, 3, 4]</span>
+<span class="linenr">20: </span>console.log(originalList); <span class="org-comment-delimiter">// </span><span class="org-comment">[1, 2, 3, 4] &lt;- !!!!!!!!</span>
+</pre>
+</div>
+
+<p>
+Another consequence of functional programming is that you clearly separate the data and operations on the data.
+</p>
+
+<p>
+Although most languages can be used in a more or less functional style, there are certain languages that are considered <i>functional</i> like <a href="https://www.haskell.org/">Haskell</a>, <a href="https://elixir-lang.org/">Elixir</a>, <a href="https://clojure.org/">Clojure</a> and <a href="https://elm-lang.org/">Elm</a>.
+</p>
+
+<p>
+Object oriented programming (OOP) is extremely common and you encounter this style a lot. Below are the four principles of OOP (taken from <a href="https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop">Object-oriented programming in C#</a>):
+</p>
+
+<dl class="org-dl">
+<dt>Abstraction</dt><dd>Modeling the relevant attributes and interactions of entities as classes to define an abstract representation of a system.</dd>
+<dt>Encapsulation</dt><dd>Hiding the internal state and functionality of an object and only allowing access through a public set of functions.</dd>
+<dt>Inheritance</dt><dd>Ability to create new abstractions based on existing abstractions.</dd>
+<dt>Polymorphism</dt><dd>Ability to implement inherited properties or methods in different ways across multiple abstractions.</dd>
+</dl>
+
+<p>
+The goal of OOP is to create modular and flexible code. Some common languages that more or less strictly follows OOP are <a href="https://www.java.com/en/">Java</a>, <a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)">C#</a> and <a href="https://en.wikipedia.org/wiki/Smalltalk">Smalltalk</a>.
+</p>
+
+<p>
+A common critique of OOP is that it can lead to extremely complex code with an excess of abstraction layers which add very little to in form of functionality. This kind of over-engineering is not specific to OOP though and can also be seen in code-bases following a functional programming approach. The tendency to rely on mutation does however often lead to code that is hard to debug.
+</p>
+
+<p>
+If the topic of programming languages interests you I can't recommend <a href="https://www.coursera.org/learn/programming-languages">Dan Grossman's course on programming languages</a> enough. It is by far the best programming course I have ever taken and will give you a thorough understanding of different programming paradigms.
+</p>
+</aside>
+
+<p>
+We are going to have a look at the power of functional programming by implementing some of the JavaScript array methods ourselves, namely <code>[].map()</code>, <code>[].filter()</code> and <code>[].reduce()</code>.
+</p>
 </div>
 
 
-<div id="outline-container-org56a7437" class="outline-2">
-<h2 id="org56a7437"><span class="section-number-2">7</span> Resources and useful links</h2>
+<div id="outline-container-orgc12d953" class="outline-4">
+<h4 id="orgc12d953"><span class="section-number-4">6.2.1</span> Implementing our own <code>map</code> function</h4>
+<div class="outline-text-4" id="text-6-2-1">
+<p>
+A mapping function takes an operation and a list and returns a list where the operation has been applied to each element.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 36: </span>Our own <code>map</code> function</label><pre class="src src-js"><span class="linenr">1: </span><span class="org-keyword">const</span> <span class="org-variable-name">map</span> = (operation, list) =&gt; {
+<span class="linenr">2: </span>  <span class="org-keyword">let</span> <span class="org-variable-name">results</span> = [];
+<span class="linenr">3: </span>
+<span class="linenr">4: </span>  <span class="org-keyword">for</span> (element of list) {
+<span class="linenr">5: </span>    results.push(operation(element));
+<span class="linenr">6: </span>  }
+<span class="linenr">7: </span>
+<span class="linenr">8: </span>  <span class="org-keyword">return</span> results;
+<span class="linenr">9: </span>};
+</pre>
+</div>
+<p>
+Since we will apply an operation to each element in the list we need our operations to take only 1 argument. We can do that by turning a multi-argument function into a so-called <i>higher-order function</i> that only take one argument and returns a function which takes the next argument. This is called <a href="https://javascript.info/currying-partials">currying</a>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js"><span class="linenr"> 1: </span><span class="org-keyword">function</span> <span class="org-function-name">add</span>(<span class="org-variable-name">x</span>) {
+<span class="linenr"> 2: </span>  <span class="org-keyword">return</span> <span class="org-keyword">function</span> (<span class="org-variable-name">y</span>) {
+<span class="linenr"> 3: </span>    <span class="org-keyword">return</span> x * y;
+<span class="linenr"> 4: </span>  };
+<span class="linenr"> 5: </span>}
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span><span class="org-comment-delimiter">// </span><span class="org-comment">The above can be shortened to this using arrow functions:</span>
+<span class="linenr"> 8: </span><span class="org-keyword">const</span> <span class="org-variable-name">subtract</span> = (x) =&gt; (y) =&gt; x - y;
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span><span class="org-comment-delimiter">// </span><span class="org-comment">Now we can "configure" our operation according to our needs. Let's</span>
+<span class="linenr">11: </span><span class="org-comment-delimiter">// </span><span class="org-comment">create an operation that takes 1 argument and adds 5 to it:</span>
+<span class="linenr">12: </span><span class="org-keyword">const</span> <span class="org-variable-name">addFive</span> = add(5);
+</pre>
+</div>
+
+<p>
+The <code>addFive</code> function is a function that takes one number as its argument and adds 5 to it, so we can readily pass it to our <code>map</code> function:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 38: </span>Using <code>addFive</code> in our <code>map</code> function</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">result</span> = map(addFive, [1, 2, 3, 4]);
+console.log(result) <span class="org-comment-delimiter">// </span><span class="org-comment">[6, 7, 8, 9]</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org34d2078" class="outline-4">
+<h4 id="org34d2078"><span class="section-number-4">6.2.2</span> Implementing our own <code>filter</code> function</h4>
+<div class="outline-text-4" id="text-6-2-2">
+<p>
+A filter function takes a function and a list. The function passed to filter should return either <code>true</code> or <code>false</code> when given an element of the list and <code>filter</code> will return a list of all elements for which the function returned <code>true</code>. This kind of function is usually called a <b>predicate</b>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 39: </span>Our filter function</label><pre class="src src-js"><span class="linenr"> 1: </span><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = (predicate, list) =&gt; {
+<span class="linenr"> 2: </span>  <span class="org-keyword">let</span> <span class="org-variable-name">results</span> = [];
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>  <span class="org-keyword">for</span> (element of list) {
+<span class="linenr"> 5: </span>    <span class="org-keyword">if</span> (predicate(element)) {
+<span class="linenr"> 6: </span>      results.push(element);
+<span class="linenr"> 7: </span>    }
+<span class="linenr"> 8: </span>  }
+<span class="linenr"> 9: </span>
+<span class="linenr">10: </span>  <span class="org-keyword">return</span> results;
+<span class="linenr">11: </span>};
+<span class="linenr">12: </span>
+<span class="linenr">13: </span><span class="org-comment-delimiter">// </span><span class="org-comment">Our predicate function which returns true if the passed in value is even</span>
+<span class="linenr">14: </span><span class="org-keyword">const</span> <span class="org-variable-name">isEven</span> = (x) =&gt; x % 2 == 0;
+<span class="linenr">15: </span>
+<span class="linenr">16: </span><span class="org-keyword">const</span> <span class="org-variable-name">result</span> = filter(isEven, [1, 2, 3, 4]);
+<span class="linenr">17: </span>console.log(result) <span class="org-comment-delimiter">// </span><span class="org-comment">[2, 4]</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0f0aa5f" class="outline-4">
+<h4 id="org0f0aa5f"><span class="section-number-4">6.2.3</span> Implementing our own <code>reduceList</code></h4>
+<div class="outline-text-4" id="text-6-2-3">
+<p>
+You might have noticed that there are some code duplication between applyToElements and keepIf. Let's try and generalize what we are doing and extract the common bits into another function: <code>reduceList</code>:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 40: </span><code>reduceList</code></label><pre class="src src-js"><span class="linenr"> 1: </span><span class="org-keyword">const</span> <span class="org-variable-name">reduceList</span> = (operation, list) =&gt; {
+<span class="linenr"> 2: </span>  <span class="org-keyword">let</span> <span class="org-variable-name">results</span> = [];
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>  <span class="org-keyword">for</span> (element of list) {
+<span class="linenr"> 5: </span>    <span class="org-comment-delimiter">// </span><span class="org-comment">Since we don't know what the operation will do to the</span>
+<span class="linenr"> 6: </span>    <span class="org-comment-delimiter">// </span><span class="org-comment">accumulated results list (append or not append), we need</span>
+<span class="linenr"> 7: </span>    <span class="org-comment-delimiter">// </span><span class="org-comment">to be able to pass it to the operation function:</span>
+<span class="linenr"> 8: </span>    results = operation(results, element);
+<span class="linenr"> 9: </span>  }
+<span class="linenr">10: </span>
+<span class="linenr">11: </span>  <span class="org-keyword">return</span> results;
+<span class="linenr">12: </span>};
+</pre>
+</div>
+
+<p>
+<code>reduceList</code> is able to handle both mapping and filtering at the expense of the operation functions becoming more specific in that they need to update the results list.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 41: </span>Re-implementing <code>map</code> and <code>filter</code> using <code>reduceList</code></label><pre class="src src-js"><span class="linenr"> 1: </span><span class="org-keyword">let</span> <span class="org-variable-name">result</span> = reduceList((results, x) =&gt; {
+<span class="linenr"> 2: </span>  <span class="org-keyword">return</span> [...results, addFive(x)];
+<span class="linenr"> 3: </span>}, [1, 2, 3, 4]);
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span>console.log(result); <span class="org-comment-delimiter">// </span><span class="org-comment">[6, 7, 8, 9]</span>
+<span class="linenr"> 6: </span>
+<span class="linenr"> 7: </span>result = reduceList((results, x) =&gt; {
+<span class="linenr"> 8: </span>  <span class="org-keyword">if</span> (isEven(x)) {
+<span class="linenr"> 9: </span>    <span class="org-keyword">return</span> [...results, x];
+<span class="linenr">10: </span>  }
+<span class="linenr">11: </span>
+<span class="linenr">12: </span>  <span class="org-keyword">return</span> results;
+<span class="linenr">13: </span>}, [1, 2, 3, 4]);
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>console.log(result); <span class="org-comment-delimiter">// </span><span class="org-comment">[2, 4]</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9087856" class="outline-4">
+<h4 id="org9087856"><span class="section-number-4">6.2.4</span> Implementing our own <code>reduce</code></h4>
+<div class="outline-text-4" id="text-6-2-4">
+<p>
+We can go further though; by allowing the caller to pass in the accumulator (results) we can actually handle even more use-cases.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 42: </span>Our <code>reduce</code> function</label><pre class="src src-js"><span class="linenr">1: </span><span class="org-keyword">const</span> <span class="org-variable-name">reduce</span> = (operation, list, accumulator) =&gt; {
+<span class="linenr">2: </span>  <span class="org-keyword">for</span> (element of list) {
+<span class="linenr">3: </span>    accumulator = operation(accumulator, element);
+<span class="linenr">4: </span>  }
+<span class="linenr">5: </span>
+<span class="linenr">6: </span>  <span class="org-keyword">return</span> accumulator;
+<span class="linenr">7: </span>};
+</pre>
+</div>
+
+<p>
+We can use <code>reduce</code> to not only work with lists, but we can actually use it do calculations as well if we pass in a number as the accumulator.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 43: </span>Using <code>reduce</code> to add a list of numbers together</label><pre class="src src-js"><span class="linenr">1: </span><span class="org-keyword">const</span> <span class="org-variable-name">result</span> = reduce((sum, x) =&gt; sum + x, [1, 2, 3, 4], 0);
+<span class="linenr">2: </span>
+<span class="linenr">3: </span>console.log(result); <span class="org-comment-delimiter">// </span><span class="org-comment">10</span>
+</pre>
+</div>
+
+<p>
+Passing an object as the accumulator allows us to create more complex aggregations from for instance a list of objects.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 44: </span>Using <code>reduce</code> to produce a count of dog breeds</label><pre class="src src-js"><span class="linenr"> 1: </span><span class="org-comment-delimiter">// </span><span class="org-comment">Or build an object from a list</span>
+<span class="linenr"> 2: </span><span class="org-keyword">const</span> <span class="org-variable-name">dogs</span> = [
+<span class="linenr"> 3: </span>  { name: <span class="org-string">"Fido"</span>, breed: <span class="org-string">"Chihuahua"</span> },
+<span class="linenr"> 4: </span>  { name: <span class="org-string">"Woofmeister"</span>, breed: <span class="org-string">"Poodle"</span> },
+<span class="linenr"> 5: </span>  { name: <span class="org-string">"Puglifer"</span>, breed: <span class="org-string">"Pug"</span> },
+<span class="linenr"> 6: </span>  { name: <span class="org-string">"Poddle McPoodleface"</span>, breed: <span class="org-string">"Poodle"</span> },
+<span class="linenr"> 7: </span>];
+<span class="linenr"> 8: </span>
+<span class="linenr"> 9: </span><span class="org-keyword">const</span> <span class="org-variable-name">result</span> = reduce((accumulator, dog) =&gt; ({
+<span class="linenr">10: </span>  ...accumulator,
+<span class="linenr">11: </span>  [dog.breed]: (accumulator[dog.breed] || 0) + 1,
+<span class="linenr">12: </span>}), dogs, {});
+<span class="linenr">13: </span>
+<span class="linenr">14: </span>console.log(result) <span class="org-comment-delimiter">// </span><span class="org-comment">{ 'Chihuahua': 1, 'Pug': 1, 'Poodle': 2 }</span>
+</pre>
+</div>
+
+<p>
+Now we have implemented almost a full version of the JavaScript reduce array method [].reduce. I hope this illustrates the power of the concept of higher-order functions. Higher-order functions together with referential transparency (the fact that a function should always return the same result when passed the same arguments) are at the heart of functional programming and grasping the potential of them allows for very powerful abstractions.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4a44416" class="outline-2">
+<h2 id="org4a44416"><span class="section-number-2">7</span> Resources and useful links</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 <b>General</b>
