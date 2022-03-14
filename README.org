@@ -1117,10 +1117,31 @@ Passing an object as the accumulator allows us to create more complex aggregatio
 
 Now we have implemented almost a full version of the JavaScript reduce array method [].reduce. I hope this illustrates the power of the concept of higher-order functions. Higher-order functions together with referential transparency (the fact that a function should always return the same result when passed the same arguments) are at the heart of functional programming and grasping the potential of them allows for very powerful abstractions.
 
+* Further into APIs
+For this section we will work on [[./examples/04c-woofwoof-api][the WoofWoof API]] we developed in class and use it to illustrate various API-related topics such as REST, middlewares, query parameters and CORS. We begin by looking at what endpoints we have thus far:
+
+| HTTP Method | Endpoint  | Action                  |
+|-------------+-----------+-------------------------|
+| POST        | ~/dogs~     | Add a dog               |
+| GET         | ~/dogs~     | Retrieve all dogs       |
+| GET         | ~/dogs/:id~ | Retrieve a specific dog |
+| PATCH       | ~/dogs/:id~ | Update a specific dog   |
+| DELETE      | ~/dogs/:id~ | Delete a specific dog   |
+
+We have route handlers for adding dogs, getting all dogs or a specific dogs, we can also update a dog entry or delete it. In fact, this API is a good example of a simple REST API.
+
+** What is a REST API?
+REST stands for /Representational State Transfer/ and is a convention for how to write an HTTP API. One of the most important aspect of a REST API is that it has a *common interface* regardless of the type of data resource it is exposing. A REST API is also meant to be *client (/frontend/) agnostic* and able to support different clients and use-cases at once. Another important aspect is that a REST API needs to be *stateless*, which means that the server should not hold any client-specific state and that everything needed to fulfill a query must be provided in the request (given the same input we should get identical output). REST APIs make sense when fronting a database where we have one or more collections of things and need to add, find, update and/or delete entries (see the section on MongoDB).
+
+The interface of our WoofWoof API is an example of a typical REST API: you operate on the whole =dogs= collection using the =/dogs= endpoint and we use different HTTP methods (or verbs) to either retrieve dogs (=GET=) or add a dog to the collection (=POST=). If we want to do something to a specific dog entry we append its ID: =/dogs/:dogId=, and use HTTP methods to specify the action: retrieve (=GET=), update (=PATCH=) and delete (=DELETE=).
+
+So what are the benefits of using a REST API? First of all, having a uniform interface to an API greatly simplifies integrating it to frontends or other APIs. If your API is a unique snowflake it will most likely require more work for the people using your API. Another benefit is the ability to cache responses since all information required is provided by the request.
+
 * Resources and useful links
 *General*
 - [[https://github.com/iensu/data-interaction-course-materials][Course GitHub repository with code examples and exercises]]
 - [[https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work][How browsers work]]
+- [[https://restfulapi.net/][What is a REST API?]]
 
 *Express*
 - [[https://zellwk.com/blog/async-await-express][Async/Await in Express]]
