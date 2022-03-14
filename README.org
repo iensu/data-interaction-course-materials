@@ -10,6 +10,9 @@ This course aims to give you an understanding of back-end development and in it 
 You can find working code samples for each chapter along with some exercises in [[https://github.com/iensu/data-interaction-course-materials][the course Github repository]].
 
 * Setting up your Environment
+:PROPERTIES:
+:CUSTOM_ID: setting-up-your-environment
+:END:
 In order to follow along with this course you will want to have the following installed:
 
 - [[https://nodejs.org/en/][node.js]] v16 or higher
@@ -25,7 +28,10 @@ You can check that you have all necessary command line tools by running the foll
   git --version
 #+end_src
 
-** MongoDB
+** Setting up MongoDB
+:PROPERTIES:
+:CUSTOM_ID: setting-up-mongodb
+:END:
 Finally you will need to have access to [[https://docs.mongodb.com/manual/installation/][MongoDB]]. The company MongoDB is pushing really hard for you to use the free-tier of their cloud service Atlas. Unfortunately it requires you to create an account and forces you to go through a lot of settings and options. It's important that you choose the free tier, otherwise you can just use the defaults. They will also apparently bombard you with marketing emails, so if you decide to create an account I recommend you use a throwaway email account.
 
 If you don't like to go through the hassle of setting up an account you can either 1) install MongoDB locally following the instructions in link above or 2) use [[https://hub.docker.com/_/mongo/][the Docker image]] if you are comfortable with Docker. Personally I installed it locally.
@@ -33,6 +39,9 @@ If you don't like to go through the hassle of setting up an account you can eith
 MongoDB Compass offers a graphical interface to your database and often comes bundled when installing it locally. If you don't have it installed you can follow [[https://www.mongodb.com/try/download/compass][these instructions]].
 
 *** Installing and running MongoDB on MacOS
+:PROPERTIES:
+:CUSTOM_ID: installing-and-running-mongodb-on-macos
+:END:
 As long as you have [[https://brew.sh/][Homebrew]] installed it's very easy to install both MongoDB and MongoDB Compass on your computer:
 
 #+begin_src shell
@@ -65,6 +74,9 @@ If this is not working you can list your ~brew~ services by running ~brew servic
 #+end_src
 
 *** Installing and running MongoDB on Windows
+:PROPERTIES:
+:CUSTOM_ID: installing-and-running-mongodb-on-windows
+:END:
 As long as you have Windows 10 (October 2018 update) or newer it's very easy to install both MongoDB and MongoDB Compass on your computer using =winget=:
 
 #+begin_src shell
@@ -79,6 +91,9 @@ The MongoDB Compass application is easily launched by pressing Start and typing 
 To connect Compass to your server, you simply press "Connect" (no connection string required).
 
 * Introduction to node.js
+:PROPERTIES:
+:CUSTOM_ID: introduction-to-nodejs
+:END:
 In short, node.js is JavaScript for servers and is now one of the most prevalent programming languages in the world. How come it quickly got so popular?
 
 - The same language across the stack (front-end and back-end)
@@ -94,6 +109,9 @@ Node.JS was created 12 years ago by creating a system interface to Chrome’s [[
 #+end_src
 
 ** node.js vs the Browser
+:PROPERTIES:
+:CUSTOM_ID: nodejs-vs-the-browser
+:END:
 Moving JavaScript out of the browser and onto the server results in a few important differences:
 
 - There's no browser environment, that is you do not have access to the global ~window~ and ~document~ objects.
@@ -102,6 +120,9 @@ Moving JavaScript out of the browser and onto the server results in a few import
 - You have access to built-in modules for doing things like reading and writing files and networking etc.
 
 ** Hello Node
+:PROPERTIES:
+:CUSTOM_ID: hello-node
+:END:
 We are going to play around with node.js a bit. First create a new directory called ~hello-node~ and move into it. Now create a file called =index.js= and write the following piece of code:
 
 #+caption: Writing to the terminal
@@ -118,6 +139,9 @@ Naming the main file JavaScript file =index.js= is a convention and has no speci
 #+end_aside
 
 *** Using built-in modules
+:PROPERTIES:
+:CUSTOM_ID: using-built-in-modules
+:END:
 Let's use the built-in file system module ~fs~ to play around with files.
 
 #+caption: Writing to files
@@ -165,6 +189,9 @@ The difference between the module systems lies not only in cosmetics but also se
 #+end_aside
 
 *** Writing our own module
+:PROPERTIES:
+:CUSTOM_ID: writing-our-own-module
+:END:
 Let's create new module with a function that randomly picks an element from a list. And let's call it from =index.js=.
 
 #+caption: random-element.js
@@ -196,6 +223,9 @@ Let's create new module with a function that randomly picks an element from a li
 #+end_src
 
 *** Messing around with the global scope
+:PROPERTIES:
+:CUSTOM_ID: messing-around-with-the-global-scope
+:END:
 Using modules is not the only way of sharing functionality, you can also manipulate the global scope by modifying the ~global~ variable.
 
 #+caption: modifying-global-scope.js
@@ -227,6 +257,9 @@ Using modules is not the only way of sharing functionality, you can also manipul
 Finally, *please do not modify ~global~ in /real/ code*. it breaks encapsulation and makes it more difficult to understand what's going on.
 
 *** Reading environment variables
+:PROPERTIES:
+:CUSTOM_ID: reading-environment-variables
+:END:
 Another thing we can do in node.js that we can't do in the browser is to get information about the current environment especially things like environment variables.
 
 We can access environment variables via the ~process~ variable:
@@ -260,7 +293,13 @@ On MacOS and Linux you can set environment variables with the ~export~ command.
 #+end_aside
 
 * Our First API
+:PROPERTIES:
+:CUSTOM_ID: our-first-api
+:END:
 ** What is an Application Programming Interface?
+:PROPERTIES:
+:CUSTOM_ID: what-is-an-application-programming-interface
+:END:
 - An API is a set of exposed methods for interacting with a program or package.
 - When you write a JavaScript module and export functions to interact with it you are designing an API.
 - When you are interacting with a third-party package, for example =express=, you are using its API.
@@ -269,6 +308,9 @@ On MacOS and Linux you can set environment variables with the ~export~ command.
 Often when we say API we actually mean an HTTP API to be specific, that is an API which is used over the internet using HTTP.
 
 ** Creating our API
+:PROPERTIES:
+:CUSTOM_ID: creating-our-api
+:END:
 Express is by far the most popular NPM package for creating HTTP APIs in node.js and has been around almost as long as the language itself. Start by creating a new directory called =hello-express= and initialize it using ~npm init~ (also don't forget to update =package.json= if you want to use ES6 modules). Now let's install Express:
 
 #+begin_src shell
@@ -300,6 +342,9 @@ There is /a lot/ to unpack here...
 - Lastly we start a server listening on /port/ 8080.
 
 ** Starting our server
+:PROPERTIES:
+:CUSTOM_ID: starting-our-server
+:END:
 Run your program by executing ~node index.js~. The first thing you will notice is that your program never quits: you see the message =Server running at http://localhost:8080= but you don't get a new prompt. This is because your program is running a *server* which is meant to serve *responses* to *requests* from *clients* and your program needs to be kept alive and running to be able to do that.
 
 A client is whatever uses, or /consumes/, the API served by your server and can be anything from a web browser, website, another server or a command-line tool etc. For now, let's use our browser as the client and access the URL printed out by the program: [[http://localhost:8080]]. You should see an error message saying something like =Cannot GET /=.
@@ -339,6 +384,9 @@ You can choose any port number for your service between 1025 to 65535 as long as
 #+end_aside
 
 ** Adding another endpoint
+:PROPERTIES:
+:CUSTOM_ID: adding-another-endpoint
+:END:
 
 #+caption: Our next endpoint
 #+begin_src js
@@ -358,6 +406,9 @@ The reason is that the server process is already running and changes made to the
 If you now run ~node index.js~ again you will be able to access [[http://localhost:8080/another-page]].
 
 *** Live-reload and other tooling
+:PROPERTIES:
+:CUSTOM_ID: live-reload-and-other-tooling
+:END:
 A workflow like the above is not only annoying but it can also lead to long troubleshooting sessions trying to figure out why something isn't working, when in the end you just had to restart the server. Thankfully there is an NPM package which helps us automate this workflow: [[https://nodemon.io/][nodemon]]. Since we only need it for development we install it as a development dependency:
 
 #+begin_src shell
@@ -382,6 +433,9 @@ By running ~npm run dev~ your server will be started up and =nodemon= will watch
 There is another tool I highly recommend you install and that is [[https://prettier.io/][prettier]]. This tool formats your code automatically and you should be able to make your editor run it every time you save. Here is a [[https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode][VSCode plugin]] and here is one for [[https://github.com/prettier/prettier-emacs][Emacs]].
 
 ** Back to our endpoint
+:PROPERTIES:
+:CUSTOM_ID: back-to-our-endpoint
+:END:
 Let's make our new endpoint do something more interesting: let's see what happens if we serve a string which looks like HTML.
 
 #+caption: Serving an HTML string
@@ -463,7 +517,13 @@ The page should load like before but the code looks a lot nicer without the inli
 A website made up from files like this is called a *static website*. This is how the whole web worked through-out the 90s and the beginning of the 00s until *Single Page Applications* (SPAs) became a thing. In this course we will assume you will write your website as a SPA (in React), so we won't be serving static pages. In addition, the above code is highly inefficient and is just for illustrative purposes. First we are reading the HTML file for every request even though the contents doesn't change, this will lead to a lot of file system access which impacts performance. Second, we send the page a single string all at once which also impacts performance. If you are interested in how to serve static web pages using Express you can have a look [[https://expressjs.com/en/starter/static-files.html][at this documentation]].
 
 * HTTP + API Deep-dive
+:PROPERTIES:
+:CUSTOM_ID: http-api-deep-dive
+:END:
 * Intro to MongoDB
+:PROPERTIES:
+:CUSTOM_ID: intro-to-mongodb
+:END:
 MongoDB is a [[https://www.mongodb.com/document-databases][document (NoSQL) database]] and has a few important characteristics which makes it a suitable as a first database:
 
 - Flexible data schemas.
@@ -476,7 +536,10 @@ While we discuss MongoDB specifically in this section many of the concepts are a
 
 A MongoDB system consists of one or several *databases*, which each can have one or multiple *collections* and each collection contains *documents*. Documents are the central concept of a document database, naturally.
 
-** Schemas
+** Schemas in MongoDB
+:PROPERTIES:
+:CUSTOM_ID: schemas-in-mongodb
+:END:
 The main selling point of MongoDB compared to relational (SQL) databases (MySQL, Postgres, ...) is the flexibility. In relational databases you have to define how your data is structured and the relationship between different kinds of data models. The structure of your data is called its schema or sometimes its data model and defines the properties it has and what data types these properties have. Here's a made-up example of how a schema might look like:
 
 #+description: Pseudo-code for a schema definition
@@ -501,7 +564,10 @@ In a *document database* schemas still exist, but they are just suggestions and 
 
 This flexibility is something to be mindful of and I recommend using MongoDB Compass to explore your data set from time to time to ensure that it looks like you expect it to.
 
-** Operations
+** MongoDB Operations
+:PROPERTIES:
+:CUSTOM_ID: mongodb-operations
+:END:
 Operations are ways of interacting with your database in the terms of data, the most general operations being:
 
 - *Create* data
@@ -523,7 +589,10 @@ The following sections describes what the common CRUD operations are in MongoDB 
 
 The code assumes that you have the ~mongodb~ package in scope and you are in an ~async~ context where you can use ~async~.
 
-*** Inserting
+*** Inserting documents
+:PROPERTIES:
+:CUSTOM_ID: inserting-documents
+:END:
 In MongoDB the act of creating data in a collection is called *inserting*.
 
 #+caption: Inserting one document
@@ -558,7 +627,10 @@ In MongoDB the act of creating data in a collection is called *inserting*.
   await db.collection('languages').insertMany(languages)
 #+end_src
 
-*** Finding (Filtering or Querying)
+*** Finding (Filtering or Querying) documents
+:PROPERTIES:
+:CUSTOM_ID: finding-filtering-or-querying-documents
+:END:
 The operations for reading data are called *find* in the API but are often referred to as filtering or querying as well.
 
 #+caption: Empty filter returns all documents
@@ -637,7 +709,10 @@ You can sort your results with the cursor's ~sort~ method by passing it an objec
   console.log(results);
 #+end_src
 
-*** Deleting
+*** Deleting documents
+:PROPERTIES:
+:CUSTOM_ID: deleting-documents
+:END:
 Deleting documents is very similar to finding documents just replace the ~find~ or ~findOne~ methods with ~deleteMany~ or ~deleteOne~, the methods use the same kind of filters.
 
 #+caption: Delete Java
@@ -647,7 +722,10 @@ Deleting documents is very similar to finding documents just replace the ~find~ 
   });
 #+end_src
 
-*** Updating
+*** Updating documents
+:PROPERTIES:
+:CUSTOM_ID: updating-documents
+:END:
 Updating can be seen as a combination of a find operation and a write operation. As with the other operations you can either call ~updateOne~ or ~updateMany~ to update multiple documents at the same time and these methods take two arguments: a filter object to specify which documents will be affected, and an update object defining the modification.
 
 #+caption: Bringing JavaScript to the 2000s
@@ -659,9 +737,15 @@ Updating can be seen as a combination of a find operation and a write operation.
 #+end_src
 
 * JavaScript Deep-Dive
+:PROPERTIES:
+:CUSTOM_ID: javascript-deep-dive
+:END:
 This section provides a smorgosbord of JavaScript concepts and weirdness. We won't have time to go into all of the nitty gritty details for each topic but rather use them to illustrate more general computing concepts. We will touch upon processes and threads, scope, bindings, functional programming, equality. There's a lot of ground to cover, so let's get started!
 
 ** Async, Await and the Promise of a Path out of Callback Hell
+:PROPERTIES:
+:CUSTOM_ID: async-await-and-the-promise-of-a-path-out-of-callback-hell
+:END:
 JavaScript is allegedly "asynchronous by default" AND "single-threaded", but what does this actually mean? What is *synchronous* versus *asynchronous* execution? In short asynchronous execution allows us to do more work at the same time (concurrently). First let's have a look at how the browser executes JavaScript.
 
 #+caption: A very simplified view of how a web browser works
@@ -690,6 +774,9 @@ You can check which processes are currently running in the Task Manager on Windo
 #+end_aside
 
 *** Callback Hell
+:PROPERTIES:
+:CUSTOM_ID: callback-hell
+:END:
 In the beginning there was the callback.
 
 #+caption: Collecting all files in a directory using callbacks
@@ -716,6 +803,9 @@ In the beginning there was the callback.
 This was the only means of handling asynchronous operations and as you can see from the example above, it quickly lead to unreadable and nested spaghetti code. Adding proper error handling made things worse which meant you would often skip error handling for the sake of readability, leading to code that was broken and error prone. Promises was created to solve this issue and remove the nested spaghetti mess of the code above.
 
 *** The Promise of Heaven
+:PROPERTIES:
+:CUSTOM_ID: the-promise-of-heaven
+:END:
 A Promise can be thought of as a /promise of a future value/, that is, we do not have the value yet, but we capture the promise of it in a variable that we can use in our code. Before we revisit the file listing example above, let's look at the connection between callbacks and promises using ~setTimeout~.
 
 #+caption: Using setTimeout to delay console.log by a second
@@ -837,6 +927,9 @@ Now instead of having a horizontal callback pyramid of doom, we have a pillar of
 The main benefit of this approach is that we reduce the nesting and our error handling is significantly simplified. However, we can do better. Enter async/await.
 
 *** Awaiting salvation
+:PROPERTIES:
+:CUSTOM_ID: awaiting-salvation
+:END:
 The final improvement we can do is to replace our pillar of promises with awaits, but first let's look at the relationship between ~async~ functions, ~await~ and promises.
 
 You can think of ~await~ being similar to calling ~then~ on a promise, the main difference is that ~await~ can only be used in an ~async~ context.
@@ -909,6 +1002,9 @@ Understanding this, we are now equipped to clean-up our file listing example abo
 #+end_src
 
 ** Fun with functions
+:PROPERTIES:
+:CUSTOM_ID: fun-with-functions
+:END:
 This is the section where we dip our toes into functional programming. While JavaScript is object oriented in that almost everything is an object with methods and properties, at its core it's actually very much a functional language where functions are front and center.
 
 #+begin_aside
@@ -968,6 +1064,9 @@ We are going to have a look at the power of functional programming by implementi
 
 
 *** Implementing our own ~map~
+:PROPERTIES:
+:CUSTOM_ID: implementing-our-own-map
+:END:
 A mapping function takes an operation and a list and returns a list where the operation has been applied to each element.
 
 #+caption: Our own ~map~ function
@@ -1009,6 +1108,9 @@ The ~addFive~ function is a function that takes one number as its argument and a
 #+end_src
 
 *** Implementing our own ~filter~
+:PROPERTIES:
+:CUSTOM_ID: implementing-our-own-filter
+:END:
 A filter function takes a function and a list. The function passed to filter should return either ~true~ or ~false~ when given an element of the list and ~filter~ will return a list of all elements for which the function returned ~true~. This kind of function is usually called a *predicate*.
 
 #+caption: Our filter function
@@ -1033,6 +1135,9 @@ A filter function takes a function and a list. The function passed to filter sho
 #+end_src
 
 *** Implementing our own ~reduceList~
+:PROPERTIES:
+:CUSTOM_ID: implementing-our-own-reducelist
+:END:
 You might have noticed that there are some code duplication between applyToElements and keepIf. Let's try and generalize what we are doing and extract the common bits into another function: ~reduceList~:
 
 #+caption: ~reduceList~
@@ -1073,6 +1178,9 @@ You might have noticed that there are some code duplication between applyToEleme
 #+end_src
 
 *** Implementing our own ~reduce~
+:PROPERTIES:
+:CUSTOM_ID: implementing-our-own-reduce
+:END:
 We can go further though; by allowing the caller to pass in the accumulator (results) we can actually handle even more use-cases.
 
 #+caption: Our ~reduce~ function
@@ -1118,6 +1226,9 @@ Passing an object as the accumulator allows us to create more complex aggregatio
 Now we have implemented almost a full version of the JavaScript reduce array method [].reduce. I hope this illustrates the power of the concept of higher-order functions. Higher-order functions together with referential transparency (the fact that a function should always return the same result when passed the same arguments) are at the heart of functional programming and grasping the potential of them allows for very powerful abstractions.
 
 * Further into APIs
+:PROPERTIES:
+:CUSTOM_ID: further-into-apis
+:END:
 For this section we will work on [[./examples/04c-woofwoof-api][the WoofWoof API]] we developed in class and use it to illustrate various API-related topics such as REST, middlewares, query parameters and CORS. We begin by looking at what endpoints we have thus far:
 
 | HTTP Method | Endpoint  | Action                  |
@@ -1131,13 +1242,31 @@ For this section we will work on [[./examples/04c-woofwoof-api][the WoofWoof API
 We have route handlers for adding dogs, getting all dogs or a specific dogs, we can also update a dog entry or delete it. In fact, this API is a good example of a simple REST API.
 
 ** What is a REST API?
+:PROPERTIES:
+:CUSTOM_ID: what-is-a-rest-api
+:END:
 REST stands for /Representational State Transfer/ and is a convention for how to write an HTTP API. One of the most important aspect of a REST API is that it has a *common interface* regardless of the type of data resource it is exposing. A REST API is also meant to be *client (/frontend/) agnostic* and able to support different clients and use-cases at once. Another important aspect is that a REST API needs to be *stateless*, which means that the server should not hold any client-specific state and that everything needed to fulfill a query must be provided in the request (given the same input we should get identical output). REST APIs make sense when fronting a database where we have one or more collections of things and need to add, find, update and/or delete entries (see the section on MongoDB).
 
 The interface of our WoofWoof API is an example of a typical REST API: you operate on the whole =dogs= collection using the =/dogs= endpoint and we use different HTTP methods (or verbs) to either retrieve dogs (=GET=) or add a dog to the collection (=POST=). If we want to do something to a specific dog entry we append its ID: =/dogs/:dogId=, and use HTTP methods to specify the action: retrieve (=GET=), update (=PATCH=) and delete (=DELETE=).
 
 So what are the benefits of using a REST API? First of all, having a uniform interface to an API greatly simplifies integrating it to frontends or other APIs. If your API is a unique snowflake it will most likely require more work for the people using your API. Another benefit is the ability to cache responses since all information required is provided by the request.
 
+** Adding a Middleware: Request Logging                            :noexport:
+:PROPERTIES:
+:CUSTOM_ID: adding-a-middleware
+:END:
+** Improving our Search with Query Parameters                      :noexport:
+:PROPERTIES:
+:CUSTOM_ID: improving-our-search-with-query-parameters
+:END:
+** Connecting a Frontend Client: Say Hi to CORS                    :noexport:
+:PROPERTIES:
+:CUSTOM_ID: connecting-a-frontend-client
+:END:
 * Resources and useful links
+:PROPERTIES:
+:CUSTOM_ID: resources-and-useful-links
+:END:
 *General*
 - [[https://github.com/iensu/data-interaction-course-materials][Course GitHub repository with code examples and exercises]]
 - [[https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work][How browsers work]]
