@@ -661,7 +661,7 @@ Updating can be seen as a combination of a find operation and a write operation.
 * JavaScript Deep-Dive
 This section provides a smorgosbord of JavaScript concepts and weirdness. We won't have time to go into all of the nitty gritty details for each topic but rather use them to illustrate more general computing concepts. We will touch upon processes and threads, scope, bindings, functional programming, equality. There's a lot of ground to cover, so let's get started!
 
-** Async, Await and the Promise a the Path out of Callback Hell
+** Async, Await and the Promise of a Path out of Callback Hell
 JavaScript is allegedly "asynchronous by default" AND "single-threaded", but what does this actually mean? What is *synchronous* versus *asynchronous* execution? In short asynchronous execution allows us to do more work at the same time (concurrently). First let's have a look at how the browser executes JavaScript.
 
 #+caption: A very simplified view of how a web browser works
