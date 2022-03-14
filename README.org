@@ -967,7 +967,7 @@ If the topic of programming languages interests you I can't recommend [[https://
 We are going to have a look at the power of functional programming by implementing some of the JavaScript array methods ourselves, namely ~[].map()~, ~[].filter()~ and ~[].reduce()~.
 
 
-*** Implementing our own ~map~ function
+*** Implementing our own ~map~
 A mapping function takes an operation and a list and returns a list where the operation has been applied to each element.
 
 #+caption: Our own ~map~ function
@@ -1008,7 +1008,7 @@ The ~addFive~ function is a function that takes one number as its argument and a
   console.log(result) // [6, 7, 8, 9]
 #+end_src
 
-*** Implementing our own ~filter~ function
+*** Implementing our own ~filter~
 A filter function takes a function and a list. The function passed to filter should return either ~true~ or ~false~ when given an element of the list and ~filter~ will return a list of all elements for which the function returned ~true~. This kind of function is usually called a *predicate*.
 
 #+caption: Our filter function
@@ -1095,7 +1095,7 @@ We can use ~reduce~ to not only work with lists, but we can actually use it do c
   console.log(result); // 10
 #+end_src
 
-Passing an object as the accumulator allows us to create more complex aggregations from for instance a list of objects.
+Passing an object as the accumulator allows us to create more complex aggregations from for instance a list of objects. The name ~reduce~ might start to make sense now, we are taking a list of something and /reducing/ it to a value of some sort.
 
 #+caption: Using ~reduce~ to produce a count of dog breeds
 #+begin_src js -n
