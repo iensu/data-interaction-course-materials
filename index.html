@@ -94,7 +94,17 @@
 <li><a href="#what-is-a-rest-api">7.1. What is a REST API?</a></li>
 </ul>
 </li>
-<li><a href="#resources-and-useful-links">8. Resources and useful links</a></li>
+<li><a href="#how-to-structure-your-project">8. How to Structure your Project</a>
+<ul>
+<li><a href="#how-many-repos">8.1. How many Repos?</a></li>
+<li><a href="#what-should-i-use-for-the-client">8.2. What should I use for the client?</a>
+<ul>
+<li><a href="#but-i-want-to-be-adventurous">8.2.1. But I want to be adventurous!!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#resources-and-useful-links">9. Resources and useful links</a></li>
 </ul>
 </div>
 </nav>
@@ -184,7 +194,7 @@ If everything works, you should be able to run <code>mongosh</code> and be taken
 </p>
 
 
-<figure id="org731a982">
+<figure id="org970e30f">
 <img src="./assets/mongodb-prompt.png" alt="mongodb-prompt.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>Running <code>mongosh</code> should open a MongoDB prompt like this one</figcaption>
@@ -287,7 +297,7 @@ We are going to play around with node.js a bit. First create a new directory cal
 Now you can run your program with the command <code>node index.js</code> and you should see <code>Hello node! \(&gt;0&lt;)/</code> printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 </p>
 
-<aside id="org16af9f9">
+<aside id="org1638442">
 <p>
 <b>Why index.js?</b>
 </p>
@@ -323,7 +333,7 @@ Let's use the built-in file system module <code>fs</code> to play around with fi
 </pre>
 </div>
 
-<aside id="org8b0fc70">
+<aside id="org0d8ede8">
 <p>
 <b>ES6 modules vs. CommonJS modules</b>
 </p>
@@ -485,7 +495,7 @@ console.log(<span class="org-string">'MY_VARIABLE'</span>, process.env.MY_VARIAB
 </pre>
 </div>
 
-<aside id="org7485115">
+<aside id="org864f57c">
 <p>
 <b>What are environment variables?</b>
 </p>
@@ -626,7 +636,7 @@ A client is whatever uses, or <i>consumes</i>, the API served by your server and
 </p>
 
 
-<figure id="orgf1afd91">
+<figure id="org7ce664e">
 <img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
 
 <figcaption><span class="figure-number">Figure 2: </span>Accessing an unregistered endpoint results in an error message</figcaption>
@@ -637,7 +647,7 @@ This means that we tried to <code>GET</code> something at the endpoint <code>/</
 </p>
 
 
-<figure id="orgd5d0da3">
+<figure id="orgea480f8">
 <img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
 
 <figcaption><span class="figure-number">Figure 3: </span>Successful call to our /hello endpoint</figcaption>
@@ -658,7 +668,7 @@ So what went wrong the first time? There are four pieces of information needed t
 A server only responds on the port it is listening on and only handles requests on endpoints which have been registered on it. When not specifying an endpoint, the browser will pick the default one which is <code>/</code> and since we never registered a handler for that endpoint the request failed. You can think of endpoints as file paths on your own computer.
 </p>
 
-<aside id="org5bf4aeb">
+<aside id="orgf4bb9f7">
 <p>
 <b>Ports</b>
 </p>
@@ -928,7 +938,7 @@ In a <b>document database</b> schemas still exist, but they are just suggestions
 </p>
 
 
-<figure id="org8309230">
+<figure id="orgb5ec501">
 <img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
 
 <figcaption><span class="figure-number">Figure 4: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
@@ -1077,7 +1087,7 @@ console.log(results);
 </pre>
 </div>
 
-<aside id="orgd1b2eb4">
+<aside id="orge3ff774">
 <p>
 <b>What are regular expressions?</b>
 </p>
@@ -1171,7 +1181,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 </p>
 
 
-<figure id="orgbb940cc">
+<figure id="org7a09b05">
 <img src="./assets/simplified-browser-process.png" alt="simplified-browser-process.png">
 
 <figcaption><span class="figure-number">Figure 5: </span>A very simplified view of how a web browser works</figcaption>
@@ -1181,7 +1191,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 The browser has a main thread which is responsible for not only executing JavaScript but also rendering the HTML and CSS as well as handling user input like clicks and scrolling. If JavaScript allowed for synchronous HTTP requests the whole browser tab would stall while waiting for the response to come back. This is of course something we want to avoid at all costs and thus JavaScript does these sort of I/O operations asynchronously by default for us.
 </p>
 
-<aside id="orgd298479">
+<aside id="org8cd149f">
 <p>
 <b>What is I/O?</b>
 </p>
@@ -1199,7 +1209,7 @@ All asynchronous operations are put on the <b>Event Queue</b> so as to not block
 Even though the explanation above focused on JavaScript in the browser node.js works in very much the same way with a main thread and an event queue to handle asynchronous requests. It's important to know understand that the node.js process will stay alive for as long as there is something on its event queue.
 </p>
 
-<aside id="org14b85fd">
+<aside id="org44f642c">
 <p>
 <b>Process vs. threads?</b>
 </p>
@@ -1484,7 +1494,7 @@ Understanding this, we are now equipped to clean-up our file listing example abo
 This is the section where we dip our toes into functional programming. While JavaScript is object oriented in that almost everything is an object with methods and properties, at its core it's actually very much a functional language where functions are front and center.
 </p>
 
-<aside id="orgb8f284b">
+<aside id="orgac65eec">
 <p>
 <b>Functional Programming vs. Object Oriented Programming</b>
 </p>
@@ -1832,8 +1842,101 @@ So what are the benefits of using a REST API? First of all, having a uniform int
 </div>
 </div>
 </div>
+
+<div id="outline-container-how-to-structure-your-project" class="outline-2">
+<h2 id="how-to-structure-your-project"><span class="section-number-2">8</span> How to Structure your Project</h2>
+<div class="outline-text-2" id="text-how-to-structure-your-project">
+<p>
+For the brief you are to write an HTTP API and some front-end client which uses your API. There are a few ways to go about doing this and in this section I am going to list some common approaches.
+</p>
+
+<p>
+First, it helps if you consider your API and your client as completely separate services, imagine that you are two teams: one working on the front-end and one on the back-end.
+</p>
+</div>
+
+<div id="outline-container-how-many-repos" class="outline-3">
+<h3 id="how-many-repos"><span class="section-number-3">8.1</span> How many Repos?</h3>
+<div class="outline-text-3" id="text-how-many-repos">
+<p>
+The first question you might face is one git repository or two repositories? What do I mean by this? In the single repository case you have both the back-end API and the front-end client in the same directory as in the listing below.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 45: </span>Single repository project</label><pre class="src src-shell">my-service
+&#9500;&#9472;&#9472; .git
+&#9500;&#9472;&#9472; client
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; node_modules
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; src
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; index.js
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; package-lock.json
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; package.json
+&#9500;&#9472;&#9472; server
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; node_modules
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; src
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; index.js
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; package-lock.json
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; package.json
+&#9492;&#9472;&#9472; README.md
+</pre>
+</div>
+
+<p>
+The benefit of single repository is that it's very easy to make correlated changes to the client and the server at the same time and in the same commit. This ensures that the current client and the current server are compatible, if you make sure to update both at the same time that is. This practice is also referred to as a mono-repo and its an approach that companies such as Google use and from what I have heard over 90% of their code resides in a giant mono-repo.
+</p>
+
+<p>
+So what are the drawbacks of a mono-repo? Mainly it becomes a bit more complicated to deploy your application since you will need to support multiple means of deployment within the same repository. For instance Netlify or Vercel for the client and Heroku or Digital Ocean for the server. You need to make sure to restrict your deployments to sub-folders of your repository. There's also a question of how flexible you can be with regards to deployments: will you be forced to use separate branches for deployment or will you be able to use git tags.
+</p>
+
+<p>
+Another drawback of having a mono-repo is that git was not meant to handle huge code bases, so if your service would scale to the size of Google you will have to implement workarounds and/or even modify git to allow your team to work efficiently. You most likely will not reach that stage during this course.
+</p>
+
+<p>
+The other common pattern is to split everything up into separate git repositories, one for your client and one for your server. This makes it easier to treat them as separate services and can simplify the deployment process. You will be able to chose the most appropriate production deployment procedure for each service. However, there is a bit of overhead that comes from handling multiple git repositories and their respective configurations etc.
+</p>
+
+<p>
+The multi-repository approach has been dominant for the last five years or so in my experience, but lately there has been a hype around mono-repos, so it might be that this will become more dominant in the future. In summary, both approaches are widely used so you can't really go wrong here.
+</p>
+</div>
+</div>
+
+<div id="outline-container-what-should-i-use-for-the-client" class="outline-3">
+<h3 id="what-should-i-use-for-the-client"><span class="section-number-3">8.2</span> What should I use for the client?</h3>
+<div class="outline-text-3" id="text-what-should-i-use-for-the-client">
+<p>
+Here there are SO many options that it's almost a joke. The most common tools for writing front-ends in the industry currently though is by far React, followed by Vue and then Angular. While I do love using vanilla JavaScript, when making a more complex web page there are just so many benefits to using a framework like React, if you learn the basics you will be able to focus more on implementing the functionality than trying to figure out how to implement the functionality since you need to reinvent the wheel at every turn. <a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks">MDN's page on JavaScript frameworks</a> gives a good overview of some common ones and what they bring to the table.
+</p>
+
+<p>
+I recommend you use the framework you are most comfortable with. If you don't know any framework, I recommend you use this opportunity to get yourself acquainted with one. If you are not sure which one to choose go with React because it is basically an industry standard at the time of writing (2022).
+</p>
+</div>
+
+<div id="outline-container-but-i-want-to-be-adventurous" class="outline-4">
+<h4 id="but-i-want-to-be-adventurous"><span class="section-number-4">8.2.1</span> But I want to be adventurous!!</h4>
+<div class="outline-text-4" id="text-but-i-want-to-be-adventurous">
+<p>
+If you feel that the mainstream JavaScript frameworks are boring and not for you, this section is for you. There are so many other interesting and fascinating ways to build front-ends that do not follow down the much trodden path. Maybe the frameworks listed here are for this project right now, but they might provide a source of inspiration later down your journey as a developer. The list here focuses on frameworks that do things differently and some of them are not even in JavaScript (though they do transpile down to JavaScript in the end). I do recommend you at one point give yourself the opportunity to try some of these out:
+</p>
+
+<dl class="org-dl">
+<dt><a href="https://elm-lang.org/">Elm</a></dt><dd>You think TypeScript does not provide you the amount of type-checking you need for your project? Say hi to Elm, a <a href="https://www.haskell.org/">Haskell</a>-inspired purely functional programming language made for the sole purpose of building web apps. The on-boarding experience is great and the error messages are AMAZING.</dd>
+<dt><a href="https://clojurescript.org/">ClojureScript</a></dt><dd>ClojureScript (and its parent language Clojure) is a LISP which is a family of languages that has a few common traits: very simple syntax, lots of parentheses and the treatment of code as data. LISPs are really great for writing code that writes code. However, this is not the only thing ClojureScript does well, it is tailored towards functional programming with immutability at the center and interesting ways of handling concurrency. Getting used to LISPs is a real mind-bender and will really help broaden your horizons as a developer.</dd>
+<dt><a href="https://www.purescript.org/">PureScript</a></dt><dd>You tried Elm and felt it did a bit too much hand-holding? Then PureScript is for you. It's even more inspired by Haskell and comes with full support for esoteric features such as type classes, higher kinded types and higher rank polymorphism (not sure what the last one means, but sounds awesome). Prepare yourself for a steep learning curve, but you will most likely find yourself at the cusp of modern programming language theory after getting proficient in this language.</dd>
+<dt><a href="https://cycle.js.org/">Cycle.js</a></dt><dd>What if instead of writing a web app that allows for human interactions, you flipped the whole premise on its head and instead put the stream of interactions at the center of your web app? Cycle.js is built around the concept of reactive streams. Everything are streams of events which you use to render you application and add interactivity. In the beginning it feels extremely backwards, but once you "get it" it starts to feel like a really natural way of thinking about apps and services.</dd>
+<dt><a href="https://yew.rs/">Yew</a></dt><dd>Ready to tick off two buzzwords with a single framework? With Yew you write your code in <a href="https://www.rust-lang.org/">Rust</a> and it compiles down to <a href="https://webassembly.org/">WebAssembly</a>, the new web language on the block. Even though you write your page in Rust, the overall experience is similar to React and Elm.</dd>
+<dt><a href="https://reasonml.github.io/">Reason ML</a></dt><dd>From what I heard the draft for this project was what lead to the development of React at Facebook. It is very similar to Elm, but uses a language called <a href="https://ocaml.org/">OCaml</a> as its foundation.</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+
 <div id="outline-container-resources-and-useful-links" class="outline-2">
-<h2 id="resources-and-useful-links"><span class="section-number-2">8</span> Resources and useful links</h2>
+<h2 id="resources-and-useful-links"><span class="section-number-2">9</span> Resources and useful links</h2>
 <div class="outline-text-2" id="text-resources-and-useful-links">
 <p>
 <b>General</b>
