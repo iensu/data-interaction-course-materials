@@ -194,7 +194,7 @@ If everything works, you should be able to run <code>mongosh</code> and be taken
 </p>
 
 
-<figure id="org0f5c0a7">
+<figure id="org5304702">
 <img src="./assets/mongodb-prompt.png" alt="mongodb-prompt.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>Running <code>mongosh</code> should open a MongoDB prompt like this one</figcaption>
@@ -297,7 +297,7 @@ We are going to play around with node.js a bit. First create a new directory cal
 Now you can run your program with the command <code>node index.js</code> and you should see <code>Hello node! \(&gt;0&lt;)/</code> printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 </p>
 
-<aside id="org5ec1183">
+<aside id="org6118f0d">
 <p>
 <b>Why index.js?</b>
 </p>
@@ -333,7 +333,7 @@ Let's use the built-in file system module <code>fs</code> to play around with fi
 </pre>
 </div>
 
-<aside id="org72f7faf">
+<aside id="orgbe147a8">
 <p>
 <b>ES6 modules vs. CommonJS modules</b>
 </p>
@@ -495,7 +495,7 @@ console.log(<span class="org-string">'MY_VARIABLE'</span>, process.env.MY_VARIAB
 </pre>
 </div>
 
-<aside id="org0ca15f0">
+<aside id="org69e6fb9">
 <p>
 <b>What are environment variables?</b>
 </p>
@@ -636,7 +636,7 @@ A client is whatever uses, or <i>consumes</i>, the API served by your server and
 </p>
 
 
-<figure id="org68282ac">
+<figure id="orge18c3ca">
 <img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
 
 <figcaption><span class="figure-number">Figure 2: </span>Accessing an unregistered endpoint results in an error message</figcaption>
@@ -647,7 +647,7 @@ This means that we tried to <code>GET</code> something at the endpoint <code>/</
 </p>
 
 
-<figure id="org4067a34">
+<figure id="orga6e91ba">
 <img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
 
 <figcaption><span class="figure-number">Figure 3: </span>Successful call to our /hello endpoint</figcaption>
@@ -668,7 +668,7 @@ So what went wrong the first time? There are four pieces of information needed t
 A server only responds on the port it is listening on and only handles requests on endpoints which have been registered on it. When not specifying an endpoint, the browser will pick the default one which is <code>/</code> and since we never registered a handler for that endpoint the request failed. You can think of endpoints as file paths on your own computer.
 </p>
 
-<aside id="org114c8a9">
+<aside id="org2e37976">
 <p>
 <b>Ports</b>
 </p>
@@ -938,7 +938,7 @@ In a <b>document database</b> schemas still exist, but they are just suggestions
 </p>
 
 
-<figure id="org11019e7">
+<figure id="orgdcdf2f6">
 <img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
 
 <figcaption><span class="figure-number">Figure 4: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
@@ -1087,7 +1087,7 @@ console.log(results);
 </pre>
 </div>
 
-<aside id="org35ac99a">
+<aside id="orgadde7c8">
 <p>
 <b>What are regular expressions?</b>
 </p>
@@ -1181,7 +1181,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 </p>
 
 
-<figure id="org6ee10f5">
+<figure id="orga3bdcf6">
 <img src="./assets/simplified-browser-process.png" alt="simplified-browser-process.png">
 
 <figcaption><span class="figure-number">Figure 5: </span>A very simplified view of how a web browser works</figcaption>
@@ -1191,7 +1191,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 The browser has a main thread which is responsible for not only executing JavaScript but also rendering the HTML and CSS as well as handling user input like clicks and scrolling. If JavaScript allowed for synchronous HTTP requests the whole browser tab would stall while waiting for the response to come back. This is of course something we want to avoid at all costs and thus JavaScript does these sort of I/O operations asynchronously by default for us.
 </p>
 
-<aside id="org59a67e0">
+<aside id="orga0b64bd">
 <p>
 <b>What is I/O?</b>
 </p>
@@ -1209,7 +1209,7 @@ All asynchronous operations are put on the <b>Event Queue</b> so as to not block
 Even though the explanation above focused on JavaScript in the browser node.js works in very much the same way with a main thread and an event queue to handle asynchronous requests. It's important to know understand that the node.js process will stay alive for as long as there is something on its event queue.
 </p>
 
-<aside id="org09b7870">
+<aside id="org23ce081">
 <p>
 <b>Process vs. threads?</b>
 </p>
@@ -1494,7 +1494,7 @@ Understanding this, we are now equipped to clean-up our file listing example abo
 This is the section where we dip our toes into functional programming. While JavaScript is object oriented in that almost everything is an object with methods and properties, at its core it's actually very much a functional language where functions are front and center.
 </p>
 
-<aside id="org2a5bb7c">
+<aside id="orgb0f7c62">
 <p>
 <b>Functional Programming vs. Object Oriented Programming</b>
 </p>
@@ -1924,7 +1924,7 @@ If you feel that the mainstream JavaScript frameworks are boring and not for you
 
 <dl class="org-dl">
 <dt><a href="https://elm-lang.org/">Elm</a></dt><dd>You think TypeScript does not provide you the amount of type-checking you need for your project? Say hi to Elm, a <a href="https://www.haskell.org/">Haskell</a>-inspired purely functional programming language made for the sole purpose of building web apps. The on-boarding experience is great and the error messages are AMAZING.</dd>
-<dt><a href="https://clojurescript.org/">ClojureScript</a></dt><dd>ClojureScript (and its parent language Clojure) is a LISP which is a family of languages that has a few common traits: very simple syntax, lots of parentheses and the treatment of code as data. LISPs are really great for writing code that writes code. However, this is not the only thing ClojureScript does well, it is tailored towards functional programming with immutability at the center and interesting ways of handling concurrency. Getting used to LISPs is a real mind-bender and will really help broaden your horizons as a developer.</dd>
+<dt><a href="https://clojurescript.org/">ClojureScript</a></dt><dd>ClojureScript (as well as its parent language <a href="https://clojure.org/">Clojure</a>) is a LISP which is a family of languages that has a few common traits: very simple syntax, lots of parentheses and the treatment of code as data. LISPs are really great for writing code that writes code. However, this is not the only thing ClojureScript does well, it is tailored towards functional programming with immutability at the center and interesting ways of handling concurrency. Getting used to LISPs is a real mind-bender and will really help broaden your horizons as a developer.</dd>
 <dt><a href="https://www.purescript.org/">PureScript</a></dt><dd>You tried Elm and felt it did a bit too much hand-holding? Then PureScript is for you. It's even more inspired by Haskell and comes with full support for esoteric features such as type classes, higher kinded types and higher rank polymorphism (not sure what the last one means, but sounds awesome). Prepare yourself for a steep learning curve, but you will most likely find yourself at the cusp of modern programming language theory after getting proficient in this language.</dd>
 <dt><a href="https://cycle.js.org/">Cycle.js</a></dt><dd>What if instead of writing a web app that allows for human interactions, you flipped the whole premise on its head and instead put the stream of interactions at the center of your web app? Cycle.js is built around the concept of reactive streams. Everything are streams of events which you use to render you application and add interactivity. In the beginning it feels extremely backwards, but once you "get it" it starts to feel like a really natural way of thinking about apps and services.</dd>
 <dt><a href="https://yew.rs/">Yew</a></dt><dd>Ready to tick off two buzzwords with a single framework? With Yew you write your code in <a href="https://www.rust-lang.org/">Rust</a> and it compiles down to <a href="https://webassembly.org/">WebAssembly</a>, the new web language on the block. Even though you write your page in Rust, the overall experience is similar to React and Elm.</dd>
