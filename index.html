@@ -194,7 +194,7 @@ If everything works, you should be able to run <code>mongosh</code> and be taken
 </p>
 
 
-<figure id="org970e30f">
+<figure id="org0f5c0a7">
 <img src="./assets/mongodb-prompt.png" alt="mongodb-prompt.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>Running <code>mongosh</code> should open a MongoDB prompt like this one</figcaption>
@@ -297,7 +297,7 @@ We are going to play around with node.js a bit. First create a new directory cal
 Now you can run your program with the command <code>node index.js</code> and you should see <code>Hello node! \(&gt;0&lt;)/</code> printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 </p>
 
-<aside id="org1638442">
+<aside id="org5ec1183">
 <p>
 <b>Why index.js?</b>
 </p>
@@ -333,7 +333,7 @@ Let's use the built-in file system module <code>fs</code> to play around with fi
 </pre>
 </div>
 
-<aside id="org0d8ede8">
+<aside id="org72f7faf">
 <p>
 <b>ES6 modules vs. CommonJS modules</b>
 </p>
@@ -495,7 +495,7 @@ console.log(<span class="org-string">'MY_VARIABLE'</span>, process.env.MY_VARIAB
 </pre>
 </div>
 
-<aside id="org864f57c">
+<aside id="org0ca15f0">
 <p>
 <b>What are environment variables?</b>
 </p>
@@ -636,7 +636,7 @@ A client is whatever uses, or <i>consumes</i>, the API served by your server and
 </p>
 
 
-<figure id="org7ce664e">
+<figure id="org68282ac">
 <img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
 
 <figcaption><span class="figure-number">Figure 2: </span>Accessing an unregistered endpoint results in an error message</figcaption>
@@ -647,7 +647,7 @@ This means that we tried to <code>GET</code> something at the endpoint <code>/</
 </p>
 
 
-<figure id="orgea480f8">
+<figure id="org4067a34">
 <img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
 
 <figcaption><span class="figure-number">Figure 3: </span>Successful call to our /hello endpoint</figcaption>
@@ -668,7 +668,7 @@ So what went wrong the first time? There are four pieces of information needed t
 A server only responds on the port it is listening on and only handles requests on endpoints which have been registered on it. When not specifying an endpoint, the browser will pick the default one which is <code>/</code> and since we never registered a handler for that endpoint the request failed. You can think of endpoints as file paths on your own computer.
 </p>
 
-<aside id="orgf4bb9f7">
+<aside id="org114c8a9">
 <p>
 <b>Ports</b>
 </p>
@@ -938,7 +938,7 @@ In a <b>document database</b> schemas still exist, but they are just suggestions
 </p>
 
 
-<figure id="orgb5ec501">
+<figure id="org11019e7">
 <img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
 
 <figcaption><span class="figure-number">Figure 4: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
@@ -1087,7 +1087,7 @@ console.log(results);
 </pre>
 </div>
 
-<aside id="orge3ff774">
+<aside id="org35ac99a">
 <p>
 <b>What are regular expressions?</b>
 </p>
@@ -1181,7 +1181,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 </p>
 
 
-<figure id="org7a09b05">
+<figure id="org6ee10f5">
 <img src="./assets/simplified-browser-process.png" alt="simplified-browser-process.png">
 
 <figcaption><span class="figure-number">Figure 5: </span>A very simplified view of how a web browser works</figcaption>
@@ -1191,7 +1191,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 The browser has a main thread which is responsible for not only executing JavaScript but also rendering the HTML and CSS as well as handling user input like clicks and scrolling. If JavaScript allowed for synchronous HTTP requests the whole browser tab would stall while waiting for the response to come back. This is of course something we want to avoid at all costs and thus JavaScript does these sort of I/O operations asynchronously by default for us.
 </p>
 
-<aside id="org8cd149f">
+<aside id="org59a67e0">
 <p>
 <b>What is I/O?</b>
 </p>
@@ -1209,7 +1209,7 @@ All asynchronous operations are put on the <b>Event Queue</b> so as to not block
 Even though the explanation above focused on JavaScript in the browser node.js works in very much the same way with a main thread and an event queue to handle asynchronous requests. It's important to know understand that the node.js process will stay alive for as long as there is something on its event queue.
 </p>
 
-<aside id="org44f642c">
+<aside id="org09b7870">
 <p>
 <b>Process vs. threads?</b>
 </p>
@@ -1494,7 +1494,7 @@ Understanding this, we are now equipped to clean-up our file listing example abo
 This is the section where we dip our toes into functional programming. While JavaScript is object oriented in that almost everything is an object with methods and properties, at its core it's actually very much a functional language where functions are front and center.
 </p>
 
-<aside id="orgac65eec">
+<aside id="org2a5bb7c">
 <p>
 <b>Functional Programming vs. Object Oriented Programming</b>
 </p>
@@ -1919,7 +1919,7 @@ I recommend you use the framework you are most comfortable with. If you don't kn
 <h4 id="but-i-want-to-be-adventurous"><span class="section-number-4">8.2.1</span> But I want to be adventurous!!</h4>
 <div class="outline-text-4" id="text-but-i-want-to-be-adventurous">
 <p>
-If you feel that the mainstream JavaScript frameworks are boring and not for you, this section is for you. There are so many other interesting and fascinating ways to build front-ends that do not follow down the much trodden path. Maybe the frameworks listed here are for this project right now, but they might provide a source of inspiration later down your journey as a developer. The list here focuses on frameworks that do things differently and some of them are not even in JavaScript (though they do transpile down to JavaScript in the end). I do recommend you at one point give yourself the opportunity to try some of these out:
+If you feel that the mainstream JavaScript frameworks are boring and not for you, then you've come to the right place. There are so many other interesting and fascinating ways to build front-ends that do not follow down the much trodden path. Maybe the frameworks listed here are not for this project right now, but they might provide a source of inspiration later on your journey as a developer. The list here focuses on frameworks that choose to do things differently and some of them are not even in JavaScript (though they do transpile down to JavaScript in most cases). I do recommend you at one point give yourself the opportunity to try some of these out, not only because it's a lot of fun, but also because they challenge the conventional way of doing things and provide a great learning experience.
 </p>
 
 <dl class="org-dl">
