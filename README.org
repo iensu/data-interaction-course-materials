@@ -1328,6 +1328,23 @@ If you feel that the mainstream JavaScript frameworks are boring and not for you
 - [[https://yew.rs/][Yew]] :: Ready to tick off two buzzwords with a single framework? With Yew you write your code in [[https://www.rust-lang.org/][Rust]] and it compiles down to [[https://webassembly.org/][WebAssembly]], the new web language on the block. Even though you write your page in Rust, the overall experience is similar to React and Elm.
 - [[https://reasonml.github.io/][Reason ML]] :: From what I heard the draft for this project was what lead to the development of React at Facebook. It is very similar to Elm, but uses a language called [[https://ocaml.org/][OCaml]] as its foundation.
 
+** How to structure the API itself?
+:PROPERTIES:
+:CUSTOM_ID: how-to-structure-the-api-itself
+:END:
+When you write your server it helps to think of it as having at least three different /layers/.
+
+#+caption: ~GET /dogs/:id~ split into layers
+#+attr_org: :width 700px
+#+name: web-browser
+[[./assets/layered-http-api.png]]
+
+- First comes the /interface layer/ which is the only thing the client needs to know about.
+- Next comes a /controller layer/ which encapsulates the main server logic, for instance picking out data from the request and preparing it for the next layer, and decides the response to be sent back to the client.
+- Next comes the /service layer/ which encapsulates your database or third-party API etc.
+
+There are multiple benefits to following this approach and separate each layer into its own module (file). The main benefit is separation of concerns: if you manage to confine your database logic and operations into a separate module it will allow you to switch the database with hardly any modifications necessary outside of the database module. It also allows you to have your own data models within your server that does not necessarily correspond to the database models. This too simplifies the process of switching out your database without any major modifications outside of the database module.
+
 * Resources and useful links
 :PROPERTIES:
 :CUSTOM_ID: resources-and-useful-links
