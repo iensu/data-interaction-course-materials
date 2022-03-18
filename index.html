@@ -102,7 +102,7 @@
 <li><a href="#but-i-want-to-be-adventurous">8.2.1. But I want to be adventurous!!</a></li>
 </ul>
 </li>
-<li><a href="#org8fa3702">8.3. How to structure the API itself?</a></li>
+<li><a href="#org6138642">8.3. How to structure the API itself?</a></li>
 </ul>
 </li>
 <li><a href="#resources-and-useful-links">9. Resources and useful links</a></li>
@@ -195,7 +195,7 @@ If everything works, you should be able to run <code>mongosh</code> and be taken
 </p>
 
 
-<figure id="org7b940b6">
+<figure id="org67c87e7">
 <img src="./assets/mongodb-prompt.png" alt="mongodb-prompt.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>Running <code>mongosh</code> should open a MongoDB prompt like this one</figcaption>
@@ -298,7 +298,7 @@ We are going to play around with node.js a bit. First create a new directory cal
 Now you can run your program with the command <code>node index.js</code> and you should see <code>Hello node! \(&gt;0&lt;)/</code> printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 </p>
 
-<aside id="orge70a593">
+<aside id="org97b878a">
 <p>
 <b>Why index.js?</b>
 </p>
@@ -334,7 +334,7 @@ Let's use the built-in file system module <code>fs</code> to play around with fi
 </pre>
 </div>
 
-<aside id="org664cf0d">
+<aside id="org36158d7">
 <p>
 <b>ES6 modules vs. CommonJS modules</b>
 </p>
@@ -496,7 +496,7 @@ console.log(<span class="org-string">'MY_VARIABLE'</span>, process.env.MY_VARIAB
 </pre>
 </div>
 
-<aside id="org2224ed0">
+<aside id="org8827ec5">
 <p>
 <b>What are environment variables?</b>
 </p>
@@ -637,7 +637,7 @@ A client is whatever uses, or <i>consumes</i>, the API served by your server and
 </p>
 
 
-<figure id="orgb2cf25c">
+<figure id="org846b440">
 <img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
 
 <figcaption><span class="figure-number">Figure 2: </span>Accessing an unregistered endpoint results in an error message</figcaption>
@@ -648,7 +648,7 @@ This means that we tried to <code>GET</code> something at the endpoint <code>/</
 </p>
 
 
-<figure id="org8f87a4d">
+<figure id="org2aee088">
 <img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
 
 <figcaption><span class="figure-number">Figure 3: </span>Successful call to our /hello endpoint</figcaption>
@@ -669,7 +669,7 @@ So what went wrong the first time? There are four pieces of information needed t
 A server only responds on the port it is listening on and only handles requests on endpoints which have been registered on it. When not specifying an endpoint, the browser will pick the default one which is <code>/</code> and since we never registered a handler for that endpoint the request failed. You can think of endpoints as file paths on your own computer.
 </p>
 
-<aside id="org760b8f3">
+<aside id="orgd352175">
 <p>
 <b>Ports</b>
 </p>
@@ -939,7 +939,7 @@ In a <b>document database</b> schemas still exist, but they are just suggestions
 </p>
 
 
-<figure id="orgbc8c26f">
+<figure id="org5bdd7cd">
 <img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
 
 <figcaption><span class="figure-number">Figure 4: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
@@ -1088,7 +1088,7 @@ console.log(results);
 </pre>
 </div>
 
-<aside id="orgd373696">
+<aside id="org7a63d18">
 <p>
 <b>What are regular expressions?</b>
 </p>
@@ -1182,7 +1182,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 </p>
 
 
-<figure id="org3fa35ce">
+<figure id="org2322b06">
 <img src="./assets/simplified-browser-process.png" alt="simplified-browser-process.png">
 
 <figcaption><span class="figure-number">Figure 5: </span>A very simplified view of how a web browser works</figcaption>
@@ -1192,7 +1192,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 The browser has a main thread which is responsible for not only executing JavaScript but also rendering the HTML and CSS as well as handling user input like clicks and scrolling. If JavaScript allowed for synchronous HTTP requests the whole browser tab would stall while waiting for the response to come back. This is of course something we want to avoid at all costs and thus JavaScript does these sort of I/O operations asynchronously by default for us.
 </p>
 
-<aside id="orgb945375">
+<aside id="orgc12734f">
 <p>
 <b>What is I/O?</b>
 </p>
@@ -1210,7 +1210,7 @@ All asynchronous operations are put on the <b>Event Queue</b> so as to not block
 Even though the explanation above focused on JavaScript in the browser node.js works in very much the same way with a main thread and an event queue to handle asynchronous requests. It's important to know understand that the node.js process will stay alive for as long as there is something on its event queue.
 </p>
 
-<aside id="org3590dec">
+<aside id="orgb51bcca">
 <p>
 <b>Process vs. threads?</b>
 </p>
@@ -1495,7 +1495,7 @@ Understanding this, we are now equipped to clean-up our file listing example abo
 This is the section where we dip our toes into functional programming. While JavaScript is object oriented in that almost everything is an object with methods and properties, at its core it's actually very much a functional language where functions are front and center.
 </p>
 
-<aside id="orgea7f041">
+<aside id="org7d8595d">
 <p>
 <b>Functional Programming vs. Object Oriented Programming</b>
 </p>
@@ -1935,18 +1935,18 @@ If you feel that the mainstream JavaScript frameworks are boring and not for you
 </div>
 </div>
 
-<div id="outline-container-org8fa3702" class="outline-3">
-<h3 id="org8fa3702"><span class="section-number-3">8.3</span> How to structure the API itself?</h3>
+<div id="outline-container-org6138642" class="outline-3">
+<h3 id="org6138642"><span class="section-number-3">8.3</span> How to structure the API itself?</h3>
 <div class="outline-text-3" id="text-8-3">
 <p>
 When you write your server it helps to think of it as having at least three different <i>layers</i>.
 </p>
 
 
-<figure id="org36ebe02">
+<figure id="org9979e37">
 <img src="./assets/layered-http-api.png" alt="layered-http-api.png">
 
-<figcaption><span class="figure-number">Figure 6: </span>GET <i>dogs</i>:id split into layers</figcaption>
+<figcaption><span class="figure-number">Figure 6: </span><code>GET /dogs/:id</code> split into layers</figcaption>
 </figure>
 
 <ul class="org-ul">
