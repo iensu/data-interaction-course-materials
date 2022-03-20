@@ -3,7 +3,7 @@ POST http://localhost:4649/dogs
 Content-Type: application/json
 
 {
-  "_id": "d",
+  "_id": "a",
   "url": "https://made-up.com/image.jpg",
   "title": "Some funny dog",
   "breed": "Golden retriever",

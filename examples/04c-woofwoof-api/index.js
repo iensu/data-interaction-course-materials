@@ -2,16 +2,17 @@ import express from "express";
 import mongodb from "mongodb";
 import cors from "cors";
 
-// Configuring the MongoClient to talk to our local MongoDB
-const mongoClient = new mongodb.MongoClient("mongodb://localhost:27017");
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb://localhost:27017";
+const PORT = process.env.PORT || 4649;
+
+// Configuring the MongoClient to talk to MongoDB
+const mongoClient = new mongodb.MongoClient(MONGODB_URL);
 // Connecting the client to the database
 mongoClient.connect();
 // Grabbing the woofwoof-api database
 const db = mongoClient.db("woofwoof-api");
 // Picking out the dogs collection
 const collection = db.collection("dogs");
-
-const PORT = 4649;
 
 const app = express();
 
