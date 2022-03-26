@@ -1251,19 +1251,76 @@ The interface of our WoofWoof API is an example of a typical REST API: you opera
 
 So what are the benefits of using a REST API? First of all, having a uniform interface to an API greatly simplifies integrating it to frontends or other APIs. If your API is a unique snowflake it will most likely require more work for the people using your API. Another benefit is the ability to cache responses since all information required is provided by the request.
 
-** Adding a Middleware: Request Logging                            :noexport:
-:PROPERTIES:
-:CUSTOM_ID: adding-a-middleware
-:END:
 ** Improving our Search with Query Parameters                      :noexport:
 :PROPERTIES:
 :CUSTOM_ID: improving-our-search-with-query-parameters
 :END:
-** Connecting a Frontend Client: Say Hi to CORS                    :noexport:
+** Connecting a Frontend Client                    :noexport:
 :PROPERTIES:
 :CUSTOM_ID: connecting-a-frontend-client
 :END:
+Now that we have a our API we are ready to finally hook it up to a client. You can have a look at [[./examples/07-woofwoof-client][the WoofWoof client]] for an example of a simple client built in React. However, I will try to keep this discussion general and not framework specific.
 
+Assuming we have our server running on [[http://localhost:4649]] I can retrieve the full list of dogs by using the ~fetch~ function which is built-in to the browser. Let's try it out in a simple HTML page:
+
+#+caption: Retrieving all dogs
+#+begin_src html
+  <script>
+    fetch('http://localhost:4649/dogs', {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => {
+      return response.json()
+    }).then((dogs) => {
+      console.log(dogs);
+    }).catch((err) => {
+      console.error('Something went wrong:', err);
+    });
+  </script>
+#+end_src
+
+We need to pass in the ~Content-Type~ header since that will make our API parse the JSON payload for us (this is what the ~app.use(express.json())~ line on the server does).
+
+#+caption: CORS error
+#+attr_org: :width 700px;
+#+name: mongodb
+[[./assets/cors-error.png]]
+
+When loading the page you might see the following error in the console, this is what is called a [[https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS][Cross-Origin Resource Sharing]], or CORS, issue. The reason we are seeing this error is that we are trying to load resources from an origin (domain) that is different from the one our client is running on: =http://localhost:4649= vs. =http://localhost:3000=.
+
+In order to fix this issue we need to tell our server to tell the browser that it is OK to communicate with =http://localhost:4649= and fortunately there is [[https://www.npmjs.com/package/cors][an NPM package]] to help us do that.
+
+#+caption: Configuring the cors middleware
+#+begin_src js
+  import cors from "cors";
+
+  // ...
+
+  app.use(
+    cors({
+      // We allow requests from our frontend, if you want to allow any client
+      // you can use "*" instead.
+      origin: "http://localhost:3000",
+    })
+  );
+
+  // ...
+#+end_src
+
+If you refresh the page after making this change
+
+#+begin_aside
+*What is CORS?*
+
+The Cross-Origin Resource Sharing standard works by adding new HTTP headers that let servers describe which origins are permitted to read that information from a web browser.
+#+end_aside
+
+*** Making our Server Talk
+:PROPERTIES:
+:CUSTOM_ID: making-our-server-talk
+:END:
+Request logging
 * How to Structure your Project
 :PROPERTIES:
 :CUSTOM_ID: how-to-structure-your-project
