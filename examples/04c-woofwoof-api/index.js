@@ -49,7 +49,7 @@ app.get("/dogs", async (request, response) => {
 
   let filter = {};
   if (query.containsPuppy) {
-    filter = { ...filter, containsPuppy: query.containsPuppy === "true" };
+    filter.containsPuppy = query.containsPuppy === "true";
   }
   if (query.breed) {
     // Case-insensitive substring matching using regular expressions
