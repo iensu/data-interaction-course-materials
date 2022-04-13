@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Data Interaction Course Materials</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="Jens Östlund, Fabian Miiro">
-<meta name="description" content="Pseudo-code for a schema definition"
->
+<meta name="author" content="Jens Östlund, Fabian Miiro" />
+<meta name="description" content="Pseudo-code for a schema definition" />
+<meta name="generator" content="Org Mode" />
 <link rel="stylesheet" href="assets/base.css" />
 <link rel="stylesheet" href="assets/htmlize.css" />
 <link rel="stylesheet" href="assets/style-overrides.css" />
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <header>
 <h1 class="title">Data Interaction Course Materials</h1>
-</header><nav id="table-of-contents">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
 <li><a href="#setting-up-your-environment">1. Setting up your Environment</a>
 <ul>
@@ -118,7 +117,7 @@ You can find working code samples for each chapter along with some exercises in 
 </p>
 
 <div id="outline-container-setting-up-your-environment" class="outline-2">
-<h2 id="setting-up-your-environment"><span class="section-number-2">1</span> Setting up your Environment</h2>
+<h2 id="setting-up-your-environment"><span class="section-number-2">1.</span> Setting up your Environment</h2>
 <div class="outline-text-2" id="text-setting-up-your-environment">
 <p>
 In order to follow along with this course you will want to have the following installed:
@@ -144,7 +143,7 @@ git --version
 </div>
 
 <div id="outline-container-setting-up-mongodb" class="outline-3">
-<h3 id="setting-up-mongodb"><span class="section-number-3">1.1</span> Setting up MongoDB</h3>
+<h3 id="setting-up-mongodb"><span class="section-number-3">1.1.</span> Setting up MongoDB</h3>
 <div class="outline-text-3" id="text-setting-up-mongodb">
 <p>
 Finally you will need to have access to <a href="https://docs.mongodb.com/manual/installation/">MongoDB</a>. The company MongoDB is pushing really hard for you to use the free-tier of their cloud service Atlas. Unfortunately it requires you to create an account and forces you to go through a lot of settings and options. It's important that you choose the free tier, otherwise you can just use the defaults. They will also apparently bombard you with marketing emails, so if you decide to create an account I recommend you use a throwaway email account.
@@ -160,7 +159,7 @@ MongoDB Compass offers a graphical interface to your database and often comes bu
 </div>
 
 <div id="outline-container-installing-and-running-mongodb-on-macos" class="outline-4">
-<h4 id="installing-and-running-mongodb-on-macos"><span class="section-number-4">1.1.1</span> Installing and running MongoDB on MacOS</h4>
+<h4 id="installing-and-running-mongodb-on-macos"><span class="section-number-4">1.1.1.</span> Installing and running MongoDB on MacOS</h4>
 <div class="outline-text-4" id="text-installing-and-running-mongodb-on-macos">
 <p>
 As long as you have <a href="https://brew.sh/">Homebrew</a> installed it's very easy to install both MongoDB and MongoDB Compass on your computer:
@@ -195,7 +194,7 @@ If everything works, you should be able to run <code>mongosh</code> and be taken
 </p>
 
 
-<figure id="orgf7a21ef">
+<figure id="orgd68e24b">
 <img src="./assets/mongodb-prompt.png" alt="mongodb-prompt.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>Running <code>mongosh</code> should open a MongoDB prompt like this one</figcaption>
@@ -213,7 +212,7 @@ If this is not working you can list your <code>brew</code> services by running <
 </div>
 
 <div id="outline-container-installing-and-running-mongodb-on-windows" class="outline-4">
-<h4 id="installing-and-running-mongodb-on-windows"><span class="section-number-4">1.1.2</span> Installing and running MongoDB on Windows</h4>
+<h4 id="installing-and-running-mongodb-on-windows"><span class="section-number-4">1.1.2.</span> Installing and running MongoDB on Windows</h4>
 <div class="outline-text-4" id="text-installing-and-running-mongodb-on-windows">
 <p>
 As long as you have Windows 10 (October 2018 update) or newer it's very easy to install both MongoDB and MongoDB Compass on your computer using <code>winget</code>:
@@ -240,7 +239,7 @@ To connect Compass to your server, you simply press "Connect" (no connection str
 </div>
 
 <div id="outline-container-introduction-to-nodejs" class="outline-2">
-<h2 id="introduction-to-nodejs"><span class="section-number-2">2</span> Introduction to node.js</h2>
+<h2 id="introduction-to-nodejs"><span class="section-number-2">2.</span> Introduction to node.js</h2>
 <div class="outline-text-2" id="text-introduction-to-nodejs">
 <p>
 In short, node.js is JavaScript for servers and is now one of the most prevalent programming languages in the world. How come it quickly got so popular?
@@ -267,7 +266,7 @@ Node.JS was created 12 years ago by creating a system interface to Chrome’s <a
 </div>
 
 <div id="outline-container-nodejs-vs-the-browser" class="outline-3">
-<h3 id="nodejs-vs-the-browser"><span class="section-number-3">2.1</span> node.js vs the Browser</h3>
+<h3 id="nodejs-vs-the-browser"><span class="section-number-3">2.1.</span> node.js vs the Browser</h3>
 <div class="outline-text-3" id="text-nodejs-vs-the-browser">
 <p>
 Moving JavaScript out of the browser and onto the server results in a few important differences:
@@ -283,7 +282,7 @@ Moving JavaScript out of the browser and onto the server results in a few import
 </div>
 
 <div id="outline-container-hello-node" class="outline-3">
-<h3 id="hello-node"><span class="section-number-3">2.2</span> Hello Node</h3>
+<h3 id="hello-node"><span class="section-number-3">2.2.</span> Hello Node</h3>
 <div class="outline-text-3" id="text-hello-node">
 <p>
 We are going to play around with node.js a bit. First create a new directory called <code>hello-node</code> and move into it. Now create a file called <code>index.js</code> and write the following piece of code:
@@ -298,7 +297,7 @@ We are going to play around with node.js a bit. First create a new directory cal
 Now you can run your program with the command <code>node index.js</code> and you should see <code>Hello node! \(&gt;0&lt;)/</code> printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 </p>
 
-<aside id="orgb8d2ff5">
+<aside id="org3bebb1a">
 <p>
 <b>Why index.js?</b>
 </p>
@@ -310,7 +309,7 @@ Naming the main file JavaScript file <code>index.js</code> is a convention and h
 </div>
 
 <div id="outline-container-using-built-in-modules" class="outline-4">
-<h4 id="using-built-in-modules"><span class="section-number-4">2.2.1</span> Using built-in modules</h4>
+<h4 id="using-built-in-modules"><span class="section-number-4">2.2.1.</span> Using built-in modules</h4>
 <div class="outline-text-4" id="text-using-built-in-modules">
 <p>
 Let's use the built-in file system module <code>fs</code> to play around with files.
@@ -334,7 +333,7 @@ Let's use the built-in file system module <code>fs</code> to play around with fi
 </pre>
 </div>
 
-<aside id="org50e49b6">
+<aside id="org8a0a44d">
 <p>
 <b>ES6 modules vs. CommonJS modules</b>
 </p>
@@ -402,7 +401,7 @@ The difference between the module systems lies not only in cosmetics but also se
 </div>
 
 <div id="outline-container-writing-our-own-module" class="outline-4">
-<h4 id="writing-our-own-module"><span class="section-number-4">2.2.2</span> Writing our own module</h4>
+<h4 id="writing-our-own-module"><span class="section-number-4">2.2.2.</span> Writing our own module</h4>
 <div class="outline-text-4" id="text-writing-our-own-module">
 <p>
 Let's create new module with a function that randomly picks an element from a list. And let's call it from <code>index.js</code>.
@@ -439,7 +438,7 @@ console.log(<span class="org-string">`Got database: ${randomDatabase}`</span>);
 </div>
 
 <div id="outline-container-messing-around-with-the-global-scope" class="outline-4">
-<h4 id="messing-around-with-the-global-scope"><span class="section-number-4">2.2.3</span> Messing around with the global scope</h4>
+<h4 id="messing-around-with-the-global-scope"><span class="section-number-4">2.2.3.</span> Messing around with the global scope</h4>
 <div class="outline-text-4" id="text-messing-around-with-the-global-scope">
 <p>
 Using modules is not the only way of sharing functionality, you can also manipulate the global scope by modifying the <code>global</code> variable.
@@ -480,7 +479,7 @@ Finally, <b>please do not modify <code>global</code> in <i>real</i> code</b>. it
 </div>
 
 <div id="outline-container-reading-environment-variables" class="outline-4">
-<h4 id="reading-environment-variables"><span class="section-number-4">2.2.4</span> Reading environment variables</h4>
+<h4 id="reading-environment-variables"><span class="section-number-4">2.2.4.</span> Reading environment variables</h4>
 <div class="outline-text-4" id="text-reading-environment-variables">
 <p>
 Another thing we can do in node.js that we can't do in the browser is to get information about the current environment especially things like environment variables.
@@ -496,7 +495,7 @@ console.log(<span class="org-string">'MY_VARIABLE'</span>, process.env.MY_VARIAB
 </pre>
 </div>
 
-<aside id="org85db912">
+<aside id="org1428cc3">
 <p>
 <b>What are environment variables?</b>
 </p>
@@ -562,11 +561,11 @@ On MacOS and Linux you can set environment variables with the <code>export</code
 </div>
 
 <div id="outline-container-our-first-api" class="outline-2">
-<h2 id="our-first-api"><span class="section-number-2">3</span> Our First API</h2>
+<h2 id="our-first-api"><span class="section-number-2">3.</span> Our First API</h2>
 <div class="outline-text-2" id="text-our-first-api">
 </div>
 <div id="outline-container-what-is-an-application-programming-interface" class="outline-3">
-<h3 id="what-is-an-application-programming-interface"><span class="section-number-3">3.1</span> What is an Application Programming Interface?</h3>
+<h3 id="what-is-an-application-programming-interface"><span class="section-number-3">3.1.</span> What is an Application Programming Interface?</h3>
 <div class="outline-text-3" id="text-what-is-an-application-programming-interface">
 <ul class="org-ul">
 <li>An API is a set of exposed methods for interacting with a program or package.</li>
@@ -582,7 +581,7 @@ Often when we say API we actually mean an HTTP API to be specific, that is an AP
 </div>
 
 <div id="outline-container-creating-our-api" class="outline-3">
-<h3 id="creating-our-api"><span class="section-number-3">3.2</span> Creating our API</h3>
+<h3 id="creating-our-api"><span class="section-number-3">3.2.</span> Creating our API</h3>
 <div class="outline-text-3" id="text-creating-our-api">
 <p>
 Express is by far the most popular NPM package for creating HTTP APIs in node.js and has been around almost as long as the language itself. Start by creating a new directory called <code>hello-express</code> and initialize it using <code>npm init</code> (also don't forget to update <code>package.json</code> if you want to use ES6 modules). Now let's install Express:
@@ -626,7 +625,7 @@ There is <i>a lot</i> to unpack here&#x2026;
 </div>
 
 <div id="outline-container-starting-our-server" class="outline-3">
-<h3 id="starting-our-server"><span class="section-number-3">3.3</span> Starting our server</h3>
+<h3 id="starting-our-server"><span class="section-number-3">3.3.</span> Starting our server</h3>
 <div class="outline-text-3" id="text-starting-our-server">
 <p>
 Run your program by executing <code>node index.js</code>. The first thing you will notice is that your program never quits: you see the message <code>Server running at http://localhost:8080</code> but you don't get a new prompt. This is because your program is running a <b>server</b> which is meant to serve <b>responses</b> to <b>requests</b> from <b>clients</b> and your program needs to be kept alive and running to be able to do that.
@@ -637,7 +636,7 @@ A client is whatever uses, or <i>consumes</i>, the API served by your server and
 </p>
 
 
-<figure id="org6b21922">
+<figure id="org8e1160e">
 <img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
 
 <figcaption><span class="figure-number">Figure 2: </span>Accessing an unregistered endpoint results in an error message</figcaption>
@@ -648,7 +647,7 @@ This means that we tried to <code>GET</code> something at the endpoint <code>/</
 </p>
 
 
-<figure id="org0449f0c">
+<figure id="org7b007cd">
 <img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
 
 <figcaption><span class="figure-number">Figure 3: </span>Successful call to our /hello endpoint</figcaption>
@@ -669,7 +668,7 @@ So what went wrong the first time? There are four pieces of information needed t
 A server only responds on the port it is listening on and only handles requests on endpoints which have been registered on it. When not specifying an endpoint, the browser will pick the default one which is <code>/</code> and since we never registered a handler for that endpoint the request failed. You can think of endpoints as file paths on your own computer.
 </p>
 
-<aside id="orga366514">
+<aside id="org8226a64">
 <p>
 <b>Ports</b>
 </p>
@@ -719,7 +718,7 @@ You can choose any port number for your service between 1025 to 65535 as long as
 </div>
 
 <div id="outline-container-adding-another-endpoint" class="outline-3">
-<h3 id="adding-another-endpoint"><span class="section-number-3">3.4</span> Adding another endpoint</h3>
+<h3 id="adding-another-endpoint"><span class="section-number-3">3.4.</span> Adding another endpoint</h3>
 <div class="outline-text-3" id="text-adding-another-endpoint">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 11: </span>Our next endpoint</label><pre class="src src-js"><span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
@@ -746,7 +745,7 @@ If you now run <code>node index.js</code> again you will be able to access <a hr
 </div>
 
 <div id="outline-container-live-reload-and-other-tooling" class="outline-4">
-<h4 id="live-reload-and-other-tooling"><span class="section-number-4">3.4.1</span> Live-reload and other tooling</h4>
+<h4 id="live-reload-and-other-tooling"><span class="section-number-4">3.4.1.</span> Live-reload and other tooling</h4>
 <div class="outline-text-4" id="text-live-reload-and-other-tooling">
 <p>
 A workflow like the above is not only annoying but it can also lead to long troubleshooting sessions trying to figure out why something isn't working, when in the end you just had to restart the server. Thankfully there is an NPM package which helps us automate this workflow: <a href="https://nodemon.io/">nodemon</a>. Since we only need it for development we install it as a development dependency:
@@ -785,7 +784,7 @@ There is another tool I highly recommend you install and that is <a href="https:
 </div>
 
 <div id="outline-container-back-to-our-endpoint" class="outline-3">
-<h3 id="back-to-our-endpoint"><span class="section-number-3">3.5</span> Back to our endpoint</h3>
+<h3 id="back-to-our-endpoint"><span class="section-number-3">3.5.</span> Back to our endpoint</h3>
 <div class="outline-text-3" id="text-back-to-our-endpoint">
 <p>
 Let's make our new endpoint do something more interesting: let's see what happens if we serve a string which looks like HTML.
@@ -883,12 +882,12 @@ A website made up from files like this is called a <b>static website</b>. This i
 </div>
 
 <div id="outline-container-http-api-deep-dive" class="outline-2">
-<h2 id="http-api-deep-dive"><span class="section-number-2">4</span> HTTP + API Deep-dive</h2>
+<h2 id="http-api-deep-dive"><span class="section-number-2">4.</span> HTTP + API Deep-dive</h2>
 <div class="outline-text-2" id="text-http-api-deep-dive">
 </div>
 </div>
 <div id="outline-container-intro-to-mongodb" class="outline-2">
-<h2 id="intro-to-mongodb"><span class="section-number-2">5</span> Intro to MongoDB</h2>
+<h2 id="intro-to-mongodb"><span class="section-number-2">5.</span> Intro to MongoDB</h2>
 <div class="outline-text-2" id="text-intro-to-mongodb">
 <p>
 MongoDB is a <a href="https://www.mongodb.com/document-databases">document (NoSQL) database</a> and has a few important characteristics which makes it a suitable as a first database:
@@ -914,7 +913,7 @@ A MongoDB system consists of one or several <b>databases</b>, which each can hav
 </div>
 
 <div id="outline-container-schemas-in-mongodb" class="outline-3">
-<h3 id="schemas-in-mongodb"><span class="section-number-3">5.1</span> Schemas in MongoDB</h3>
+<h3 id="schemas-in-mongodb"><span class="section-number-3">5.1.</span> Schemas in MongoDB</h3>
 <div class="outline-text-3" id="text-schemas-in-mongodb">
 <p>
 The main selling point of MongoDB compared to relational (SQL) databases (MySQL, Postgres, &#x2026;) is the flexibility. In relational databases you have to define how your data is structured and the relationship between different kinds of data models. The structure of your data is called its schema or sometimes its data model and defines the properties it has and what data types these properties have. Here's a made-up example of how a schema might look like:
@@ -939,7 +938,7 @@ In a <b>document database</b> schemas still exist, but they are just suggestions
 </p>
 
 
-<figure id="orgcf91a85">
+<figure id="org9994f94">
 <img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
 
 <figcaption><span class="figure-number">Figure 4: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
@@ -953,7 +952,7 @@ This flexibility is something to be mindful of and I recommend using MongoDB Com
 </div>
 
 <div id="outline-container-mongodb-operations" class="outline-3">
-<h3 id="mongodb-operations"><span class="section-number-3">5.2</span> MongoDB Operations</h3>
+<h3 id="mongodb-operations"><span class="section-number-3">5.2.</span> MongoDB Operations</h3>
 <div class="outline-text-3" id="text-mongodb-operations">
 <p>
 Operations are ways of interacting with your database in the terms of data, the most general operations being:
@@ -988,7 +987,7 @@ The code assumes that you have the <code>mongodb</code> package in scope and you
 </div>
 
 <div id="outline-container-inserting-documents" class="outline-4">
-<h4 id="inserting-documents"><span class="section-number-4">5.2.1</span> Inserting documents</h4>
+<h4 id="inserting-documents"><span class="section-number-4">5.2.1.</span> Inserting documents</h4>
 <div class="outline-text-4" id="text-inserting-documents">
 <p>
 In MongoDB the act of creating data in a collection is called <b>inserting</b>.
@@ -1029,7 +1028,7 @@ In MongoDB the act of creating data in a collection is called <b>inserting</b>.
 </div>
 
 <div id="outline-container-finding-filtering-or-querying-documents" class="outline-4">
-<h4 id="finding-filtering-or-querying-documents"><span class="section-number-4">5.2.2</span> Finding (Filtering or Querying) documents</h4>
+<h4 id="finding-filtering-or-querying-documents"><span class="section-number-4">5.2.2.</span> Finding (Filtering or Querying) documents</h4>
 <div class="outline-text-4" id="text-finding-filtering-or-querying-documents">
 <p>
 The operations for reading data are called <b>find</b> in the API but are often referred to as filtering or querying as well.
@@ -1088,7 +1087,7 @@ console.log(results);
 </pre>
 </div>
 
-<aside id="orgf5fb889">
+<aside id="org8e4b16d">
 <p>
 <b>What are regular expressions?</b>
 </p>
@@ -1132,7 +1131,7 @@ console.log(results);
 </div>
 
 <div id="outline-container-deleting-documents" class="outline-4">
-<h4 id="deleting-documents"><span class="section-number-4">5.2.3</span> Deleting documents</h4>
+<h4 id="deleting-documents"><span class="section-number-4">5.2.3.</span> Deleting documents</h4>
 <div class="outline-text-4" id="text-deleting-documents">
 <p>
 Deleting documents is very similar to finding documents just replace the <code>find</code> or <code>findOne</code> methods with <code>deleteMany</code> or <code>deleteOne</code>, the methods use the same kind of filters.
@@ -1148,7 +1147,7 @@ Deleting documents is very similar to finding documents just replace the <code>f
 </div>
 
 <div id="outline-container-updating-documents" class="outline-4">
-<h4 id="updating-documents"><span class="section-number-4">5.2.4</span> Updating documents</h4>
+<h4 id="updating-documents"><span class="section-number-4">5.2.4.</span> Updating documents</h4>
 <div class="outline-text-4" id="text-updating-documents">
 <p>
 Updating can be seen as a combination of a find operation and a write operation. As with the other operations you can either call <code>updateOne</code> or <code>updateMany</code> to update multiple documents at the same time and these methods take two arguments: a filter object to specify which documents will be affected, and an update object defining the modification.
@@ -1167,7 +1166,7 @@ Updating can be seen as a combination of a find operation and a write operation.
 </div>
 
 <div id="outline-container-javascript-deep-dive" class="outline-2">
-<h2 id="javascript-deep-dive"><span class="section-number-2">6</span> JavaScript Deep-Dive</h2>
+<h2 id="javascript-deep-dive"><span class="section-number-2">6.</span> JavaScript Deep-Dive</h2>
 <div class="outline-text-2" id="text-javascript-deep-dive">
 <p>
 This section provides a smorgosbord of JavaScript concepts and weirdness. We won't have time to go into all of the nitty gritty details for each topic but rather use them to illustrate more general computing concepts. We will touch upon processes and threads, scope, bindings, functional programming, equality. There's a lot of ground to cover, so let's get started!
@@ -1175,14 +1174,14 @@ This section provides a smorgosbord of JavaScript concepts and weirdness. We won
 </div>
 
 <div id="outline-container-async-await-and-the-promise-of-a-path-out-of-callback-hell" class="outline-3">
-<h3 id="async-await-and-the-promise-of-a-path-out-of-callback-hell"><span class="section-number-3">6.1</span> Async, Await and the Promise of a Path out of Callback Hell</h3>
+<h3 id="async-await-and-the-promise-of-a-path-out-of-callback-hell"><span class="section-number-3">6.1.</span> Async, Await and the Promise of a Path out of Callback Hell</h3>
 <div class="outline-text-3" id="text-async-await-and-the-promise-of-a-path-out-of-callback-hell">
 <p>
 JavaScript is allegedly "asynchronous by default" AND "single-threaded", but what does this actually mean? What is <b>synchronous</b> versus <b>asynchronous</b> execution? In short asynchronous execution allows us to do more work at the same time (concurrently). First let's have a look at how the browser executes JavaScript.
 </p>
 
 
-<figure id="org1f1afd7">
+<figure id="orgc5299c9">
 <img src="./assets/simplified-browser-process.png" alt="simplified-browser-process.png">
 
 <figcaption><span class="figure-number">Figure 5: </span>A very simplified view of how a web browser works</figcaption>
@@ -1192,7 +1191,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 The browser has a main thread which is responsible for not only executing JavaScript but also rendering the HTML and CSS as well as handling user input like clicks and scrolling. If JavaScript allowed for synchronous HTTP requests the whole browser tab would stall while waiting for the response to come back. This is of course something we want to avoid at all costs and thus JavaScript does these sort of I/O operations asynchronously by default for us.
 </p>
 
-<aside id="org6c17abc">
+<aside id="org03d7691">
 <p>
 <b>What is I/O?</b>
 </p>
@@ -1210,7 +1209,7 @@ All asynchronous operations are put on the <b>Event Queue</b> so as to not block
 Even though the explanation above focused on JavaScript in the browser node.js works in very much the same way with a main thread and an event queue to handle asynchronous requests. It's important to know understand that the node.js process will stay alive for as long as there is something on its event queue.
 </p>
 
-<aside id="org4a1df0e">
+<aside id="org973c474">
 <p>
 <b>Process vs. threads?</b>
 </p>
@@ -1226,7 +1225,7 @@ You can check which processes are currently running in the Task Manager on Windo
 </div>
 
 <div id="outline-container-callback-hell" class="outline-4">
-<h4 id="callback-hell"><span class="section-number-4">6.1.1</span> Callback Hell</h4>
+<h4 id="callback-hell"><span class="section-number-4">6.1.1.</span> Callback Hell</h4>
 <div class="outline-text-4" id="text-callback-hell">
 <p>
 In the beginning there was the callback.
@@ -1260,7 +1259,7 @@ This was the only means of handling asynchronous operations and as you can see f
 </div>
 
 <div id="outline-container-the-promise-of-heaven" class="outline-4">
-<h4 id="the-promise-of-heaven"><span class="section-number-4">6.1.2</span> The Promise of Heaven</h4>
+<h4 id="the-promise-of-heaven"><span class="section-number-4">6.1.2.</span> The Promise of Heaven</h4>
 <div class="outline-text-4" id="text-the-promise-of-heaven">
 <p>
 A Promise can be thought of as a <i>promise of a future value</i>, that is, we do not have the value yet, but we capture the promise of it in a variable that we can use in our code. Before we revisit the file listing example above, let's look at the connection between callbacks and promises using <code>setTimeout</code>.
@@ -1402,7 +1401,7 @@ The main benefit of this approach is that we reduce the nesting and our error ha
 </div>
 
 <div id="outline-container-awaiting-salvation" class="outline-4">
-<h4 id="awaiting-salvation"><span class="section-number-4">6.1.3</span> Awaiting salvation</h4>
+<h4 id="awaiting-salvation"><span class="section-number-4">6.1.3.</span> Awaiting salvation</h4>
 <div class="outline-text-4" id="text-awaiting-salvation">
 <p>
 The final improvement we can do is to replace our pillar of promises with awaits, but first let's look at the relationship between <code>async</code> functions, <code>await</code> and promises.
@@ -1489,13 +1488,13 @@ Understanding this, we are now equipped to clean-up our file listing example abo
 </div>
 
 <div id="outline-container-fun-with-functions" class="outline-3">
-<h3 id="fun-with-functions"><span class="section-number-3">6.2</span> Fun with functions</h3>
+<h3 id="fun-with-functions"><span class="section-number-3">6.2.</span> Fun with functions</h3>
 <div class="outline-text-3" id="text-fun-with-functions">
 <p>
 This is the section where we dip our toes into functional programming. While JavaScript is object oriented in that almost everything is an object with methods and properties, at its core it's actually very much a functional language where functions are front and center.
 </p>
 
-<aside id="org3085eb2">
+<aside id="org736dca7">
 <p>
 <b>Functional Programming vs. Object Oriented Programming</b>
 </p>
@@ -1577,7 +1576,7 @@ We are going to have a look at the power of functional programming by implementi
 
 
 <div id="outline-container-implementing-our-own-map" class="outline-4">
-<h4 id="implementing-our-own-map"><span class="section-number-4">6.2.1</span> Implementing our own <code>map</code></h4>
+<h4 id="implementing-our-own-map"><span class="section-number-4">6.2.1.</span> Implementing our own <code>map</code></h4>
 <div class="outline-text-4" id="text-implementing-our-own-map">
 <p>
 A mapping function takes an operation and a list and returns a list where the operation has been applied to each element.
@@ -1587,7 +1586,7 @@ A mapping function takes an operation and a list and returns a list where the op
 <label class="org-src-name"><span class="listing-number">Listing 36: </span>Our own <code>map</code> function</label><pre class="src src-js"><span class="linenr">1: </span><span class="org-keyword">const</span> <span class="org-variable-name">map</span> = (operation, list) =&gt; {
 <span class="linenr">2: </span>  <span class="org-keyword">let</span> <span class="org-variable-name">results</span> = [];
 <span class="linenr">3: </span>
-<span class="linenr">4: </span>  <span class="org-keyword">for</span> (element of list) {
+<span class="linenr">4: </span>  <span class="org-keyword">for</span> (element <span class="org-keyword">of</span> list) {
 <span class="linenr">5: </span>    results.push(operation(element));
 <span class="linenr">6: </span>  }
 <span class="linenr">7: </span>
@@ -1628,7 +1627,7 @@ console.log(result) <span class="org-comment-delimiter">// </span><span class="o
 </div>
 
 <div id="outline-container-implementing-our-own-filter" class="outline-4">
-<h4 id="implementing-our-own-filter"><span class="section-number-4">6.2.2</span> Implementing our own <code>filter</code></h4>
+<h4 id="implementing-our-own-filter"><span class="section-number-4">6.2.2.</span> Implementing our own <code>filter</code></h4>
 <div class="outline-text-4" id="text-implementing-our-own-filter">
 <p>
 A filter function takes a function and a list. The function passed to filter should return either <code>true</code> or <code>false</code> when given an element of the list and <code>filter</code> will return a list of all elements for which the function returned <code>true</code>. This kind of function is usually called a <b>predicate</b>.
@@ -1638,7 +1637,7 @@ A filter function takes a function and a list. The function passed to filter sho
 <label class="org-src-name"><span class="listing-number">Listing 39: </span>Our filter function</label><pre class="src src-js"><span class="linenr"> 1: </span><span class="org-keyword">const</span> <span class="org-variable-name">filter</span> = (predicate, list) =&gt; {
 <span class="linenr"> 2: </span>  <span class="org-keyword">let</span> <span class="org-variable-name">results</span> = [];
 <span class="linenr"> 3: </span>
-<span class="linenr"> 4: </span>  <span class="org-keyword">for</span> (element of list) {
+<span class="linenr"> 4: </span>  <span class="org-keyword">for</span> (element <span class="org-keyword">of</span> list) {
 <span class="linenr"> 5: </span>    <span class="org-keyword">if</span> (predicate(element)) {
 <span class="linenr"> 6: </span>      results.push(element);
 <span class="linenr"> 7: </span>    }
@@ -1658,7 +1657,7 @@ A filter function takes a function and a list. The function passed to filter sho
 </div>
 
 <div id="outline-container-implementing-our-own-reducelist" class="outline-4">
-<h4 id="implementing-our-own-reducelist"><span class="section-number-4">6.2.3</span> Implementing our own <code>reduceList</code></h4>
+<h4 id="implementing-our-own-reducelist"><span class="section-number-4">6.2.3.</span> Implementing our own <code>reduceList</code></h4>
 <div class="outline-text-4" id="text-implementing-our-own-reducelist">
 <p>
 You might have noticed that there are some code duplication between applyToElements and keepIf. Let's try and generalize what we are doing and extract the common bits into another function: <code>reduceList</code>:
@@ -1668,7 +1667,7 @@ You might have noticed that there are some code duplication between applyToEleme
 <label class="org-src-name"><span class="listing-number">Listing 40: </span><code>reduceList</code></label><pre class="src src-js"><span class="linenr"> 1: </span><span class="org-keyword">const</span> <span class="org-variable-name">reduceList</span> = (operation, list) =&gt; {
 <span class="linenr"> 2: </span>  <span class="org-keyword">let</span> <span class="org-variable-name">results</span> = [];
 <span class="linenr"> 3: </span>
-<span class="linenr"> 4: </span>  <span class="org-keyword">for</span> (element of list) {
+<span class="linenr"> 4: </span>  <span class="org-keyword">for</span> (element <span class="org-keyword">of</span> list) {
 <span class="linenr"> 5: </span>    <span class="org-comment-delimiter">// </span><span class="org-comment">Since we don't know what the operation will do to the</span>
 <span class="linenr"> 6: </span>    <span class="org-comment-delimiter">// </span><span class="org-comment">accumulated results list (append or not append), we need</span>
 <span class="linenr"> 7: </span>    <span class="org-comment-delimiter">// </span><span class="org-comment">to be able to pass it to the operation function:</span>
@@ -1706,7 +1705,7 @@ You might have noticed that there are some code duplication between applyToEleme
 </div>
 
 <div id="outline-container-implementing-our-own-reduce" class="outline-4">
-<h4 id="implementing-our-own-reduce"><span class="section-number-4">6.2.4</span> Implementing our own <code>reduce</code></h4>
+<h4 id="implementing-our-own-reduce"><span class="section-number-4">6.2.4.</span> Implementing our own <code>reduce</code></h4>
 <div class="outline-text-4" id="text-implementing-our-own-reduce">
 <p>
 We can go further though; by allowing the caller to pass in the accumulator (results) we can actually handle even more use-cases.
@@ -1714,7 +1713,7 @@ We can go further though; by allowing the caller to pass in the accumulator (res
 
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 42: </span>Our <code>reduce</code> function</label><pre class="src src-js"><span class="linenr">1: </span><span class="org-keyword">const</span> <span class="org-variable-name">reduce</span> = (operation, list, accumulator) =&gt; {
-<span class="linenr">2: </span>  <span class="org-keyword">for</span> (element of list) {
+<span class="linenr">2: </span>  <span class="org-keyword">for</span> (element <span class="org-keyword">of</span> list) {
 <span class="linenr">3: </span>    accumulator = operation(accumulator, element);
 <span class="linenr">4: </span>  }
 <span class="linenr">5: </span>
@@ -1765,7 +1764,7 @@ Now we have implemented almost a full version of the JavaScript reduce array met
 </div>
 
 <div id="outline-container-further-into-apis" class="outline-2">
-<h2 id="further-into-apis"><span class="section-number-2">7</span> Further into APIs</h2>
+<h2 id="further-into-apis"><span class="section-number-2">7.</span> Further into APIs</h2>
 <div class="outline-text-2" id="text-further-into-apis">
 <p>
 For this section we will work on <a href="./examples/04c-woofwoof-api">the WoofWoof API</a> we developed in class and use it to illustrate various API-related topics such as REST, middlewares, query parameters and CORS. We begin by looking at what endpoints we have thus far:
@@ -1827,7 +1826,7 @@ We have route handlers for adding dogs, getting all dogs or a specific dogs, we 
 </div>
 
 <div id="outline-container-what-is-a-rest-api" class="outline-3">
-<h3 id="what-is-a-rest-api"><span class="section-number-3">7.1</span> What is a REST API?</h3>
+<h3 id="what-is-a-rest-api"><span class="section-number-3">7.1.</span> What is a REST API?</h3>
 <div class="outline-text-3" id="text-what-is-a-rest-api">
 <p>
 REST stands for <i>Representational State Transfer</i> and is a convention for how to write an HTTP API. One of the most important aspect of a REST API is that it has a <b>common interface</b> regardless of the type of data resource it is exposing. A REST API is also meant to be <b>client (<i>frontend</i>) agnostic</b> and able to support different clients and use-cases at once. Another important aspect is that a REST API needs to be <b>stateless</b>, which means that the server should not hold any client-specific state and that everything needed to fulfill a query must be provided in the request (given the same input we should get identical output). REST APIs make sense when fronting a database where we have one or more collections of things and need to add, find, update and/or delete entries (see the section on MongoDB).
@@ -1845,7 +1844,7 @@ So what are the benefits of using a REST API? First of all, having a uniform int
 </div>
 
 <div id="outline-container-how-to-structure-your-project" class="outline-2">
-<h2 id="how-to-structure-your-project"><span class="section-number-2">8</span> How to Structure your Project</h2>
+<h2 id="how-to-structure-your-project"><span class="section-number-2">8.</span> How to Structure your Project</h2>
 <div class="outline-text-2" id="text-how-to-structure-your-project">
 <p>
 For the brief you are to write an HTTP API and some front-end client which uses your API. There are a few ways to go about doing this and in this section I am going to list some common approaches.
@@ -1857,7 +1856,7 @@ First, it helps if you consider your API and your client as completely separate 
 </div>
 
 <div id="outline-container-how-many-repos" class="outline-3">
-<h3 id="how-many-repos"><span class="section-number-3">8.1</span> How many Repos?</h3>
+<h3 id="how-many-repos"><span class="section-number-3">8.1.</span> How many Repos?</h3>
 <div class="outline-text-3" id="text-how-many-repos">
 <p>
 The first question you might face is one git repository or two repositories? What do I mean by this? In the single repository case you have both the back-end API and the front-end client in the same directory as in the listing below.
@@ -1905,7 +1904,7 @@ The multi-repository approach has been dominant for the last five years or so in
 </div>
 
 <div id="outline-container-what-should-i-use-for-the-client" class="outline-3">
-<h3 id="what-should-i-use-for-the-client"><span class="section-number-3">8.2</span> What should I use for the client?</h3>
+<h3 id="what-should-i-use-for-the-client"><span class="section-number-3">8.2.</span> What should I use for the client?</h3>
 <div class="outline-text-3" id="text-what-should-i-use-for-the-client">
 <p>
 Here there are SO many options that it's almost a joke. The most common tools for writing front-ends in the industry currently though is by far React, followed by Vue and then Angular. While I do love using vanilla JavaScript, when making a more complex web page there are just so many benefits to using a framework like React, if you learn the basics you will be able to focus more on implementing the functionality than trying to figure out how to implement the functionality since you need to reinvent the wheel at every turn. <a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks">MDN's page on JavaScript frameworks</a> gives a good overview of some common ones and what they bring to the table.
@@ -1917,7 +1916,7 @@ I recommend you use the framework you are most comfortable with. If you don't kn
 </div>
 
 <div id="outline-container-but-i-want-to-be-adventurous" class="outline-4">
-<h4 id="but-i-want-to-be-adventurous"><span class="section-number-4">8.2.1</span> But I want to be adventurous!!</h4>
+<h4 id="but-i-want-to-be-adventurous"><span class="section-number-4">8.2.1.</span> But I want to be adventurous!!</h4>
 <div class="outline-text-4" id="text-but-i-want-to-be-adventurous">
 <p>
 If you feel that the mainstream JavaScript frameworks are boring and not for you, then you've come to the right place. There are so many other interesting and fascinating ways to build front-ends that do not follow down the much trodden path. Maybe the frameworks listed here are not for this project right now, but they might provide a source of inspiration later on your journey as a developer. The list here focuses on frameworks that choose to do things differently and some of them are not even in JavaScript (though they do transpile down to JavaScript in most cases). I do recommend you at one point give yourself the opportunity to try some of these out, not only because it's a lot of fun, but also because they challenge the conventional way of doing things and provide a great learning experience.
@@ -1936,14 +1935,14 @@ If you feel that the mainstream JavaScript frameworks are boring and not for you
 </div>
 
 <div id="outline-container-how-to-structure-the-api-itself" class="outline-3">
-<h3 id="how-to-structure-the-api-itself"><span class="section-number-3">8.3</span> How to structure the API itself?</h3>
+<h3 id="how-to-structure-the-api-itself"><span class="section-number-3">8.3.</span> How to structure the API itself?</h3>
 <div class="outline-text-3" id="text-how-to-structure-the-api-itself">
 <p>
 When you write your server it helps to think of it as having at least three different <i>layers</i>.
 </p>
 
 
-<figure id="org82a3a7a">
+<figure id="org42980a7">
 <img src="./assets/layered-http-api.png" alt="layered-http-api.png">
 
 <figcaption><span class="figure-number">Figure 6: </span><code>GET /dogs/:id</code> split into layers</figcaption>
@@ -1963,7 +1962,7 @@ There are multiple benefits to following this approach and separate each layer i
 </div>
 
 <div id="outline-container-resources-and-useful-links" class="outline-2">
-<h2 id="resources-and-useful-links"><span class="section-number-2">9</span> Resources and useful links</h2>
+<h2 id="resources-and-useful-links"><span class="section-number-2">9.</span> Resources and useful links</h2>
 <div class="outline-text-2" id="text-resources-and-useful-links">
 <p>
 <b>General</b>
