@@ -4,6 +4,7 @@
 #+language: en
 #+options: num:3 H:4
 #+export_file_name: docs/index.html
+#+startup: overview
 
 This course aims to give you an understanding of back-end development and in it you will learn how to build an HTTP server in node.js and integrating it with a MongoDB database. The course will focus a lot on JavaScript and give you an understanding for how the language works so you will be able to solve issues in your code more readily.
 
@@ -1251,6 +1252,95 @@ The interface of our WoofWoof API is an example of a typical REST API: you opera
 
 So what are the benefits of using a REST API? First of all, having a uniform interface to an API greatly simplifies integrating it to frontends or other APIs. If your API is a unique snowflake it will most likely require more work for the people using your API. Another benefit is the ability to cache responses since all information required is provided by the request.
 
+** Making our Server Talk
+:PROPERTIES:
+:CUSTOM_ID: making-our-server-talk
+:END:
+Currently our server is very quiet. Apart from an initial greeting message our server doesn't give any information at all when we interact with it. What we really want is for the server to be a bit more talkative and for instance tell us when a new request comes in etc. This will help us when debugging and potentially provide us some statistics about our server.
+
+We could do this by adding ~console.log~ statements in our route handlers, but that quickly becomes repetitive and worse could be easy to forget to do. A better alternative is to use what is called *middleware*.
+
+*** What is a middleware?
+:PROPERTIES:
+:CUSTOM_ID: what-is-a-middleware
+:END:
+
+#+caption: From request to response
+#+attr_org: :width 700px;
+#+name: from-request-to-response
+[[./assets/express-request-to-response.png]]
+
+A middleware is a function which is applied to the request (or response) before the request reaches the route handlers. Think of it as something that comes in the in-between (or in the middle of) a request and the route handling of that request.
+
+A middleware function can be used for anything from setting headers (as the ~cors~ middleware which you can read more about in the section on [[#connecting-a-frontend-client][connecting a front-end client]]), logging, authenticating a user and much, much more. The ~express.json~ middleware for instance, which we used previously, reads and parses the request body as JSON if the ~Content-Type~ header of the request is set to ~application/json~.
+
+*** Writing a request logging middleware
+:PROPERTIES:
+:CUSTOM_ID: writing-a-request-logging-middleware
+:END:
+A middleware is just a function which takes three arguments: the ~request~, the ~response~ and a ~next~ function.
+
+#+caption: A middleware which logs 'hello' for every request
+#+begin_src js
+  // ...
+  const helloMiddleware = (request, response, next) => {
+    console.log("hello");
+    next();
+  }
+  // ...
+  app.use(helloMiddleware);
+  // ...
+#+end_src
+
+The first two arguments are pretty self-explanatory but the third argument is a bit more interesting. By calling the ~next~ function you signal that the middleware is done and the processing can move on to either the next middleware in the chain or the route handlers. Now we are touching on something important: in Express all middlewares and the matching route handlers are applied *in the order they are used in the file*. This means that it can be important where you put your ~app.use(middlewareFn)~ call.
+
+The above middleware is pretty useless, but by picking out useful information from the request we can make the log statement more useful. Let's rename it to ~requestLogger~ and pick out some useful information such as the HTTP verb and endpoint so we can track which endpoints are called.
+
+#+caption: Request logger middleware
+#+begin_src js
+  const requestLogger = (request, response, next) => {
+    const timestamp = new Date().toISOString();
+    const method = request.method;
+    const url = request.url;
+
+    console.log(`${timestamp} ${method} ${url}`);
+    next();
+  }
+#+end_src
+
+Now we should see something like =2022-04-01T16:52:45.392Z GET /dogs= in our terminal console. If we want we can dig deeper and add information about the duration of the request, but that requires us to know when the request ended. Luckily we can hook into the request's ~end~ event:
+
+#+caption: Request logger with request duration
+#+begin_src js
+    const requestLogger = (request, response, next) => {
+      const requestStartTimeMs = Date.now(); // Added current time in milliseconds for reference
+      const timestamp = new Date().toISOString();
+      const method = request.method;
+      const url = request.url;
+
+      console.log(`${timestamp} ${method} ${url}`);
+
+      request.on("end", () => {
+        const duration = Date.now() - requestStartTimeMs;
+        console.log(`${new Date().toISOString()} ${method} ${url} ${duration}ms`)
+      });
+
+      next();
+    }
+#+end_src
+
+Each request will now generate at least two log statements, the latter one giving the duration of the request in milliseconds.
+
+#+caption: Request logging output
+#+begin_src shell
+  2022-04-01T16:52:45.372Z GET /dogs
+  2022-04-01T16:52:45.392Z GET /dogs 20ms
+#+end_src
+
+For now it's easy to enough to correlate the requests, but if you would have multiple clients making requests at once it becomes very difficult to see which request had what duration. This is where something like a ~requestId~, a unique ID for every request, becomes useful. As an exercise write a middleware which adds a property ~requestId~ to the request which you then read in the ~requestLogger~.
+
+While writing logging middleware by hand like this is fun there are already great packages which help with logging. I recommend looking into packages such as [[https://www.npmjs.com/package/winston][Winston]] or [[https://www.npmjs.com/package/morgan#examples][Morgan]] and see what capabilities they offer. Having good logging for an API is extremely important and will potentially save you hours of debugging.
+
 ** Improving our Search with Query Parameters                      :noexport:
 :PROPERTIES:
 :CUSTOM_ID: improving-our-search-with-query-parameters
@@ -1284,7 +1374,7 @@ We need to pass in the ~Content-Type~ header since that will make our API parse 
 
 #+caption: CORS error
 #+attr_org: :width 700px;
-#+name: mongodb
+#+name: cors-error
 [[./assets/cors-error.png]]
 
 When loading the page you might see the following error in the console, this is called a [[https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS][Cross-Origin Resource Sharing]], or CORS, issue. The reason we are seeing this error is that we are trying to load resources from an origin (domain) that is different from the one our client is running on: =http://localhost:4649= vs. =http://localhost:3000=.
@@ -1318,11 +1408,6 @@ Browsers all implement something called the Same Origin Policy (SOP) which restr
 [[https://web.dev/same-origin-policy/][This page]] explains a bit more in detail what CORS is and how it works.
 #+end_aside
 
-** Making our Server Talk
-:PROPERTIES:
-:CUSTOM_ID: making-our-server-talk
-:END:
-Request logging
 * How to Structure your Project
 :PROPERTIES:
 :CUSTOM_ID: how-to-structure-your-project
