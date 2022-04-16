@@ -91,6 +91,7 @@
 <li><a href="#further-into-apis">7. Further into APIs</a>
 <ul>
 <li><a href="#what-is-a-rest-api">7.1. What is a REST API?</a></li>
+<li><a href="#making-our-server-talk">7.2. Making our Server Talk</a></li>
 </ul>
 </li>
 <li><a href="#how-to-structure-your-project">8. How to Structure your Project</a>
@@ -194,7 +195,7 @@ If everything works, you should be able to run <code>mongosh</code> and be taken
 </p>
 
 
-<figure id="orgd68e24b">
+<figure id="orgc7cc3bb">
 <img src="./assets/mongodb-prompt.png" alt="mongodb-prompt.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>Running <code>mongosh</code> should open a MongoDB prompt like this one</figcaption>
@@ -297,7 +298,7 @@ We are going to play around with node.js a bit. First create a new directory cal
 Now you can run your program with the command <code>node index.js</code> and you should see <code>Hello node! \(&gt;0&lt;)/</code> printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 </p>
 
-<aside id="org3bebb1a">
+<aside id="org36810f7">
 <p>
 <b>Why index.js?</b>
 </p>
@@ -333,7 +334,7 @@ Let's use the built-in file system module <code>fs</code> to play around with fi
 </pre>
 </div>
 
-<aside id="org8a0a44d">
+<aside id="orgaa29661">
 <p>
 <b>ES6 modules vs. CommonJS modules</b>
 </p>
@@ -495,7 +496,7 @@ console.log(<span class="org-string">'MY_VARIABLE'</span>, process.env.MY_VARIAB
 </pre>
 </div>
 
-<aside id="org1428cc3">
+<aside id="orgfd166e7">
 <p>
 <b>What are environment variables?</b>
 </p>
@@ -636,7 +637,7 @@ A client is whatever uses, or <i>consumes</i>, the API served by your server and
 </p>
 
 
-<figure id="org8e1160e">
+<figure id="orgc03163c">
 <img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
 
 <figcaption><span class="figure-number">Figure 2: </span>Accessing an unregistered endpoint results in an error message</figcaption>
@@ -647,7 +648,7 @@ This means that we tried to <code>GET</code> something at the endpoint <code>/</
 </p>
 
 
-<figure id="org7b007cd">
+<figure id="org62a0ab7">
 <img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
 
 <figcaption><span class="figure-number">Figure 3: </span>Successful call to our /hello endpoint</figcaption>
@@ -668,7 +669,7 @@ So what went wrong the first time? There are four pieces of information needed t
 A server only responds on the port it is listening on and only handles requests on endpoints which have been registered on it. When not specifying an endpoint, the browser will pick the default one which is <code>/</code> and since we never registered a handler for that endpoint the request failed. You can think of endpoints as file paths on your own computer.
 </p>
 
-<aside id="org8226a64">
+<aside id="org876ee23">
 <p>
 <b>Ports</b>
 </p>
@@ -938,7 +939,7 @@ In a <b>document database</b> schemas still exist, but they are just suggestions
 </p>
 
 
-<figure id="org9994f94">
+<figure id="orgb91c102">
 <img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
 
 <figcaption><span class="figure-number">Figure 4: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
@@ -1087,7 +1088,7 @@ console.log(results);
 </pre>
 </div>
 
-<aside id="org8e4b16d">
+<aside id="orgc8b4959">
 <p>
 <b>What are regular expressions?</b>
 </p>
@@ -1181,7 +1182,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 </p>
 
 
-<figure id="orgc5299c9">
+<figure id="org4d9ebc4">
 <img src="./assets/simplified-browser-process.png" alt="simplified-browser-process.png">
 
 <figcaption><span class="figure-number">Figure 5: </span>A very simplified view of how a web browser works</figcaption>
@@ -1191,7 +1192,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 The browser has a main thread which is responsible for not only executing JavaScript but also rendering the HTML and CSS as well as handling user input like clicks and scrolling. If JavaScript allowed for synchronous HTTP requests the whole browser tab would stall while waiting for the response to come back. This is of course something we want to avoid at all costs and thus JavaScript does these sort of I/O operations asynchronously by default for us.
 </p>
 
-<aside id="org03d7691">
+<aside id="org317a06b">
 <p>
 <b>What is I/O?</b>
 </p>
@@ -1209,7 +1210,7 @@ All asynchronous operations are put on the <b>Event Queue</b> so as to not block
 Even though the explanation above focused on JavaScript in the browser node.js works in very much the same way with a main thread and an event queue to handle asynchronous requests. It's important to know understand that the node.js process will stay alive for as long as there is something on its event queue.
 </p>
 
-<aside id="org973c474">
+<aside id="org5a1a71d">
 <p>
 <b>Process vs. threads?</b>
 </p>
@@ -1494,7 +1495,7 @@ Understanding this, we are now equipped to clean-up our file listing example abo
 This is the section where we dip our toes into functional programming. While JavaScript is object oriented in that almost everything is an object with methods and properties, at its core it's actually very much a functional language where functions are front and center.
 </p>
 
-<aside id="org736dca7">
+<aside id="org6d790c3">
 <p>
 <b>Functional Programming vs. Object Oriented Programming</b>
 </p>
@@ -1841,8 +1842,16 @@ So what are the benefits of using a REST API? First of all, having a uniform int
 </p>
 </div>
 </div>
-</div>
 
+<div id="outline-container-making-our-server-talk" class="outline-3">
+<h3 id="making-our-server-talk"><span class="section-number-3">7.2.</span> Making our Server Talk</h3>
+<div class="outline-text-3" id="text-making-our-server-talk">
+<p>
+Request logging
+</p>
+</div>
+</div>
+</div>
 <div id="outline-container-how-to-structure-your-project" class="outline-2">
 <h2 id="how-to-structure-your-project"><span class="section-number-2">8.</span> How to Structure your Project</h2>
 <div class="outline-text-2" id="text-how-to-structure-your-project">
@@ -1942,7 +1951,7 @@ When you write your server it helps to think of it as having at least three diff
 </p>
 
 
-<figure id="org42980a7">
+<figure id="org7a9648e">
 <img src="./assets/layered-http-api.png" alt="layered-http-api.png">
 
 <figcaption><span class="figure-number">Figure 6: </span><code>GET /dogs/:id</code> split into layers</figcaption>
