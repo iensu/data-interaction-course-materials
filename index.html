@@ -91,7 +91,13 @@
 <li><a href="#further-into-apis">7. Further into APIs</a>
 <ul>
 <li><a href="#what-is-a-rest-api">7.1. What is a REST API?</a></li>
-<li><a href="#making-our-server-talk">7.2. Making our Server Talk</a></li>
+<li><a href="#making-our-server-talk">7.2. Making our Server Talk</a>
+<ul>
+<li><a href="#what-is-a-middleware">7.2.1. What is a middleware?</a></li>
+<li><a href="#writing-a-request-logging-middleware">7.2.2. Writing a request logging middleware</a></li>
+</ul>
+</li>
+<li><a href="#connecting-a-frontend-client">7.3. Connecting a Frontend Client</a></li>
 </ul>
 </li>
 <li><a href="#how-to-structure-your-project">8. How to Structure your Project</a>
@@ -195,7 +201,7 @@ If everything works, you should be able to run <code>mongosh</code> and be taken
 </p>
 
 
-<figure id="orgc7cc3bb">
+<figure id="org0ef08c5">
 <img src="./assets/mongodb-prompt.png" alt="mongodb-prompt.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>Running <code>mongosh</code> should open a MongoDB prompt like this one</figcaption>
@@ -298,7 +304,7 @@ We are going to play around with node.js a bit. First create a new directory cal
 Now you can run your program with the command <code>node index.js</code> and you should see <code>Hello node! \(&gt;0&lt;)/</code> printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 </p>
 
-<aside id="org36810f7">
+<aside id="org822e82a">
 <p>
 <b>Why index.js?</b>
 </p>
@@ -334,7 +340,7 @@ Let's use the built-in file system module <code>fs</code> to play around with fi
 </pre>
 </div>
 
-<aside id="orgaa29661">
+<aside id="orged71c0a">
 <p>
 <b>ES6 modules vs. CommonJS modules</b>
 </p>
@@ -496,7 +502,7 @@ console.log(<span class="org-string">'MY_VARIABLE'</span>, process.env.MY_VARIAB
 </pre>
 </div>
 
-<aside id="orgfd166e7">
+<aside id="org793b825">
 <p>
 <b>What are environment variables?</b>
 </p>
@@ -637,7 +643,7 @@ A client is whatever uses, or <i>consumes</i>, the API served by your server and
 </p>
 
 
-<figure id="orgc03163c">
+<figure id="org28027a1">
 <img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
 
 <figcaption><span class="figure-number">Figure 2: </span>Accessing an unregistered endpoint results in an error message</figcaption>
@@ -648,7 +654,7 @@ This means that we tried to <code>GET</code> something at the endpoint <code>/</
 </p>
 
 
-<figure id="org62a0ab7">
+<figure id="org680e398">
 <img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
 
 <figcaption><span class="figure-number">Figure 3: </span>Successful call to our /hello endpoint</figcaption>
@@ -669,7 +675,7 @@ So what went wrong the first time? There are four pieces of information needed t
 A server only responds on the port it is listening on and only handles requests on endpoints which have been registered on it. When not specifying an endpoint, the browser will pick the default one which is <code>/</code> and since we never registered a handler for that endpoint the request failed. You can think of endpoints as file paths on your own computer.
 </p>
 
-<aside id="org876ee23">
+<aside id="org84d2600">
 <p>
 <b>Ports</b>
 </p>
@@ -939,7 +945,7 @@ In a <b>document database</b> schemas still exist, but they are just suggestions
 </p>
 
 
-<figure id="orgb91c102">
+<figure id="org5334577">
 <img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
 
 <figcaption><span class="figure-number">Figure 4: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
@@ -1088,7 +1094,7 @@ console.log(results);
 </pre>
 </div>
 
-<aside id="orgc8b4959">
+<aside id="org0fa1dfe">
 <p>
 <b>What are regular expressions?</b>
 </p>
@@ -1182,7 +1188,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 </p>
 
 
-<figure id="org4d9ebc4">
+<figure id="org98331a2">
 <img src="./assets/simplified-browser-process.png" alt="simplified-browser-process.png">
 
 <figcaption><span class="figure-number">Figure 5: </span>A very simplified view of how a web browser works</figcaption>
@@ -1192,7 +1198,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 The browser has a main thread which is responsible for not only executing JavaScript but also rendering the HTML and CSS as well as handling user input like clicks and scrolling. If JavaScript allowed for synchronous HTTP requests the whole browser tab would stall while waiting for the response to come back. This is of course something we want to avoid at all costs and thus JavaScript does these sort of I/O operations asynchronously by default for us.
 </p>
 
-<aside id="org317a06b">
+<aside id="org37d906c">
 <p>
 <b>What is I/O?</b>
 </p>
@@ -1210,7 +1216,7 @@ All asynchronous operations are put on the <b>Event Queue</b> so as to not block
 Even though the explanation above focused on JavaScript in the browser node.js works in very much the same way with a main thread and an event queue to handle asynchronous requests. It's important to know understand that the node.js process will stay alive for as long as there is something on its event queue.
 </p>
 
-<aside id="org5a1a71d">
+<aside id="orgc674c8f">
 <p>
 <b>Process vs. threads?</b>
 </p>
@@ -1495,7 +1501,7 @@ Understanding this, we are now equipped to clean-up our file listing example abo
 This is the section where we dip our toes into functional programming. While JavaScript is object oriented in that almost everything is an object with methods and properties, at its core it's actually very much a functional language where functions are front and center.
 </p>
 
-<aside id="org6d790c3">
+<aside id="org35bf80f">
 <p>
 <b>Functional Programming vs. Object Oriented Programming</b>
 </p>
@@ -1847,11 +1853,202 @@ So what are the benefits of using a REST API? First of all, having a uniform int
 <h3 id="making-our-server-talk"><span class="section-number-3">7.2.</span> Making our Server Talk</h3>
 <div class="outline-text-3" id="text-making-our-server-talk">
 <p>
-Request logging
+Currently our server is very quiet. Apart from an initial greeting message our server doesn't give any information at all when we interact with it. What we really want is for the server to be a bit more talkative and for instance tell us when a new request comes in etc. This will help us when debugging and potentially provide us some statistics about our server.
+</p>
+
+<p>
+We could do this by adding <code>console.log</code> statements in our route handlers, but that quickly becomes repetitive and worse could be easy to forget to do. A better alternative is to use what is called <b>middleware</b>.
+</p>
+</div>
+
+<div id="outline-container-what-is-a-middleware" class="outline-4">
+<h4 id="what-is-a-middleware"><span class="section-number-4">7.2.1.</span> What is a middleware?</h4>
+<div class="outline-text-4" id="text-what-is-a-middleware">
+
+<figure id="org7b44fae">
+<img src="./assets/express-request-to-response.png" alt="express-request-to-response.png">
+
+<figcaption><span class="figure-number">Figure 6: </span>From request to response</figcaption>
+</figure>
+
+<p>
+A middleware is a function which is applied to the request (or response) before the request reaches the route handlers. Think of it as something that comes in the in-between (or in the middle of) a request and the route handling of that request.
+</p>
+
+<p>
+A middleware function can be used for anything from setting headers (as the <code>cors</code> middleware which you can read more about in the section on <a href="#connecting-a-frontend-client">connecting a front-end client</a>), logging, authenticating a user and much, much more. The <code>express.json</code> middleware for instance, which we used previously, reads and parses the request body as JSON if the <code>Content-Type</code> header of the request is set to <code>application/json</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-writing-a-request-logging-middleware" class="outline-4">
+<h4 id="writing-a-request-logging-middleware"><span class="section-number-4">7.2.2.</span> Writing a request logging middleware</h4>
+<div class="outline-text-4" id="text-writing-a-request-logging-middleware">
+<p>
+A middleware is just a function which takes three arguments: the <code>request</code>, the <code>response</code> and a <code>next</code> function.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 45: </span>A middleware which logs 'hello' for every request</label><pre class="src src-js"><span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+<span class="org-keyword">const</span> <span class="org-variable-name">helloMiddleware</span> = (request, response, next) =&gt; {
+  console.log(<span class="org-string">"hello"</span>);
+  next();
+}
+<span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+app.use(helloMiddleware);
+<span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+</pre>
+</div>
+
+<p>
+The first two arguments are pretty self-explanatory but the third argument is a bit more interesting. By calling the <code>next</code> function you signal that the middleware is done and the processing can move on to either the next middleware in the chain or the route handlers. Now we are touching on something important: in Express all middlewares and the matching route handlers are applied <b>in the order they are used in the file</b>. This means that it can be important where you put your <code>app.use(middlewareFn)</code> call.
+</p>
+
+<p>
+The above middleware is pretty useless, but by picking out useful information from the request we can make the log statement more useful. Let's rename it to <code>requestLogger</code> and pick out some useful information such as the HTTP verb and endpoint so we can track which endpoints are called.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 46: </span>Request logger middleware</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">requestLogger</span> = (request, response, next) =&gt; {
+  <span class="org-keyword">const</span> <span class="org-variable-name">timestamp</span> = <span class="org-keyword">new</span> <span class="org-type">Date</span>().toISOString();
+  <span class="org-keyword">const</span> <span class="org-variable-name">method</span> = request.method;
+  <span class="org-keyword">const</span> <span class="org-variable-name">url</span> = request.url;
+
+  console.log(<span class="org-string">`${timestamp} ${method} ${url}`</span>);
+  next();
+}
+</pre>
+</div>
+
+<p>
+Now we should see something like <code>2022-04-01T16:52:45.392Z GET /dogs</code> in our terminal console. If we want we can dig deeper and add information about the duration of the request, but that requires us to know when the request ended. Luckily we can hook into the request's <code>end</code> event:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 47: </span>Request logger with request duration</label><pre class="src src-js"><span class="org-keyword">const</span> <span class="org-variable-name">requestLogger</span> = (request, response, next) =&gt; {
+  <span class="org-keyword">const</span> <span class="org-variable-name">requestStartTimeMs</span> = Date.now(); <span class="org-comment-delimiter">// </span><span class="org-comment">Added current time in milliseconds for reference</span>
+  <span class="org-keyword">const</span> <span class="org-variable-name">timestamp</span> = <span class="org-keyword">new</span> <span class="org-type">Date</span>().toISOString();
+  <span class="org-keyword">const</span> <span class="org-variable-name">method</span> = request.method;
+  <span class="org-keyword">const</span> <span class="org-variable-name">url</span> = request.url;
+
+  console.log(<span class="org-string">`${timestamp} ${method} ${url}`</span>);
+
+  request.on(<span class="org-string">"end"</span>, () =&gt; {
+    <span class="org-keyword">const</span> <span class="org-variable-name">duration</span> = Date.now() - requestStartTimeMs;
+    console.log(<span class="org-string">`${new Date().toISOString()} ${method} ${url} ${duration}ms`</span>)
+  });
+
+  next();
+}
+</pre>
+</div>
+
+<p>
+Each request will now generate at least two log statements, the latter one giving the duration of the request in milliseconds.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 48: </span>Request logging output</label><pre class="src src-shell">2022-04-01T16:52:45.372Z GET /dogs
+2022-04-01T16:52:45.392Z GET /dogs 20ms
+</pre>
+</div>
+
+<p>
+For now it's easy to enough to correlate the requests, but if you would have multiple clients making requests at once it becomes very difficult to see which request had what duration. This is where something like a <code>requestId</code>, a unique ID for every request, becomes useful. As an exercise write a middleware which adds a property <code>requestId</code> to the request which you then read in the <code>requestLogger</code>.
+</p>
+
+<p>
+While writing logging middleware by hand like this is fun there are already great packages which help with logging. I recommend looking into packages such as <a href="https://www.npmjs.com/package/winston">Winston</a> or <a href="https://www.npmjs.com/package/morgan#examples">Morgan</a> and see what capabilities they offer. Having good logging for an API is extremely important and will potentially save you hours of debugging.
 </p>
 </div>
 </div>
 </div>
+
+<div id="outline-container-connecting-a-frontend-client" class="outline-3">
+<h3 id="connecting-a-frontend-client"><span class="section-number-3">7.3.</span> Connecting a Frontend Client</h3>
+<div class="outline-text-3" id="text-connecting-a-frontend-client">
+<p>
+Now that we have a our API we are ready to finally hook it up to a client. You can have a look at <a href="./examples/07-woofwoof-client">the WoofWoof client</a> for an example of a simple client built in React. However, I will try to keep this discussion general and not framework specific.
+</p>
+
+<p>
+Assuming we have our server running on <a href="http://localhost:4649">http://localhost:4649</a> I can retrieve the full list of dogs by using the <code>fetch</code> function which is built-in to the browser. Let's try it out in a simple HTML page:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 49: </span>Retrieving all dogs</label><pre class="src src-html">&lt;<span class="org-function-name">script</span>&gt;
+  fetch('http://localhost:4649/dogs', {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then((response) =&gt; {
+    return response.json()
+  }).then((dogs) =&gt; {
+    console.log(dogs);
+  }).catch((err) =&gt; {
+    console.error('Something went wrong:', err);
+  });
+&lt;/<span class="org-function-name">script</span>&gt;
+</pre>
+</div>
+
+<p>
+We need to pass in the <code>Content-Type</code> header since that will make our API parse the JSON payload for us (this is what the <code>app.use(express.json())</code> line on the server does).
+</p>
+
+
+<figure id="orgcc506e7">
+<img src="./assets/cors-error.png" alt="cors-error.png">
+
+<figcaption><span class="figure-number">Figure 7: </span>CORS error</figcaption>
+</figure>
+
+<p>
+When loading the page you might see the following error in the console, this is called a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Cross-Origin Resource Sharing</a>, or CORS, issue. The reason we are seeing this error is that we are trying to load resources from an origin (domain) that is different from the one our client is running on: <code>http://localhost:4649</code> vs. <code>http://localhost:3000</code>.
+</p>
+
+<p>
+In order to fix this issue we need to tell our server to tell the browser that it is OK to communicate with <code>http://localhost:4649</code> and fortunately there is <a href="https://www.npmjs.com/package/cors">an NPM package</a> to help us do that.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 50: </span>Configuring the cors middleware</label><pre class="src src-js"><span class="org-keyword">import</span> cors from <span class="org-string">"cors"</span>;
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+
+app.use(
+  cors({
+    <span class="org-comment-delimiter">// </span><span class="org-comment">We allow requests from our frontend, if you want to allow any client</span>
+    <span class="org-comment-delimiter">// </span><span class="org-comment">you can use "*" instead.</span>
+    origin: <span class="org-string">"http://localhost:3000"</span>,
+  })
+);
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
+</pre>
+</div>
+
+<p>
+If you refresh the page after making this change you should be able to make the request and receive the results. Congratulations you have successfully connected a front-end client to your server.
+</p>
+
+<aside id="orgdb252b2">
+<p>
+<b>What is CORS?</b>
+</p>
+
+<p>
+Browsers all implement something called the Same Origin Policy (SOP) which restricts JavaScript run in a browser from making requests to other domains (origins) than the domain of the current page. Cross Origin Resource Sharing (or CORS for short) enables a server to tell the browser that it is OK for it to make requests to the server even if is on a different domain. This is done by the server setting certain headers specifying the allowed domain(s) and HTTP method(s) and its up to the browser to respect the headers. In other words CORS makes the Same Origin Policy less restrictive.
+</p>
+
+<p>
+<a href="https://web.dev/same-origin-policy/">This page</a> explains a bit more in detail what CORS is and how it works.
+</p>
+</aside>
+</div>
+</div>
+</div>
+
 <div id="outline-container-how-to-structure-your-project" class="outline-2">
 <h2 id="how-to-structure-your-project"><span class="section-number-2">8.</span> How to Structure your Project</h2>
 <div class="outline-text-2" id="text-how-to-structure-your-project">
@@ -1872,7 +2069,7 @@ The first question you might face is one git repository or two repositories? Wha
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 45: </span>Single repository project</label><pre class="src src-shell">my-service
+<label class="org-src-name"><span class="listing-number">Listing 51: </span>Single repository project</label><pre class="src src-shell">my-service
 &#9500;&#9472;&#9472; .git
 &#9500;&#9472;&#9472; client
 &#9474;&#160;&#160; &#9500;&#9472;&#9472; node_modules
@@ -1951,10 +2148,10 @@ When you write your server it helps to think of it as having at least three diff
 </p>
 
 
-<figure id="org7a9648e">
+<figure id="org327d3bf">
 <img src="./assets/layered-http-api.png" alt="layered-http-api.png">
 
-<figcaption><span class="figure-number">Figure 6: </span><code>GET /dogs/:id</code> split into layers</figcaption>
+<figcaption><span class="figure-number">Figure 8: </span><code>GET /dogs/:id</code> split into layers</figcaption>
 </figure>
 
 <ul class="org-ul">
