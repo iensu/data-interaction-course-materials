@@ -1345,7 +1345,7 @@ While writing logging middleware by hand like this is fun there are already grea
 :PROPERTIES:
 :CUSTOM_ID: improving-our-search-with-query-parameters
 :END:
-** Connecting a Frontend Client                    :noexport:
+** Connecting a Frontend Client
 :PROPERTIES:
 :CUSTOM_ID: connecting-a-frontend-client
 :END:
