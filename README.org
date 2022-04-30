@@ -1341,10 +1341,43 @@ For now it's easy to enough to correlate the requests, but if you would have mul
 
 While writing logging middleware by hand like this is fun there are already great packages which help with logging. I recommend looking into packages such as [[https://www.npmjs.com/package/winston][Winston]] or [[https://www.npmjs.com/package/morgan#examples][Morgan]] and see what capabilities they offer. Having good logging for an API is extremely important and will potentially save you hours of debugging.
 
-** Improving our Search with Query Parameters                      :noexport:
+** Improving our Search with Query Parameters
 :PROPERTIES:
 :CUSTOM_ID: improving-our-search-with-query-parameters
 :END:
+For now our endpoint =/dogs= retrieves ALL dogs in the database. Any filtering or sorting is left up to the client application to take care of. In order to alleviate the workload of the client we want to of course allow them to specify what kind of dogs they want to list from the get-go. The common way to solve this in REST is to introduce /query parameters/.
+
+In a URL query parameters appear after a ~?~ and are key value pairs separated by ~&~. In our case it might look something like: =http://localhost:4649/dogs?title=breed=chihuahua&containsPuppy=true= where we ask for every Chihuahua puppy picture in our data set.
+
+Of course this functionality does not implement itself, let's see what we need to do in our =/dogs= route handler to support this.
+
+#+caption: Handling query parameters in Express
+#+begin_src js -n
+  app.get("/dogs", async (request, response) => {
+    const query = request.query;
+
+    let filter = {};
+    if (query.containsPuppy) {
+      filter.containsPuppy = query.containsPuppy === "true";
+    }
+    if (query.breed) {
+      // Case-insensitive substring matching using regular expressions
+      filter.breed = { $regex: new RegExp(query.breed, "i") };
+    }
+
+    const dogs = await collection.find(filter).toArray();
+
+    response.json(dogs);
+  });
+#+end_src
+
+Express gives us the query parameters as ~request.query~ which is an object with string keys and string values. This last point is important since if we expect the value of a query parameter to be a number we need to turn it into a number ourselves.
+
+On lines 4-11 we construct a filter object which we can use to query our database on line 13. Building the filter in this way allows us to handle each query parameter differently should we need to and it also makes it explicit (to us developers at least) what query parameters we expect and handle.
+
+Line 6 illustrates the fact that the query parameter values are always strings and not parsed into their intended types implicitly, so we have to match ~query.containsPuppy~ against the string ~"true"~ and not the boolean value ~true~.
+
+Using query parameters allows the caller of your API to configure their request even if it is a =GET= and they are used prolifically on the web. Whenever you use Google or some other service and you in the URL see a question mark followed by a number of ampersand separated key value pairs, you're seeing query parameters in use.
 ** Connecting a Frontend Client
 :PROPERTIES:
 :CUSTOM_ID: connecting-a-frontend-client
