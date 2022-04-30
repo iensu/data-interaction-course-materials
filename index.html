@@ -97,7 +97,8 @@
 <li><a href="#writing-a-request-logging-middleware">7.2.2. Writing a request logging middleware</a></li>
 </ul>
 </li>
-<li><a href="#connecting-a-frontend-client">7.3. Connecting a Frontend Client</a></li>
+<li><a href="#improving-our-search-with-query-parameters">7.3. Improving our Search with Query Parameters</a></li>
+<li><a href="#connecting-a-frontend-client">7.4. Connecting a Frontend Client</a></li>
 </ul>
 </li>
 <li><a href="#how-to-structure-your-project">8. How to Structure your Project</a>
@@ -201,7 +202,7 @@ If everything works, you should be able to run <code>mongosh</code> and be taken
 </p>
 
 
-<figure id="org0ef08c5">
+<figure id="org5b963d0">
 <img src="./assets/mongodb-prompt.png" alt="mongodb-prompt.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>Running <code>mongosh</code> should open a MongoDB prompt like this one</figcaption>
@@ -304,7 +305,7 @@ We are going to play around with node.js a bit. First create a new directory cal
 Now you can run your program with the command <code>node index.js</code> and you should see <code>Hello node! \(&gt;0&lt;)/</code> printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 </p>
 
-<aside id="org822e82a">
+<aside id="org2c982ad">
 <p>
 <b>Why index.js?</b>
 </p>
@@ -340,7 +341,7 @@ Let's use the built-in file system module <code>fs</code> to play around with fi
 </pre>
 </div>
 
-<aside id="orged71c0a">
+<aside id="orge04ed82">
 <p>
 <b>ES6 modules vs. CommonJS modules</b>
 </p>
@@ -502,7 +503,7 @@ console.log(<span class="org-string">'MY_VARIABLE'</span>, process.env.MY_VARIAB
 </pre>
 </div>
 
-<aside id="org793b825">
+<aside id="org212f833">
 <p>
 <b>What are environment variables?</b>
 </p>
@@ -643,7 +644,7 @@ A client is whatever uses, or <i>consumes</i>, the API served by your server and
 </p>
 
 
-<figure id="org28027a1">
+<figure id="org930d2c7">
 <img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
 
 <figcaption><span class="figure-number">Figure 2: </span>Accessing an unregistered endpoint results in an error message</figcaption>
@@ -654,7 +655,7 @@ This means that we tried to <code>GET</code> something at the endpoint <code>/</
 </p>
 
 
-<figure id="org680e398">
+<figure id="orgfec2379">
 <img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
 
 <figcaption><span class="figure-number">Figure 3: </span>Successful call to our /hello endpoint</figcaption>
@@ -675,7 +676,7 @@ So what went wrong the first time? There are four pieces of information needed t
 A server only responds on the port it is listening on and only handles requests on endpoints which have been registered on it. When not specifying an endpoint, the browser will pick the default one which is <code>/</code> and since we never registered a handler for that endpoint the request failed. You can think of endpoints as file paths on your own computer.
 </p>
 
-<aside id="org84d2600">
+<aside id="org4fe249e">
 <p>
 <b>Ports</b>
 </p>
@@ -945,7 +946,7 @@ In a <b>document database</b> schemas still exist, but they are just suggestions
 </p>
 
 
-<figure id="org5334577">
+<figure id="orge2e2639">
 <img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
 
 <figcaption><span class="figure-number">Figure 4: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
@@ -1094,7 +1095,7 @@ console.log(results);
 </pre>
 </div>
 
-<aside id="org0fa1dfe">
+<aside id="org8858c71">
 <p>
 <b>What are regular expressions?</b>
 </p>
@@ -1188,7 +1189,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 </p>
 
 
-<figure id="org98331a2">
+<figure id="org7c17c9d">
 <img src="./assets/simplified-browser-process.png" alt="simplified-browser-process.png">
 
 <figcaption><span class="figure-number">Figure 5: </span>A very simplified view of how a web browser works</figcaption>
@@ -1198,7 +1199,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 The browser has a main thread which is responsible for not only executing JavaScript but also rendering the HTML and CSS as well as handling user input like clicks and scrolling. If JavaScript allowed for synchronous HTTP requests the whole browser tab would stall while waiting for the response to come back. This is of course something we want to avoid at all costs and thus JavaScript does these sort of I/O operations asynchronously by default for us.
 </p>
 
-<aside id="org37d906c">
+<aside id="org19b5b20">
 <p>
 <b>What is I/O?</b>
 </p>
@@ -1216,7 +1217,7 @@ All asynchronous operations are put on the <b>Event Queue</b> so as to not block
 Even though the explanation above focused on JavaScript in the browser node.js works in very much the same way with a main thread and an event queue to handle asynchronous requests. It's important to know understand that the node.js process will stay alive for as long as there is something on its event queue.
 </p>
 
-<aside id="orgc674c8f">
+<aside id="org1ae49d3">
 <p>
 <b>Process vs. threads?</b>
 </p>
@@ -1501,7 +1502,7 @@ Understanding this, we are now equipped to clean-up our file listing example abo
 This is the section where we dip our toes into functional programming. While JavaScript is object oriented in that almost everything is an object with methods and properties, at its core it's actually very much a functional language where functions are front and center.
 </p>
 
-<aside id="org35bf80f">
+<aside id="org09a3aa6">
 <p>
 <b>Functional Programming vs. Object Oriented Programming</b>
 </p>
@@ -1865,7 +1866,7 @@ We could do this by adding <code>console.log</code> statements in our route hand
 <h4 id="what-is-a-middleware"><span class="section-number-4">7.2.1.</span> What is a middleware?</h4>
 <div class="outline-text-4" id="text-what-is-a-middleware">
 
-<figure id="org7b44fae">
+<figure id="orge08edf8">
 <img src="./assets/express-request-to-response.png" alt="express-request-to-response.png">
 
 <figcaption><span class="figure-number">Figure 6: </span>From request to response</figcaption>
@@ -1964,8 +1965,60 @@ While writing logging middleware by hand like this is fun there are already grea
 </div>
 </div>
 
+<div id="outline-container-improving-our-search-with-query-parameters" class="outline-3">
+<h3 id="improving-our-search-with-query-parameters"><span class="section-number-3">7.3.</span> Improving our Search with Query Parameters</h3>
+<div class="outline-text-3" id="text-improving-our-search-with-query-parameters">
+<p>
+For now our endpoint <code>/dogs</code> retrieves ALL dogs in the database. Any filtering or sorting is left up to the client application to take care of. In order to alleviate the workload of the client we want to of course allow them to specify what kind of dogs they want to list from the get-go. The common way to solve this in REST is to introduce <i>query parameters</i>.
+</p>
+
+<p>
+In a URL query parameters appear after a <code>?</code> and are key value pairs separated by <code>&amp;</code>. In our case it might look something like: <code>http://localhost:4649/dogs?title=breed=chihuahua&amp;containsPuppy=true</code> where we ask for every Chihuahua puppy picture in our data set.
+</p>
+
+<p>
+Of course this functionality does not implement itself, let's see what we need to do in our <code>/dogs</code> route handler to support this.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 49: </span>Handling query parameters in Express</label><pre class="src src-js"><span class="linenr"> 1: </span>app.get(<span class="org-string">"/dogs"</span>, <span class="org-keyword">async</span> (request, response) =&gt; {
+<span class="linenr"> 2: </span>  <span class="org-keyword">const</span> <span class="org-variable-name">query</span> = request.query;
+<span class="linenr"> 3: </span>
+<span class="linenr"> 4: </span>  <span class="org-keyword">let</span> <span class="org-variable-name">filter</span> = {};
+<span class="linenr"> 5: </span>  <span class="org-keyword">if</span> (query.containsPuppy) {
+<span class="linenr"> 6: </span>    filter.containsPuppy = query.containsPuppy === <span class="org-string">"true"</span>;
+<span class="linenr"> 7: </span>  }
+<span class="linenr"> 8: </span>  <span class="org-keyword">if</span> (query.breed) {
+<span class="linenr"> 9: </span>    <span class="org-comment-delimiter">// </span><span class="org-comment">Case-insensitive substring matching using regular expressions</span>
+<span class="linenr">10: </span>    filter.breed = { $regex: <span class="org-keyword">new</span> <span class="org-type">RegExp</span>(query.breed, <span class="org-string">"i"</span>) };
+<span class="linenr">11: </span>  }
+<span class="linenr">12: </span>
+<span class="linenr">13: </span>  <span class="org-keyword">const</span> <span class="org-variable-name">dogs</span> = <span class="org-keyword">await</span> collection.find(filter).toArray();
+<span class="linenr">14: </span>
+<span class="linenr">15: </span>  response.json(dogs);
+<span class="linenr">16: </span>});
+</pre>
+</div>
+
+<p>
+Express gives us the query parameters as <code>request.query</code> which is an object with string keys and string values. This last point is important since if we expect the value of a query parameter to be a number we need to turn it into a number ourselves.
+</p>
+
+<p>
+On lines 4-11 we construct a filter object which we can use to query our database on line 13. Building the filter in this way allows us to handle each query parameter differently should we need to and it also makes it explicit (to us developers at least) what query parameters we expect and handle.
+</p>
+
+<p>
+Line 6 illustrates the fact that the query parameter values are always strings and not parsed into their intended types implicitly, so we have to match <code>query.containsPuppy</code> against the string <code>"true"</code> and not the boolean value <code>true</code>.
+</p>
+
+<p>
+Using query parameters allows the caller of your API to configure their request even if it is a <code>GET</code> and they are used prolifically on the web. Whenever you use Google or some other service and you in the URL see a question mark followed by a number of ampersand separated key value pairs, you're seeing query parameters in use.
+</p>
+</div>
+</div>
 <div id="outline-container-connecting-a-frontend-client" class="outline-3">
-<h3 id="connecting-a-frontend-client"><span class="section-number-3">7.3.</span> Connecting a Frontend Client</h3>
+<h3 id="connecting-a-frontend-client"><span class="section-number-3">7.4.</span> Connecting a Frontend Client</h3>
 <div class="outline-text-3" id="text-connecting-a-frontend-client">
 <p>
 Now that we have a our API we are ready to finally hook it up to a client. You can have a look at <a href="./examples/07-woofwoof-client">the WoofWoof client</a> for an example of a simple client built in React. However, I will try to keep this discussion general and not framework specific.
@@ -1976,7 +2029,7 @@ Assuming we have our server running on <a href="http://localhost:4649">http://lo
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 49: </span>Retrieving all dogs</label><pre class="src src-html">&lt;<span class="org-function-name">script</span>&gt;
+<label class="org-src-name"><span class="listing-number">Listing 50: </span>Retrieving all dogs</label><pre class="src src-html">&lt;<span class="org-function-name">script</span>&gt;
   fetch('http://localhost:4649/dogs', {
     headers: {
       'Content-Type': 'application/json'
@@ -1997,7 +2050,7 @@ We need to pass in the <code>Content-Type</code> header since that will make our
 </p>
 
 
-<figure id="orgcc506e7">
+<figure id="org984bcaf">
 <img src="./assets/cors-error.png" alt="cors-error.png">
 
 <figcaption><span class="figure-number">Figure 7: </span>CORS error</figcaption>
@@ -2012,7 +2065,7 @@ In order to fix this issue we need to tell our server to tell the browser that i
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 50: </span>Configuring the cors middleware</label><pre class="src src-js"><span class="org-keyword">import</span> cors from <span class="org-string">"cors"</span>;
+<label class="org-src-name"><span class="listing-number">Listing 51: </span>Configuring the cors middleware</label><pre class="src src-js"><span class="org-keyword">import</span> cors from <span class="org-string">"cors"</span>;
 
 <span class="org-comment-delimiter">// </span><span class="org-comment">...</span>
 
@@ -2032,7 +2085,7 @@ app.use(
 If you refresh the page after making this change you should be able to make the request and receive the results. Congratulations you have successfully connected a front-end client to your server.
 </p>
 
-<aside id="orgdb252b2">
+<aside id="org50856f0">
 <p>
 <b>What is CORS?</b>
 </p>
@@ -2069,7 +2122,7 @@ The first question you might face is one git repository or two repositories? Wha
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 51: </span>Single repository project</label><pre class="src src-shell">my-service
+<label class="org-src-name"><span class="listing-number">Listing 52: </span>Single repository project</label><pre class="src src-shell">my-service
 &#9500;&#9472;&#9472; .git
 &#9500;&#9472;&#9472; client
 &#9474;&#160;&#160; &#9500;&#9472;&#9472; node_modules
@@ -2148,7 +2201,7 @@ When you write your server it helps to think of it as having at least three diff
 </p>
 
 
-<figure id="org327d3bf">
+<figure id="org3dfcc47">
 <img src="./assets/layered-http-api.png" alt="layered-http-api.png">
 
 <figcaption><span class="figure-number">Figure 8: </span><code>GET /dogs/:id</code> split into layers</figcaption>
