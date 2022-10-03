@@ -202,7 +202,7 @@ If everything works, you should be able to run <code>mongosh</code> and be taken
 </p>
 
 
-<figure id="org5b963d0">
+<figure id="orgf2f68b7">
 <img src="./assets/mongodb-prompt.png" alt="mongodb-prompt.png">
 
 <figcaption><span class="figure-number">Figure 1: </span>Running <code>mongosh</code> should open a MongoDB prompt like this one</figcaption>
@@ -305,7 +305,7 @@ We are going to play around with node.js a bit. First create a new directory cal
 Now you can run your program with the command <code>node index.js</code> and you should see <code>Hello node! \(&gt;0&lt;)/</code> printed to your terminal. We have run JavaScript outside of the browser and successfully printed text, hooray!
 </p>
 
-<aside id="org2c982ad">
+<aside id="org40f45a0">
 <p>
 <b>Why index.js?</b>
 </p>
@@ -341,7 +341,7 @@ Let's use the built-in file system module <code>fs</code> to play around with fi
 </pre>
 </div>
 
-<aside id="orge04ed82">
+<aside id="org414e2df">
 <p>
 <b>ES6 modules vs. CommonJS modules</b>
 </p>
@@ -419,7 +419,7 @@ Let's create new module with a function that randomly picks an element from a li
 <label class="org-src-name"><span class="listing-number">Listing 4: </span>random-element.js</label><pre class="src src-js"><span class="linenr">1: </span><span class="org-keyword">export</span> <span class="org-keyword">default</span> <span class="org-keyword">function</span> randomElement(<span class="org-variable-name">xs</span>) {
 <span class="linenr">2: </span>  <span class="org-keyword">const</span> <span class="org-variable-name">randomIndex</span> = Math.floor((Math.random() * 10) % xs.length)
 <span class="linenr">3: </span>
-<span class="linenr">4: </span>  <span class="org-keyword">return</span> xs[index];
+<span class="linenr">4: </span>  <span class="org-keyword">return</span> xs[randomIndex];
 <span class="linenr">5: </span>}
 </pre>
 </div>
@@ -439,7 +439,7 @@ Let's create new module with a function that randomly picks an element from a li
 
 <span class="org-keyword">const</span> <span class="org-variable-name">randomDatabase</span> = randomElement(databases);
 
-console.log(<span class="org-string">`Got database: ${randomDatabase}`</span>);
+console.log(<span class="org-string">'Got database:'</span>, randomDatabase);
 </pre>
 </div>
 </div>
@@ -503,7 +503,7 @@ console.log(<span class="org-string">'MY_VARIABLE'</span>, process.env.MY_VARIAB
 </pre>
 </div>
 
-<aside id="org212f833">
+<aside id="org58a64e9">
 <p>
 <b>What are environment variables?</b>
 </p>
@@ -644,7 +644,7 @@ A client is whatever uses, or <i>consumes</i>, the API served by your server and
 </p>
 
 
-<figure id="org930d2c7">
+<figure id="orgcebf6c7">
 <img src="./assets/cannot-get-slash.png" alt="cannot-get-slash.png">
 
 <figcaption><span class="figure-number">Figure 2: </span>Accessing an unregistered endpoint results in an error message</figcaption>
@@ -655,7 +655,7 @@ This means that we tried to <code>GET</code> something at the endpoint <code>/</
 </p>
 
 
-<figure id="orgfec2379">
+<figure id="orgc58d973">
 <img src="./assets/hello-express-endpoint.png" alt="hello-express-endpoint.png">
 
 <figcaption><span class="figure-number">Figure 3: </span>Successful call to our /hello endpoint</figcaption>
@@ -676,7 +676,7 @@ So what went wrong the first time? There are four pieces of information needed t
 A server only responds on the port it is listening on and only handles requests on endpoints which have been registered on it. When not specifying an endpoint, the browser will pick the default one which is <code>/</code> and since we never registered a handler for that endpoint the request failed. You can think of endpoints as file paths on your own computer.
 </p>
 
-<aside id="org4fe249e">
+<aside id="orgf233fcc">
 <p>
 <b>Ports</b>
 </p>
@@ -946,7 +946,7 @@ In a <b>document database</b> schemas still exist, but they are just suggestions
 </p>
 
 
-<figure id="orge2e2639">
+<figure id="orgdb7ec06">
 <img src="./assets/mongodb-compass-table-example.png" alt="mongodb-compass-table-example.png">
 
 <figcaption><span class="figure-number">Figure 4: </span>Table data view in MongoDB Compass showing the inferred types for each column</figcaption>
@@ -1095,7 +1095,7 @@ console.log(results);
 </pre>
 </div>
 
-<aside id="org8858c71">
+<aside id="org6836e7f">
 <p>
 <b>What are regular expressions?</b>
 </p>
@@ -1189,7 +1189,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 </p>
 
 
-<figure id="org7c17c9d">
+<figure id="orgd04c507">
 <img src="./assets/simplified-browser-process.png" alt="simplified-browser-process.png">
 
 <figcaption><span class="figure-number">Figure 5: </span>A very simplified view of how a web browser works</figcaption>
@@ -1199,7 +1199,7 @@ JavaScript is allegedly "asynchronous by default" AND "single-threaded", but wha
 The browser has a main thread which is responsible for not only executing JavaScript but also rendering the HTML and CSS as well as handling user input like clicks and scrolling. If JavaScript allowed for synchronous HTTP requests the whole browser tab would stall while waiting for the response to come back. This is of course something we want to avoid at all costs and thus JavaScript does these sort of I/O operations asynchronously by default for us.
 </p>
 
-<aside id="org19b5b20">
+<aside id="org174162d">
 <p>
 <b>What is I/O?</b>
 </p>
@@ -1217,7 +1217,7 @@ All asynchronous operations are put on the <b>Event Queue</b> so as to not block
 Even though the explanation above focused on JavaScript in the browser node.js works in very much the same way with a main thread and an event queue to handle asynchronous requests. It's important to know understand that the node.js process will stay alive for as long as there is something on its event queue.
 </p>
 
-<aside id="org1ae49d3">
+<aside id="orge44c9d0">
 <p>
 <b>Process vs. threads?</b>
 </p>
@@ -1502,7 +1502,7 @@ Understanding this, we are now equipped to clean-up our file listing example abo
 This is the section where we dip our toes into functional programming. While JavaScript is object oriented in that almost everything is an object with methods and properties, at its core it's actually very much a functional language where functions are front and center.
 </p>
 
-<aside id="org09a3aa6">
+<aside id="orgfdafec0">
 <p>
 <b>Functional Programming vs. Object Oriented Programming</b>
 </p>
@@ -1866,7 +1866,7 @@ We could do this by adding <code>console.log</code> statements in our route hand
 <h4 id="what-is-a-middleware"><span class="section-number-4">7.2.1.</span> What is a middleware?</h4>
 <div class="outline-text-4" id="text-what-is-a-middleware">
 
-<figure id="orge08edf8">
+<figure id="org9a4051f">
 <img src="./assets/express-request-to-response.png" alt="express-request-to-response.png">
 
 <figcaption><span class="figure-number">Figure 6: </span>From request to response</figcaption>
@@ -2050,7 +2050,7 @@ We need to pass in the <code>Content-Type</code> header since that will make our
 </p>
 
 
-<figure id="org984bcaf">
+<figure id="org3ba854d">
 <img src="./assets/cors-error.png" alt="cors-error.png">
 
 <figcaption><span class="figure-number">Figure 7: </span>CORS error</figcaption>
@@ -2085,7 +2085,7 @@ app.use(
 If you refresh the page after making this change you should be able to make the request and receive the results. Congratulations you have successfully connected a front-end client to your server.
 </p>
 
-<aside id="org50856f0">
+<aside id="orge6dc94b">
 <p>
 <b>What is CORS?</b>
 </p>
@@ -2201,7 +2201,7 @@ When you write your server it helps to think of it as having at least three diff
 </p>
 
 
-<figure id="org3dfcc47">
+<figure id="org9fabca7">
 <img src="./assets/layered-http-api.png" alt="layered-http-api.png">
 
 <figcaption><span class="figure-number">Figure 8: </span><code>GET /dogs/:id</code> split into layers</figcaption>
