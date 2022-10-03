@@ -200,7 +200,7 @@ Let's create new module with a function that randomly picks an element from a li
   export default function randomElement(xs) {
     const randomIndex = Math.floor((Math.random() * 10) % xs.length)
 
-    return xs[index];
+    return xs[randomIndex];
   }
 #+end_src
 
@@ -220,7 +220,7 @@ Let's create new module with a function that randomly picks an element from a li
 
   const randomDatabase = randomElement(databases);
 
-  console.log(`Got database: ${randomDatabase}`);
+  console.log('Got database:', randomDatabase);
 #+end_src
 
 *** Messing around with the global scope
