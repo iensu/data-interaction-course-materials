@@ -1,15 +1,7 @@
 (setq project-path (file-name-directory (or (buffer-file-name) load-file-name))
       backup-directory-alist `(("." . ,(concat project-path ".backups")))
-      publish-project-path (concat project-path "docs/")
+      publish-project-path (concat project-path "dist/")
       package-user-dir (concat project-path ".packages"))
-
-(require 'package)
-(package-initialize)
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")))
-(package-refresh-contents)
-
-(package-install 'htmlize :dont-select)
 
 (require 'org)
 (require 'sh-script)
@@ -18,6 +10,7 @@
 (require 'ox-html)
 (require 'ox-publish)
 
+(setq exclude-pattern "dist\\|.direnv\\|.packages\\|exercises\\|examples")
 (setq org-html-validation-link nil
       org-html-html5-fancy t
       org-html-doctype "html5"
@@ -31,14 +24,14 @@
                              into styles
                              finally return (string-trim (apply #'concat styles)))
 
-
+      org-publish-timestamp-directory "./.org-timestamps/"
       org-publish-project-alist
       `(("static"
          :base-directory ,project-path
          :base-extension "css\\|png\\|jpe?g\\|svg"
          :publishing-directory ,publish-project-path
          :publishing-function org-publish-attachment
-         :exclude "docs\\|.direnv\\|.packages\\|exercises\\|examples"
+         :exclude ,exclude-pattern
          :recursive t)
 
         ("org"
@@ -46,7 +39,7 @@
          :publishing-directory ,publish-project-path
          :publishing-function org-html-publish-to-html
          :base-extension "org"
-         :exclude "docs\\|.direnv\\|.packages\\|exercises\\|examples"
+         :exclude ,exclude-pattern
          :time-stamp-file nil)
 
         ("site" :components ("static" "org"))))
